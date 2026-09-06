@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沖繩・石垣島 郵輪購物清單</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand:    #FDF8F2;
+  --sand2:   #F7EFE4;
+  --sand3:   #EDE0CF;
+  --coral:   #E8735A;
+  --coral2:  #F09070;
+  --coral-light: #FDE8E2;
+  --sea:     #2B8BA0;
+  --sea2:    #3DADC6;
+  --sea-light: #DFF2F7;
+  --isle:    #4A9B7F;
+  --isle-light: #DDF0E9;
+  --warn:    #C4820A;
+  --warn-bg: #FEF5E0;
+  --text:    #2C2018;
+  --text2:   #6B5540;
+  --text3:   #A08870;
+  --border:  #DDD0BE;
+  --border2: #EDE0CF;
+  --white:   #FFFFFF;
+  --radius:  12px;
+  --radius-sm: 8px;
+  --shadow:  0 2px 12px rgba(100,60,20,0.07);
+  --shadow-sm: 0 1px 4px rgba(100,60,20,0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--sand);
+  color: var(--text);
+  font-family: 'Zen Maru Gothic', 'Noto Sans TC', 'PingFang TC', system-ui, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* ── WAVE decoration ── */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+}
+.wave-divider svg { display: block; width: 100%; }
+
+/* ── HEADER ── */
+header {
+  background: linear-gradient(160deg, #2B8BA0 0%, #1A6E87 50%, #3DADC6 100%);
+  padding: 28px 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,80,100,0.18);
+}
+.header-inner { max-width: 700px; margin: 0 auto; }
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.header-shisa {
+  font-size: 32px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+.header-text {}
+.header-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.header-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 1px;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 4px;
+}
+.tab {
+  flex: 1;
+  padding: 9px 8px 11px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.18s;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+}
+.tab:hover { background: rgba(255,255,255,0.25); color: #fff; }
+.tab.active {
+  background: var(--sand);
+  color: var(--sea);
+  font-weight: 700;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+}
+.tab-icon { font-size: 15px; display: block; margin-bottom: 1px; }
+
+/* ── WAVE below header ── */
+.header-wave {
+  background: var(--sand);
+  margin-top: -1px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px 14px 80px;
+}
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── PORT BADGE ── */
+.port-hero {
+  background: linear-gradient(135deg, var(--sea-light) 0%, #C8EAF3 100%);
+  border: 1.5px solid var(--sea2);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.port-hero-ishi {
+  background: linear-gradient(135deg, var(--isle-light) 0%, #C8EBD9 100%);
+  border-color: var(--isle);
+}
+.port-hero-icon { font-size: 28px; }
+.port-hero-info {}
+.port-hero-name { font-size: 15px; font-weight: 700; color: var(--sea); }
+.port-hero-ishi .port-hero-name { color: var(--isle); }
+.port-hero-time { font-size: 12.5px; color: var(--text2); margin-top: 1px; }
+
+/* ── SECTION TITLE ── */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin: 24px 0 10px;
+}
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border2);
+}
+
+/* ── ITINERARY ── */
+.itinerary {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.itin-row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border2);
+  transition: background 0.12s;
+}
+.itin-row:last-child { border-bottom: none; }
+.itin-row:hover { background: var(--sand2); }
+.itin-icon-wrap {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--sand2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.itin-name { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.itin-sub { font-size: 11.5px; color: var(--text3); margin-top: 1px; }
+.itin-time {
+  font-size: 11px; color: var(--text3);
+  text-align: right; white-space: nowrap;
+  background: var(--sand2);
+  padding: 3px 7px; border-radius: 10px;
+}
+.itin-arrow {
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--text3);
+  padding: 5px 0;
+  background: var(--sand);
+  border-bottom: 1px solid var(--border2);
+  letter-spacing: 0.02em;
+}
+
+/* ── PROGRESS ── */
+.progress-wrap {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 4px;
+  box-shadow: var(--shadow-sm);
+}
+.progress-top {
+  display: flex; justify-content: space-between;
+  font-size: 12.5px; color: var(--text2);
+  margin-bottom: 8px;
+}
+.progress-top strong { color: var(--text); font-weight: 700; }
+.progress-bar {
+  height: 8px; background: var(--sand3);
+  border-radius: 4px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.4s cubic-bezier(.4,0,.2,1);
+}
+.fill-naha { background: linear-gradient(90deg, var(--coral) 0%, var(--coral2) 100%); }
+.fill-ishi { background: linear-gradient(90deg, var(--isle) 0%, #6ABDA0 100%); }
+
+/* ── CATEGORY HEADER ── */
+.cat-header {
+  display: flex; align-items: center; gap: 8px;
+  margin: 20px 0 8px;
+}
+.cat-label {
+  font-size: 13px; font-weight: 700;
+  color: var(--text2);
+  background: var(--sand2);
+  border: 1px solid var(--border);
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+.cat-count {
+  font-size: 11.5px; color: var(--text3);
+}
+
+/* ── ITEM ── */
+.item-list { display: flex; flex-direction: column; gap: 7px; }
+
+.item {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex; align-items: flex-start; gap: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+}
+.item:hover {
+  border-color: var(--coral2);
+  box-shadow: 0 3px 14px rgba(232,115,90,0.1);
+  transform: translateY(-1px);
+}
+.page-ishi .item:hover {
+  border-color: var(--isle);
+  box-shadow: 0 3px 14px rgba(74,155,127,0.1);
+}
+.item.checked {
+  background: #F9F5F0;
+  border-color: var(--border2);
+  box-shadow: none;
+  transform: none;
+  opacity: 0.72;
+}
+
+.checkbox {
+  width: 22px; height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+  transition: all 0.15s;
+  background: var(--white);
+}
+.item:hover .checkbox { border-color: var(--coral); }
+.page-ishi .item:hover .checkbox { border-color: var(--isle); }
+.item.checked .checkbox {
+  background: var(--isle);
+  border-color: var(--isle);
+}
+.page-naha .item.checked .checkbox {
+  background: var(--coral);
+  border-color: var(--coral);
+}
+.tick { display: none; color: white; font-size: 13px; font-weight: 700; }
+.item.checked .tick { display: block; }
+
+.item-content { flex: 1; min-width: 0; }
+.item-name {
+  font-size: 14px; font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+.item.checked .item-name {
+  text-decoration: line-through;
+  color: var(--text3);
+}
+.item-price {
+  font-size: 13px; font-weight: 700;
+  color: var(--coral);
+  margin-top: 3px;
+}
+.page-ishi .item-price { color: var(--isle); }
+.item.checked .item-price { color: var(--text3); }
+
+.item-where {
+  font-size: 12px; color: var(--text3);
+  margin-top: 3px;
+  display: flex; align-items: flex-start; gap: 4px;
+}
+.item-note {
+  font-size: 11.5px;
+  margin-top: 5px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  display: flex; align-items: flex-start; gap: 5px;
+}
+.item-note.warn { background: var(--warn-bg); color: var(--warn); border-left: 2px solid #E6A020; }
+.item-note.info { background: var(--sea-light); color: var(--sea); }
+
+/* ── INFO PAGE ── */
+.info-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.info-card-head {
+  background: var(--sand2);
+  border-bottom: 1px solid var(--border);
+  padding: 11px 16px;
+  font-size: 13.5px; font-weight: 700;
+  color: var(--text);
+  display: flex; align-items: center; gap: 7px;
+}
+.info-row {
+  display: flex; gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border2);
+  font-size: 13px; line-height: 1.55;
+}
+.info-row:last-child { border-bottom: none; }
+.info-label { color: var(--text3); white-space: nowrap; min-width: 72px; font-size: 12px; padding-top: 1px; }
+.info-val { color: var(--text); }
+
+.warn-block {
+  background: var(--warn-bg);
+  border: 1.5px solid #E6C060;
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.warn-block-title {
+  font-weight: 700; font-size: 13.5px;
+  color: var(--warn); margin-bottom: 9px;
+  display: flex; align-items: center; gap: 6px;
+}
+.warn-li {
+  display: flex; gap: 8px; font-size: 13px;
+  color: #7A5800; line-height: 1.55;
+  margin-bottom: 6px;
+}
+.warn-li:last-child { margin-bottom: 0; }
+.warn-dot { color: var(--warn); flex-shrink: 0; }
+
+.tax-row {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border2);
+  font-size: 13px; line-height: 1.55;
+}
+.tax-row:last-child { border-bottom: none; }
+.tax-num {
+  width: 24px; height: 24px; flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--sea-light);
+  border: 1.5px solid var(--sea2);
+  color: var(--sea);
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── CLEAR BTN ── */
+.clear-btn {
+  margin-top: 22px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text3);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.clear-btn:hover { border-color: var(--coral); color: var(--coral); }
+
+/* ── DECORATIVE WAVE ── */
+.deco-wave {
+  text-align: center;
+  font-size: 18px;
+  color: var(--sea2);
+  letter-spacing: 4px;
+  margin: 6px 0 20px;
+  opacity: 0.5;
+}
+
+.item-del-btn {
+  width: 24px; height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text3);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  margin-top: 1px;
+  align-self: flex-start;
+}
+.item-del-btn:hover { border-color: #E05555; color: #E05555; background: #FEF0F0; }
+
+/* ── AMOUNT INPUT ── */
+.amount-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px dashed var(--border2);
+}
+.amount-label { font-size: 11.5px; color: var(--text3); white-space: nowrap; }
+.amount-input {
+  flex: 1;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--sand);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+  max-width: 120px;
+}
+.amount-input:focus { border-color: var(--coral); }
+.page-ishi .amount-input:focus { border-color: var(--isle); }
+.amount-input::placeholder { color: var(--text3); }
+.amount-yen { font-size: 12px; color: var(--text3); }
+
+/* ── CUSTOM ITEMS ── */
+.custom-section {
+  background: var(--white);
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-top: 8px;
+}
+.custom-section-title {
+  font-size: 12.5px; font-weight: 700;
+  color: var(--text2); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+.custom-item-row {
+  display: flex; gap: 8px; align-items: center;
+  margin-bottom: 8px;
+}
+.custom-item-row:last-child { margin-bottom: 0; }
+.custom-name-input {
+  flex: 1;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--sand);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.custom-name-input:focus { border-color: var(--coral); }
+.custom-amount-input {
+  width: 90px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--sand);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+  text-align: right;
+}
+.custom-amount-input:focus { border-color: var(--coral); }
+.custom-del-btn {
+  width: 28px; height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text3);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+.custom-del-btn:hover { border-color: #E05555; color: #E05555; }
+.add-custom-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1.5px dashed var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text3);
+  font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.add-custom-btn:hover { border-color: var(--coral); color: var(--coral); background: var(--coral-light); }
+
+/* ── TOTAL BAR ── */
+.total-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(253,248,242,0.96);
+  backdrop-filter: blur(10px);
+  border-top: 1.5px solid var(--border);
+  padding: 10px 16px;
+  z-index: 200;
+  box-shadow: 0 -4px 20px rgba(100,60,20,0.1);
+}
+.total-bar-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.total-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+.total-pill-label { color: var(--text3); font-size: 11px; }
+.total-pill-amt { font-weight: 700; color: var(--text); }
+.total-pill.naha .total-pill-amt { color: var(--coral); }
+.total-pill.ishi .total-pill-amt { color: var(--isle); }
+.total-pill.grand {
+  background: linear-gradient(135deg, var(--sea-light), var(--isle-light));
+  border-color: var(--sea2);
+  margin-left: auto;
+}
+.total-pill.grand .total-pill-label { color: var(--sea); font-weight: 600; }
+.total-pill.grand .total-pill-amt { color: var(--sea); font-size: 15px; }
+
+@media (max-width: 480px) {
+  .itin-row { grid-template-columns: 32px 1fr; }
+  .itin-time { grid-column: 2; margin-top: 2px; }
+  header { padding: 18px 14px 0; }
+  .header-shisa { font-size: 26px; }
+  .header-title { font-size: 15px; }
+  .total-bar-inner { gap: 6px; }
+  .total-pill { padding: 4px 10px; }
+}
+
+/* ── CONFIRM MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(44,32,24,0.45);
+  backdrop-filter: blur(3px);
+  z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+.modal-box {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 20px 18px;
+  max-width: 320px; width: 100%;
+  box-shadow: 0 8px 32px rgba(44,32,24,0.18);
+  animation: slideUp 0.15s ease;
+}
+@keyframes slideUp { from { transform:translateY(12px); opacity:0 } to { transform:translateY(0); opacity:1 } }
+.modal-icon { font-size: 28px; text-align: center; margin-bottom: 10px; }
+.modal-title { font-size: 15px; font-weight: 700; color: var(--text); text-align: center; margin-bottom: 6px; }
+.modal-msg { font-size: 13px; color: var(--text2); text-align: center; line-height: 1.55; margin-bottom: 18px; }
+.modal-name { font-weight: 700; color: var(--text); }
+.modal-btns { display: flex; gap: 8px; }
+.modal-btn {
+  flex: 1; padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px; font-weight: 600;
+  font-family: inherit; cursor: pointer;
+  border: 1.5px solid var(--border);
+  transition: all 0.15s;
+}
+.modal-btn-cancel { background: var(--sand); color: var(--text2); }
+.modal-btn-cancel:hover { border-color: var(--text3); }
+.modal-btn-confirm { background: #E05555; border-color: #E05555; color: white; }
+.modal-btn-confirm:hover { background: #C04040; border-color: #C04040; }
+
+/* ── WISHLIST ── */
+.wish-section {
+  background: var(--white);
+  border: 1.5px dashed #B8D4E8;
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-top: 8px;
+}
+.wish-section-title {
+  font-size: 12.5px; font-weight: 700;
+  color: var(--sea); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+.wish-item-row {
+  display: flex; gap: 8px; align-items: center;
+  margin-bottom: 8px;
+}
+.wish-item-row:last-child { margin-bottom: 0; }
+.wish-name-input {
+  flex: 1;
+  border: 1.5px solid #C8DEF0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #F4F9FD;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.wish-name-input:focus { border-color: var(--sea2); }
+.wish-note-input {
+  width: 100px;
+  border: 1.5px solid #C8DEF0;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-family: inherit;
+  background: #F4F9FD;
+  color: var(--text2);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.wish-note-input:focus { border-color: var(--sea2); }
+.wish-del-btn {
+  width: 28px; height: 28px;
+  border: 1px solid #C8DEF0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text3);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+.wish-del-btn:hover { border-color: #E05555; color: #E05555; }
+.add-wish-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1.5px dashed #B8D4E8;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--sea);
+  font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.add-wish-btn:hover { border-color: var(--sea2); background: var(--sea-light); }
+
+.item-twd {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text3);
+  background: var(--sand2);
+  border-radius: 4px;
+  padding: 1px 5px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.item.checked .item-twd { opacity: 0.5; }
+
+.total-pill-twd {
+  font-size: 10.5px;
+  color: var(--text3);
+  margin-left: 3px;
+}
+.total-pill.grand .total-pill-twd { color: var(--sea); opacity: 0.75; }
+
+/* ── OPTIONAL SPOTS ── */
+.optional-section {
+  background: var(--white);
+  border: 1.5px dashed #C8B8F0;
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-top: 8px;
+}
+.optional-section-title {
+  font-size: 12.5px; font-weight: 700;
+  color: #7060C0; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.optional-spot {
+  background: #F8F6FE;
+  border: 1.5px solid #D8CCF4;
+  border-radius: var(--radius-sm);
+  padding: 10px 13px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.optional-spot:last-child { margin-bottom: 0; }
+.optional-spot-name { font-weight: 700; color: #5048A0; margin-bottom: 3px; }
+.optional-spot-note { font-size: 12px; color: var(--text3); line-height: 1.5; }
+.optional-spot-tag {
+  display: inline-block;
+  font-size: 10.5px; font-weight: 700;
+  background: #EDE8FC; color: #7060C0;
+  border-radius: 10px; padding: 1px 8px;
+  margin-bottom: 5px;
+}
+
+/* ── CUSTOM PLACES ── */
+.places-section {
+  background: var(--white);
+  border: 1.5px dashed #C0D8C0;
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-top: 8px;
+}
+.places-section-title {
+  font-size: 12.5px; font-weight: 700;
+  color: #4A8060; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+.place-item-row {
+  display: flex; gap: 8px; align-items: center;
+  margin-bottom: 8px;
+}
+.place-item-row:last-child { margin-bottom: 0; }
+.place-name-input {
+  flex: 1;
+  border: 1.5px solid #B8D8B8;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #F4FAF4;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.place-name-input:focus { border-color: var(--isle); }
+.place-note-input {
+  width: 110px;
+  border: 1.5px solid #B8D8B8;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-family: inherit;
+  background: #F4FAF4;
+  color: var(--text2);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.place-note-input:focus { border-color: var(--isle); }
+.place-del-btn {
+  width: 28px; height: 28px;
+  border: 1px solid #B8D8B8;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text3);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+.place-del-btn:hover { border-color: #E05555; color: #E05555; }
+.add-place-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1.5px dashed #B8D8B8;
+  border-radius: 6px;
+  background: transparent;
+  color: #4A8060;
+  font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.add-place-btn:hover { border-color: var(--isle); background: var(--isle-light); }
+
+/* ── CATEGORY NAV BAR ── */
+.cat-nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: rgba(253,248,242,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1.5px solid var(--border);
+  margin: 0 -14px 16px;
+}
+.cat-nav {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 8px 14px;
+}
+.cat-nav::-webkit-scrollbar { display: none; }
+.cat-nav-inner {
+  display: flex;
+  gap: 6px;
+  width: max-content;
+}
+.cat-nav-btn {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.cat-nav-btn:hover {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+.cat-nav-btn.active {
+  background: var(--coral-light);
+  border-color: var(--coral);
+  color: var(--coral);
+}
+.page-ishi .cat-nav-btn:hover,
+.page-ishi .cat-nav-btn.active {
+  border-color: var(--isle);
+  color: var(--isle);
+  background: var(--isle-light);
+}
+.cat-nav-count {
+  background: var(--sand2);
+  border-radius: 10px;
+  padding: 0 5px;
+  font-size: 10px;
+  color: var(--text3);
+}
+
+/* ── COLLAPSIBLE SECTION ── */
+.cat-section { margin-bottom: 4px; }
+.cat-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 0;
+  user-select: none;
+}
+.cat-section-header:hover .cat-label { border-color: var(--coral); }
+.page-ishi .cat-section-header:hover .cat-label { border-color: var(--isle); }
+.cat-toggle {
+  font-size: 12px;
+  color: var(--text3);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.cat-section.collapsed .cat-toggle { transform: rotate(-90deg); }
+.cat-section-body {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+  max-height: 9999px;
+  opacity: 1;
+}
+.cat-section.collapsed .cat-section-body {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* ── BACK TO TOP ── */
+.back-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  color: var(--text2);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(100,60,20,0.12);
+  transition: all 0.15s;
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  border-color: var(--coral);
+  color: var(--coral);
+  box-shadow: 0 4px 16px rgba(232,115,90,0.2);
+}
+
+/* ── OPTIONAL QUICK BUTTONS ── */
+.optional-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.optional-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #C8B8F0;
+  background: #F4F0FC;
+  color: #5048A0;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+}
+.optional-btn:hover {
+  background: #EDE8FC;
+  border-color: #9D8CD0;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(80,72,160,0.12);
+}
+.optional-btn.active {
+  background: #5048A0;
+  border-color: #5048A0;
+  color: white;
+}
+.optional-detail {
+  display: none;
+  margin-top: 4px;
+}
+.optional-detail.show {
+  display: block;
+}
+</style>
+<script>
+function navTo(k,p){if(typeof _navTo==='function')_navTo(k,p);}
+function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection(k,f);}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-shisa">🦁</div>
+      <div class="header-text">
+        <div class="header-title">沖繩・石垣島 郵輪購物清單</div>
+        <div class="header-sub">11月10日 那霸　｜　11月11日 石垣島</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('naha', this)">
+        <span class="tab-icon">🌺</span>那霸
+      </button>
+      <button class="tab" onclick="switchTab('ishi', this)">
+        <span class="tab-icon">🪸</span>石垣島
+      </button>
+      <button class="tab" onclick="switchTab('ship', this)">
+        <span class="tab-icon">🚢</span>船上購物
+      </button>
+      <button class="tab" onclick="switchTab('info', this)">
+        <span class="tab-icon">📋</span>注意事項
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- wave -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 28" style="display:block;background:var(--sand);margin-top:-1px">
+  <path fill="#2B8BA0" d="M0,14 C240,28 480,0 720,14 C960,28 1200,0 1440,14 L1440,0 L0,0 Z"/>
+</svg>
+
+<main>
+
+<!-- ══════════════════ NAHA ══════════════════ -->
+<div class="page page-naha active" id="page-naha">
+
+  <div class="port-hero">
+    <div class="port-hero-icon">⚓</div>
+    <div class="port-hero-info">
+      <div class="port-hero-name">那霸港</div>
+      <div class="port-hero-time">11月10日　14:00 抵達・23:00 起航｜可用時間約 15:00 – 22:00（7小時）</div>
+    </div>
+  </div>
+
+<div class="cat-nav-wrap"><div class="cat-nav"><div class="cat-nav-inner"><button class="cat-nav-btn" onclick="navTo('nf','naha')">🍬 伴手禮・食品<span class="cat-nav-count" id="nav-cnt-nf"></span></button>
+<button class="cat-nav-btn" onclick="navTo('ne','naha')">🍡 現場小吃<span class="cat-nav-count" id="nav-cnt-ne"></span></button>
+<button class="cat-nav-btn" onclick="navTo('nd','naha')">💊 藥妝・醫療<span class="cat-nav-count" id="nav-cnt-nd"></span></button>
+<button class="cat-nav-btn" onclick="navTo('nds','naha')">🛒 唐吉訶德<span class="cat-nav-count" id="nav-cnt-nds"></span></button>
+<button class="cat-nav-btn" onclick="navTo('np','naha')">⏱️ PARCO CITY<span class="cat-nav-count" id="nav-cnt-np"></span></button>
+</div></div></div>
+  <div class="section-title">行程動線</div>
+  <div class="itinerary">
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🚢</div>
+      <div><div class="itin-name">郵輪碼頭出發</div><div class="itin-sub">15:00 可上岸</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 15 分</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">⛩️</div>
+      <div><div class="itin-name">波上宮 ＋ 波之上海灘</div><div class="itin-sub">11月不能游泳，拍照散步</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 10 分</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🍱</div>
+      <div><div class="itin-name">ポーたま 牧志市場店</div><div class="itin-sub">07:00–20:00　排隊約 30–40 分</div></div>
+      <div class="itin-time">¥390 起</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 5 分</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🏬</div>
+      <div><div class="itin-name">RYUBO 百貨（デパートリウボウ）</div><div class="itin-sub">國際通起點・県庁前站旁｜快速逛地下食品館約 10–15 分，沖繩縣產食品、やちむん陶器品質精選</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 即達（就在國際通入口）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🛍️</div>
+      <div><div class="itin-name">國際通購物</div><div class="itin-sub">大國藥妝 → 札幌藥妝 → 唐吉訶德 → 御菓子御殿 → Calbee+ → 平和通</div></div>
+      <div class="itin-time">1.6km</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 5 分</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🐟</div>
+      <div><div class="itin-name">牧志公設市場周邊</div><div class="itin-sub">晚餐或飯後逛</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 3–5 分</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🛒</div>
+      <div><div class="itin-name">MaxValu 牧志店</div><div class="itin-sub">24H・可退稅　行程最後段購買重物</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 步行 20 分 ／ 計程車約 7 分（¥800）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🚢</div>
+      <div><div class="itin-name">回碼頭</div><div class="itin-sub">23:00 起航，22:00 前須回船</div></div>
+      <div class="itin-time">—</div>
+    </div>
+  </div>
+
+  <div class="section-title">購買進度</div>
+  <div class="progress-wrap">
+    <div class="progress-top"><span>那霸全部品項</span><strong id="naha-prog-txt">0 / 0</strong></div>
+    <div class="progress-bar"><div class="progress-fill fill-naha" id="naha-prog-bar" style="width:0%"></div></div>
+  </div>
+
+  <div class="cat-section" id="sec-nf">
+    <div class="cat-section-header" onclick="toggleSection('nf')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🍬 伴手禮・食品</div><div class="cat-count" id="cnt-nf"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-nf" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div class="cat-section" id="sec-ne">
+    <div class="cat-section-header" onclick="toggleSection('ne')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🍡 現場小吃（無法帶回）</div><div class="cat-count" id="cnt-ne"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-ne" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div class="cat-section" id="sec-nd">
+    <div class="cat-section-header" onclick="toggleSection('nd')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">💊 藥妝・醫療</div><div class="cat-count" id="cnt-nd"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-nd" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div class="cat-section" id="sec-nds">
+    <div class="cat-section-header" onclick="toggleSection('nds')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🛒 唐吉訶德</div><div class="cat-count" id="cnt-nds"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-nds" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div class="cat-section" id="sec-np">
+    <div class="cat-section-header" onclick="toggleSection('np')">
+      <div class="cat-header" style="margin:0"><div class="cat-label" style="color:#5560C0;border-color:#9DA8E8;background:#EEF0FD">⏱️ PARCO CITY（需另外前往，計程車約 15–20 分）</div><div class="cat-count" id="cnt-np"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-np" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+
+
+  <div class="section-title">🍽️ 那霸餐廳選項</div>
+  <div class="optional-section" style="border-color:#D4B8F0;background:#FAF7FE;">
+    <div class="optional-section-title" style="color:#7060C0;">🍽️ 晚餐候選，擇一</div>
+    <div class="optional-spot" style="border-color:#D4B8F0;background:#F4F0FC;">
+      <div class="optional-spot-tag" style="background:#EDE8FC;color:#7060C0;">⭐ 牧志站步行2分・¥2,000–4,000・建議訂位</div>
+      <div class="optional-spot-name" style="color:#5048A0;">🥩 石垣牛とあぐーの専門店 八重山 YAIMA（石垣牛涮涮鍋/燒肉）</div>
+      <div class="optional-spot-note">沖繩限定石垣牛＋あぐー豚，個室座席，觀光區人氣店｜17:00–24:00｜建議提前在 Tabelog 或電話訂位，避免候位</div>
+    </div>
+    <div class="optional-spot" style="border-color:#D4B8F0;background:#F4F0FC;">
+      <div class="optional-spot-tag" style="background:#EDE8FC;color:#7060C0;">💨 不用排隊・¥500–1,000・09:00–22:30</div>
+      <div class="optional-spot-name" style="color:#5048A0;">🍔 A&W 漢堡 国際通り松尾店（沖繩限定速食）</div>
+      <div class="optional-spot-note">日本只有沖繩才有的漢堡連鎖，Root Beer 浮冰必點｜09:00–22:30・無休｜那覇市松尾1-1-1 2F・3F｜國際通起點，進門就看到</div>
+    </div>
+    <div class="optional-spot" style="border-color:#D4B8F0;background:#F4F0FC;">
+      <div class="optional-spot-tag" style="background:#EDE8FC;color:#7060C0;">⚠️ 暖暮拉麵 熱門時段排隊30–40分・¥800–1,200</div>
+      <div class="optional-spot-name" style="color:#5048A0;">🍜 暖暮拉麵 国際通牧志店（博多系豚骨拉麵）</div>
+      <div class="optional-spot-note">九州博多系豚骨，可客製濃度，09:00–02:00｜牧志站旁，行程動線上</div>
+    </div>
+  </div>
+
+  <div class="section-title">如果有時間</div>
+  <div class="optional-section">
+    <div class="optional-section-title">⏱️ 點選查看備用景點詳情</div>
+    <div class="optional-btns">
+      <button class="optional-btn" onclick="toggleOpt(this,'naha-opt-1')">🛒 PARCO CITY</button>
+      <button class="optional-btn" onclick="toggleOpt(this,'naha-opt-2')">🍰 Jimmy's</button>
+    </div>
+    <div class="optional-detail" id="naha-opt-1">
+      <div class="optional-spot">
+        <div class="optional-spot-tag">計程車 15–20 分・¥1,500–2,000</div>
+        <div class="optional-spot-name">🛒 PARCO CITY（サンエー浦添西海岸）</div>
+        <div class="optional-spot-note">沖繩最大級商場，HOKA・Uniqlo 旗艦店・ZARA・無印良品・東急ハンズ・ABC-MART GRAND STAGE 等 250 店｜建議逛 1.5–2 小時｜10:00–22:00</div>
+      </div>
+    </div>
+    <div class="optional-detail" id="naha-opt-2">
+      <div class="optional-spot">
+        <div class="optional-spot-tag">需另外前往・步行或計程車</div>
+        <div class="optional-spot-name">🍰 Jimmy's（ジミー，沖繩老字號美式西點店）</div>
+        <div class="optional-spot-note">創立於美軍統治時期，風格偏美式，濃郁奶油蛋糕・獨立包裝餅乾很適合分送｜10:00–20:00・沖繩全島約 18 間門市</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cat-header" style="margin-top:20px"><div class="cat-label" style="color:#4A8060;border-color:#C0D8C0;background:#F4FAF4">📍 自訂想去地點</div></div>
+  <div class="places-section">
+    <div class="places-section-title">📍 記下其他想順路去的地方</div>
+    <div id="places-naha-rows"></div>
+    <button class="add-place-btn" onclick="addPlace('naha')">＋ 新增地點</button>
+  </div>
+
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label" style="color:var(--sea);border-color:#B8D4E8;background:#F0F7FC">🔖 想買清單（考慮中）</div></div>
+  <div class="wish-section">
+    <div class="wish-section-title">🔖 記下有興趣但還沒確定要買的東西</div>
+    <div id="wish-naha-rows"></div>
+    <button class="add-wish-btn" onclick="addWish('naha')">＋ 新增想買項目</button>
+  </div>
+
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label">✏️ 臨時加購（清單外）</div></div>
+  <div class="custom-section" id="custom-naha">
+    <div class="custom-section-title">✏️ 現場買了清單以外的東西？在這裡記下來</div>
+    <div id="custom-naha-rows"></div>
+    <button class="add-custom-btn" onclick="addCustom('naha')">＋ 新增品項</button>
+  </div>
+
+  <button class="clear-btn" onclick="clearPage('naha')">重置那霸勾選</button>
+</div>
+
+<!-- ══════════════════ ISHIGAKI ══════════════════ -->
+<div class="page page-ishi" id="page-ishi">
+
+  <div class="port-hero port-hero-ishi">
+    <div class="port-hero-icon">⚓</div>
+    <div class="port-hero-info">
+      <div class="port-hero-name">石垣島</div>
+      <div class="port-hero-time">11月11日　13:00 抵達・22:00 起航｜預留一小時下船，可用時間約 14:00–21:00（7小時）</div>
+    </div>
+  </div>
+
+<div class="cat-nav-wrap"><div class="cat-nav"><div class="cat-nav-inner"><button class="cat-nav-btn" onclick="navTo('if','ishi')">🌿 在地食品<span class="cat-nav-count" id="nav-cnt-if"></span></button>
+<button class="cat-nav-btn" onclick="navTo('is','ishi')">🍬 甜食・伴手禮<span class="cat-nav-count" id="nav-cnt-is"></span></button>
+<button class="cat-nav-btn" onclick="navTo('id','ishi')">🧴 藥妝・護膚<span class="cat-nav-count" id="nav-cnt-id"></span></button>
+</div></div></div>
+  <div class="section-title">行程動線</div>
+  <div class="itinerary">
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🚢</div>
+      <div><div class="itin-name">碼頭出發</div><div class="itin-sub">13:00 抵達，預留一小時下船，約 14:00 開始</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 5–10 分</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🏪</div>
+      <div><div class="itin-name">ユーグレナモール</div><div class="itin-sub">日本最南端アーケード商店街・全長 265m｜100 店舗以上，土産店・公設市場・飲食店・しましまストアー（月桃ミスト）が集結。雨天も OK</div></div>
+      <div class="itin-time">約 30–60 分</div>
+    </div>
+    <div class="itin-arrow">↓ 步行即達（碼頭旁）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">💊</div>
+      <div><div class="itin-name">大國藥妝</div><div class="itin-sub">中文服務・免費接駁</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 計程車約 5–7 分（¥500–700）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🛒</div>
+      <div><div class="itin-name">MaxValu 石垣店（登野城）</div><div class="itin-sub">08:00–01:00　伴手禮豐富，超市限定品在這裡掃</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 計程車約 8 分回碼頭（¥700–900）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🚢</div>
+      <div><div class="itin-name">回碼頭</div><div class="itin-sub">22:00 起航，21:00 前須回船（預留緩衝）</div></div>
+      <div class="itin-time">—</div>
+    </div>
+  </div>
+
+  <div class="section-title">購買進度</div>
+  <div class="progress-wrap">
+    <div class="progress-top"><span>石垣島全部品項</span><strong id="ishi-prog-txt">0 / 0</strong></div>
+    <div class="progress-bar"><div class="progress-fill fill-ishi" id="ishi-prog-bar" style="width:0%"></div></div>
+  </div>
+
+  <div class="cat-section" id="sec-if">
+    <div class="cat-section-header" onclick="toggleSection('if')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🌿 在地食品・調味料</div><div class="cat-count" id="cnt-if"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-if" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div class="cat-section" id="sec-is">
+    <div class="cat-section-header" onclick="toggleSection('is')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🍬 甜食・伴手禮</div><div class="cat-count" id="cnt-is"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-is" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div class="cat-section" id="sec-id">
+    <div class="cat-section-header" onclick="toggleSection('id')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🧴 藥妝・護膚</div><div class="cat-count" id="cnt-id"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-id" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+
+
+  <div class="section-title">如果有時間</div>
+  <div class="optional-section">
+    <div class="optional-section-title">⏱️ 點選查看備用景點詳情</div>
+    <div class="optional-btns">
+      <button class="optional-btn" onclick="toggleOpt(this,'ishi-opt-1')">🛒 MaxValu 八重山店</button>
+      <button class="optional-btn" onclick="toggleOpt(this,'ishi-opt-2')">🔌 EDION 愛電王</button>
+      <button class="optional-btn" onclick="toggleOpt(this,'ishi-opt-3')">🛒 サンエー 石垣シティ</button>
+    </div>
+    <div class="optional-detail" id="ishi-opt-1">
+      <div class="optional-spot">
+        <div class="optional-spot-tag">計程車約 15 分・MaxValu 石垣店之後繼續往東</div>
+        <div class="optional-spot-name">🛒 MaxValu 八重山店（やいま店，真榮里）</div>
+        <div class="optional-spot-note">24H・商品最齊全・比石垣店品項更多｜已在石垣店掃過的話可跳過，時間夠再加</div>
+      </div>
+    </div>
+    <div class="optional-detail" id="ishi-opt-2">
+      <div class="optional-spot">
+        <div class="optional-spot-tag">MaxValu 八重山店旁，步行即達・10:00–21:00</div>
+        <div class="optional-spot-name">🔌 EDION 愛電王 石垣シティ</div>
+        <div class="optional-spot-note">石垣島最大電器行，ReFa 蓮蓬頭、家電、電子產品｜去 MaxValu 八重山店才順路，不另外前往</div>
+      </div>
+    </div>
+    <div class="optional-detail" id="ishi-opt-3">
+      <div class="optional-spot">
+        <div class="optional-spot-tag">計程車約 15 分</div>
+        <div class="optional-spot-name">🛒 サンエー 石垣シティ</div>
+        <div class="optional-spot-note">大型購物中心，與 MaxValu 功能部分重疊，但有更多餐廳和服飾選擇｜時間夠再考慮</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cat-header" style="margin-top:20px"><div class="cat-label" style="color:#4A8060;border-color:#C0D8C0;background:#F4FAF4">📍 自訂想去地點</div></div>
+  <div class="places-section">
+    <div class="places-section-title">📍 記下其他想順路去的地方</div>
+    <div id="places-ishi-rows"></div>
+    <button class="add-place-btn" onclick="addPlace('ishi')">＋ 新增地點</button>
+  </div>
+
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label" style="color:var(--sea);border-color:#B8D4E8;background:#F0F7FC">🔖 想買清單（考慮中）</div></div>
+  <div class="wish-section">
+    <div class="wish-section-title">🔖 記下有興趣但還沒確定要買的東西</div>
+    <div id="wish-ishi-rows"></div>
+    <button class="add-wish-btn" onclick="addWish('ishi')">＋ 新增想買項目</button>
+  </div>
+
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label">✏️ 臨時加購（清單外）</div></div>
+  <div class="custom-section" id="custom-ishi">
+    <div class="custom-section-title">✏️ 現場買了清單以外的東西？在這裡記下來</div>
+    <div id="custom-ishi-rows"></div>
+    <button class="add-custom-btn" onclick="addCustom('ishi')">＋ 新增品項</button>
+  </div>
+
+  <button class="clear-btn" onclick="clearPage('ishi')">重置石垣島勾選</button>
+</div>
+
+<!-- ══════════════════ INFO ══════════════════ -->
+<div class="page" id="page-info">
+
+  <div class="section-title">⚠️ 重要注意事項</div>
+
+  <div class="warn-block">
+    <div class="warn-block-title">🌡️ Royce 巧克力系列</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>需 <strong>25°C 以下</strong>保存，在那霸<strong>行程最後段</strong>於わしたショップ国際通り店購買</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>購買後立刻返船，放入艙房陰涼處，不要繼續提著逛</span></div>
+  </div>
+
+  <div class="warn-block">
+    <div class="warn-block-title">🕐 時間管理</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>那霸可用時間 15:00–22:00，共 7 小時，行程緊湊</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>ポーたま 排隊約 30–40 分，請預留時間</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>MaxValu → 碼頭步行約 20 分，趕時間時搭計程車（約 7 分・¥800 左右）</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>22:00 前須回船，請保留緩衝時間</span></div>
+  </div>
+
+  <div class="warn-block">
+    <div class="warn-block-title">🛒 購物備注</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>ゲンキクール 只在地元超市（MaxValu、サンエー）販售，觀光店不賣</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>ほりにし 萬用調味粉那霸買不到，回台灣蝦皮代購</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>折疊安全帽那霸不容易買到，回台灣搜「DIC IZANO2 代購」</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>唐吉訶德防災品找不到，詢問店員「防災グッズはどこですか？」</span></div>
+  </div>
+
+  <div class="section-title">🆘 海嘯・地震避難資訊</div>
+
+  <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
+    <div class="warn-block-title" style="color:#C04040;">⚠️ 海嘯避難原則</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>感受到強烈搖晃、或長時間緩慢晃動 → <strong>立刻遠離海岸，往高處跑</strong></span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>聽到海嘯警報（大海嘯警報・海嘯警報・注意報）→ 不要等待確認，立刻避難</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>最近的高層建築 5 樓以上即可作為臨時避難，不一定要跑到官方指定避難所</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>沖繩 2024 年 4 月台灣地震曾發出海嘯警報，石垣島/宮古島海嘯風險真實存在</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">🌺 那霸避難地點（行程動線附近）</div>
+    <div class="info-row"><span class="info-label">那霸市津波避難ビル</span><span class="info-val">那霸市松山 2-22-1｜24 小時・容量 2,000 人・距碼頭步行約 10 分<a href="https://www.google.com/maps/place/?q=place_id:ChIJwZ5tEYdp5TQR84vzOuTXW9c" target="_blank" style="font-size:11px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></span></div>
+    <div class="info-row"><span class="info-label">Palette Kumoji（パレットくもじ）</span><span class="info-val">那霸市久茂地 1-1-1（RYUBO 百貨同棟）｜国際通起點，行程上直接進大樓 5F 以上<a href="https://www.google.com/maps/place/?q=place_id:ChIJRz9Dxp1p5TQRcv9e0MLxaV4" target="_blank" style="font-size:11px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></span></div>
+    <div class="info-row"><span class="info-label">那霸市役所</span><span class="info-val">那霸市泉崎 1-1-1｜大型 RC 建築，可作緊急避難<a href="https://www.google.com/maps/place/?q=place_id:ChIJidJG4NZr5TQRT72tn2b7XzQ" target="_blank" style="font-size:11px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></span></div>
+    <div class="info-row"><span class="info-label">ゆいレール 各站</span><span class="info-val">各捷運站為 RC 構造高架建築，緊急時可進站避難</span></div>
+    <div class="info-row"><span class="info-label">避難方向</span><span class="info-val">從碼頭／国際通往<strong>東方（首里方向）</strong>高地移動，遠離海岸線</span></div>
+    <div class="info-row"><span class="info-label">那霸市防災地圖</span><span class="info-val">なはMAP：city.naha.okinawa.jp/safety/map.html（可查最近避難所）</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">🪸 石垣島避難地點（碼頭・ユーグレナモール周辺）</div>
+    <div class="info-row"><span class="info-label">南の美ら花ホテルミヤヒラ（5F以上）</span><span class="info-val">石垣市美崎町 4-9｜碼頭步行約 3 分・容量大・最近最優先<a href="https://www.google.com/maps/place/?q=place_id:ChIJtbr1g7IKYDQRB2ECCSWCd6E" target="_blank" style="font-size:11px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></span></div>
+    <div class="info-row"><span class="info-label">石垣島ホテルククル（5F以上）</span><span class="info-val">石垣市美崎町 8-1｜碼頭步行約 5 分</span></div>
+    <div class="info-row"><span class="info-label">ホテルピースランド石垣島（5F・6F・屋上）</span><span class="info-val">石垣市美崎町 11-1｜容量 566 人・碼頭步行約 5 分<a href="https://www.google.com/maps/place/?q=place_id:ChIJvRPHaa0KYDQRzijj6xe7WHY" target="_blank" style="font-size:11px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></span></div>
+    <div class="info-row"><span class="info-label">ホテルルートイングランディア石垣（5F以上）</span><span class="info-val">石垣市新栄町 21｜容量 850 人・容量最大<a href="https://www.google.com/maps/place/?q=place_id:ChIJFcwIHFN1YDQR2B87_uMClgA" target="_blank" style="font-size:11px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></span></div>
+    <div class="info-row"><span class="info-label">新栄公園</span><span class="info-val">石垣市新栄町 3-1｜指定緊急避難場所（高台）<a href="https://www.google.com/maps/place/?q=place_id:ChIJqzOwT60KYDQRx3rq6nj5YoI" target="_blank" style="font-size:11px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></span></div>
+    <div class="info-row"><span class="info-label">アパホテル石垣島（5F以上）</span><span class="info-val">石垣市八島町 1-2-3｜ユーグレナモール周辺<a href="https://www.google.com/maps/place/?q=place_id:ChIJTZ-TgrEKYDQRgBBCw41NpQQ" target="_blank" style="font-size:11px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></span></div>
+    <div class="info-row"><span class="info-label">避難方向</span><span class="info-val">從美崎町碼頭往<strong>北・內陸方向（新栄町・真栄里方向）</strong>移動，遠離港口海岸</span></div>
+    <div class="info-row"><span class="info-label">石垣市防災地圖</span><span class="info-val">city.ishigaki.okinawa.jp/section/hazardmap（Web版，可查即時避難所）</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">📱 緊急連絡・資訊</div>
+    <div class="info-row"><span class="info-label">日本緊急電話</span><span class="info-val">警察 110・火災/救護 119</span></div>
+    <div class="info-row"><span class="info-label">海嘯警報確認</span><span class="info-val">Yahoo! 天気・災害 APP（日文）或 NHK World（英文）即時推播</span></div>
+    <div class="info-row"><span class="info-label">台灣外交部</span><span class="info-val">海外急難救助專線 +886-800-085-095（24H）</span></div>
+    <div class="info-row"><span class="info-label">台灣駐日辦事處</span><span class="info-val">那霸分處 +81-98-862-7008</span></div>
+  </div>
+
+  <div class="section-title">🧾 退稅說明</div>
+  <div class="warn-block" style="background:rgba(240,136,62,0.07);border-color:rgba(240,136,62,0.35);">
+    <div class="warn-block-title" style="color:#C06010;">⚠️ 退稅制度重大變更：2026 年 11 月 1 日起適用新制</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>你的行程（11/10–11）<strong>剛好在新制實施後</strong>，適用 Refund 退稅方式</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span><strong>結帳時先照付含稅價格</strong>（多付 10%），現金或信用卡額度要多準備</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>出境時在稅關 KIOSK 端末刷護照確認商品，消費稅退款由 JPrefund 平台匯入指定帳戶（信用卡或銀行帳戶）</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>購買後 <strong>90 天內</strong>必須出境並完成稅關確認，否則無法退稅</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>好消息：不再需要免稅封袋和特殊包裝，食品與一般商品統一適用同一規則</span></div>
+  </div>
+
+  <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
+    <div class="warn-block-title" style="color:#C04040;">🚢 郵輪旅客退稅：狀況待確認</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>新制規定稅關確認地點包含「空港・港口」，郵輪碼頭理論上在適用範圍內，<strong>但那霸港 / 石垣島港是否設有 KIOSK 端末目前不確定</strong></span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>全國免稅店協會的 FAQ 中有「郵輪観光上陸許可での入国者」特殊類別，但詳細說明仍「準備中」尚未公開</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>出發前務必確認：</strong>聯絡麗星郵輪客服、或現場詢問大國藥妝/唐吉訶德退稅櫃台，確認郵輪旅客適用流程</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>保守策略：先假設退不到稅來計算預算</strong>，能退到是額外賺到。若 90 天內有其他出境（如去日本或韓國），可補辦確認</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>退稅需同一店家單日消費滿 ¥5,000（未稅），金額不大的話不退也無妨</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">📌 日本消費稅退稅規則（2026/11 新制）</div>
+    <div class="tax-row"><div class="tax-num">1</div><div>同一店家同一天消費滿 <strong>¥5,000（未稅）</strong>方可申請退稅。</div></div>
+    <div class="tax-row"><div class="tax-num">2</div><div>消費稅率 <strong>10%</strong>（一般商品）或 <strong>8%</strong>（食品・飲料）。<strong>結帳時先照付含稅金額</strong>，退款事後才入帳。</div></div>
+    <div class="tax-row"><div class="tax-num">3</div><div>購物時出示<strong>護照正本</strong>（或 Visit Japan Web 免稅 QR Code），店員記錄後發給退稅單據。</div></div>
+    <div class="tax-row"><div class="tax-num">4</div><div>出境時在機場稅關窗口確認商品，完成後由 <strong>JPrefund 平台</strong>將稅款退至你的信用卡或銀行帳戶。</div></div>
+    <div class="tax-row"><div class="tax-num">5</div><div>購買後 <strong>90 天內</strong>必須完成出境確認，超過期限即無法退稅。</div></div>
+    <div class="tax-row"><div class="tax-num">6</div><div>新制下<strong>免稅封袋廢除</strong>，不再需要特殊包裝，購物後可直接使用商品（包含一般衣物）。</div></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">🏪 各店退稅資訊</div>
+    <div class="info-row"><span class="info-label">大國藥妝</span><span class="info-val">支援退稅（新制 Refund）・E.SUN Kumamon 卡 8.5% 回饋（每月上限約 NT$8,333）</span></div>
+    <div class="info-row"><span class="info-label">札幌藥妝</span><span class="info-val">支援退稅</span></div>
+    <div class="info-row"><span class="info-label">唐吉訶德</span><span class="info-val">支援退稅・E.SUN Kumamon 卡適用</span></div>
+    <div class="info-row"><span class="info-label">MaxValu 牧志</span><span class="info-val">支援退稅，滿 ¥5,000 辦理</span></div>
+    <div class="info-row"><span class="info-label">御菓子御殿</span><span class="info-val">食品類退稅，帶護照</span></div>
+    <div class="info-row"><span class="info-label">わしたショップ</span><span class="info-val">支援退稅</span></div>
+  </div>
+
+  <div class="section-title">💳 支付建議</div>
+  <div class="info-card">
+    <div class="info-card-head">💳 信用卡・支付</div>
+    <div class="info-row"><span class="info-label">E.SUN Kumamon</span><span class="info-val">大國藥妝・唐吉訶德指定店 8.5% 回饋，每月上限約 NT$8,333</span></div>
+    <div class="info-row"><span class="info-label">UBOT Jikaku JCB</span><span class="info-val">Apple Pay 實體刷卡最高 7–10% 回饋（新戶），需事先設定 Lianfa App</span></div>
+    <div class="info-row"><span class="info-label">All Pay（全支付）</span><span class="info-val">適合 PayPay 小額攤販，優於 E.SUN Wallet</span></div>
+    <div class="info-row"><span class="info-label">出發前確認</span><span class="info-val">兩卡設定 PIN 碼並測試 Apple Pay；出發前 1–2 週確認 H2 活動條款</span></div>
+  </div>
+
+  <div class="section-title">🛃 台灣海關注意事項</div>
+
+  <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
+    <div class="warn-block-title" style="color:#C04040;">🐷 豬肉製品禁止入境（最貴的錯誤）</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>依《動物傳染病防治條例》，違規攜帶豬肉製品入境可處<strong>高額罰鍰</strong>，主動申報不罰，被查到未申報才重罰</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>2026 年起所有入境行李均可能被 X 光抽查，桃機米格魯檢疫犬能從塞滿衣物的行李箱聞出肉品</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>清單中要特別小心：</strong>SPAM/午餐肉罐頭・ポーク類・アンダンスー（豬肉味噌）・ラフテー 真空包 → 全部不能帶</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>含真實肉塊的泡麵湯包不能帶；八重山そば乾麵本身沒問題，但附豬骨湯包就有風險</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>安全的：純粉調味料、糖果餅乾、黑糖、鹽、茶包、酒、化妝品。不確定就別買，或當場吃掉</span></div>
+  </div>
+
+  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
+    <div class="warn-block-title" style="color:#B08000;">💊 藥品・保健食品限量</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>非處方藥每種最多 <strong>12 瓶（盒）</strong>，全部合計不超過 <strong>36 瓶</strong></span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>錠狀・膠囊狀保健食品（維他命等）適用同一規定：每種最多 12 瓶，合計不超過 36 瓶</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>你的清單：サロンパス 80枚・サロンパスEX・バンテリン・ピップエレキバン 130・MAX200 已 5 種，幫親友代買很容易超量</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">📋 入境限額一覽（2026 最新）</div>
+    <div class="info-row"><span class="info-label">免稅額</span><span class="info-val">NT$<strong>35,000</strong>（2024/6/26 起調高，原為 NT$20,000）</span></div>
+    <div class="info-row"><span class="info-label">酒類免稅</span><span class="info-val"><strong>1.5 公升</strong>・不限瓶數（2025/1/25 起，原為 1 公升）；超過可走紅線補稅，上限 5 公升</span></div>
+    <div class="info-row"><span class="info-label">菸類免稅</span><span class="info-val">200 支（1 條）・限 18 歲以上</span></div>
+    <div class="info-row"><span class="info-label">現金申報</span><span class="info-val">NT$100,000 或外幣等值 USD$10,000 以上須申報</span></div>
+    <div class="info-row"><span class="info-label">一般食品</span><span class="info-val">總價值低於 USD$1,000・總重不超過 6 公斤</span></div>
+    <div class="info-row"><span class="info-label">Orion 啤酒</span><span class="info-val">注意酒類 1.5 公升免稅限額，多罐很容易超過</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">🚢 郵輪・時差注意</div>
+    <div class="info-row"><span class="info-label">時差陷阱</span><span class="info-val">沖繩 UTC+9，台灣 UTC+8，上岸後手機自動跳日本時間，比船上快 1 小時。建議手動鎖台北時區，或設獨立鬧鐘。漏船要自費飛到下一港</span></div>
+    <div class="info-row"><span class="info-label">回船截止</span><span class="info-val">通常是開航前 30–60 分鐘，不是開航時間</span></div>
+    <div class="info-row"><span class="info-label">船上攜酒</span><span class="info-val">郵輪通常禁止旅客攜帶酒精回船，會被暫保管到下船。Orion 啤酒行前先確認麗星客服規定</span></div>
+    <div class="info-row"><span class="info-label">鋰電池</span><span class="info-val">GoPro、行動電源必須隨身，不能放託運行李</span></div>
+    <div class="info-row"><span class="info-label">Royce 巧克力</span><span class="info-val">船艙冰箱不夠冷，11 月沖繩白天 24–26°C，兩天船程有風險，認真考慮是否購買</span></div>
+    <div class="info-row"><span class="info-label">手機漫遊</span><span class="info-val">離港後開飛航模式，船上衛星訊號可能產生天價帳單。日本 eSIM 只在上岸時有用，買最小方案</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">💰 現金・付款</div>
+    <div class="info-row"><span class="info-label">石垣現金</span><span class="info-val">石垣島現金比重高，小店・市場・計程車多只收現金，建議至少準備 ¥20,000–30,000</span></div>
+    <div class="info-row"><span class="info-label">港口 ATM</span><span class="info-val">港口 ATM 未必能用台灣金融卡，現金在台灣先換好</span></div>
+    <div class="info-row"><span class="info-label">Kumamon 卡</span><span class="info-val">8.5% 回饋有 NT$8,333/月上限，可能一天刷爆，超過後改刷 UBOT Jikaku</span></div>
+    <div class="info-row"><span class="info-label">出發前</span><span class="info-val">兩卡開通海外交易、確認額度，出發前 1–2 週再確認下半年活動條款</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">🛍️ 購物實務</div>
+    <div class="info-row"><span class="info-label">免稅封袋</span><span class="info-val">藥妝免稅品封膠帶後在日本境內不能拆，回船後到台灣入境前都還在日本境內，理論上到台灣才拆</span></div>
+    <div class="info-row"><span class="info-label">免稅門檻</span><span class="info-val">同一店家同一天消費滿 ¥5,000（未稅）方可退稅，不同店家分開算</span></div>
+    <div class="info-row"><span class="info-label">唐吉訶德</span><span class="info-val">結帳排隊很久，國際通店尤其誇張，預留 30 分鐘</span></div>
+    <div class="info-row"><span class="info-label">購物袋</span><span class="info-val">日本塑膠袋要錢，隨身帶大購物袋</span></div>
+    <div class="info-row"><span class="info-label">行李重量</span><span class="info-val">郵輪不秤行李，但要提回台灣。防災品體積大，考慮帶可折疊行李袋</span></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-head">🌊 天候・其他</div>
+    <div class="info-row"><span class="info-label">天氣</span><span class="info-val">11 月沖繩約 20–25°C，早晚東北季風，帶薄外套</span></div>
+    <div class="info-row"><span class="info-label">颱風</span><span class="info-val">11 月已過颱風主季但仍可能有低氣壓，行程有被縮短可能</span></div>
+    <div class="info-row"><span class="info-label">暈船藥</span><span class="info-val">台灣—沖繩冬季海象會晃，在台灣買暈船藥，別佔日本藥品額度</span></div>
+    <div class="info-row"><span class="info-label">鞋子</span><span class="info-val">兩天都是下午上岸走到晚上，那霸國際通全長 1.6km 來回加逛等於走 8–10 公里</span></div>
+    <div class="info-row"><span class="info-label">護照</span><span class="info-val">效期建議 6 個月以上，先填好 Visit Japan Web，護照/船卡/保險資料拍照存雲端</span></div>
+    <div class="info-row"><span class="info-label">11/10–11</span><span class="info-val">週一、週二，日本無長假，國際通人潮比週末少，時間點很好</span></div>
+  </div>
+
+  <div class="section-title">📦 回台灣後補購</div>
+  <div class="info-card">
+    <div class="info-card-head">🛒 網購清單</div>
+    <div class="info-row"><span class="info-label">Uniqlo 南風原</span><span class="info-val">⚠️ 已於 2026/1/12 結束營業，請改去 PARCO CITY 店</span></div>
+    <div class="info-row"><span class="info-label">ほりにし</span><span class="info-val">蝦皮搜「ほりにし 代購」，白色基本款約 NT$300–400</span></div>
+    <div class="info-row"><span class="info-label">折疊安全帽</span><span class="info-val">蝦皮搜「DIC IZANO2 代購」或「ミドリ安全フラットメット 代購」</span></div>
+    <div class="info-row"><span class="info-label">防刺穿鞋墊</span><span class="info-val">蝦皮搜「ワークマン 踏抜防止インソール 代購」，約 ¥795</span></div>
+    <div class="info-row"><span class="info-label">機能外套等</span><span class="info-val">Buy&Ship 或 ZenMarket → workman.jp 下單</span></div>
+  </div>
+
+</div>
+
+<!-- ══════════════════ SHIP ══════════════════ -->
+<div class="page" id="page-ship">
+
+  <div class="port-hero" style="background:linear-gradient(135deg,#EEF0FD 0%,#D8DCF8 100%);border-color:#9DA8E8;">
+    <div class="port-hero-icon">🛳️</div>
+    <div class="port-hero-info">
+      <div class="port-hero-name" style="color:#5560C0;">探索星號 船上購物</div>
+      <div class="port-hero-time">位於 7–8 樓｜最後一日折扣最甜</div>
+    </div>
+  </div>
+
+  <div class="section-title">購物區介紹</div>
+  <div class="itinerary">
+    <div class="itin-row">
+      <div class="itin-icon-wrap">💎</div>
+      <div><div class="itin-name">精品廊（7–8 樓船中）</div><div class="itin-sub">香水、精品包、珠寶、化妝品，免稅價格</div></div>
+      <div class="itin-time">最後一日折最多</div>
+    </div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🍬</div>
+      <div><div class="itin-name">糖果屋／星空廊（8 樓船中）</div><div class="itin-sub">麗星郵輪獨家紀念品、保溫杯、糖果巧克力餅乾</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🎁</div>
+      <div><div class="itin-name">紀念品商店 A（7 樓，披薩餐廳旁）</div><div class="itin-sub">伴手禮、紀念品</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">💊</div>
+      <div><div class="itin-name">紀念品商店 B（7 樓，中餐廳前）</div><div class="itin-sub">藥品、日用品、紀念品</div></div>
+      <div class="itin-time">—</div>
+    </div>
+  </div>
+
+  <div class="section-title">購買進度</div>
+  <div class="progress-wrap">
+    <div class="progress-top"><span>船上購物清單</span><strong id="ship-prog-txt">0 / 0</strong></div>
+    <div class="progress-bar"><div class="progress-fill" id="ship-prog-bar" style="width:0%;background:linear-gradient(90deg,#5560C0,#8B95E0)"></div></div>
+  </div>
+
+  <div class="cat-header"><div class="cat-label" style="color:#5560C0;border-color:#9DA8E8;background:#EEF0FD">💎 精品・香水・化妝品</div><div class="cat-count" id="cnt-sp"></div></div>
+  <div class="item-list" id="lst-sp"></div>
+
+  <div class="cat-header"><div class="cat-label" style="color:#5560C0;border-color:#9DA8E8;background:#EEF0FD">🎁 郵輪紀念品</div><div class="cat-count" id="cnt-sm"></div></div>
+  <div class="item-list" id="lst-sm"></div>
+
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label" style="color:var(--sea);border-color:#B8D4E8;background:#F0F7FC">🔖 想買清單（考慮中）</div></div>
+  <div class="wish-section">
+    <div class="wish-section-title">🔖 記下有興趣但還沒確定要買的東西</div>
+    <div id="wish-ship-rows"></div>
+    <button class="add-wish-btn" onclick="addWish('ship')">＋ 新增想買項目</button>
+  </div>
+
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label">✏️ 臨時加購（清單外）</div></div>
+  <div class="custom-section" id="custom-ship">
+    <div class="custom-section-title">✏️ 現場買了清單以外的東西？在這裡記下來</div>
+    <div id="custom-ship-rows"></div>
+    <button class="add-custom-btn" onclick="addCustom('ship')">＋ 新增品項</button>
+  </div>
+
+  <button class="clear-btn" onclick="clearPage('ship')">重置船上購物勾選</button>
+</div>
+</main>
+
+<!-- TOTAL BAR -->
+<div class="total-bar">
+  <div class="total-bar-inner">
+    <div class="total-pill" style="border-color:#9DA8E8;background:#EEF0FD">
+      <span class="total-pill-label" style="color:#5560C0">🛳️ 船上</span>
+      <span class="total-pill-amt" id="total-ship" style="color:#5560C0">¥0</span>
+      <span class="total-pill-twd" id="total-ship-twd"></span>
+    </div>
+    <div class="total-pill naha">
+      <span class="total-pill-label">🌺 那霸</span>
+      <span class="total-pill-amt" id="total-naha">¥0</span>
+      <span class="total-pill-twd" id="total-naha-twd"></span>
+    </div>
+    <div class="total-pill ishi">
+      <span class="total-pill-label">🪸 石垣</span>
+      <span class="total-pill-amt" id="total-ishi">¥0</span>
+      <span class="total-pill-twd" id="total-ishi-twd"></span>
+    </div>
+    <div class="total-pill grand">
+      <span class="total-pill-label">合計</span>
+      <span class="total-pill-amt" id="total-grand">¥0</span>
+      <span class="total-pill-twd" id="total-grand-twd"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── STATE KEYS ──
+// wish = { naha: [{id,name,note},...], ishi: [...] }
+
+// ── EXCHANGE RATE ──
+const JPY_TO_TWD = 0.20; // 2026年5-7月三個月平均匯率
+
+function toTWD(jpy){
+  if(!jpy) return '';
+  return Math.round(jpy * JPY_TO_TWD);
+}
+
+function twdStr(priceStr){
+  const nums = (priceStr.match(/[\d,]+/g)||[]).map(n=>parseInt(n.replace(/,/g,'')));
+  if(!nums.length) return '';
+  const twds = nums.map(n=>toTWD(n));
+  if(twds.length===1) return `≈ NT$${twds[0]}`;
+  return `≈ NT$${twds[0]}–${twds[twds.length-1]}`;
+}
+
+// checked[id] = true/false
+// amounts[id] = number (yen)
+// custom = { naha: [{id,name,amount},...], ishi: [...] }
+
+const DATA = {
+  'nf': [
+    {id:'nf1', name:'Calbee 堅あげポテト（硬脆洋芋片）沖繩香檬口味', price:'¥300–500', where:'Calbee+ 國際通店 / 唐吉訶德'},
+    {id:'nf2', name:'Royce 石垣島鹽巧克力洋芋片', price:'¥800–1,200', where:'わしたショップ国際通り店（行程最後段）', note:'warn:⚠️ 需 25°C 以下保存，買完即返船'},
+    {id:'nf3', name:'Royce 石垣島鹽巧克力', price:'¥600–900', where:'わしたショップ国際通り店（行程最後段）', note:'warn:⚠️ 同上，需冷藏'},
+    {id:'nf4', name:'KitKat 沖繩限定紅芋口味', price:'¥400–700', where:'各伴手禮店 / 唐吉訶德'},
+    {id:'nf5', name:'Orion 啤酒（罐裝）', price:'¥200–300/罐', where:'超市 / 唐吉訶德'},
+    {id:'nf6', name:'35珊瑚咖啡 ＆ 扶桑花茶包', price:'¥800–1,500', where:'唐吉訶德 2F / 國際通'},
+    {id:'nf7', name:'Fukugiya 福木屋年輪蛋糕', price:'¥1,300–2,500', where:'國際通直營店（現場製作・有試吃）'},
+    {id:'nf8', name:'邊銀食堂辣油（一般/激辛/蒜油）', price:'¥700–900/瓶', where:'各伴手禮店 / 唐吉訶德'},
+    {id:'nf9', name:'沖繩風獅爺磁鐵', price:'¥300–800', where:'各伴手禮店 / 御菓子御殿'},
+    {id:'nf10', name:'全家便利商店泡盛咖啡', price:'¥200–300', where:'沖繩全家（限定）', note:'info:ℹ️ 沖繩限定，其他縣份買不到'},
+    {id:'nf11', name:'ORION 啤酒 T 恤', price:'¥2,000–3,500', where:'唐吉訶德 / 國際通服飾店'},
+    {id:'nf12', name:'Pablo 起司夾心餅', price:'¥500–800', where:'國際通 / 百貨公司'},
+    {id:'nf13', name:'LeTAO 紅茶巧克力餅乾', price:'¥800–1,500', where:'唐吉訶德 / 百貨伴手禮區'},
+    {id:'nf14', name:'ハブカレー（蛇毒咖哩，含ハブ蛇萃取）', price:'¥600–1,000', where:'伴手禮店 / 唐吉訶德'},
+    {id:'nf15', name:'oHacorte 檸檬蛋糕', price:'¥400–600/個', where:'市區分店'},
+    {id:'nf16', name:'やんばる焙煎工房（山原烘焙工坊）咖啡', price:'¥800–1,500', where:'國際通周邊'},
+    {id:'nf17', name:'伊藤園 お～いお茶 緑茶ティーバッグ（綠茶茶包，20袋／50袋）', price:'¥300–600', where:'MaxValu 牧志店 / 唐吉訶德 / 藥妝店'},
+    {id:'nf18', name:'ピーラー（削皮器）', price:'¥300–800', where:'MaxValu 牧志店 / 唐吉訶德 廚房用品區', note:'info:ℹ️ 日本製削皮器做工精細，CP值高'},
+    {id:'nf19', name:'沖繩紀念磁鐵', price:'¥300–800', where:'國際通各伴手禮店 / 御菓子御殿', note:'info:ℹ️ 風獅爺、海景等沖繩主題款式'},
+    {id:'nf20', name:'三色地瓜薯塊（沖繩限定，紫薯/黃薯/白薯）', price:'¥300–600', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 沖繩限定黑糖調味，小包裝適合分送'},
+    {id:'nf21', name:'雪塩サイダー（雪鹽汽水）', price:'¥150–250/瓶', where:'各土産店 / 自動販賣機', note:'info:ℹ️ 大海藍色，沖繩限定清爽滋味'},
+    {id:'nf22', name:'ちんすこう（金楚糕）傳統款 / 高級款', price:'¥400–1,200', where:'御菓子御殿 / 各土産店', note:'info:ℹ️ 沖繩最傳統點心，多種口味可選'},
+    {id:'nf23', name:'わかめスナック（海帶芽零食）', price:'¥200–400', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 沖繩海洋風味少見零食'},
+    {id:'nf24', name:'Pocky 沖繩限定口味（紅芋 / 黑糖）', price:'¥300–500', where:'唐吉訶德 / 各土産店', note:'info:ℹ️ 台灣買不到的限定口味'},
+    {id:'nf25', name:'キレートレモン（Pokka 檸檬補充飲料）', price:'¥150–200/瓶', where:'MaxValu 牧志店 / 超市 / 便利商店', note:'info:ℹ️ 日本超市必買，補充維他命C'},
+    {id:'nf26', name:'塩麹（鹽麴調味料）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 日本料理萬用調味，台灣難買到好貨'},
+    {id:'nf27', name:'フリーズドライ即食味噌湯（多種口味）', price:'¥300–800/盒', where:'MaxValu 牧志店 / 超市 / 藥妝店', note:'info:ℹ️ 日本凍乾技術，口味豐富方便攜帶'},
+    {id:'nf28', name:'やちむん（沖繩陶器）杯碗', price:'¥800–3,000', where:'RYUBO 百貨地下 / 那霸市區工藝店', note:'info:ℹ️ 沖繩手工傳統陶器，RYUBO 品質最精選'},
+    {id:'nf29', name:'琉球ガラス（琉球玻璃）', price:'¥800–3,000', where:'那霸市區工藝店 / 平和通', note:'info:ℹ️ 色彩繽紛手工玻璃，沖繩特有工藝'},
+    {id:'nf30', name:'首里石鹼 SuiSavon 天然肥皂', price:'¥500–1,200', where:'那霸市區分店 / iias', note:'info:ℹ️ 沖繩在地品牌，植物成分無添加'},
+    {id:'nf31', name:'八島黒糖組合（8個離島各一種口味）', price:'¥800–1,500', where:'各土産店 / 國際通', note:'info:ℹ️ 一次品嚐8個離島黒糖風味差異，初訪沖繩首選'},
+    {id:'nf32', name:'鹽味白巧克力夾心（玉米片口感）', price:'¥500–800', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 鹹甜創新口感，近年快速竄紅'},
+    {id:'nf33', name:'Kabaya 細棒餅乾 沖繩限定（旨鹽/黑糖/紅芋）', price:'¥300–500', where:'唐吉訶德 / 各土産店', note:'info:ℹ️ 旨鹽款最熱賣，鹹甜滋味停不下來'},
+    {id:'nf34', name:'LAWSON 沖繩限定黒糖蛋糕捲', price:'¥200–350', where:'沖繩 LAWSON 超商', note:'info:ℹ️ 超商限定，黒糖香氣濃郁不甜膩，現買現吃'},
+    {id:'nf35', name:'LAWSON 紅芋糰子（紅芋あんもち）', price:'¥150–250', where:'沖繩 LAWSON 超商', note:'info:ℹ️ 沖繩限定超商甜點，現買現吃'},
+    {id:'nf36', name:'Blue Seal 冰淇淋限定口味零食包裝', price:'¥400–800', where:'各土産店', note:'info:ℹ️ 沖繩知名冰淇淋品牌限定周邊零食'},
+    {id:'nf37', name:'西表島黒糖（酸甜香特殊風味）', price:'¥400–800', where:'各土産店 / 國際通', note:'info:ℹ️ 西表島特有口感，不過甜，送禮雅緻'},
+    {id:'nf38', name:'泡盛辣椒漬・コーレーグース（泡盛辣椒醃漬調味料）', price:'¥400–700', where:'MaxValu 牧志店 / 各土産店', note:'info:ℹ️ 沖繩餐桌指標名物，拌麵沾壽司生魚片都對味'},
+    {id:'nf39', name:'さんぴん茶 946ml 大罐（沖繩茉莉花茶）', price:'¥150–250', where:'LAWSON / MaxValu 牧志店', note:'info:ℹ️ 沖繩特色大容量，946ml源自美軍時代加侖制'},
+    {id:'nf40', name:'合利他命 アリナミン（維他命B群保健品）', price:'¥800–1,500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本長年熱銷保健品，台灣版本成分不同'},
+    {id:'nf41', name:'龍角散（漢方止咳藥）顆粒款', price:'¥600–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 顆粒款台灣難買，直接含服效果快'},
+    {id:'nf42', name:'肌肉痠痛噴劑・フェイタスZα ジクサス（外用消炎止痛噴霧）', price:'¥800–1,200', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 酸痛貼布以外的好選擇，噴霧型方便使用'},
+    {id:'nf43', name:'シナールL（維他命C高劑量泡騰錠）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本限定高含量，旅行中補充最適合'},
+    {id:'nf44', name:'Biore 防曬乳（SPF50+ PA++++）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 台灣熱賣但日本更便宜，沖繩11月仍需防曬'},
+    {id:'nf45', name:'だし（鰹魚昆布高湯包）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 日本製品質遠勝台灣版，煮湯料理超香'},
+    {id:'nf46', name:'沖繩もずくスープ（水雲海藻即食湯包）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 沖繩產水雲，即食湯包，台灣難買'},
+    {id:'nf47', name:'Orion × Blue Seal 聯名 T 恤 / 配件', price:'¥1,500–3,500', where:'各土産店 / 國際通', note:'info:ℹ️ 兩大沖繩品牌聯名，設計比一般 Orion T 更好看'},
+    {id:'nf48', name:'亀田 柿の種 日本限定大袋（各種口味）', price:'¥300–600', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 日本超市必買，比台灣便宜且口味更多'},
+    {id:'nf49', name:'日清 カップヌードル 日本限定口味（シーフード豪華版等）', price:'¥200–300', where:'MaxValu 牧志店 / 便利商店', note:'info:ℹ️ 日本版口味和台灣完全不同，豪華海鮮款台灣買不到'},
+    {id:'nf50', name:'湖池屋 STRONG 洋芋片（鹽昆布 / 梅子，日本限定）', price:'¥180–250', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 台灣買不到的限定濃厚口味'},
+    {id:'nf51', name:'Meiji 明治 ガルボ 巧克力（日本大包裝）', price:'¥200–400', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 台灣只有小包，日本有超大分裝版'},
+    {id:'nf52', name:'ポテリコ（Calbee 小圓球薯片）', price:'¥150–250', where:'MaxValu 牧志店 / 便利商店', note:'info:ℹ️ 台灣沒有賣，口感特殊像小薯球'},
+    {id:'nf53', name:'沖繩黒糖タピオカ入りミルクティー（黑糖珍奶罐裝）', price:'¥150–200', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 超市罐裝版，沖繩在地口味'},
+    {id:'nf54', name:'Aunt Stella 詩特莉手工餅乾', price:'¥800–1,500', where:'RYUBO 百貨地下食品館', note:'info:ℹ️ 經過就能聞到香氣，建議現場試吃再買'},
+    {id:'nf88', name:'雪塩ふぃなん（宮古島雪鹽費南雪）', price:'¥1,000–1,900', where:'雪塩さんど 国際通り本店（RYUBO 百貨旁，県庁前站步行5分）', note:'info:ℹ️ 宮古島雪鹽+奶油手作費南雪，濕潤香濃，賞味期限90天，11:00–21:00 無休'},
+    {id:'nf89', name:'無印良品 FLOATUNE ボールペン（浮力感無摩擦書寫）', price:'¥390', where:'PARCO CITY 無印良品（需另外前往）', note:'info:ℹ️ 2026新品，書寫感如浮在紙上，SNS爆紅，台灣無販售'},
+    {id:'nf90', name:'コクヨ ハサミ パーフェクトバリア（フッ素加工不沾膠剪刀）', price:'¥400–700', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 氟素塗層，剪完膠帶零殘留，切口最乾淨'},
+    {id:'nf91', name:'コクヨ ハサミ エアロフィット（省力不沾膠剪刀）', price:'¥600–900', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 開合省力50%，長時間使用不疲勞，不沾黏加工'},
+    {id:'nf92', name:'3M スコッチ チタンコートハサミ（鈦合金不沾黏剪刀）', price:'¥800–1,200', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 鈦合金塗層耐用度最高，幾乎零殘留'},
+    {id:'nf93', name:'ZEBRA サラサクリップ 0.5mm（鋼珠原子筆）', price:'¥150–200/支', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣最夯款，日本版限定色最多'},
+    {id:'nf94', name:'ZEBRA サラサクリップ 0.3mm（超細鋼珠原子筆）', price:'¥150–200/支', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 台灣沒有0.3mm款，書寫更細緻'},
+    {id:'nf95', name:'uni ジェットストリーム Standard 0.5mm（超滑順原子筆）', price:'¥200–300', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 書寫滑順感日本第一，台灣有但日本便宜'},
+    {id:'nf96', name:'Pilot S20 自動鉛筆 0.3/0.5/0.7mm（金屬筆桿）', price:'¥1,500–2,000', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 老牌高質感金屬桿，耐用日本製'},
+    {id:'nf97', name:'Pilot S3 自動鉛筆（學生款入門，價格低品質穩）', price:'¥400–600', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 最實惠有品質的選擇，送禮也合適'},
+    {id:'nf98', name:'三菱 uni 鉛筆 HB/2B 日本製（12支裝）', price:'¥400–700', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣版是越南製，日本版是日本製，品質差很多'},
+    {id:'nf99', name:'トンボ MONO J 鉛筆（學生用，12支裝）', price:'¥300–500', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 高CP值，書寫流暢，日本製品質穩定'},
+    {id:'nf100', name:'トンボ MONO PE（橡皮擦，白色經典款，去渣最乾淨）', price:'¥100–200', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣有但日本便宜，屑最少最乾淨'},
+    {id:'nf101', name:'ヒノデワシ まとまるくん（去渣聚攏橡皮擦，彩色款）', price:'¥100–200', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 擦完屑會聚攏成一團不飛散，可愛彩色款適合送禮'},
+    {id:'nf102', name:'ソニック ミニベルト 携帯型削鉛筆機（雙刀可調尖度）', price:'¥600–900', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 手動攜帶型，可選「細尖」或「粗尖」兩種削法'},
+    {id:'nf103', name:'トンボ 鉛筆削り 携帯用（全金屬手動削鉛筆機）', price:'¥300–500', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 全金屬材質耐用幾十年，日本製'},
+    {id:'nf104', name:'ZEBRA マッキー 細字（日本製永久雙頭奇異筆）', price:'¥150–250', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣版是中國製，日本版是日本製，品質差很多'},
+    {id:'nf105', name:'沖繩限定 麻製エコバッグ（在地圖案麻布環保袋）', price:'¥300–800', where:'平和通り 各雜貨店', note:'info:ℹ️ 平和通在地感強，比國際通土産店設計更有味道'},
+    {id:'nf106', name:'シーサー 立体マグネット（立體陶土風獅爺磁鐵）', price:'¥400–800', where:'各土産店 / 平和通り', note:'info:ℹ️ 比一般平面磁鐵更有質感，陶土質地立體感強'},
+    {id:'nf107', name:'沖繩 地図マグネット（沖繩各島造型磁鐵）', price:'¥300–500', where:'各土産店 / 國際通 / 平和通り', note:'info:ℹ️ 那霸/石垣/宮古各島造型，可三島各買一個成套'},
+    {id:'nf55', name:'Daiso 真空壓縮收納袋（旅行版）', price:'¥100–300', where:'唐吉訶德找找看', note:'info:ℹ️ 日本大創品質遠勝台灣版，壓縮效果佳；唐吉訶德可能有類似款'},
+    {id:'nf56', name:'Daiso 快乾髮梳', price:'¥100–200', where:'唐吉訶德找找看', note:'info:ℹ️ 鏤空梳齒設計速乾，評價很高；唐吉訶德可能有類似款'},
+    {id:'nf57', name:'泡盛ボンボン（泡盛巧克力糖）', price:'¥400–800', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 含微量泡盛的巧克力糖，送大人伴手禮最合適'},
+    {id:'nf58', name:'ボンカレー（即食咖哩）沖繩限定版', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩限定包裝，和本島版口感略有不同'},
+    {id:'nf59', name:'UHA 味覺糖 CORORO（果汁軟糖）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 台灣瘋搶，超市版比藥妝店便宜'},
+    {id:'nf60', name:'Calbee Jagabee（薯條零食，超市版大包）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市'},
+    {id:'nf61', name:'森永 DARS 巧克力（台灣買不到的口味）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市'},
+    {id:'nf62', name:'明治 チョコレート効果 86%（高可可黑巧克力）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版品質和口感比台灣好'},
+    {id:'nf63', name:'ちんすこうチョコ（金楚糕巧克力覆蓋版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 比一般金楚糕多一層巧克力，不同風味'},
+    {id:'nf64', name:'サンコー沖繩ドーナツ（沖繩在地品牌甜甜圈袋裝）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩在地點心品牌，比一般甜甜圈更有嚼勁'},
+    {id:'nf65', name:'沖繩版 黒糖わらびもち（黑糖蕨餅）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 黑糖版蕨餅，Q彈口感帶沖繩黑糖香'},
+    {id:'nf66', name:'SANGARIA シークワーサーサイダー（石垣香檸汽水）', price:'¥150–200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 清爽香檸汽水，沖繩限定風味'},
+    {id:'nf67', name:'めぐりズム 首・肩蒸氣貼（肩頸熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 / 藥妝區', note:'info:ℹ️ 蒸氣加熱款，緩解肩頸疲勞，旅行後用最舒服'},
+    {id:'nf68', name:'宮古島産 唐辛子泡盛漬け「クース」（宮古島辣椒泡盛醃漬萬用調味料）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩版コーレーグース，宮古島出產，辣度與泡盛香氣更濃'},
+    {id:'nf69', name:'宮古島雪鹽（細緻礦物質豐富雪白細鹽）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 深層海水萃取，口感比一般鹽圓潤細緻，料理烘焙都適用'},
+    {id:'nf70', name:'沖繩産 ピパーチ味噌（島胡椒味噌醬）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 島胡椒入味噌醬，塗麵包/拌麵/沾蔬菜皆宜'},
+    {id:'nf71', name:'A&W ルートビア 缶（沖繩限定根汁汽水）', price:'¥150–200/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩才有賣的根汁汽水，台灣幾乎買不到，A&W 沖繩限定名物'},
+    {id:'nf72', name:'ORION 檸檬啤酒（沖繩果汁入，限定款）', price:'¥200–300/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩産檸檬果汁入，清爽限定款'},
+    {id:'nf73', name:'沖繩限定ポテトチップス 旨鹽口味（Calbee 沖繩鹽調味洋芋片）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩鹽調味 Calbee 限定版，跟一般款口感完全不同'},
+    {id:'nf74', name:'ウタマロ石鹼（魔法洗衣皂）', price:'¥200–350', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 日本主婦神器，去污力超強，台灣代購才有'},
+    {id:'nf75', name:'マジックリン（廚房油污清潔噴劑）', price:'¥200–400', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 日本版配方比台灣強，油污一噴即溶'},
+    {id:'nf76', name:'ムシペール（防蚊噴霧）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 沖繩11月仍有蚊，日本版效果比台灣好，出門前噴'},
+    {id:'nf77', name:'熱冷ピタ（退燒貼，兒童/大人均有）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 台灣售價約是日本兩倍，旅行急用備品'},
+    {id:'nf78', name:'パテックス（肌肉放鬆按摩膏）', price:'¥400–600', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 台灣難買到，走路一整天肌肉痠痛必備'},
+    {id:'nf79', name:'ウィダーインゼリー（威德果凍能量包）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 各口味大包超划算，體力不支時快速補充'},
+    {id:'nf80', name:'沖繩産 月桃茶（月桃葉草本茶）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩代表性植物茶，清香解膩，台灣難買到正宗款'},
+    {id:'nf81', name:'LION Clinica 牙膏（多效護齦，日本限定款）', price:'¥200–400', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 台灣沒賣同款，日本限定抗菌護齦配方'},
+    {id:'nf82', name:'花王 めぐりズム 足裏シート（足底溫熱舒緩貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 貼腳底促進循環，走路一整天後使用最舒服'},
+    {id:'nf83', name:'液体ムヒ アルファEX（止癢液加強版）', price:'¥400–600', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 比一般止癢軟膏快，清涼感更強，蚊蟲叮咬快速止癢'},
+    {id:'nf84', name:'ワイドハイター EXパワー（花王酸素系衣類漂白劑，去經血/血漬專用）', price:'¥400–700', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 經血/血液沾衣物首選，酸素系可用於色布，直塗患部再丟洗衣機即可，⚠️用冷水不用熱水'},
+    {id:'nf85', name:'ウタマロリキッド（魔法液態洗衣精，輕柔去血漬/經血）', price:'¥300–500', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 中性配方，比棒狀ウタマロ更適合精緻衣物，直接塗患部5分鐘後洗淨'},
+    {id:'nf58', name:"Jimmy's 餅乾 / 蛋糕（美式西點，沖繩老字號）", price:'¥300–800', where:"MaxValu 牧志店 / Jimmy's 市區門市", note:'info:ℹ️ 美軍統治時期創立，美式甜點風味濃郁，獨立包裝適合送禮'},
+    {id:'nf59', name:'油味噌（アンダンスー，沖繩家常調味料兼下飯配菜）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩家庭餐桌必備，拌飯拌麵超下飯，台灣買不到'},
+    {id:'nf60', name:'ボンカレー 沖繩限定版（即食咖哩）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩限定包裝，口味與本島版不同'},
+    {id:'nf61', name:'海葡萄（ウミブドウ）鹽漬真空包', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩特有珍貴海藻，口感像魚子，可直接吃或拌醬油'},
+    {id:'nf62', name:'シークワーサー果汁（石垣香檸原汁，無添加）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 維他命C含量高，可加水稀釋喝或做料理'},
+    {id:'nf63', name:'沖繩泡盛みりん（泡盛味醂，烹飪調味用）', price:'¥400–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 用泡盛製成的味醂，風味比一般味醂更有層次'},
+    {id:'nf64', name:'島ニンニク（沖繩島蒜頭）乾燥款', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩産蒜頭，香氣比一般蒜頭更濃烈，乾燥款好攜帶'},
+    {id:'nf65', name:'沖繩そばインスタント（袋麵，沖繩品牌版）', price:'¥150–250/包', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 在地品牌版，口味比日清版更正宗'},
+    {id:'nf66', name:'日本限定 どん兵衛（日清ドン兵衛，日本版口味與台灣差異大）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版高湯與台灣版完全不同，試過就回不去'},
+    {id:'nf67', name:'ORION 黒生ビール（黑生啤酒，超市限定尺寸）', price:'¥200–300/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市才有的黑生啤酒款，比一般 Orion 更濃郁'},
+    {id:'nf68', name:'UHA 味覺糖 CORORO（果汁軟糖，台灣瘋搶）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 果汁含量高，口感爆汁，台灣常缺貨'},
+    {id:'nf69', name:'Calbee Jagabee（薯條零食，超市版大包）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市版大包比便利商店划算，厚切口感紮實'},
+    {id:'nf70', name:'森永 DARS 巧克力（台灣買不到的口味）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 入口即溶，日本限定黑巧克力 / 抹茶 / 草莓等口味'},
+    {id:'nf71', name:'明治 チョコレート効果 86%（高可可黑巧克力）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 健康派必買，日本版比台灣便宜且新鮮'},
+    {id:'nf72', name:'ちんすこうチョコ（金楚糕巧克力覆蓋版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 傳統金楚糕外裹巧克力，送禮討喜'},
+    {id:'nf73', name:'沖繩版 黒糖わらびもち（黑糖蕨餅）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩黑糖版蕨餅，Q彈甜香，台灣較少見'},
+    {id:'nf74', name:'SANGARIA シークワーサーサイダー（石垣香檸汽水）', price:'¥150–200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 清爽香檸汽水，沖繩限定，台灣買不到'},
+    {id:'nf75', name:'めぐりズム 首・肩蒸氣貼（肩頸熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 同品牌蒸氣眼罩的肩頸版，旅行疲勞必備'},
+    {id:'nf76', name:'キュキュット 洗碗精（日本製，日本版品質更高）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版泡沫細緻去油力強，比台灣版便宜'},
+    {id:'nf77', name:'花王 Attack Zero（洗衣精，日本限定高濃縮版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 台灣沒有的高濃縮版，少量即可洗淨'},
+    {id:'nf78', name:'ムヒ 止癢液（蚊蟲叮咬止癢，日本版強效）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 日本版比台灣版止癢效果更快更強'},
+    {id:'nf79', name:'鮪魚罐頭 梅鹽番茄乾口味', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩獨創口味，梅鹽版酸溜帶鹹超上癮'},
+    {id:'nf80', name:'屋我地島の塩 Yagajiiio（高級島鹽）', price:'¥600–1,200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩最北端屋我地島手工海鹽，質感送禮首選'},
+    {id:'nf81', name:'シークワーサー ポン酢（香檸柚子醋）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩香檸版柚子醋，配生魚片超搭'},
+    {id:'nf82', name:'沖繩産 島みそ（沖繩在地味噌）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 與日本本島味噌風味完全不同，偏甜'},
+    {id:'nf83', name:'沖繩産 うこん（薑黃）粉末', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩人長壽秘訣，薑黃含量比一般高，可加入飲品或料理'},
+    {id:'nf84', name:'月桃茶（ゲットウ茶，袋裝茶包）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩代表植物月桃製成，草本清香，沖繩限定'},
+    {id:'nf85', name:'ハイビスカスティー（扶桑花茶，茶包裝）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市版比觀光店便宜，顏色漂亮，含維他命C'},
+    {id:'nf86', name:'うこん茶（薑黃茶，罐裝）', price:'¥150–200/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩超市定番飲料，台灣少見'},
+    {id:'nf87', name:'しまんちゅの恋人（Union超市限定雙層餅乾）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 雙層餅乾外裹巧克力，沖繩超市限定'},
+    {id:'nf88', name:'沖繩 塩トマト（鹽漬番茄乾，梅鹽口味）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 梅鹽版酸鹹超上癮，超市限定'},
+    {id:'nf89', name:'沖繩産 紅芋チップス（紅芋洋芋片，超市版大包）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市大包裝比土産店便宜'},
+    {id:'nf90', name:'ちっぱーちゃんの塩せんべい（沖繩鹽味仙貝）', price:'¥150–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市限定小包裝，鹹香酥脆'},
+    {id:'nf91', name:'うこん石鹼（薑黃皂，沖繩在地品牌）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 薑黃成分天然皂，沖繩長壽村居民愛用'},
+    {id:'nf92', name:'めぐりズム 腰用蒸氣貼（腰部熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 肩頸款的腰部版，提重物旅行後腰痠必備'},
+    {id:'nf93', name:'月桃配合ハンドソープ（月桃洗手乳）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩植萃月桃成分，超市版比精品店便宜'},
+  ],
+  'ne': [
+    {id:'ne1', name:'沖繩沙翁（揚げドーナツ）黒糖/紅芋/抹茶', price:'¥100–200/個', where:'平和通 / 牧志市場周邊（松原屋製菓等）', note:'warn:⚠️ 現炸現吃，無法帶回，建議在牧志市場周邊現場享用'},
+    {id:'ne2', name:'花生豆腐（ジーマミー豆腐）現做版', price:'¥200–400', where:'牧志市場周邊 / 平和通', note:'warn:⚠️ 現做Q彈版需現場食用，常溫包裝版可帶回'},
+    {id:'ne3', name:'ちんすこうアイス（金楚糕冰淇淋）', price:'¥300–500', where:'那霸市區冰淇淋店 / 各土産店附設', note:'warn:⚠️ 現場吃，冰淇淋夾金楚糕餅乾，那霸限定組合'},
+    {id:'ne4', name:'斑馬麵包（シマシマパン，花生奶油內餡）', price:'¥100–200', where:'MaxValu 牧志店 / 沖繩各超市', note:'warn:⚠️ 在地人日常麵包，建議現場買現場吃，份量十足'},
+    {id:'ne5', name:'好朋友麵包（なかよしパン，青蛙包裝可撕分享）', price:'¥100–200', where:'MaxValu 牧志店 / 沖繩各超市', note:'warn:⚠️ 可愛青蛙包裝，可撕開分享，現場吃最新鮮'},
+    {id:'ne6', name:'沖繩豬肉蛋飯糰（スパムむすび，超市版）', price:'¥150–250', where:'MaxValu 牧志店 熟食區', note:'warn:⚠️ 超市版比ポーたま更平價，現場吃最好'},
+  ],
+  'nd': [
+    {id:'nd1', name:'ピップエレキバン（磁力貼）130（12粒）', price:'¥800–1,000', where:'大國藥妝 / 札幌藥妝'},
+    {id:'nd2', name:'ピップエレキバン（磁力貼）MAX200 強效（12粒）', price:'¥980–1,200', where:'大國藥妝 / 札幌藥妝'},
+    {id:'nd3', name:'サロンパス（酸痛貼布）80枚大包', price:'¥600–900', where:'大國藥妝 / 札幌藥妮'},
+    {id:'nd4', name:'サロンパスEX（酸痛貼布，較強效）40枚', price:'¥800–1,100', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ インドメタシン 配合，比一般款更強'},
+    {id:'nd5', name:'バンテリンコーワ パップS（酸痛貼布大片）24枚', price:'¥900–1,200', where:'大國藥妝 / 札幌藥妝'},
+    {id:'nd7', name:'目藥（眼藥水，ロートV40 / サンテFX）', price:'¥400–800', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本限定款含量比台灣高，多種功效可選'},
+    {id:'nd8', name:'新ビオフェルミンS（益生菌整腸藥）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 台灣難買到日本版，整腸效果佳'},
+    {id:'nd9', name:'肌研 沖繩限定化妝水（苦瓜萃取）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 沖繩限定款，加入苦瓜精華保濕'},
+    {id:'nd10', name:'めぐりズム 蒸氣眼罩（薰衣草/洋甘菊/柚子）', price:'¥400–700/盒', where:'大國藥妝 / 札幌藥妝 / 唐吉訶德', note:'info:ℹ️ 飛機睡眠放鬆必備，台灣貴很多'},
+    {id:'nd11', name:'塩屋 調味鹽組合（60種口味）', price:'¥500–1,500', where:'那霸市區塩屋門店 / 各土産店', note:'info:ℹ️ 日本最大鹽專賣店，花系列/海藻系列等各種風味'},
+    {id:'nd12', name:'雪塩 シュガー（雪鹽夾心餅乾）', price:'¥600–1,000', where:'各土産店 / 御菓子御殿', note:'info:ℹ️ 雪鹽甜點系列，沖繩限定'},
+  ],
+  'nds': [
+    {id:'nds1', name:'携帯トイレ / 簡易トイレ袋（攜帶式廁所袋）', price:'¥500–1,200', where:'唐吉訶德 防災コーナー', note:'info:ℹ️ 找不到可詢問店員「防災グッズはどこですか？」'},
+    {id:'nds2', name:'ビニール手袋（拋棄式塑膠手套）大包裝', price:'¥200–400', where:'唐吉訶德 衛生用品區'},
+    {id:'nds3', name:'除菌ウェットティッシュ（抗菌消毒濕紙巾）', price:'¥200–400', where:'唐吉訶德 衛生用品區'},
+    {id:'nds4', name:'ドライシャンプーシート（乾洗髮濕巾）ヘア＆ボディ', price:'¥547–800', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 推薦無香料款，頭髮+全身兩用'},
+    {id:'nds5', name:'ドライシャンプースプレー（乾洗髮噴霧）', price:'¥968–1,200', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 冷感持續約 1 小時，日常出門也可用'},
+    {id:'nds6', name:'大判ボディシート（大片全身擦澡濕巾）', price:'¥300–600', where:'唐吉訶德 衛生用品區'},
+    {id:'nds7', name:'使い捨て下着（免洗內褲）', price:'¥300–600', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 選棉質款'},
+    {id:'nds8', name:'デオドラントシート（腋下防臭濕巾）', price:'¥300–500', where:'唐吉訶德 衛生用品區'},
+    {id:'nds9', name:'口腔ケアウェットシート / 歯磨きシート（免漱口潔牙濕巾）', price:'¥300–600', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 停水時刷牙替代品'},
+  ],
+  'if': [
+    {id:'if1', name:'ヒバーチ（島胡椒）', price:'¥300–600', where:'MaxValu / 伴手禮店', note:'info:ℹ️ 八重山限定稀有香料，全球少見'},
+    {id:'if2', name:'ゲンキクール（元氣乳酸菌飲料）', price:'¥100–150/罐', where:'MaxValu / サンエー（地元超市限定）', note:'warn:⚠️ 觀光店不賣，只有超市才有'},
+    {id:'if3', name:'石垣島地ビール（在地精釀啤酒）', price:'¥350–500/罐', where:'MaxValu / 唐吉訶德'},
+    {id:'if4', name:'金城製麺所 八重山そば（石垣麵）乾麺', price:'¥178/袋', where:'バスターミナル旁製麺所 / 各大超市', note:'info:ℹ️ 1972年創業，建議買乾麵方便帶回'},
+    {id:'if5', name:'島唐辛子調味料（島辣椒調味料）', price:'¥200–400', where:'MaxValu'},
+    {id:'if6', name:'ジーマミー豆腐キット（花生豆腐調理包）', price:'¥300–500', where:'MaxValu'},
+    {id:'if7', name:'ジューシーの素（沖繩炊飯調味料）', price:'¥200–400', where:'MaxValu'},
+    {id:'if8', name:'石垣島黒糖（黑糖，波照間島産 100% 純黒糖）', price:'¥300–800', where:'MaxValu / 各土産店', note:'info:ℹ️ 全日本最南端島嶼出產，風味濃郁'},
+    {id:'if9', name:'伊藤園 お～いお茶 緑茶ティーバッグ（綠茶茶包，20袋／50袋）', price:'¥300–600', where:'MaxValu 石垣店 / MaxValu 八重山店'},
+    {id:'if10', name:'石垣島産 月桃石鹸（月桃手工皂）', price:'¥500–1,000', where:'ユーグレナモール しましまストアー', note:'info:ℹ️ 石垣島産月桃，比那霸版更在地，限量手工製'},
+    {id:'if11', name:'石垣島ラー油（石垣在地辣油，辣度溫和款）', price:'¥400–700', where:'各土産店 / MaxValu', note:'info:ℹ️ 比邊銀食堂辣油溫和，適合不吃辣的人，石垣在地版'},
+    {id:'if12', name:'雪塩ふぃなん（宮古島雪鹽費南雪）', price:'¥1,000–1,900', where:'雪塩さんど 石垣島店（ユーグレナモール徒歩3分，市役所通り沿い）', note:'info:ℹ️ 宮古島雪鹽+奶油手作費南雪，11:00–21:00，火曜定休（11/11週三有開）'},
+  ],
+  'is': [
+    {id:'is1', name:'石垣の塩ラングドシャ（海鹽奶油夾心薄餅）', price:'¥800–1,200', where:'各土産店', note:'info:ℹ️ 包裝漂亮，適合送禮'},
+    {id:'is2', name:'德村菓子店 石垣限定 Royce 口味', price:'時價', where:'德村菓子店（09:00–19:00）', note:'info:ℹ️ 石垣限定，其他地方買不到'},
+  ],
+  'id': [
+    {id:'id1', name:'美らりん ハンドクリーム（護手霜）', price:'¥500–900', where:'大國藥妝 / 伴手禮店', note:'info:ℹ️ 多種香氣可選（月桃葉・木槿花・芒果等），沖繩限定'},
+    {id:'id2', name:'クチャパック（沖繩海泥深層清潔面膜）', price:'¥500–1,500', where:'大國藥妝 / 各土産店', note:'info:ℹ️ 沖繩限定海泥成分，話題性強'},
+  ],
+  'np': [
+    {id:'np1', name:'Uniqlo HEATTECH 發熱衣（基本款）', price:'¥1,290', where:'PARCO CITY Uniqlo（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜台日價差 50%+，退稅後約 NT$258'},
+    {id:'np2', name:'Uniqlo AIRism 棉質 T 恤（男/女）', price:'¥990', where:'PARCO CITY Uniqlo（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜退稅後約 NT$198，台灣賣 NT$590'},
+    {id:'np3', name:'Uniqlo UVカット 防曬外套', price:'¥2,990–4,990', where:'PARCO CITY Uniqlo（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜11月適用，款式最齊全'},
+    {id:'np4', name:'HOKA 跑鞋（Clifton / Bondi）', price:'¥17,600–22,000', where:'PARCO CITY ABC-MART GRAND STAGE（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜台日價差大，現場試穿再買'},
+  ],
+  'sp': [
+    {id:'sp1', name:'香水（免稅精品廊）', price:'依品牌', where:'8樓 精品廊', note:'info:ℹ️ 最後一日折扣最甜，建議壓尾日購買'},
+    {id:'sp2', name:'精品包（免稅精品廊）', price:'依品牌', where:'7–8樓 精品廊', note:'info:ℹ️ 旅程最後一日曾有 5 折優惠'},
+    {id:'sp3', name:'化妝品・保養品（免稅）', price:'依品牌', where:'8樓 精品廊'},
+    {id:'sp4', name:'珠寶飾品（免稅）', price:'依品牌', where:'8樓 精品廊'},
+  ],
+  'sm': [
+    {id:'sm1', name:'麗星郵輪獨家保溫杯', price:'—', where:'8樓 糖果屋／星空廊', note:'info:ℹ️ 最值得收藏的船上周邊'},
+    {id:'sm2', name:'探索星號紀念品（鑰匙圈・冰箱貼等）', price:'—', where:'7樓 紀念品商店'},
+    {id:'sm3', name:'糖果・巧克力・餅乾（船上限定包裝）', price:'—', where:'8樓 糖果屋'},
+    {id:'sm4', name:'藥品・日用品補充', price:'—', where:'7樓 紀念品商店B（中餐廳前）', note:'info:ℹ️ 岸上忘買的基本日用品可在此補'},
+  ],
+};
+
+const PAGE_CATS = {
+  naha: ['nf','ne','nd','nds','np'],
+  ishi: ['if','is','id'],
+  ship: ['sp','sm'],
+};
+
+// ── PERSISTENCE ──
+let state = { checked:{}, amounts:{}, hidden:{}, custom:{ naha:[], ishi:[], ship:[] }, wish:{ naha:[], ishi:[], ship:[] }, places:{ naha:[], ishi:[] } };
+function loadState(){
+  try {
+    const s = localStorage.getItem('ok24-v2');
+    if(s) state = JSON.parse(s);
+  } catch(e){}
+  // Always ensure all fields exist regardless of saved state
+  if(!state.checked) state.checked = {};
+  if(!state.amounts) state.amounts = {};
+  if(!state.hidden) state.hidden = {};
+  if(!state.custom) state.custom = {};
+  if(!state.custom.naha) state.custom.naha = [];
+  if(!state.custom.ishi) state.custom.ishi = [];
+  if(!state.custom.ship) state.custom.ship = [];
+  if(!state.wish) state.wish = {};
+  if(!state.wish.naha) state.wish.naha = [];
+  if(!state.wish.ishi) state.wish.ishi = [];
+  if(!state.wish.ship) state.wish.ship = [];
+  if(!state.places) state.places = {};
+  if(!state.places.naha) state.places.naha = [];
+  if(!state.places.ishi) state.places.ishi = [];
+}
+function saveState(){
+  try{ localStorage.setItem('ok24-v2', JSON.stringify(state)); }catch(e){}
+}
+loadState();
+
+let _pendingDelete = null;
+
+function hideItem(id, cat, isIshi){
+  // find item name
+  let name = id;
+  Object.values(DATA).forEach(arr => {
+    const found = arr.find(i => i.id === id);
+    if(found) name = found.name;
+  });
+  _pendingDelete = { id, cat, isIshi };
+  document.getElementById('modal-item-name').textContent = name;
+  document.getElementById('del-modal').style.display = 'flex';
+}
+
+function closeModal(){
+  document.getElementById('del-modal').style.display = 'none';
+  _pendingDelete = null;
+}
+
+function confirmDelete(){
+  if(!_pendingDelete) return;
+  const { id, cat, isIshi } = _pendingDelete;
+  state.hidden[id] = true;
+  state.checked[id] = false;
+  state.amounts[id] = 0;
+  saveState();
+  renderList(cat, isIshi);
+  updateProgress(isIshi ? 'ishi' : 'naha');
+  updateTotals();
+  closeModal();
+}
+
+// close modal on overlay click
+document.addEventListener('click', (e) => {
+  const modal = document.getElementById('del-modal');
+  if(e.target === modal) closeModal();
+});
+
+// ── RENDER LIST ──
+function renderList(cat, isIshi){
+  const items = DATA[cat];
+  const lst = document.getElementById('lst-'+cat);
+  const cnt = document.getElementById('cnt-'+cat);
+  if(!lst) return;
+  lst.innerHTML = '';
+  let done = 0, visible = 0;
+  items.forEach(item => {
+    if(state.hidden[item.id]) return;
+    visible++;
+    const ck = !!state.checked[item.id];
+    if(ck) done++;
+    const d = document.createElement('div');
+    d.className = 'item' + (ck ? ' checked' : '');
+
+    let noteHtml = '';
+    if(item.note){
+      const [type, ...rest] = item.note.split(':');
+      noteHtml = `<div class="item-note ${type}">${rest.join(':')}</div>`;
+    }
+
+    const amtVal = state.amounts[item.id] || '';
+    const amtHtml = ck ? `
+      <div class="amount-row" onclick="event.stopPropagation()">
+        <span class="amount-label">實際金額</span>
+        <span class="amount-yen">¥</span>
+        <input class="amount-input" type="number" min="0" placeholder="輸入金額"
+          value="${amtVal}"
+          oninput="setAmount('${item.id}', this.value)"
+          onclick="event.stopPropagation()">
+      </div>` : '';
+
+    d.innerHTML = `
+      <div class="checkbox"><span class="tick">✓</span></div>
+      <div class="item-content">
+        <div class="item-name">${item.name}</div>
+        <div class="item-price">${item.price}<span class="item-twd">${twdStr(item.price)}</span></div>
+        <div class="item-where">📍 ${item.where}</div>
+        ${noteHtml}
+        ${amtHtml}
+      </div>
+      <button class="item-del-btn" title="從清單移除" data-id="${item.id}">✕</button>`;
+
+    d.querySelector('.item-del-btn').onclick = function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      hideItem(item.id, cat, isIshi);
+    };
+
+    d.addEventListener('click', (e) => {
+      if(e.target.tagName === 'INPUT' || e.target.classList.contains('item-del-btn')) return;
+      state.checked[item.id] = !state.checked[item.id];
+      saveState();
+      renderList(cat, isIshi);
+      updateProgress(isIshi ? 'ishi' : 'naha');
+      updateTotals();
+    });
+    lst.appendChild(d);
+  });
+  if(cnt) cnt.textContent = `${done}/${visible} 已買`;
+  setTimeout(updateNavCounts, 0);
+}
+
+function setAmount(id, val){
+  state.amounts[id] = val ? parseInt(val) : 0;
+  saveState();
+  updateTotals();
+}
+
+// ── PROGRESS ──
+function updateProgress(page){
+  const cats = PAGE_CATS[page];
+  let tot=0, dn=0;
+  cats.forEach(c => { DATA[c].forEach(i => {
+    if(state.hidden[i.id]) return;
+    tot++;
+    if(state.checked[i.id]) dn++;
+  }); });
+  const pct = tot ? Math.round(dn/tot*100) : 0;
+  document.getElementById(`${page}-prog-txt`).textContent = `${dn} / ${tot}`;
+  document.getElementById(`${page}-prog-bar`).style.width = pct+'%';
+}
+
+// ── TOTALS ──
+function updateTotals(){
+  let nahaTotal = 0, ishiTotal = 0, shipTotal = 0;
+
+  PAGE_CATS.naha.forEach(c => DATA[c].forEach(i => {
+    if(state.checked[i.id] && state.amounts[i.id]) nahaTotal += state.amounts[i.id];
+  }));
+  PAGE_CATS.ishi.forEach(c => DATA[c].forEach(i => {
+    if(state.checked[i.id] && state.amounts[i.id]) ishiTotal += state.amounts[i.id];
+  }));
+  PAGE_CATS.ship.forEach(c => DATA[c].forEach(i => {
+    if(state.checked[i.id] && state.amounts[i.id]) shipTotal += state.amounts[i.id];
+  }));
+
+  (state.custom.naha||[]).forEach(ci => { if(ci.amount) nahaTotal += parseInt(ci.amount)||0; });
+  (state.custom.ishi||[]).forEach(ci => { if(ci.amount) ishiTotal += parseInt(ci.amount)||0; });
+  (state.custom.ship||[]).forEach(ci => { if(ci.amount) shipTotal += parseInt(ci.amount)||0; });
+
+  const grand = nahaTotal + ishiTotal + shipTotal;
+  document.getElementById('total-naha').textContent = nahaTotal > 0 ? `¥${nahaTotal.toLocaleString()}` : '¥0';
+  document.getElementById('total-ishi').textContent = ishiTotal > 0 ? `¥${ishiTotal.toLocaleString()}` : '¥0';
+  document.getElementById('total-ship').textContent = shipTotal > 0 ? `¥${shipTotal.toLocaleString()}` : '¥0';
+  document.getElementById('total-grand').textContent = grand > 0 ? `¥${grand.toLocaleString()}` : '¥0';
+  const nahaTWD = toTWD(nahaTotal), ishiTWD = toTWD(ishiTotal), shipTWD = toTWD(shipTotal), grandTWD = toTWD(grand);
+  document.getElementById('total-naha-twd').textContent = nahaTotal > 0 ? `≈ NT$${nahaTWD.toLocaleString()}` : '';
+  document.getElementById('total-ishi-twd').textContent = ishiTotal > 0 ? `≈ NT$${ishiTWD.toLocaleString()}` : '';
+  document.getElementById('total-ship-twd').textContent = shipTotal > 0 ? `≈ NT$${shipTWD.toLocaleString()}` : '';
+  document.getElementById('total-grand-twd').textContent = grand > 0 ? `≈ NT$${grandTWD.toLocaleString()}` : '';
+}
+
+// ── CUSTOM ITEMS ──
+let customIdCounter = Date.now();
+
+function addCustom(page){
+  const id = 'c'+(customIdCounter++);
+  state.custom[page].push({id, name:'', amount:0});
+  saveState();
+  renderCustom(page);
+}
+
+function removeCustom(page, id){
+  state.custom[page] = state.custom[page].filter(c => c.id !== id);
+  saveState();
+  renderCustom(page);
+  updateTotals();
+}
+
+function updateCustomName(page, id, val){
+  const item = state.custom[page].find(c => c.id === id);
+  if(item) item.name = val;
+  saveState();
+}
+
+function updateCustomAmt(page, id, val){
+  const item = state.custom[page].find(c => c.id === id);
+  if(item) item.amount = parseInt(val)||0;
+  saveState();
+  updateTotals();
+}
+
+function renderCustom(page){
+  const container = document.getElementById(`custom-${page}-rows`);
+  if(!container) return;
+  container.innerHTML = '';
+  (state.custom[page]||[]).forEach(ci => {
+    const row = document.createElement('div');
+    row.className = 'custom-item-row';
+    row.innerHTML = `
+      <input class="custom-name-input" type="text" placeholder="品名" value="${ci.name||''}"
+        oninput="updateCustomName('${page}','${ci.id}',this.value)">
+      <input class="custom-amount-input" type="number" min="0" placeholder="¥金額" value="${ci.amount||''}"
+        oninput="updateCustomAmt('${page}','${ci.id}',this.value)">
+      <button class="custom-del-btn" onclick="removeCustom('${page}','${ci.id}')">✕</button>`;
+    container.appendChild(row);
+  });
+}
+
+// ── WISHLIST ──
+let wishIdCounter = Date.now() + 1000000;
+
+function addWish(page){
+  const id = 'w'+(wishIdCounter++);
+  state.wish[page].push({id, name:'', note:''});
+  saveState();
+  renderWish(page);
+}
+
+function removeWish(page, id){
+  state.wish[page] = state.wish[page].filter(w => w.id !== id);
+  saveState();
+  renderWish(page);
+}
+
+function updateWishName(page, id, val){
+  const item = state.wish[page].find(w => w.id === id);
+  if(item) item.name = val;
+  saveState();
+}
+
+function updateWishNote(page, id, val){
+  const item = state.wish[page].find(w => w.id === id);
+  if(item) item.note = val;
+  saveState();
+}
+
+function renderWish(page){
+  const container = document.getElementById(`wish-${page}-rows`);
+  if(!container) return;
+  container.innerHTML = '';
+  (state.wish[page]||[]).forEach(wi => {
+    const row = document.createElement('div');
+    row.className = 'wish-item-row';
+    row.innerHTML = `
+      <input class="wish-name-input" type="text" placeholder="想買的東西" value="${wi.name||''}"
+        oninput="updateWishName('${page}','${wi.id}',this.value)">
+      <input class="wish-note-input" type="text" placeholder="備註（選填）" value="${wi.note||''}"
+        oninput="updateWishNote('${page}','${wi.id}',this.value)">
+      <button class="wish-del-btn" onclick="removeWish('${page}','${wi.id}')">✕</button>`;
+    container.appendChild(row);
+  });
+}
+
+// ── CLEAR ──
+function clearPage(page){
+  PAGE_CATS[page].forEach(c => DATA[c].forEach(i => {
+    state.checked[i.id] = false;
+    state.amounts[i.id] = 0;
+    state.hidden[i.id] = false;
+  }));
+  state.custom[page] = [];
+  state.wish[page] = [];
+  saveState();
+  init();
+}
+
+// ── CUSTOM PLACES ──
+let placeIdCounter = Date.now() + 2000000;
+
+function addPlace(page){
+  const id = 'pl'+(placeIdCounter++);
+  state.places[page].push({id, name:'', note:''});
+  saveState();
+  renderPlaces(page);
+}
+
+function removePlace(page, id){
+  state.places[page] = state.places[page].filter(p => p.id !== id);
+  saveState();
+  renderPlaces(page);
+}
+
+function updatePlaceName(page, id, val){
+  const item = state.places[page].find(p => p.id === id);
+  if(item) item.name = val;
+  saveState();
+}
+
+function updatePlaceNote(page, id, val){
+  const item = state.places[page].find(p => p.id === id);
+  if(item) item.note = val;
+  saveState();
+}
+
+function renderPlaces(page){
+  const container = document.getElementById(`places-${page}-rows`);
+  if(!container) return;
+  container.innerHTML = '';
+  (state.places[page]||[]).forEach(pi => {
+    const row = document.createElement('div');
+    row.className = 'place-item-row';
+    row.innerHTML = `
+      <input class="place-name-input" type="text" placeholder="地點名稱" value="${pi.name||''}"
+        oninput="updatePlaceName('${page}','${pi.id}',this.value)">
+      <input class="place-note-input" type="text" placeholder="備註（選填）" value="${pi.note||''}"
+        oninput="updatePlaceNote('${page}','${pi.id}',this.value)">
+      <button class="place-del-btn" onclick="removePlace('${page}','${pi.id}')">✕</button>`;
+    container.appendChild(row);
+  });
+}
+
+// ── SECTION TOGGLE ──
+function _toggleSection(key, forceOpen) {
+  toggleSection = _toggleSection;
+  const sec = document.getElementById('sec-' + key);
+  if (!sec) return;
+  if (forceOpen === true) {
+    sec.classList.remove('collapsed');
+  } else if (forceOpen === false) {
+    sec.classList.add('collapsed');
+  } else {
+    sec.classList.toggle('collapsed');
+  }
+  updateNavActive();
+}
+
+function _navTo(key, page) {
+  navTo = _navTo;
+  // switch to correct page tab first
+  const pageEl = document.getElementById('page-' + page);
+  if (pageEl && !pageEl.classList.contains('active')) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    pageEl.classList.add('active');
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    const tabMap = {naha:0, ishi:1, info:2, ship:3};
+    const tabs = document.querySelectorAll('.tab');
+    if (tabs[tabMap[page]]) tabs[tabMap[page]].classList.add('active');
+  }
+  // open section
+  toggleSection(key, true);
+  // scroll to section with offset for sticky header + cat-nav
+  setTimeout(() => {
+    const sec = document.getElementById('sec-' + key);
+    if (!sec) return;
+    const header = document.querySelector('header');
+    const catNav = document.querySelector('.cat-nav');
+    const headerH = header ? header.offsetHeight : 0;
+    const catNavH = catNav ? catNav.offsetHeight : 0;
+    const offset = headerH + catNavH + 8;
+    const top = sec.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }, 80);
+  updateNavActive(key);
+}
+
+function updateNavActive(activeKey) {
+  document.querySelectorAll('.cat-nav-btn').forEach(btn => btn.classList.remove('active'));
+  if (activeKey) {
+    const btn = document.querySelector(`.cat-nav-btn[onclick*="'${activeKey}'"]`);
+    if (btn) btn.classList.add('active');
+  }
+}
+
+function updateNavCounts() {
+  // Update count badges on nav buttons
+  const cats = ['nf','ne','nd','nds','np','if','is','id'];
+  cats.forEach(cat => {
+    const cnt = document.getElementById('cnt-' + cat);
+    const navCnt = document.getElementById('nav-cnt-' + cat);
+    if (cnt && navCnt) navCnt.textContent = cnt.textContent;
+  });
+}
+
+// ── OPTIONAL TOGGLE ──
+function toggleOpt(btn, id){
+  const detail = document.getElementById(id);
+  const isOpen = detail.classList.contains('show');
+  // close all in same section
+  btn.closest('.optional-section').querySelectorAll('.optional-detail').forEach(d => d.classList.remove('show'));
+  btn.closest('.optional-section').querySelectorAll('.optional-btn').forEach(b => b.classList.remove('active'));
+  if(!isOpen){
+    detail.classList.add('show');
+    btn.classList.add('active');
+  }
+}
+
+// ── INIT ──
+// Back to top visibility
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  if (window.scrollY > 200) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+}, { passive: true });
+
+function init(){
+  ['nf','ne','nd','nds','np'].forEach(c => renderList(c, false));
+  ['if','is','id'].forEach(c => renderList(c, true));
+  ['sp','sm'].forEach(c => renderList(c, false));
+  renderCustom('naha');
+  renderCustom('ishi');
+  renderCustom('ship');
+  renderWish('naha');
+  renderWish('ishi');
+  renderWish('ship');
+  renderPlaces('naha');
+  renderPlaces('ishi');
+  updateProgress('naha');
+  updateProgress('ishi');
+  updateProgress('ship');
+  updateTotals();
+  updateNavCounts();
+  // Default: collapse all sections on load
+  ['nf','ne','nd','nds','np','if','is','id'].forEach(k => toggleSection(k, true));
+
+}
+
+function switchTab(tab, btn){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-'+tab).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+init();
+
+</script>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="del-modal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-icon">🗑️</div>
+    <div class="modal-title">移除品項</div>
+    <div class="modal-msg">確定要從清單移除<br><span class="modal-name" id="modal-item-name"></span>？<br><small style="color:var(--text3)">（可用「重置」按鈕還原）</small></div>
+    <div class="modal-btns">
+      <button class="modal-btn modal-btn-cancel" onclick="closeModal()">取消</button>
+      <button class="modal-btn modal-btn-confirm" onclick="confirmDelete()">確定移除</button>
+    </div>
+  </div>
+</div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回頁首">↑</button>
+</body>
+</html>
