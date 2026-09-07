@@ -1033,6 +1033,90 @@ main {
   background: var(--sea-light);
   transform: translateY(-1px);
 }
+
+/* ── LANGUAGE PAGE ── */
+.phrase-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin: 24px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.phrase-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border2);
+}
+.phrase-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 10px;
+}
+.phrase-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border2);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.phrase-row:last-child { border-bottom: none; }
+.phrase-row:hover { background: var(--sand2); }
+.phrase-zh {
+  padding: 11px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  border-right: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+}
+.phrase-jp {
+  padding: 11px 14px;
+}
+.phrase-jp-text {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--sea);
+}
+.phrase-romaji {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 2px;
+  font-style: italic;
+}
+.phrase-copy-hint {
+  font-size: 11px;
+  color: var(--text3);
+  text-align: center;
+  padding: 8px;
+  background: var(--sand);
+  border-bottom: 1px solid var(--border2);
+}
+.phrase-copied {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(44,32,24,0.85);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 300;
+}
+.phrase-copied.show { opacity: 1; }
 </style>
 <script>
 function navTo(k,p){if(typeof _navTo==='function')_navTo(k,p);}
@@ -1063,6 +1147,9 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
       <button class="tab" onclick="switchTab('info', this)">
         <span class="tab-icon">📋</span>注意事項
       </button>
+      <button class="tab" onclick="switchTab('lang', this)">
+        <span class="tab-icon">💬</span>旅遊用語
+      </button>
     </div>
   </div>
 </header>
@@ -1081,7 +1168,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="port-hero-icon">⚓</div>
     <div class="port-hero-info">
       <div class="port-hero-name">那霸港</div>
-      <div class="port-hero-time">11月9日　14:00 抵達・23:00 起航｜可用時間約 15:00 – 22:00（7小時）</div>
+      <div class="port-hero-time">11月9日（週日）14:00 抵達・23:00 起航｜可用時間約 15:00 – 22:00（7小時）</div>
     </div>
   </div>
 
@@ -1104,10 +1191,10 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
       <div><div class="itin-name">波上宮 ＋ 波之上海灘</div><div class="itin-sub">11月不能游泳，拍照散步</div></div>
       <div class="itin-time">—</div>
     </div>
-    <div class="itin-arrow">↓ 步行約 10 分</div>
+    <div class="itin-arrow">↓ 步行約 25 分（往東方向，經過若狭大通り）</div>
     <div class="itin-row">
       <div class="itin-icon-wrap">🍱</div>
-      <div><div class="itin-name">ポーたま 牧志市場店</div><div class="itin-sub">07:00–20:00　排隊約 30–40 分</div></div>
+      <div><div class="itin-name">ポーたま 牧志市場店</div><div class="itin-sub">07:00–20:00　排隊約 30–40 分・那覇市松尾2-8-35</div></div>
       <div class="itin-time">¥390 起</div>
     </div>
     <div class="itin-arrow">↓ 步行約 5 分</div>
@@ -1124,6 +1211,12 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     </div>
     <div class="itin-arrow">↓ 步行約 5 分</div>
     <div class="itin-row">
+      <div class="itin-icon-wrap">🏪</div>
+      <div><div class="itin-name">わしたショップ 国際通り本店</div><div class="itin-sub">〒900-0015 久茂地3-2-22 JAドリーム館1F｜10:00–22:00 無休｜Royce 石垣島系列在此購買，行程最後段再來</div></div>
+      <div class="itin-time">—</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 5 分</div>
+    <div class="itin-row">
       <div class="itin-icon-wrap">🐟</div>
       <div><div class="itin-name">牧志公設市場周邊</div><div class="itin-sub">晚餐或飯後逛</div></div>
       <div class="itin-time">—</div>
@@ -1131,7 +1224,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="itin-arrow">↓ 步行約 3–5 分</div>
     <div class="itin-row">
       <div class="itin-icon-wrap">🛒</div>
-      <div><div class="itin-name">MaxValu 牧志店</div><div class="itin-sub">24H・可退稅　行程最後段購買重物</div></div>
+      <div><div class="itin-name">MaxValu 牧志店</div><div class="itin-sub">〒900-0013 那覇市牧志3-19-2｜24H・可退稅｜行程最後段購買重物</div></div>
       <div class="itin-time">—</div>
     </div>
     <div class="itin-arrow">↓ 步行 20 分 ／ 計程車約 7 分（¥800）</div>
@@ -1274,8 +1367,14 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="port-hero-icon">⚓</div>
     <div class="port-hero-info">
       <div class="port-hero-name">石垣島</div>
-      <div class="port-hero-time">11月10日　13:00 抵達・22:00 起航｜預留一小時下船，可用時間約 14:00–21:00（7小時）</div>
+      <div class="port-hero-time">11月10日（週一）13:00 抵達・22:00 起航｜可用時間約 14:00–21:00（7小時）</div>
     </div>
+  </div>
+  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);margin-bottom:12px;">
+    <div class="warn-block-title" style="color:#B08000;">⚠️ 11月10日是週一，注意店家公休</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>石垣島部分餐廳・小店<strong>週一公休</strong>，出發前確認想去的店有無開門</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>ユーグレナモール・MaxValu・大國藥妝 不受影響，正常營業</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>德村菓子店（09:00–19:00）需確認週一是否開門</span></div>
   </div>
 
 <div class="cat-nav-wrap"><div class="cat-nav"><div class="cat-nav-inner"><button class="cat-nav-btn" onclick="navTo('if','ishi')">🌿 在地食品<span class="cat-nav-count" id="nav-cnt-if"></span></button>
@@ -1286,7 +1385,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
   <div class="itinerary">
     <div class="itin-row">
       <div class="itin-icon-wrap">🚢</div>
-      <div><div class="itin-name">碼頭出發</div><div class="itin-sub">13:00 抵達，預留一小時下船，約 14:00 開始</div></div>
+      <div><div class="itin-name">碼頭出發</div><div class="itin-sub">13:00 抵達，預留一小時下船，約 14:00 開始｜⚠️ 下船後有接駁巴士 ¥200/人往市街地，或搭計程車約 10 分</div></div>
       <div class="itin-time">—</div>
     </div>
     <div class="itin-arrow">↓ 步行約 5–10 分</div>
@@ -1493,6 +1592,14 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>好消息：不再需要免稅封袋，一般品與消耗品區分廢除，購買上限 50 萬圓也廢除</span></div>
   </div>
 
+  <div class="warn-block" style="background:rgba(74,155,127,0.07);border-color:rgba(74,155,127,0.35);">
+    <div class="warn-block-title" style="color:#2E7A5F;">🪪 郵輪旅客退稅用「船舶観光上陸許可書」代替護照</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#2E7A5F;">▸</span><span>郵輪旅客護照被船公司收走後，下船時會拿到<strong>「船舶観光上陸許可書」</strong>（A4紙一張）</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#2E7A5F;">▸</span><span>此許可書記載氏名・國籍・旅券號碼・上陸期間，<strong>可直接取代護照用於免稅手續</strong>，店家不得拒絕</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#2E7A5F;">▸</span><span>購物時出示此許可書，告知要辦理免稅即可，流程與一般旅客相同</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#2E7A5F;">▸</span><span><strong>下船後務必妥善保管此許可書</strong>，整天購物都會用到，遺失無法補發</span></div>
+  </div>
+
   <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
     <div class="warn-block-title" style="color:#C04040;">🚢 郵輪旅客退稅：那霸港・石垣港流程「準備中」</div>
     <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>法規上「空海港」都適用，那霸港・石垣港理論上會設置 KIOSK 端末，但<strong>目前官方尚未公布具體流程</strong>（LIVE JAPAN 等多個來源確認仍「準備中」）</span></div>
@@ -1581,7 +1688,8 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="info-row"><span class="info-label">港口 ATM</span><span class="info-val">港口 ATM 未必能用台灣金融卡，現金在台灣先換好</span></div>
     <div class="info-row"><span class="info-label">Kumamon 卡</span><span class="info-val">8.5% 回饋有 NT$8,333/月上限，可能一天刷爆，超過後改刷 UBOT Jikaku</span></div>
     <div class="info-row"><span class="info-label">出發前</span><span class="info-val">兩卡開通海外交易、確認額度，出發前 1–2 週再確認下半年活動條款</span></div>
-    <div class="info-row"><span class="info-label">叫車 APP</span><span class="info-val">DiDi（ディディ）或 GO タクシー APP 在石垣島可用，出發前下載備用，郵輪日計程車稀少</span></div>
+    <div class="info-row"><span class="info-label">叫車 APP</span><span class="info-val">DiDi（ディディ）或 GO タクシー APP 在沖繩・石垣島都可用，出發前下載備用</span></div>
+    <div class="info-row"><span class="info-label">那霸計程車</span><span class="info-val">建議存電話備用：<br>東タクシー（那霸市，スカイブルー車體）<strong>098-868-3666</strong><br>三和交通グループ <strong>098-884-6614</strong></span></div>
     <div class="info-row"><span class="info-label">石垣計程車</span><span class="info-val">郵輪日計程車需求集中，建議存電話備用：<br>石垣島タクシー（24H）<strong>0980-82-4649</strong><br>石垣タクシー（貓標誌）<strong>0980-82-3088</strong><br>川良山交通（24H）<strong>0980-88-1777</strong></span></div>
   </div>
 
@@ -1589,7 +1697,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="info-card-head">🛍️ 購物實務</div>
     <div class="info-row"><span class="info-label">免稅封袋</span><span class="info-val">藥妝免稅品封膠帶後在日本境內不能拆，回船後到台灣入境前都還在日本境內，理論上到台灣才拆</span></div>
     <div class="info-row"><span class="info-label">免稅門檻</span><span class="info-val">同一店家同一天消費滿 ¥5,000（未稅）方可退稅，不同店家分開算</span></div>
-    <div class="info-row"><span class="info-label">唐吉訶德</span><span class="info-val">結帳排隊很久，國際通店尤其誇張，預留 30 分鐘</span></div>
+    <div class="info-row"><span class="info-label">唐吉訶德</span><span class="info-val">結帳排隊很久，國際通店尤其誇張，預留 30 分鐘｜1F 食品・零食，2F 藥妝・日用品・防災用品，詢問防災品「防災グッズはどこですか？」</span></div>
     <div class="info-row"><span class="info-label">購物袋</span><span class="info-val">日本塑膠袋要錢，隨身帶大購物袋</span></div>
     <div class="info-row"><span class="info-label">行李重量</span><span class="info-val">郵輪不秤行李，但要提回台灣。防災品體積大，考慮帶可折疊行李袋</span></div>
   </div>
@@ -1679,6 +1787,400 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
 
   <button class="clear-btn" onclick="clearPage('ship')">重置船上購物勾選</button>
 </div>
+
+<!-- ══════════════════ LANGUAGE ══════════════════ -->
+<div class="page" id="page-lang">
+  <div class="port-hero" style="background:linear-gradient(135deg,#F0EEF8 0%,#DDD8F4 100%);border-color:#A89ECC;">
+    <div class="port-hero-icon">🗣️</div>
+    <div class="port-hero-info">
+      <div class="port-hero-name" style="color:#5548A0;">日本旅遊用語</div>
+      <div class="port-hero-time">點擊任何一行即可複製日文，直接貼給店員</div>
+    </div>
+  </div>
+
+  <div class="phrase-copy-hint">💡 點一下任何句子即可複製日文，直接拿手機給店員看</div>
+
+  <div class="info-nav" style="margin-bottom:16px;">
+    <button class="info-nav-btn" onclick="scrollToId('lang-shop')">🛒 購物</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-tax')">🧾 免稅</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-check')">🔢 結帳確認</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-pay')">📱 電子支付</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-nav')">🗺️ 問路</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-food')">🍽️ 餐廳</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-drug')">🏪 藥妝</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-health')">🌡️ 身體</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-sos')">🆘 緊急</button>
+    <button class="info-nav-btn" onclick="scrollToId('lang-basic')">😊 基本</button>
+  </div>
+
+  <div class="phrase-section-title" id="lang-shop">🛒 購物・付款</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('これをください', this)">
+      <div class="phrase-zh">我要買這個</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これをください</div><div class="phrase-romaji">Kore o kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('いくらですか？', this)">
+      <div class="phrase-zh">多少錢？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">いくらですか？</div><div class="phrase-romaji">Ikura desu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('カードで払えますか？', this)">
+      <div class="phrase-zh">可以刷卡嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">カードで払えますか？</div><div class="phrase-romaji">Ka-do de haraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('現金で払います', this)">
+      <div class="phrase-zh">我付現金</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">現金で払います</div><div class="phrase-romaji">Genkin de haraimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('袋はいりません', this)">
+      <div class="phrase-zh">不需要袋子</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">袋はいりません</div><div class="phrase-romaji">Fukuro wa irimasen</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('領収書をください', this)">
+      <div class="phrase-zh">請給我收據</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">領収書をください</div><div class="phrase-romaji">Ryōshūsho o kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('試着してもいいですか？', this)">
+      <div class="phrase-zh">可以試穿嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">試着してもいいですか？</div><div class="phrase-romaji">Shichaku shite mo ii desu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('別のサイズはありますか？', this)">
+      <div class="phrase-zh">有其他尺寸嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">別のサイズはありますか？</div><div class="phrase-romaji">Betsu no saizu wa arimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('まとめ買いすると割引がありますか？', this)">
+      <div class="phrase-zh">買多有折扣嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">まとめ買いすると割引がありますか？</div><div class="phrase-romaji">Matomegai suru to waribiki ga arimasu ka?</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-tax">🧾 免稅・退稅</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('免税手続きをお願いします', this)">
+      <div class="phrase-zh">我要辦理免稅</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">免税手続きをお願いします</div><div class="phrase-romaji">Menzei tetsuzuki o onegaishimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('クルーズ船の乗客です。船舶観光上陸許可書があります', this)">
+      <div class="phrase-zh">我是郵輪旅客，有上陸許可書</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">クルーズ船の乗客です。船舶観光上陸許可書があります</div><div class="phrase-romaji">Ku-ru-zu sen no jōkyaku desu. Senpaku kankō jōriku kyokasho ga arimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('免税の対象になりますか？', this)">
+      <div class="phrase-zh">這個符合免稅資格嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">免税の対象になりますか？</div><div class="phrase-romaji">Menzei no taishō ni narimasu ka?</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-check">🧾 結帳確認・多算</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('明細を見せてもらえますか？', this)">
+      <div class="phrase-zh">可以讓我看明細嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">明細を見せてもらえますか？</div><div class="phrase-romaji">Meisai o misete moraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('この金額は合っていますか？', this)">
+      <div class="phrase-zh">這個金額正確嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">この金額は合っていますか？</div><div class="phrase-romaji">Kono kingaku wa atte imasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('これは頼んでいません', this)">
+      <div class="phrase-zh">這個我沒有點</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これは頼んでいません</div><div class="phrase-romaji">Kore wa tanonde imasen</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('多く請求されているようです', this)">
+      <div class="phrase-zh">這個好像被多算了</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">多く請求されているようです</div><div class="phrase-romaji">Ōku seikyū sarete iru yō desu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('お通しは断れますか？', this)">
+      <div class="phrase-zh">可以不要前菜（お通し）嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">お通しは断れますか？</div><div class="phrase-romaji">Otōshi wa kotowaremasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('追加料金はありますか？', this)">
+      <div class="phrase-zh">有額外費用嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">追加料金はありますか？</div><div class="phrase-romaji">Tsuika ryōkin wa arimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('これは買っていません', this)">
+      <div class="phrase-zh">我沒有買這個</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これは買っていません</div><div class="phrase-romaji">Kore wa katte imasen</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('合計が違うと思います', this)">
+      <div class="phrase-zh">我覺得總金額不對</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">合計が違うと思います</div><div class="phrase-romaji">Gōkei ga chigau to omoimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('返金してもらえますか？', this)">
+      <div class="phrase-zh">可以退款嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">返金してもらえますか？</div><div class="phrase-romaji">Henkin shite moraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('レシートを見せてください', this)">
+      <div class="phrase-zh">請讓我看收據</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">レシートを見せてください</div><div class="phrase-romaji">Reshīto o misete kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('キャンセルできますか？', this)">
+      <div class="phrase-zh">可以取消嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">キャンセルできますか？</div><div class="phrase-romaji">Kyanseru dekimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('これは注文していませんし、料金も払いたくありません', this)">
+      <div class="phrase-zh">這個我沒點，我不想付這筆費用</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これは注文していませんし、料金も払いたくありません</div><div class="phrase-romaji">Kore wa chūmon shite imasen shi, ryōkin mo haraitaku arimasen</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-pay">📱 電子支付</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('PayPayは使えますか？', this)">
+      <div class="phrase-zh">可以用 PayPay 嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">PayPayは使えますか？</div><div class="phrase-romaji">PayPay wa tsukaemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('電子マネーは使えますか？', this)">
+      <div class="phrase-zh">可以用電子支付嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">電子マネーは使えますか？</div><div class="phrase-romaji">Denshi manē wa tsukaemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('QRコードで払えますか？', this)">
+      <div class="phrase-zh">可以掃 QR Code 付款嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">QRコードで払えますか？</div><div class="phrase-romaji">Kyū-ā-ru kōdo de haraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('タッチ決済はできますか？', this)">
+      <div class="phrase-zh">可以感應付款嗎？（Apple Pay 等）</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">タッチ決済はできますか？</div><div class="phrase-romaji">Tatchi kessai wa dekimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('Suicaは使えますか？', this)">
+      <div class="phrase-zh">可以用 Suica 嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">Suicaは使えますか？</div><div class="phrase-romaji">Suica wa tsukaemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('どの支払い方法が使えますか？', this)">
+      <div class="phrase-zh">你們接受哪些付款方式？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">どの支払い方法が使えますか？</div><div class="phrase-romaji">Dono shiharai hōhō ga tsukaemasu ka?</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-nav">🗺️ 問路・交通</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('タクシーを呼んでもらえますか？', this)">
+      <div class="phrase-zh">可以幫我叫計程車嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">タクシーを呼んでもらえますか？</div><div class="phrase-romaji">Takushī o yonde moraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('港まで行ってください', this)">
+      <div class="phrase-zh">請帶我去碼頭</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">港まで行ってください</div><div class="phrase-romaji">Minato made itte kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('国際通りはどこですか？', this)">
+      <div class="phrase-zh">國際通在哪裡？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">国際通りはどこですか？</div><div class="phrase-romaji">Kokusai-dōri wa doko desu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('ここに連れて行ってください（地図を見せる）', this)">
+      <div class="phrase-zh">請帶我去這裡（出示地圖）</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ここに連れて行ってください</div><div class="phrase-romaji">Koko ni tsurete itte kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('近くにコンビニはありますか？', this)">
+      <div class="phrase-zh">附近有便利商店嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">近くにコンビニはありますか？</div><div class="phrase-romaji">Chikaku ni konbini wa arimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('トイレはどこですか？', this)">
+      <div class="phrase-zh">廁所在哪裡？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">トイレはどこですか？</div><div class="phrase-romaji">Toire wa doko desu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('スター・ナビゲーターの乗客です', this)">
+      <div class="phrase-zh">我是探索星號的乘客</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">スター・ナビゲーターの乗客です</div><div class="phrase-romaji">Sutā Nabigētā no jōkyaku desu</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-food">🍽️ 餐廳・飲食</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('一人です／二人です', this)">
+      <div class="phrase-zh">一位／兩位</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">一人です／二人です</div><div class="phrase-romaji">Hitori desu / Futari desu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('これをひとつください', this)">
+      <div class="phrase-zh">這個給我一個</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これをひとつください</div><div class="phrase-romaji">Kore o hitotsu kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('おすすめは何ですか？', this)">
+      <div class="phrase-zh">有什麼推薦的？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">おすすめは何ですか？</div><div class="phrase-romaji">Osusume wa nan desu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('お会計をお願いします', this)">
+      <div class="phrase-zh">結帳</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">お会計をお願いします</div><div class="phrase-romaji">Okaikei o onegaishimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('おいしいです！', this)">
+      <div class="phrase-zh">好好吃！</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">おいしいです！</div><div class="phrase-romaji">Oishii desu!</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('アレルギーがあります', this)">
+      <div class="phrase-zh">我有過敏</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">アレルギーがあります</div><div class="phrase-romaji">Are-ru-gī ga arimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('生ものは食べられません', this)">
+      <div class="phrase-zh">我不吃生食</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">生ものは食べられません</div><div class="phrase-romaji">Namamonono wa taberaremasen</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('お持ち帰りでお願いします', this)">
+      <div class="phrase-zh">我要外帶</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">お持ち帰りでお願いします</div><div class="phrase-romaji">Omochi kaeri de onegaishimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('辛さを控えめにしてもらえますか？', this)">
+      <div class="phrase-zh">可以不要太辣嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">辛さを控えめにしてもらえますか？</div><div class="phrase-romaji">Karasa o hikaeme ni shite moraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('追加注文してもいいですか？', this)">
+      <div class="phrase-zh">可以加點嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">追加注文してもいいですか？</div><div class="phrase-romaji">Tsuika chūmon shite mo ii desu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('残りを包んでもらえますか？', this)">
+      <div class="phrase-zh">可以幫我打包嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">残りを包んでもらえますか？</div><div class="phrase-romaji">Nokori o tsutsunde moraemasu ka?</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-drug">🏪 藥妝・尋找商品</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('防災グッズはどこですか？', this)">
+      <div class="phrase-zh">防災用品在哪裡？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">防災グッズはどこですか？</div><div class="phrase-romaji">Bōsai guzzu wa doko desu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('これの在庫はありますか？', this)">
+      <div class="phrase-zh">這個有庫存嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これの在庫はありますか？</div><div class="phrase-romaji">Kore no zaiko wa arimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('無添加の商品はありますか？', this)">
+      <div class="phrase-zh">有無添加的商品嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">無添加の商品はありますか？</div><div class="phrase-romaji">Mutenka no shōhin wa arimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('保存袋をもらえますか？（Royce等冷藏品用）', this)">
+      <div class="phrase-zh">可以給我保冷袋嗎？（Royce 等冷藏品）</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">保冷袋をもらえますか？</div><div class="phrase-romaji">Hōrei bukuro o moraemasu ka?</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-health">🌡️ 身體不適・醫療</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('具合が悪いです', this)">
+      <div class="phrase-zh">我身體不舒服</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">具合が悪いです</div><div class="phrase-romaji">Guai ga warui desu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('頭が痛いです', this)">
+      <div class="phrase-zh">我頭痛</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">頭が痛いです</div><div class="phrase-romaji">Atama ga itai desu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('お腹が痛いです', this)">
+      <div class="phrase-zh">我肚子痛</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">お腹が痛いです</div><div class="phrase-romaji">Onaka ga itai desu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('熱があります', this)">
+      <div class="phrase-zh">我發燒了</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">熱があります</div><div class="phrase-romaji">Netsu ga arimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('気持ち悪いです・吐き気がします', this)">
+      <div class="phrase-zh">我想吐／噁心</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">気持ち悪いです／吐き気がします</div><div class="phrase-romaji">Kimochi warui desu / Hakike ga shimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('めまいがします', this)">
+      <div class="phrase-zh">我頭暈</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">めまいがします</div><div class="phrase-romaji">Memai ga shimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('下痢をしています', this)">
+      <div class="phrase-zh">我拉肚子</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">下痢をしています</div><div class="phrase-romaji">Geri o shite imasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('ここが痛いです（患部を指さす）', this)">
+      <div class="phrase-zh">這裡痛（指著患部）</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ここが痛いです</div><div class="phrase-romaji">Koko ga itai desu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('少し休ませてもらえますか？', this)">
+      <div class="phrase-zh">可以讓我坐下休息一下嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">少し休ませてもらえますか？</div><div class="phrase-romaji">Sukoshi yasumasete moraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('近くに薬局はありますか？', this)">
+      <div class="phrase-zh">附近有藥局嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">近くに薬局はありますか？</div><div class="phrase-romaji">Chikaku ni yakkyoku wa arimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('近くに病院かクリニックはありますか？', this)">
+      <div class="phrase-zh">附近有醫院或診所嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">近くに病院かクリニックはありますか？</div><div class="phrase-romaji">Chikaku ni byōin ka kurinikku wa arimasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('この薬はどう飲めばいいですか？', this)">
+      <div class="phrase-zh">這個藥怎麼吃？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">この薬はどう飲めばいいですか？</div><div class="phrase-romaji">Kono kusuri wa dō nomeba ii desu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('胃薬をください', this)">
+      <div class="phrase-zh">請給我胃藥</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">胃薬をください</div><div class="phrase-romaji">Igusuri o kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('痛み止めをください', this)">
+      <div class="phrase-zh">請給我止痛藥</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">痛み止めをください</div><div class="phrase-romaji">Itamidome o kudasai</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-sos">🆘 緊急・求助</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('助けてください！', this)">
+      <div class="phrase-zh">救命！</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">助けてください！</div><div class="phrase-romaji">Tasukete kudasai!</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('救急車を呼んでください', this)">
+      <div class="phrase-zh">請叫救護車</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">救急車を呼んでください</div><div class="phrase-romaji">Kyūkyūsha o yonde kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('警察を呼んでください', this)">
+      <div class="phrase-zh">請叫警察</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">警察を呼んでください</div><div class="phrase-romaji">Keisatsu o yonde kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('財布をなくしました', this)">
+      <div class="phrase-zh">我遺失了錢包</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">財布をなくしました</div><div class="phrase-romaji">Saifu o nakushimashita</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('船に乗り遅れそうです、急いでください', this)">
+      <div class="phrase-zh">我快趕不上船了，請快一點</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">船に乗り遅れそうです、急いでください</div><div class="phrase-romaji">Fune ni nori okureso desu, isoide kudasai</div></div>
+    </div>
+  </div>
+
+  <div class="phrase-section-title" id="lang-basic">😊 基本禮貌用語</div>
+  <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('ありがとうございます', this)">
+      <div class="phrase-zh">謝謝</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ありがとうございます</div><div class="phrase-romaji">Arigatō gozaimasu</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('すみません', this)">
+      <div class="phrase-zh">不好意思／打擾了</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">すみません</div><div class="phrase-romaji">Sumimasen</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('わかりません', this)">
+      <div class="phrase-zh">我不懂</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">わかりません</div><div class="phrase-romaji">Wakarimasen</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('もう一度言ってもらえますか？', this)">
+      <div class="phrase-zh">可以再說一次嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">もう一度言ってもらえますか？</div><div class="phrase-romaji">Mō ichido itte moraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('ゆっくり話してください', this)">
+      <div class="phrase-zh">請說慢一點</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ゆっくり話してください</div><div class="phrase-romaji">Yukkuri hanashite kudasai</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('書いてもらえますか？', this)">
+      <div class="phrase-zh">可以寫下來嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">書いてもらえますか？</div><div class="phrase-romaji">Kaite moraemasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('中国語か英語が話せる方はいますか？', this)">
+      <div class="phrase-zh">有人會說中文或英文嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">中国語か英語が話せる方はいますか？</div><div class="phrase-romaji">Chūgokugo ka eigo ga hanaseru kata wa imasu ka?</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('私は台湾人です。中国人ではありません', this)">
+      <div class="phrase-zh">我是台灣人，不是中國人</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">私は台湾人です。中国人ではありません</div><div class="phrase-romaji">Watashi wa Taiwan-jin desu. Chūgoku-jin de wa arimasen</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('台湾から来ました', this)">
+      <div class="phrase-zh">我從台灣來的</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">台湾から来ました</div><div class="phrase-romaji">Taiwan kara kimashita</div></div>
+    </div>
+    <div class="phrase-row" onclick="copyPhrase('台湾語（繁体字）のメニューはありますか？', this)">
+      <div class="phrase-zh">有繁體中文菜單嗎？</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">繁体字のメニューはありますか？</div><div class="phrase-romaji">Hantaiji no menyū wa arimasu ka?</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 複製提示 toast -->
+<div class="phrase-copied" id="phrase-toast">已複製！</div>
 </main>
 
 <!-- TOTAL BAR -->
@@ -2363,6 +2865,29 @@ function toggleOpt(btn, id){
     detail.classList.add('show');
     btn.classList.add('active');
   }
+}
+
+// ── PHRASE COPY ──
+function copyPhrase(text, el){
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = document.getElementById('phrase-toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1500);
+    // flash the row
+    el.style.background = 'var(--sea-light)';
+    setTimeout(() => el.style.background = '', 600);
+  }).catch(() => {
+    // fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const toast = document.getElementById('phrase-toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1500);
+  });
 }
 
 // ── INIT ──
