@@ -1006,6 +1006,33 @@ main {
 .optional-detail.show {
   display: block;
 }
+
+/* ── INFO NAV ── */
+.info-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+.info-nav-btn {
+  padding: 7px 13px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--text2);
+  font-size: 12.5px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.info-nav-btn:hover {
+  border-color: var(--sea2);
+  color: var(--sea);
+  background: var(--sea-light);
+  transform: translateY(-1px);
+}
 </style>
 <script>
 function navTo(k,p){if(typeof _navTo==='function')_navTo(k,p);}
@@ -1383,8 +1410,16 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
 
 <!-- ══════════════════ INFO ══════════════════ -->
 <div class="page" id="page-info">
+  <div class="info-nav">
+    <button class="info-nav-btn" onclick="scrollToId('sec-warn')">⚠️ 重要注意</button>
+    <button class="info-nav-btn" onclick="scrollToId('sec-evac')">🆘 避難資訊</button>
+    <button class="info-nav-btn" onclick="scrollToId('sec-tax')">🧾 退稅說明</button>
+    <button class="info-nav-btn" onclick="scrollToId('sec-pay')">💳 支付建議</button>
+    <button class="info-nav-btn" onclick="scrollToId('sec-customs')">🛃 台灣海關</button>
+    <button class="info-nav-btn" onclick="scrollToId('sec-repurchase')">📦 回台補購</button>
+  </div>
 
-  <div class="section-title">⚠️ 重要注意事項</div>
+  <div class="section-title" id="sec-warn">⚠️ 重要注意事項</div>
 
   <div class="warn-block">
     <div class="warn-block-title">🌡️ Royce 巧克力系列</div>
@@ -1408,7 +1443,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="warn-li"><span class="warn-dot">▸</span><span>唐吉訶德防災品找不到，詢問店員「防災グッズはどこですか？」</span></div>
   </div>
 
-  <div class="section-title">🆘 海嘯・地震避難資訊</div>
+  <div class="section-title" id="sec-evac">🆘 海嘯・地震避難資訊</div>
 
   <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
     <div class="warn-block-title" style="color:#C04040;">⚠️ 海嘯避難原則</div>
@@ -1448,7 +1483,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="info-row"><span class="info-label">台灣駐日辦事處</span><span class="info-val">那霸分處 +81-98-862-7008</span></div>
   </div>
 
-  <div class="section-title">🧾 退稅說明</div>
+  <div class="section-title" id="sec-tax">🧾 退稅說明</div>
   <div class="warn-block" style="background:rgba(240,136,62,0.07);border-color:rgba(240,136,62,0.35);">
     <div class="warn-block-title" style="color:#C06010;">⚠️ 退稅制度重大變更：2026 年 11 月 1 日起適用新制</div>
     <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>你的行程（11/10–11）<strong>剛好在新制實施後</strong>，適用 Refund 退稅方式</span></div>
@@ -1488,7 +1523,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="info-row"><span class="info-label">わしたショップ</span><span class="info-val">支援退稅</span></div>
   </div>
 
-  <div class="section-title">💳 支付建議</div>
+  <div class="section-title" id="sec-pay">💳 支付建議</div>
   <div class="info-card">
     <div class="info-card-head">💳 信用卡・支付</div>
     <div class="info-row"><span class="info-label">E.SUN Kumamon</span><span class="info-val">大國藥妝・唐吉訶德指定店 8.5% 回饋，每月上限約 NT$8,333</span></div>
@@ -1497,7 +1532,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="info-row"><span class="info-label">出發前確認</span><span class="info-val">兩卡設定 PIN 碼並測試 Apple Pay；出發前 1–2 週確認 H2 活動條款</span></div>
   </div>
 
-  <div class="section-title">🛃 台灣海關注意事項</div>
+  <div class="section-title" id="sec-customs">🛃 台灣海關注意事項</div>
 
   <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
     <div class="warn-block-title" style="color:#C04040;">🐷 豬肉製品禁止入境（最貴的錯誤）</div>
@@ -1562,7 +1597,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="info-row"><span class="info-label">11/10–11</span><span class="info-val">週一、週二，日本無長假，國際通人潮比週末少，時間點很好</span></div>
   </div>
 
-  <div class="section-title">📦 回台灣後補購</div>
+  <div class="section-title" id="sec-repurchase">📦 回台灣後補購</div>
   <div class="info-card">
     <div class="info-card-head">🛒 網購清單</div>
     <div class="info-row"><span class="info-label">Uniqlo 南風原</span><span class="info-val">⚠️ 已於 2026/1/12 結束營業，請改去 PARCO CITY 店</span></div>
@@ -2303,6 +2338,15 @@ function updateNavCounts() {
     const navCnt = document.getElementById('nav-cnt-' + cat);
     if (cnt && navCnt) navCnt.textContent = cnt.textContent;
   });
+}
+
+// ── SCROLL WITH HEADER OFFSET ──
+function scrollToId(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const headerHeight = document.querySelector('header').offsetHeight;
+  const top = el.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+  window.scrollTo({ top, behavior: 'smooth' });
 }
 
 // ── OPTIONAL TOGGLE ──
