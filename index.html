@@ -1516,6 +1516,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <button class="info-nav-btn" onclick="scrollToId('sec-pay')">💳 支付建議</button>
     <button class="info-nav-btn" onclick="scrollToId('sec-customs')">🛃 台灣海關</button>
     <button class="info-nav-btn" onclick="scrollToId('sec-repurchase')">📦 回台補購</button>
+    <button class="info-nav-btn" onclick="scrollToId('sec-nsaids')" style="color:#C04040;border-color:#E08080;">🚫 NSAIDs禁買</button>
   </div>
 
   <div class="section-title" id="sec-warn">⚠️ 重要注意事項</div>
@@ -1694,10 +1695,34 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
   </div>
 
   <div class="info-card">
+  </div>
+
+  <div class="section-title" id="sec-nsaids">⚠️ 含NSAIDs藥品・避免購買</div>
+  <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
+    <div class="warn-block-title" style="color:#C04040;">🚫 以下貼布／噴劑含NSAIDs，請勿購買</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>サロンパスEX</strong>｜含 インドメタシン（Indomethacin）</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>バンテリンコーワ パップS</strong>｜含 フェルビナク（Felbinac）</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>フェイタスZα ジクサス</strong>｜含 ジクロフェナク（Diclofenac）</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>ボルタレン</strong>｜含 ジクロフェナク（Diclofenac）</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>痠痛替代選擇：<strong>サロンパス 80枚</strong>（サリチル酸メチル，不含NSAIDs）或 <strong>ピップエレキバン</strong>（磁力貼，純物理性）</span></div>
+  </div>
+
+  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
+    <div class="warn-block-title" style="color:#B08000;">⚠️ 其他需注意藥品・保健品</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>パブロン 鼻炎カプセルS</strong>｜含プソイドエフェドリン（擬交感神經藥），高血壓・心臟病患者需謹慎，不建議購買</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>ドリエル（睡眠輔助）</strong>｜含ジフェンヒドラミン（抗組織胺），與抗過敏藥成分重疊，同時服用有過量風險</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>葛根湯・含甘草漢方藥</strong>｜長期或大量使用可能導致低血鉀（假性醛固酮增多症），短期使用安全</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>ハブカレー（蛇毒咖哩）</strong>｜含ハブ蛇萃取，部分人對蛇毒蛋白質過敏，不清楚過敏史者建議跳過</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>コーレーグース（泡盛辣椒醃漬）</strong>｜含酒精（泡盛），酒精敏感或服用特定藥物期間需注意</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>ドライシャンプースプレー</strong>｜含丙烷/丁烷推進劑，密閉空間或靠近火源有危險，船艙使用需通風</span></div>
+  </div>
+
+  <div class="info-card">
     <div class="info-card-head">🛍️ 購物實務</div>
     <div class="info-row"><span class="info-label">免稅封袋</span><span class="info-val">藥妝免稅品封膠帶後在日本境內不能拆，回船後到台灣入境前都還在日本境內，理論上到台灣才拆</span></div>
     <div class="info-row"><span class="info-label">免稅門檻</span><span class="info-val">同一店家同一天消費滿 ¥5,000（未稅）方可退稅，不同店家分開算</span></div>
     <div class="info-row"><span class="info-label">唐吉訶德</span><span class="info-val">結帳排隊很久，國際通店尤其誇張，預留 30 分鐘｜1F 食品・零食，2F 藥妝・日用品・防災用品，詢問防災品「防災グッズはどこですか？」</span></div>
+
     <div class="info-row"><span class="info-label">購物袋</span><span class="info-val">日本塑膠袋要錢，隨身帶大購物袋</span></div>
     <div class="info-row"><span class="info-label">行李重量</span><span class="info-val">郵輪不秤行李，但要提回台灣。防災品體積大，考慮帶可折疊行李袋</span></div>
   </div>
@@ -2276,7 +2301,6 @@ const DATA = {
     {id:'nf39', name:'さんぴん茶 946ml 大罐（沖繩茉莉花茶）', price:'¥150–250', where:'LAWSON / MaxValu 牧志店', note:'info:ℹ️ 沖繩特色大容量，946ml源自美軍時代加侖制'},
     {id:'nf40', name:'合利他命 アリナミン（維他命B群保健品）', price:'¥800–1,500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本長年熱銷保健品，台灣版本成分不同'},
     {id:'nf41', name:'龍角散（漢方止咳藥）顆粒款', price:'¥600–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 顆粒款台灣難買，直接含服效果快'},
-    {id:'nf42', name:'肌肉痠痛噴劑・フェイタスZα ジクサス（外用消炎止痛噴霧）', price:'¥800–1,200', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 酸痛貼布以外的好選擇，噴霧型方便使用'},
     {id:'nf43', name:'シナールL（維他命C高劑量發泡錠）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本限定高含量，旅行中補充最適合'},
     {id:'nf44', name:'Biore 防曬乳（SPF50+ PA++++）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 台灣熱賣但日本更便宜，沖繩11月仍需防曬'},
     {id:'nf45', name:'だし（鰹魚昆布高湯包）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 日本製品質遠勝台灣版，煮湯料理超香'},
