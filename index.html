@@ -1172,11 +1172,13 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     </div>
   </div>
 
-<div class="cat-nav-wrap"><div class="cat-nav"><div class="cat-nav-inner"><button class="cat-nav-btn" onclick="navTo('nf','naha')">🍬 伴手禮・食品<span class="cat-nav-count" id="nav-cnt-nf"></span></button>
-<button class="cat-nav-btn" onclick="navTo('ne','naha')">🍡 現場小吃<span class="cat-nav-count" id="nav-cnt-ne"></span></button>
-<button class="cat-nav-btn" onclick="navTo('nd','naha')">💊 藥妝・醫療<span class="cat-nav-count" id="nav-cnt-nd"></span></button>
-<button class="cat-nav-btn" onclick="navTo('nds','naha')">🛒 唐吉訶德<span class="cat-nav-count" id="nav-cnt-nds"></span></button>
-<button class="cat-nav-btn" onclick="navTo('np','naha')">⏱️ PARCO CITY<span class="cat-nav-count" id="nav-cnt-np"></span></button>
+<div class="cat-nav-wrap"><div class="cat-nav"><div class="cat-nav-inner"><button class="cat-nav-btn" onclick="navTo('nc','naha')">🧴 衛生清潔<span class="cat-nav-count" id="nav-cnt-nc"></span></button>
+<button class="cat-nav-btn" onclick="navTo('ne','naha')">🍡 現場吃<span class="cat-nav-count" id="nav-cnt-ne"></span></button>
+<button class="cat-nav-btn" onclick="navTo('nd','naha')">💊 藥妝<span class="cat-nav-count" id="nav-cnt-nd"></span></button>
+<button class="cat-nav-btn" onclick="navTo('nk','naha')">🍜 回家煮<span class="cat-nav-count" id="nav-cnt-nk"></span></button>
+<button class="cat-nav-btn" onclick="navTo('nz','naha')">🍬 零食食品<span class="cat-nav-count" id="nav-cnt-nz"></span></button>
+<button class="cat-nav-btn" onclick="navTo('nds','naha')">🛡️ 防災<span class="cat-nav-count" id="nav-cnt-nds"></span></button>
+<button class="cat-nav-btn" onclick="navTo('no','naha')">📦 其他<span class="cat-nav-count" id="nav-cnt-no"></span></button>
 </div></div></div>
   <div class="section-title">行程動線</div>
   <div class="itinerary">
@@ -1241,19 +1243,20 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="progress-bar"><div class="progress-fill fill-naha" id="naha-prog-bar" style="width:0%"></div></div>
   </div>
 
-  <div class="cat-section" id="sec-nf">
-    <div class="cat-section-header" onclick="toggleSection('nf')">
-      <div class="cat-header" style="margin:0"><div class="cat-label">🍬 伴手禮・食品</div><div class="cat-count" id="cnt-nf"></div></div>
+    <!-- NAHA SECTIONS -->
+  <div class="cat-section" id="sec-nc">
+    <div class="cat-section-header" onclick="toggleSection('nc')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🧴 衛生清潔用品</div><div class="cat-count" id="cnt-nc"></div></div>
       <span class="cat-toggle">▼</span>
     </div>
     <div class="cat-section-body">
-      <div class="item-list" id="lst-nf" style="margin-top:8px"></div>
+      <div class="item-list" id="lst-nc" style="margin-top:8px"></div>
     </div>
   </div>
 
   <div class="cat-section" id="sec-ne">
     <div class="cat-section-header" onclick="toggleSection('ne')">
-      <div class="cat-header" style="margin:0"><div class="cat-label">🍡 現場小吃（無法帶回）</div><div class="cat-count" id="cnt-ne"></div></div>
+      <div class="cat-header" style="margin:0"><div class="cat-label">🍡 現場吃（無法帶回）</div><div class="cat-count" id="cnt-ne"></div></div>
       <span class="cat-toggle">▼</span>
     </div>
     <div class="cat-section-body">
@@ -1263,7 +1266,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
 
   <div class="cat-section" id="sec-nd">
     <div class="cat-section-header" onclick="toggleSection('nd')">
-      <div class="cat-header" style="margin:0"><div class="cat-label">💊 藥妝・醫療</div><div class="cat-count" id="cnt-nd"></div></div>
+      <div class="cat-header" style="margin:0"><div class="cat-label">💊 藥妝・醫療・保養</div><div class="cat-count" id="cnt-nd"></div></div>
       <span class="cat-toggle">▼</span>
     </div>
     <div class="cat-section-body">
@@ -1271,9 +1274,29 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     </div>
   </div>
 
+  <div class="cat-section" id="sec-nk">
+    <div class="cat-section-header" onclick="toggleSection('nk')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🍜 回家煮（調味料・乾麵）</div><div class="cat-count" id="cnt-nk"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-nk" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div class="cat-section" id="sec-nz">
+    <div class="cat-section-header" onclick="toggleSection('nz')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">🍬 零食・食品・飲料</div><div class="cat-count" id="cnt-nz"></div></div>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-section-body">
+      <div class="item-list" id="lst-nz" style="margin-top:8px"></div>
+    </div>
+  </div>
+
   <div class="cat-section" id="sec-nds">
     <div class="cat-section-header" onclick="toggleSection('nds')">
-      <div class="cat-header" style="margin:0"><div class="cat-label">🛒 唐吉訶德</div><div class="cat-count" id="cnt-nds"></div></div>
+      <div class="cat-header" style="margin:0"><div class="cat-label">🛡️ 唐吉訶德：防災用品</div><div class="cat-count" id="cnt-nds"></div></div>
       <span class="cat-toggle">▼</span>
     </div>
     <div class="cat-section-body">
@@ -1281,76 +1304,25 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     </div>
   </div>
 
-  <div class="cat-section" id="sec-np">
-    <div class="cat-section-header" onclick="toggleSection('np')">
-      <div class="cat-header" style="margin:0"><div class="cat-label" style="color:#5560C0;border-color:#9DA8E8;background:#EEF0FD">⏱️ PARCO CITY（需另外前往，計程車約 15–20 分）</div><div class="cat-count" id="cnt-np"></div></div>
+  <div class="cat-section" id="sec-no">
+    <div class="cat-section-header" onclick="toggleSection('no')">
+      <div class="cat-header" style="margin:0"><div class="cat-label">📦 其他（文具・雜貨・3C）</div><div class="cat-count" id="cnt-no"></div></div>
       <span class="cat-toggle">▼</span>
     </div>
     <div class="cat-section-body">
-      <div class="item-list" id="lst-np" style="margin-top:8px"></div>
+      <div class="item-list" id="lst-no" style="margin-top:8px"></div>
     </div>
   </div>
 
-
-
-  <div class="section-title">🍽️ 那霸餐廳選項</div>
-  <div class="optional-section" style="border-color:#D4B8F0;background:#FAF7FE;">
-    <div class="optional-section-title" style="color:#7060C0;">🍽️ 晚餐候選，擇一</div>
-    <div class="optional-spot" style="border-color:#D4B8F0;background:#F4F0FC;">
-      <div class="optional-spot-tag" style="background:#EDE8FC;color:#7060C0;">⭐ 牧志站步行2分・¥2,000–4,000・建議訂位</div>
-      <div class="optional-spot-name" style="color:#5048A0;">🥩 石垣牛とあぐーの専門店 八重山 YAIMA（石垣牛涮涮鍋/燒肉）</div>
-      <div class="optional-spot-note">沖繩限定石垣牛＋あぐー豚，個室座席，觀光區人氣店｜17:00–24:00｜建議提前在 Tabelog 或電話訂位，避免候位</div>
-    </div>
-    <div class="optional-spot" style="border-color:#D4B8F0;background:#F4F0FC;">
-      <div class="optional-spot-tag" style="background:#EDE8FC;color:#7060C0;">💨 不用排隊・¥500–1,000・09:00–22:30</div>
-      <div class="optional-spot-name" style="color:#5048A0;">🍔 A&W 漢堡 国際通り松尾店（沖繩限定速食）</div>
-      <div class="optional-spot-note">日本只有沖繩才有的漢堡連鎖，Root Beer 浮冰必點｜09:00–22:30・無休｜那覇市松尾1-1-1 2F・3F｜國際通起點，進門就看到</div>
-    </div>
-    <div class="optional-spot" style="border-color:#D4B8F0;background:#F4F0FC;">
-      <div class="optional-spot-tag" style="background:#EDE8FC;color:#7060C0;">⚠️ 暖暮拉麵 熱門時段排隊30–40分・¥800–1,200</div>
-      <div class="optional-spot-name" style="color:#5048A0;">🍜 暖暮拉麵 国際通牧志店（博多系豚骨拉麵）</div>
-      <div class="optional-spot-note">九州博多系豚骨，可客製濃度，09:00–02:00｜牧志站旁，行程動線上</div>
-    </div>
-  </div>
-
-  <div class="section-title">如果有時間</div>
-  <div class="optional-section">
-    <div class="optional-section-title">⏱️ 點選查看備用景點詳情</div>
-    <div class="optional-btns">
-      <button class="optional-btn" onclick="toggleOpt(this,'naha-opt-1')">🛒 PARCO CITY</button>
-      <button class="optional-btn" onclick="toggleOpt(this,'naha-opt-2')">🍰 Jimmy's</button>
-    </div>
-    <div class="optional-detail" id="naha-opt-1">
-      <div class="optional-spot">
-        <div class="optional-spot-tag">計程車 15–20 分・¥1,500–2,000</div>
-        <div class="optional-spot-name">🛒 PARCO CITY（サンエー浦添西海岸）</div>
-        <div class="optional-spot-note">沖繩最大級購物中心，HOKA・Uniqlo 旗艦店・ZARA・無印良品・東急ハンズ・ABC-MART GRAND STAGE 等 250 店｜建議逛 1.5–2 小時｜10:00–22:00</div>
-      </div>
-    </div>
-    <div class="optional-detail" id="naha-opt-2">
-      <div class="optional-spot">
-        <div class="optional-spot-tag">需另外前往・步行或計程車</div>
-        <div class="optional-spot-name">🍰 Jimmy's（ジミー，沖繩老字號美式西點店）</div>
-        <div class="optional-spot-note">創立於美軍統治時期，風格偏美式，濃郁奶油蛋糕・獨立包裝餅乾很適合分送｜10:00–20:00・沖繩全島約 18 間門市</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cat-header" style="margin-top:20px"><div class="cat-label" style="color:#4A8060;border-color:#C0D8C0;background:#F4FAF4">📍 自訂想去地點</div></div>
-  <div class="places-section">
-    <div class="places-section-title">📍 記下其他想順路去的地方</div>
-    <div id="places-naha-rows"></div>
-    <button class="add-place-btn" onclick="addPlace('naha')">＋ 新增地點</button>
-  </div>
-
-  <div class="cat-header" style="margin-top:24px"><div class="cat-label" style="color:var(--sea);border-color:#B8D4E8;background:#F0F7FC">🔖 想買清單（考慮中）</div></div>
+  <!-- NAHA custom/wish/places sections -->
+  <div class="cat-header" style="margin-top:20px"><div class="cat-label" style="color:var(--sea);border-color:#B8D4E8;background:#F0F7FC">🔖 那霸：想買清單（考慮中）</div></div>
   <div class="wish-section">
     <div class="wish-section-title">🔖 記下有興趣但還沒確定要買的東西</div>
     <div id="wish-naha-rows"></div>
     <button class="add-wish-btn" onclick="addWish('naha')">＋ 新增想買項目</button>
   </div>
 
-  <div class="cat-header" style="margin-top:24px"><div class="cat-label">✏️ 臨時加購（清單外）</div></div>
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label">✏️ 那霸：臨時加購（清單外）</div></div>
   <div class="custom-section" id="custom-naha">
     <div class="custom-section-title">✏️ 現場買了清單以外的東西？在這裡記下來</div>
     <div id="custom-naha-rows"></div>
@@ -1358,9 +1330,10 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
   </div>
 
   <button class="clear-btn" onclick="clearPage('naha')">重置那霸勾選</button>
+
 </div>
 
-<!-- ══════════════════ ISHIGAKI ══════════════════ -->
+<!-- ══════════════════ ISHI ══════════════════ -->
 <div class="page page-ishi" id="page-ishi">
 
   <div class="port-hero port-hero-ishi">
@@ -1370,17 +1343,14 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
       <div class="port-hero-time">11月10日（週一）13:00 抵達・22:00 起航｜可用時間約 14:00–21:00（7小時）</div>
     </div>
   </div>
-  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);margin-bottom:12px;">
+
+  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
     <div class="warn-block-title" style="color:#B08000;">⚠️ 11月10日是週一，注意店家公休</div>
     <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>石垣島部分餐廳・小店<strong>週一公休</strong>，出發前確認想去的店有無開門</span></div>
     <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>ユーグレナモール・MaxValu・大國藥妝 不受影響，正常營業</span></div>
     <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>德村菓子店（09:00–19:00）需確認週一是否開門</span></div>
   </div>
 
-<div class="cat-nav-wrap"><div class="cat-nav"><div class="cat-nav-inner"><button class="cat-nav-btn" onclick="navTo('if','ishi')">🌿 在地食品<span class="cat-nav-count" id="nav-cnt-if"></span></button>
-<button class="cat-nav-btn" onclick="navTo('is','ishi')">🍬 甜食・伴手禮<span class="cat-nav-count" id="nav-cnt-is"></span></button>
-<button class="cat-nav-btn" onclick="navTo('id','ishi')">🧴 藥妝・保養<span class="cat-nav-count" id="nav-cnt-id"></span></button>
-</div></div></div>
   <div class="section-title">行程動線</div>
   <div class="itinerary">
     <div class="itin-row">
@@ -1391,36 +1361,37 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <div class="itin-arrow">↓ 步行約 5–10 分</div>
     <div class="itin-row">
       <div class="itin-icon-wrap">🏪</div>
-      <div><div class="itin-name">ユーグレナモール</div><div class="itin-sub">日本最南端アーケード商店街・全長 265m｜100 店舗以上，土産店・公設市場・飲食店・しましまストアー（月桃ミスト）が集結。雨天も OK</div></div>
-      <div class="itin-time">約 30–60 分</div>
+      <div><div class="itin-name">ユーグレナモール（日本最南端商店街）</div><div class="itin-sub">約 100 店，30–60 分逛｜雪塩ふぃなん・月桃石鹸・土産店</div></div>
+      <div class="itin-time">—</div>
     </div>
-    <div class="itin-arrow">↓ 步行即達（碼頭旁）</div>
+    <div class="itin-arrow">↓ 步行即達</div>
     <div class="itin-row">
-      <div class="itin-icon-wrap">💊</div>
-      <div><div class="itin-name">大國藥妝</div><div class="itin-sub">中文服務・免費接駁</div></div>
+      <div class="itin-icon-wrap">🧴</div>
+      <div><div class="itin-name">大國藥妝（中文服務）</div><div class="itin-sub">ユーグレナモール旁，藥妝・美らりんハンドクリーム</div></div>
       <div class="itin-time">—</div>
     </div>
     <div class="itin-arrow">↓ 計程車約 5–7 分（¥500–700）</div>
     <div class="itin-row">
       <div class="itin-icon-wrap">🛒</div>
-      <div><div class="itin-name">MaxValu 石垣店（登野城）</div><div class="itin-sub">08:00–01:00　伴手禮豐富，超市限定品在這裡掃</div></div>
+      <div><div class="itin-name">MaxValu 石垣店（登野城）</div><div class="itin-sub">08:00–01:00｜伴手禮豐富，超市限定品在這裡掃｜〒907-0022 石垣市登野城 634</div></div>
       <div class="itin-time">—</div>
     </div>
-    <div class="itin-arrow">↓ 計程車約 8 分回碼頭（¥700–900）</div>
-    <div class="itin-row">
-      <div class="itin-icon-wrap">🚢</div>
-      <div><div class="itin-name">回碼頭</div><div class="itin-sub">22:00 起航，21:00 前須回船（預留緩衝）</div></div>
-      <div class="itin-time">—</div>
-    </div>
+    <div class="itin-arrow">↓ 計程車約 8 分回碼頭（¥700–900）・21:00 前須回船</div>
   </div>
+
+<div class="cat-nav-wrap"><div class="cat-nav page-ishi"><div class="cat-nav-inner">
+<button class="cat-nav-btn" onclick="navTo('if','ishi')">🌿 在地食品<span class="cat-nav-count" id="nav-cnt-if"></span></button>
+<button class="cat-nav-btn" onclick="navTo('is','ishi')">🍬 甜食・伴手禮<span class="cat-nav-count" id="nav-cnt-is"></span></button>
+<button class="cat-nav-btn" onclick="navTo('id','ishi')">🧴 藥妝・保養<span class="cat-nav-count" id="nav-cnt-id"></span></button>
+</div></div></div>
 
   <div class="section-title">購買進度</div>
   <div class="progress-wrap">
     <div class="progress-top"><span>石垣島全部品項</span><strong id="ishi-prog-txt">0 / 0</strong></div>
-    <div class="progress-bar"><div class="progress-fill fill-ishi" id="ishi-prog-bar" style="width:0%"></div></div>
+    <div class="progress-bar"><div class="progress-fill fill-ishi" id="ishi-prog-bar" style="width:0%;background:linear-gradient(90deg,var(--isle),#70C8A0)"></div></div>
   </div>
 
-  <div class="cat-section" id="sec-if">
+<div class="cat-section" id="sec-if">
     <div class="cat-section-header" onclick="toggleSection('if')">
       <div class="cat-header" style="margin:0"><div class="cat-label">🌿 在地食品・調味料</div><div class="cat-count" id="cnt-if"></div></div>
       <span class="cat-toggle">▼</span>
@@ -1516,7 +1487,7 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
     <button class="info-nav-btn" onclick="scrollToId('sec-pay')">💳 支付建議</button>
     <button class="info-nav-btn" onclick="scrollToId('sec-customs')">🛃 台灣海關</button>
     <button class="info-nav-btn" onclick="scrollToId('sec-repurchase')">📦 回台補購</button>
-    <button class="info-nav-btn" onclick="scrollToId('sec-nsaids')" style="color:#C04040;border-color:#E08080;">🚫 NSAIDs禁買</button>
+    <button class="info-nav-btn" onclick="scrollToId('sec-nsaids')" style="color:#B08000;border-color:#D4A800;">⚠️ NSAIDs注意</button>
   </div>
 
   <div class="section-title" id="sec-warn">⚠️ 重要注意事項</div>
@@ -1697,14 +1668,14 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
   <div class="info-card">
   </div>
 
-  <div class="section-title" id="sec-nsaids">⚠️ 含NSAIDs藥品・避免購買</div>
-  <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
-    <div class="warn-block-title" style="color:#C04040;">🚫 以下貼布／噴劑含NSAIDs，請勿購買</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>サロンパスEX</strong>｜含 インドメタシン（Indomethacin）</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>バンテリンコーワ パップS</strong>｜含 フェルビナク（Felbinac）</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>フェイタスZα ジクサス</strong>｜含 ジクロフェナク（Diclofenac）</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>ボルタレン</strong>｜含 ジクロフェナク（Diclofenac）</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>痠痛替代選擇：<strong>サロンパス 80枚</strong>（サリチル酸メチル，不含NSAIDs）或 <strong>ピップエレキバン</strong>（磁力貼，純物理性）</span></div>
+  <div class="section-title" id="sec-nsaids">⚠️ 含NSAIDs藥品・注意用量</div>
+  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
+    <div class="warn-block-title" style="color:#B08000;">⚠️ 以下貼布含NSAIDs，可購買但請勿每天大量連續使用</div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>サロンパスEX</strong>｜含 インドメタシン（Indomethacin）｜短期急性疼痛使用，勿連續超過7天</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>バンテリンコーワ パップS</strong>｜含 フェルビナク（Felbinac）｜同上，短期使用</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>フェイタスZα ジクサス（噴劑）</strong>｜含 ジクロフェナク（Diclofenac）｜強效，急性扭傷用，短期使用</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>ボルタレン</strong>｜含 ジクロフェナク（Diclofenac）</span></div>
+    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>⚠️ NSAIDs 長期大量使用可能導致胃潰瘍、腎功能損傷。日常保養建議優先用 <strong>サロンパス 80枚</strong>（不含NSAIDs）或磁力貼</span></div>
   </div>
 
   <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
@@ -2259,148 +2230,86 @@ function twdStr(priceStr){
 // custom = { naha: [{id,name,amount},...], ishi: [...] }
 
 const DATA = {
-  'nf': [
-    {id:'nf1', name:'Calbee 堅あげポテト（硬脆洋芋片）沖繩香檬口味', price:'¥300–500', where:'Calbee+ 國際通店 / 唐吉訶德'},
-    {id:'nf2', name:'Royce 石垣島鹽巧克力洋芋片', price:'¥800–1,200', where:'わしたショップ国際通り店（行程最後段）', note:'warn:⚠️ 需 25°C 以下保存，買完即返船'},
-    {id:'nf3', name:'Royce 石垣島鹽巧克力', price:'¥600–900', where:'わしたショップ国際通り店（行程最後段）', note:'warn:⚠️ 同上，需冷藏'},
-    {id:'nf4', name:'KitKat 沖繩限定紅芋口味', price:'¥400–700', where:'各伴手禮店 / 唐吉訶德'},
-    {id:'nf5', name:'Orion 啤酒（罐裝）', price:'¥200–300/罐', where:'超市 / 唐吉訶德'},
-    {id:'nf6', name:'35珊瑚咖啡 ＆ 扶桑花茶包', price:'¥800–1,500', where:'唐吉訶德 2F / 國際通'},
-    {id:'nf7', name:'Fukugiya 福木屋年輪蛋糕', price:'¥1,300–2,500', where:'國際通直營店（現場製作・有試吃）'},
-    {id:'nf8', name:'邊銀食堂辣油（一般/激辛/蒜油）', price:'¥700–900/瓶', where:'各伴手禮店 / 唐吉訶德'},
-    {id:'nf9', name:'沖繩風獅爺磁鐵', price:'¥300–800', where:'各伴手禮店 / 御菓子御殿'},
-    {id:'nf10', name:'全家便利商店泡盛咖啡', price:'¥200–300', where:'沖繩全家（限定）', note:'info:ℹ️ 沖繩限定，其他縣份買不到'},
-    {id:'nf11', name:'ORION 啤酒 T 恤', price:'¥2,000–3,500', where:'唐吉訶德 / 國際通服飾店'},
-    {id:'nf12', name:'Pablo 起司夾心餅', price:'¥500–800', where:'國際通 / 百貨公司'},
-    {id:'nf13', name:'LeTAO 紅茶巧克力餅乾', price:'¥800–1,500', where:'唐吉訶德 / 百貨伴手禮區'},
-    {id:'nf14', name:'ハブカレー（蛇毒咖哩，含ハブ蛇萃取）', price:'¥600–1,000', where:'伴手禮店 / 唐吉訶德'},
-    {id:'nf15', name:'oHacorte 檸檬蛋糕', price:'¥400–600/個', where:'市區分店'},
-    {id:'nf16', name:'やんばる焙煎工房（山原烘焙工坊）咖啡', price:'¥800–1,500', where:'國際通周邊'},
-    {id:'nf17', name:'伊藤園 お～いお茶 緑茶ティーバッグ（綠茶茶包，20袋／50袋）', price:'¥300–600', where:'MaxValu 牧志店 / 唐吉訶德 / 藥妝店'},
-    {id:'nf18', name:'ピーラー（削皮器）', price:'¥300–800', where:'MaxValu 牧志店 / 唐吉訶德 廚房用品區', note:'info:ℹ️ 日本製削皮器做工精細，CP值高'},
-    {id:'nf19', name:'沖繩紀念磁鐵', price:'¥300–800', where:'國際通各伴手禮店 / 御菓子御殿', note:'info:ℹ️ 風獅爺、海景等沖繩主題款式'},
-    {id:'nf20', name:'三色地瓜薯塊（沖繩限定，紫薯/黃薯/白薯）', price:'¥300–600', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 沖繩限定黑糖調味，小包裝適合分送'},
-    {id:'nf21', name:'雪塩サイダー（雪鹽汽水）', price:'¥150–250/瓶', where:'各土産店 / 自動販賣機', note:'info:ℹ️ 大海藍色，沖繩限定清爽滋味'},
-    {id:'nf22', name:'ちんすこう（金楚糕）傳統款 / 高級款', price:'¥400–1,200', where:'御菓子御殿 / 各土産店', note:'info:ℹ️ 沖繩最傳統點心，多種口味可選'},
-    {id:'nf23', name:'わかめスナック（海帶芽零食）', price:'¥200–400', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 沖繩海洋風味少見零食'},
-    {id:'nf24', name:'Pocky 沖繩限定口味（紅芋 / 黑糖）', price:'¥300–500', where:'唐吉訶德 / 各土産店', note:'info:ℹ️ 台灣買不到的限定口味'},
-    {id:'nf25', name:'キレートレモン（Pokka 檸檬補充飲料）', price:'¥150–200/瓶', where:'MaxValu 牧志店 / 超市 / 便利商店', note:'info:ℹ️ 日本超市必買，補充維他命C'},
-    {id:'nf26', name:'塩麹（鹽麴調味料）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 日本料理萬用調味，台灣難買到好貨'},
-    {id:'nf27', name:'フリーズドライ即食味噌湯（多種口味）', price:'¥300–800/盒', where:'MaxValu 牧志店 / 超市 / 藥妝店', note:'info:ℹ️ 日本凍乾技術，口味豐富方便攜帶'},
-    {id:'nf28', name:'やちむん（沖繩陶器）杯碗', price:'¥800–3,000', where:'RYUBO 百貨地下 / 那霸市區工藝店', note:'info:ℹ️ 沖繩手工傳統陶器，RYUBO 品質最精選'},
-    {id:'nf29', name:'琉球ガラス（琉球玻璃）', price:'¥800–3,000', where:'那霸市區工藝店 / 平和通', note:'info:ℹ️ 色彩繽紛手工玻璃，沖繩特有工藝'},
-    {id:'nf30', name:'首里石鹼 SuiSavon 天然肥皂', price:'¥500–1,200', where:'那霸市區分店 / iias', note:'info:ℹ️ 沖繩在地品牌，植物成分無添加'},
-    {id:'nf31', name:'八島黒糖組合（8個離島各一種口味）', price:'¥800–1,500', where:'各土産店 / 國際通', note:'info:ℹ️ 一次品嚐8個離島黒糖風味差異，初訪沖繩首選'},
-    {id:'nf32', name:'鹽味白巧克力夾心（玉米片口感）', price:'¥500–800', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 鹹甜創新口感，近年快速竄紅'},
-    {id:'nf33', name:'Kabaya 細棒餅乾 沖繩限定（旨鹽/黑糖/紅芋）', price:'¥300–500', where:'唐吉訶德 / 各土産店', note:'info:ℹ️ 旨鹽款最熱賣，鹹甜滋味停不下來'},
-    {id:'nf34', name:'LAWSON 沖繩限定黒糖蛋糕捲', price:'¥200–350', where:'沖繩 LAWSON 超商', note:'info:ℹ️ 超商限定，黒糖香氣濃郁不甜膩，現買現吃'},
-    {id:'nf35', name:'LAWSON 紅芋糰子（紅芋あんもち）', price:'¥150–250', where:'沖繩 LAWSON 超商', note:'info:ℹ️ 沖繩限定超商甜點，現買現吃'},
-    {id:'nf36', name:'Blue Seal 冰淇淋限定口味零食包裝', price:'¥400–800', where:'各土産店', note:'info:ℹ️ 沖繩知名冰淇淋品牌限定周邊零食'},
-    {id:'nf37', name:'西表島黒糖（酸甜香特殊風味）', price:'¥400–800', where:'各土産店 / 國際通', note:'info:ℹ️ 西表島特有口感，不過甜，送禮雅緻'},
-    {id:'nf38', name:'泡盛辣椒漬・コーレーグース（泡盛辣椒醃漬調味料）', price:'¥400–700', where:'MaxValu 牧志店 / 各土産店', note:'info:ℹ️ 沖繩餐桌指標名物，拌麵沾壽司生魚片都對味'},
-    {id:'nf39', name:'さんぴん茶 946ml 大罐（沖繩茉莉花茶）', price:'¥150–250', where:'LAWSON / MaxValu 牧志店', note:'info:ℹ️ 沖繩特色大容量，946ml源自美軍時代加侖制'},
-    {id:'nf40', name:'合利他命 アリナミン（維他命B群保健品）', price:'¥800–1,500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本長年熱銷保健品，台灣版本成分不同'},
-    {id:'nf41', name:'龍角散（漢方止咳藥）顆粒款', price:'¥600–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 顆粒款台灣難買，直接含服效果快'},
-    {id:'nf43', name:'シナールL（維他命C高劑量發泡錠）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本限定高含量，旅行中補充最適合'},
-    {id:'nf44', name:'Biore 防曬乳（SPF50+ PA++++）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 台灣熱賣但日本更便宜，沖繩11月仍需防曬'},
-    {id:'nf45', name:'だし（鰹魚昆布高湯包）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 日本製品質遠勝台灣版，煮湯料理超香'},
-    {id:'nf46', name:'沖繩もずくスープ（水雲海藻即食湯包）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 沖繩產水雲，即食湯包，台灣難買'},
-    {id:'nf47', name:'Orion × Blue Seal 聯名 T 恤 / 配件', price:'¥1,500–3,500', where:'各土産店 / 國際通', note:'info:ℹ️ 兩大沖繩品牌聯名，設計比一般 Orion T 更好看'},
-    {id:'nf48', name:'亀田 柿の種 日本限定大袋（各種口味）', price:'¥300–600', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 日本超市必買，比台灣便宜且口味更多'},
-    {id:'nf49', name:'日清 カップヌードル 日本限定口味（シーフード豪華版等）', price:'¥200–300', where:'MaxValu 牧志店 / 便利商店', note:'info:ℹ️ 日本版口味和台灣完全不同，豪華海鮮款台灣買不到'},
-    {id:'nf50', name:'湖池屋 STRONG 洋芋片（鹽昆布 / 梅子，日本限定）', price:'¥180–250', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 台灣買不到的限定濃厚口味'},
-    {id:'nf51', name:'Meiji 明治 ガルボ 巧克力（日本大包裝）', price:'¥200–400', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 台灣只有小包，日本有超大分裝版'},
-    {id:'nf52', name:'ポテリコ（Calbee 小圓球薯片）', price:'¥150–250', where:'MaxValu 牧志店 / 便利商店', note:'info:ℹ️ 台灣沒有賣，口感特殊像小薯球'},
-    {id:'nf53', name:'沖繩黒糖タピオカ入りミルクティー（黑糖珍奶罐裝）', price:'¥150–200', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 超市罐裝版，沖繩在地口味'},
-    {id:'nf54', name:'Aunt Stella 詩特莉手工餅乾', price:'¥800–1,500', where:'RYUBO 百貨地下食品館', note:'info:ℹ️ 經過就能聞到香氣，建議現場試吃再買'},
-    {id:'nf88', name:'雪塩ふぃなん（宮古島雪鹽費南雪）', price:'¥1,000–1,900', where:'雪塩さんど 国際通り本店（RYUBO 百貨旁，県庁前站步行5分）', note:'info:ℹ️ 宮古島雪鹽+奶油手作費南雪，濕潤香濃，賞味期限90天，11:00–21:00 無休'},
-    {id:'nf89', name:'無印良品 FLOATUNE ボールペン（浮力感無摩擦書寫）', price:'¥390', where:'PARCO CITY 無印良品（需另外前往）', note:'info:ℹ️ 2026新品，書寫感如浮在紙上，SNS爆紅，台灣無販售'},
-    {id:'nf90', name:'コクヨ ハサミ パーフェクトバリア（フッ素加工不沾膠剪刀）', price:'¥400–700', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 氟素塗層，剪完膠帶零殘留，切口最乾淨'},
-    {id:'nf91', name:'コクヨ ハサミ エアロフィット（省力不沾膠剪刀）', price:'¥600–900', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 開合省力50%，長時間使用不疲勞，不沾黏加工'},
-    {id:'nf92', name:'3M スコッチ チタンコートハサミ（鈦合金不沾黏剪刀）', price:'¥800–1,200', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 鈦合金塗層耐用度最高，幾乎零殘留'},
-    {id:'nf93', name:'ZEBRA サラサクリップ 0.5mm（鋼珠原子筆）', price:'¥150–200/支', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣最夯款，日本版限定色最多'},
-    {id:'nf94', name:'ZEBRA サラサクリップ 0.3mm（超細鋼珠原子筆）', price:'¥150–200/支', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 台灣沒有0.3mm款，書寫更細緻'},
-    {id:'nf95', name:'uni ジェットストリーム Standard 0.5mm（超滑順原子筆）', price:'¥200–300', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 書寫滑順感日本第一，台灣有但日本便宜'},
-    {id:'nf96', name:'Pilot S20 自動鉛筆 0.3/0.5/0.7mm（金屬筆桿）', price:'¥1,500–2,000', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 老牌高質感金屬桿，耐用日本製'},
-    {id:'nf97', name:'Pilot S3 自動鉛筆（學生款入門，價格低品質穩）', price:'¥400–600', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 最實惠有品質的選擇，送禮也合適'},
-    {id:'nf98', name:'三菱 uni 鉛筆 HB/2B 日本製（12支裝）', price:'¥400–700', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣版是越南製，日本版是日本製，品質差很多'},
-    {id:'nf99', name:'トンボ MONO J 鉛筆（學生用，12支裝）', price:'¥300–500', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 高CP值，書寫流暢，日本製品質穩定'},
-    {id:'nf100', name:'トンボ MONO PE（橡皮擦，白色經典款，去渣最乾淨）', price:'¥100–200', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣有但日本便宜，屑最少最乾淨'},
-    {id:'nf101', name:'ヒノデワシ まとまるくん（去渣聚攏橡皮擦，彩色款）', price:'¥100–200', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 擦完屑會聚攏成一團不飛散，可愛彩色款適合送禮'},
-    {id:'nf102', name:'ソニック ミニベルト 携帯型削鉛筆機（雙刀可調尖度）', price:'¥600–900', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 手動攜帶型，可選「細尖」或「粗尖」兩種削法'},
-    {id:'nf103', name:'トンボ 鉛筆削り 携帯用（全金屬手動削鉛筆機）', price:'¥300–500', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 全金屬材質耐用幾十年，日本製'},
-    {id:'nf104', name:'ZEBRA マッキー 細字（日本製永久雙頭奇異筆）', price:'¥150–250', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣版是中國製，日本版是日本製，品質差很多'},
-    {id:'nf105', name:'沖繩限定 麻製エコバッグ（在地圖案麻布環保袋）', price:'¥300–800', where:'平和通り 各雜貨店', note:'info:ℹ️ 平和通在地感強，比國際通土産店設計更有味道'},
-    {id:'nf106', name:'シーサー 立体マグネット（立體陶土風獅爺磁鐵）', price:'¥400–800', where:'各土産店 / 平和通り', note:'info:ℹ️ 比一般平面磁鐵更有質感，陶土質地立體感強'},
-    {id:'nf107', name:'沖繩 地図マグネット（沖繩各島造型磁鐵）', price:'¥300–500', where:'各土産店 / 國際通 / 平和通り', note:'info:ℹ️ 那霸/石垣/宮古各島造型，可三島各買一個成套'},
-    {id:'nf55', name:'Daiso 真空壓縮收納袋（旅行版）', price:'¥100–300', where:'唐吉訶德找找看', note:'info:ℹ️ 日本大創品質遠勝台灣版，壓縮效果佳；唐吉訶德可能有類似款'},
-    {id:'nf56', name:'Daiso 快乾髮梳', price:'¥100–200', where:'唐吉訶德找找看', note:'info:ℹ️ 鏤空梳齒設計速乾，評價很高；唐吉訶德可能有類似款'},
-    {id:'nf57', name:'泡盛ボンボン（泡盛巧克力糖）', price:'¥400–800', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 含微量泡盛的巧克力糖，送大人伴手禮最合適'},
-    {id:'nf58', name:'ボンカレー（即食咖哩）沖繩限定版', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩限定包裝，和本島版口感略有不同'},
-    {id:'nf59', name:'UHA 味覺糖 CORORO（果汁軟糖）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 台灣瘋搶，超市版比藥妝店便宜'},
-    {id:'nf60', name:'Calbee Jagabee（薯條零食，超市版大包）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市'},
-    {id:'nf61', name:'森永 DARS 巧克力（台灣買不到的口味）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市'},
-    {id:'nf62', name:'明治 チョコレート効果 86%（高可可黑巧克力）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版品質和口感比台灣好'},
-    {id:'nf63', name:'ちんすこうチョコ（金楚糕巧克力覆蓋版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 比一般金楚糕多一層巧克力，不同風味'},
-    {id:'nf64', name:'サンコー沖繩ドーナツ（沖繩在地品牌甜甜圈袋裝）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩在地點心品牌，比一般甜甜圈更有嚼勁'},
-    {id:'nf65', name:'沖繩版 黒糖わらびもち（黑糖蕨餅）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 黑糖版蕨餅，Q彈口感帶沖繩黑糖香'},
-    {id:'nf66', name:'SANGARIA シークワーサーサイダー（石垣香檸汽水）', price:'¥150–200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 清爽香檸汽水，沖繩限定風味'},
-    {id:'nf67', name:'めぐりズム 首・肩蒸氣貼（肩頸熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 / 藥妝區', note:'info:ℹ️ 蒸氣加熱款，緩解肩頸疲勞，旅行後用最舒服'},
-    {id:'nf68', name:'宮古島産 唐辛子泡盛漬け「クース」（宮古島辣椒泡盛醃漬萬用調味料）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩版コーレーグース，宮古島出產，辣度與泡盛香氣更濃'},
-    {id:'nf69', name:'宮古島雪鹽（細緻礦物質豐富雪白細鹽）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 深層海水萃取，口感比一般鹽圓潤細緻，料理烘焙都適用'},
-    {id:'nf70', name:'沖繩産 ピパーチ味噌（島胡椒味噌醬）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 島胡椒入味噌醬，塗麵包/拌麵/沾蔬菜皆宜'},
-    {id:'nf71', name:'A&W ルートビア 缶（沖繩限定根汁汽水）', price:'¥150–200/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩才有賣的根汁汽水，台灣幾乎買不到，A&W 沖繩限定名物'},
-    {id:'nf72', name:'ORION 檸檬啤酒（沖繩果汁入，限定款）', price:'¥200–300/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩産檸檬果汁入，清爽限定款'},
-    {id:'nf73', name:'沖繩限定ポテトチップス 旨鹽口味（Calbee 沖繩鹽調味洋芋片）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩鹽調味 Calbee 限定版，跟一般款口感完全不同'},
-    {id:'nf74', name:'ウタマロ石鹼（魔法洗衣皂）', price:'¥200–350', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 日本主婦神器，去污力超強，台灣代購才有'},
-    {id:'nf75', name:'マジックリン（廚房油污清潔噴劑）', price:'¥200–400', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 日本版配方比台灣強，油污一噴即溶'},
-    {id:'nf76', name:'ムシペール（防蚊噴霧）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 沖繩11月仍有蚊，日本版效果比台灣好，出門前噴'},
-    {id:'nf77', name:'熱冷ピタ（退燒貼，兒童/大人均有）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 台灣售價約是日本兩倍，旅行急用備品'},
-    {id:'nf78', name:'パテックス（肌肉放鬆按摩膏）', price:'¥400–600', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 台灣難買到，走路一整天肌肉痠痛必備'},
-    {id:'nf79', name:'ウィダーインゼリー（威德果凍能量包）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 各口味大包超划算，體力不支時快速補充'},
-    {id:'nf80', name:'沖繩産 月桃茶（月桃葉草本茶）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩代表性植物茶，清香解膩，台灣難買到正宗款'},
-    {id:'nf81', name:'LION Clinica 牙膏（多效護齦，日本限定款）', price:'¥200–400', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 台灣沒賣同款，日本限定抗菌護齦配方'},
-    {id:'nf82', name:'花王 めぐりズム 足裏シート（足底溫熱舒緩貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 貼腳底促進循環，走路一整天後使用最舒服'},
-    {id:'nf83', name:'液体ムヒ アルファEX（止癢液加強版）', price:'¥400–600', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 比一般止癢軟膏快，清涼感更強，蚊蟲叮咬快速止癢'},
-    {id:'nf84', name:'ワイドハイター EXパワー（花王酸素系衣類漂白劑，去經血/血漬專用）', price:'¥400–700', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 經血/血液沾衣物首選，酸素系可用於色布，直塗患部再丟洗衣機即可，⚠️用冷水不用熱水'},
-    {id:'nf85', name:'ウタマロリキッド（魔法液態洗衣精，輕柔去血漬/經血）', price:'¥300–500', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 中性配方，比棒狀ウタマロ更適合精緻衣物，直接塗患部5分鐘後洗淨'},
-    {id:'nf58', name:"Jimmy's 餅乾 / 蛋糕（美式西點，沖繩老字號）", price:'¥300–800', where:"MaxValu 牧志店 / Jimmy's 市區門市", note:'info:ℹ️ 美軍統治時期創立，美式甜點風味濃郁，獨立包裝適合送禮'},
-    {id:'nf59', name:'油味噌（アンダンスー，沖繩家常調味料兼下飯配菜）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩家庭餐桌必備，拌飯拌麵超下飯，台灣買不到'},
-    {id:'nf60', name:'ボンカレー 沖繩限定版（即食咖哩）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩限定包裝，口味與本島版不同'},
-    {id:'nf61', name:'海葡萄（ウミブドウ）鹽漬真空包', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩特有珍貴海藻，口感像魚子，可直接吃或拌醬油'},
-    {id:'nf62', name:'シークワーサー果汁（石垣香檸原汁，無添加）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 維他命C含量高，可加水稀釋喝或做料理'},
-    {id:'nf63', name:'沖繩泡盛みりん（泡盛味醂，烹飪調味用）', price:'¥400–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 用泡盛製成的味醂，風味比一般味醂更有層次'},
-    {id:'nf64', name:'島ニンニク（沖繩島蒜頭）乾燥款', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩産蒜頭，香氣比一般蒜頭更濃烈，乾燥款好攜帶'},
-    {id:'nf65', name:'沖繩そばインスタント（袋麵，沖繩品牌版）', price:'¥150–250/包', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 在地品牌版，口味比日清版更正宗'},
-    {id:'nf66', name:'日本限定 どん兵衛（日清ドン兵衛，日本版口味與台灣差異大）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版高湯與台灣版完全不同，試過就回不去'},
-    {id:'nf67', name:'ORION 黒生ビール（黑生啤酒，超市限定尺寸）', price:'¥200–300/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市才有的黑生啤酒款，比一般 Orion 更濃郁'},
-    {id:'nf68', name:'UHA 味覺糖 CORORO（果汁軟糖，台灣瘋搶）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 果汁含量高，口感爆汁，台灣常缺貨'},
-    {id:'nf69', name:'Calbee Jagabee（薯條零食，超市版大包）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市版大包比便利商店划算，厚切口感紮實'},
-    {id:'nf70', name:'森永 DARS 巧克力（台灣買不到的口味）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 入口即溶，日本限定黑巧克力 / 抹茶 / 草莓等口味'},
-    {id:'nf71', name:'明治 チョコレート効果 86%（高可可黑巧克力）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 健康派必買，日本版比台灣便宜且新鮮'},
-    {id:'nf72', name:'ちんすこうチョコ（金楚糕巧克力覆蓋版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 傳統金楚糕外裹巧克力，送禮討喜'},
-    {id:'nf73', name:'沖繩版 黒糖わらびもち（黑糖蕨餅）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩黑糖版蕨餅，Q彈甜香，台灣較少見'},
-    {id:'nf74', name:'SANGARIA シークワーサーサイダー（石垣香檸汽水）', price:'¥150–200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 清爽香檸汽水，沖繩限定，台灣買不到'},
-    {id:'nf75', name:'めぐりズム 首・肩蒸氣貼（肩頸熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 同品牌蒸氣眼罩的肩頸版，旅行疲勞必備'},
-    {id:'nf76', name:'キュキュット 洗碗精（日本製，日本版品質更高）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版泡沫細緻去油力強，比台灣版便宜'},
-    {id:'nf77', name:'花王 Attack Zero（洗衣精，日本限定高濃縮版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 台灣沒有的高濃縮版，少量即可洗淨'},
-    {id:'nf78', name:'ムヒ 止癢液（蚊蟲叮咬止癢，日本版強效）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 日本版比台灣版止癢效果更快更強'},
-    {id:'nf79', name:'鮪魚罐頭 梅鹽番茄乾口味', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩獨創口味，梅鹽版酸溜帶鹹超上癮'},
-    {id:'nf80', name:'屋我地島の塩 Yagajiiio（高級島鹽）', price:'¥600–1,200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩最北端屋我地島手工海鹽，質感送禮首選'},
-    {id:'nf81', name:'シークワーサー ポン酢（香檸柚子醋）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩香檸版柚子醋，配生魚片超搭'},
-    {id:'nf82', name:'沖繩産 島みそ（沖繩在地味噌）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 與日本本島味噌風味完全不同，偏甜'},
-    {id:'nf83', name:'沖繩産 うこん（薑黃）粉末', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩人長壽秘訣，薑黃含量比一般高，可加入飲品或料理'},
-    {id:'nf84', name:'月桃茶（ゲットウ茶，袋裝茶包）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩代表植物月桃製成，草本清香，沖繩限定'},
-    {id:'nf85', name:'ハイビスカスティー（扶桑花茶，茶包裝）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市版比觀光店便宜，顏色漂亮，含維他命C'},
-    {id:'nf86', name:'うこん茶（薑黃茶，罐裝）', price:'¥150–200/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩超市定番飲料，台灣少見'},
-    {id:'nf87', name:'しまんちゅの恋人（Union超市限定雙層餅乾）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 雙層餅乾外裹巧克力，沖繩超市限定'},
-    {id:'nf88', name:'沖繩 塩トマト（鹽漬番茄乾，梅鹽口味）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 梅鹽版酸鹹超上癮，超市限定'},
-    {id:'nf89', name:'沖繩産 紅芋チップス（紅芋洋芋片，超市版大包）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市大包裝比土産店便宜'},
-    {id:'nf90', name:'ちっぱーちゃんの塩せんべい（沖繩鹽味仙貝）', price:'¥150–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市限定小包裝，鹹香酥脆'},
-    {id:'nf91', name:'うこん石鹼（薑黃皂，沖繩在地品牌）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 薑黃成分天然皂，沖繩長壽村居民愛用'},
-    {id:'nf92', name:'めぐりズム 腰用蒸氣貼（腰部熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 肩頸款的腰部版，提重物旅行後腰痠必備'},
-    {id:'nf93', name:'月桃配合ハンドソープ（月桃洗手乳）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩植萃月桃成分，超市版比精品店便宜'},
-  ],
+  'nc': [
+    {id:'nc1', name:'首里石鹼 SuiSavon 天然肥皂', price:'¥500–1,200', where:'那霸市區分店 / iias', note:'info:ℹ️ 沖繩在地品牌，植物成分無添加'},
+    {id:'nc2', name:'茂木和哉 水垢洗剤（水垢清潔劑）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本SNS爆紅，消除浴室鏡子水垢奇效，台灣代購才有，酸性成分使用時戴手套'},
+    {id:'nc3', name:'デオナチュレ ソフトストーン（明礬天然止汗石）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 天然明礬制汗，無合成鋁鹽・防腐劑，最安全天然止汗選擇，台灣代購才有'},
+    {id:'nc4', name:'Ban 汗ブロック（制汗デオドラント）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 日本女性最愛制汗劑，多種劑型可選，台灣有但日本版更便宜'},
+    {id:'nc5', name:'貝印 鼻毛カッター（鼻毛修剪器）', price:'¥500–1,000', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 日本貝印品質保證，比台灣版便宜且耐用，刀頭圓形安全設計'},
+    {id:'nc6', name:'エレコム ケーブルホルダー 整線夾組', price:'¥300–600', where:'EDION 石垣（已排進石垣行程）', note:'info:ℹ️ 矽膠整線夾，台日價差，日本款設計感更好'},
+    {id:'nc7', name:'ウタマロ石鹼（魔法洗衣皂）', price:'¥200–350', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 日本主婦神器，去污力超強，台灣代購才有'},
+    {id:'nc8', name:'マジックリン（廚房油污清潔噴劑）', price:'¥200–400', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 日本版配方比台灣強，油污一噴即溶'},
+    {id:'nc9', name:'ワイドハイター EXパワー（花王酸素系衣類漂白劑，去經血/血漬專用）', price:'¥400–700', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 經血/血液沾衣物首選，酸素系可用於色布，直塗患部再丟洗衣機即可，⚠️用冷水不用熱水'},
+    {id:'nc10', name:'ウタマロリキッド（魔法液態洗衣精，輕柔去血漬/經血）', price:'¥300–500', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 中性配方，比棒狀ウタマロ更適合精緻衣物，直接塗患部5分鐘後洗淨'},
+    {id:'nc11', name:'キュキュット 洗碗精（日本製，日本版品質更高）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版泡沫細緻去油力強，比台灣版便宜'},
+    {id:'nc12', name:'花王 Attack Zero（洗衣精，日本限定高濃縮版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 台灣沒有的高濃縮版，少量即可洗淨'},
+    {id:'nc13', name:'うこん石鹼（薑黃皂，沖繩在地品牌）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 薑黃成分天然皂，沖繩長壽村居民愛用'},
+    {id:'nc14', name:'月桃配合ハンドソープ（月桃洗手乳）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩植萃月桃成分，超市版比精品店便宜'},
+    {id:'nc15', name:'システマ センシティブ（知覚過敏用牙膏）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 知覺過敏專用，硝酸カリウム+乳酸アルミニウム雙效，溫和不刺激'},
+    {id:'nc16', name:'ピュオーラ 泡状ハミガキ（泡沫牙膏）', price:'¥300–600', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 泡沫型方便旅行攜帶，CPC殺菌配方，清爽感佳'},
+    {id:'nc17', name:'シャボン玉石けんハミガキ（無添加牙膏）', price:'¥400–600', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 無合成界面活性劑・無フッ素・無防腐劑，成分最純粹安全，敏感肌適用'},
+    {id:'nc18', name:'GUM 歯周プロケア ペースト（牙周病預防牙膏）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ βグリチルリチン酸抗炎+CPC殺菌，牙周病預防，長期使用安全'},
+    {id:'nc19', name:'アパガード リナメル（再石灰化牙膏）', price:'¥800–1,200', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ ナノヒドロキシアパタイト修復琺瑯質，成分最接近牙齒組織，安全性極高'},
+    {id:'nc20', name:'キュレル 潤浸保湿 泡洗顔料（敏感肌洗面乳）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ セラミド機能成分，無香料無著色，醫藥部外品，敏感肌首選，不含皂基'},
+    {id:'nc21', name:'ビオレ さら肌さらさら洗顔料（控油洗面乳）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 氨基酸系界面活性劑，溫和不刺激，日本銷售冠軍'},
+    {id:'nc22', name:'MINON 豆乳イソフラボン 泡洗顔（敏感熟齡洗面乳）', price:'¥700–1,200', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 無酒精無香料，大豆異黃酮保濕，敏感肌熟齡肌適用'},
+    {id:'nc23', name:'肌研 極潤 ヒアルロン洗顔フォーム（玻尿酸洗面乳）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 3種玻尿酸配方，洗後不緊繃，無香料，成分安全'},
+    {id:'nc24', name:'石澤研究所 毛穴撫子 お米の洗顔泡（米糠洗面乳）', price:'¥500–800', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 米糠萃取毛孔收縮，氨基酸溫和清潔，無矽靈無礦物油'},
+    {id:'nc25', name:'ちふれ 洗顔フォームN（低刺激洗面乳）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 弱酸性無香料無著色，皮膚科認可，孕婦也可用，平價首選'},
+    {id:'nc26', name:'キレイキレイ 薬用泡ハンドソープ（殺菌型洗手乳）', price:'¥300–600', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 不含Triclosan，殺菌成分安全，日常使用無虞'},
+    {id:'nc27', name:'ビオレu 泡ハンドソープ（保濕型洗手乳）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 弱酸性保濕配方，小孩也可用，無酒精無刺激'},
+    {id:'nc28', name:'牛乳石鹼 カウブランド 無添加ボディソープ（沐浴乳）', price:'¥400–700', where:'大國藥妝 / MaxValu', note:'info:ℹ️ 弱酸性無香料無著色，成分極簡，長期使用安全，敏感肌OK'},
+    {id:'nc29', name:'シャボン玉石けん ボディソープ（無添加沐浴乳）', price:'¥500–800', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 成分最純粹，無防腐劑無合成香料，嬰兒也可用'},
+    {id:'nc30', name:'モンダミン プレミアムケア（無酒精漱口水）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 無酒精不刺激，CPC殺菌+フッ素，每日使用安全，兒童可用'},
+    {id:'nc31', name:'クリニカ フッ素うがい薬（含フッ素漱口水）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 刷牙後使用鞏固氟化物效果，不含酒精，每日使用安全'},
+    {id:'nc32', name:'GUM デンタルリンス（牙周病預防漱口水）', price:'¥500–800', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ CPC+グリチルリチン酸抗炎，無刺激性，孕婦哺乳期可用'},
+    {id:'nc33', name:'クリニカ アドバンテージ テープフロス（含蠟扁牙線）', price:'¥200–400', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 含蠟滑順好穿牙縫，附氟化物塗層補強，使用安全'},
+    {id:'nc34', name:'Oral-B サテンフロス（含蠟牙線）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ PTFE耐磨不易斷，不含BPA，日本版比台灣便宜'},
+    {id:'nc35', name:'サンスター バトラー フロス（ミント含蠟牙線）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 薄荷清涼感，天然蠟塗層，敏感牙肉安全'},
+    {id:'nc36', name:'資生堂 エリクシール 化粧水（熟齡保濕化妝水）', price:'¥2,000–3,500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 玻尿酸+膠原蛋白，無刺激，台日價差明顯，日本有限定款'},
+    {id:'nc37', name:'MINON アミノモイスト 化粧水（敏感肌化妝水）', price:'¥1,200–1,800', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 9種氨基酸，無香料無著色無防腐劑，安全性極高，敏感肌首選'},
+    {id:'nc38', name:'豆乳イソフラボン化粧水（大豆異黃酮化妝水）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 無酒精無香料，長期使用安全，熟女保養必買'},
+    {id:'nc39', name:'雪肌粹 化粧水 大容量 500ml', price:'¥2,000–3,500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 台灣只有小瓶，日本有超大容量版，和漢植物成分，無刺激'},
+    {id:'nc40', name:'シャボン玉石けん 浴用（無添加白皂）', price:'¥200–400', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 純皂基98%以上，無合成界面活性劑・防腐劑・香料，敏感肌嬰兒均可，刺激性最低'},
+    {id:'nc41', name:'シャボン玉 スキンケアソープ（保濕無添加皂）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 純皂基+天然甘油，保濕力比普通無添加強，長期使用安全'},
+    {id:'nc42', name:'パックスナチュロン 石けん（太陽油脂）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 天然植物油配方，無防腐劑・無香料・無著色，皮膚科認可'},
+    {id:'nc43', name:'ミヨシ石鹼 無添加せっけん', price:'¥200–400', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 日本老牌無添加，成分最簡單，孕婦嬰兒適用，不刺激'},
+    {id:'nc44', name:'オリブ油石けん（暁石鹼）', price:'¥300–600', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 高純度橄欖油，油酸豐富保濕，無添加，乾性肌首選'},
+    {id:'nc45', name:'なめらか本舗 豆乳イソフラボン石けん', price:'¥300–600', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 大豆異黃酮抗老保濕，無酒精，天然成分，長期使用安全'},
+    {id:'nc46', name:'牛乳石鹼 青箱（さっぱり型）', price:'¥150–300', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 洋甘菊萃取舒緩，泡沫細緻，日本國民品牌，清爽適合夏天'},
+    {id:'nc47', name:'牛乳石鹼 赤箱（しっとり型）', price:'¥150–300', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 角鯊烯+乳霜保濕，洗後不緊繃，乾性肌適用，秋冬首選'},
+    {id:'nc48', name:'牛乳石鹼 うるおいプラス（玻尿酸版）', price:'¥200–400', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 玻尿酸+膠原蛋白，保濕效果升級，一般肌適用'},
+    {id:'nc49', name:'牛乳石鹼 バスサイズ大箱（超大塊）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 超大容量CP值最高，成分安全，帶回最划算'},
+    {id:'nc50', name:'Dove ビューティーバー 白（保濕皂）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 含1/4保濕乳霜，比一般皂溫和，長期安全，台日價差明顯'},
+    {id:'nc51', name:'Dove ビューティーバー ピンク（石榴保濕皂）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 石榴萃取抗氧化，溫和配方，適合一般至乾性肌'},
+    {id:'nc52', name:'LUX スーパーリッチシャイン 石けん', price:'¥200–400', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 蠶絲蛋白修護，香氣持久，適合正常肌，長期使用安全'},
+    {id:'nc53', name:'ペリカン石鹼 ねるまえ（睡前馬油保濕皂）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 馬油深層保濕+維他命E抗氧化，無防腐劑，睡前使用效果最佳'},
+    {id:'nc54', name:'ペリカン石鹼 コラーゲン石けん', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 膠原蛋白滋潤+角鯊烯鎖水，無合成著色劑，安全'},
+    {id:'nc55', name:'クナイプ ゴートミルク石けん（山羊奶）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 山羊奶+乳木果油，保濕滋潤感極強，無礦物油無矽靈'},
+    {id:'nc56', name:'馬油石鹼（北海道産）', price:'¥400–700', where:'大國藥妝 / 各土産店', note:'info:ℹ️ 馬油修護力強，適合乾燥龜裂肌，天然成分安全'},
+    {id:'nc57', name:'桃の葉ローション石けん', price:'¥200–400', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 桃葉萃取舒緩+アラントイン消炎，敏感肌可用，兒童適用'},
+    {id:'nc58', name:'クナイプ バスソルト石けん ラベンダー', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 真正薰衣草精油，天然香氛，無合成香料，睡前使用助放鬆'},
+    {id:'nc59', name:'クナイプ バスソルト石けん ユーカリ', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 尤加利精油提神清新，天然成分，無刺激'},
+    {id:'nc60', name:'ロクシタン シア石けん（日本限定香）', price:'¥800–1,500', where:'大國藥妝 / 百貨', note:'info:ℹ️ 乳木果油高含量，保濕極佳，台灣無日本限定香型'},
+    {id:'nc61', name:'沖繩 月桃石鹼（月桃葉萃取）', price:'¥500–1,000', where:'ユーグレナモール / 各土産店', note:'info:ℹ️ 月桃天然抗菌，沖繩限定，清新草本香，無防腐劑，石垣島買'},
+    {id:'nc62', name:'オリーブソープ 無添加（讃岐オリーブ）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本國産橄欖油，純天然，油酸豐富保濕，不添加防腐劑'},
+    {id:'nc63', name:'南仏プロバンス風 ロズマリン石けん', price:'¥400–800', where:'Loft（PARCO CITY）/ 雜貨店', note:'info:ℹ️ 迷迭香精油促進循環，天然香料，長期使用安全'},
+    {id:'nc64', name:'フレイア アロマソープ（アルガンオイル）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 摩洛哥堅果油+花卉萃取，高保濕，台灣難買日本限定款'},
+    {id:'nc65', name:'カウブランド 薬用せっけん（痘痘預防）', price:'¥150–300', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 醫藥部外品，甘草酸抗炎，青春痘預防，長期使用安全'},
+    {id:'nc66', name:'ケアセラ 泡の高保湿ボディウォッシュ（乾性敏感肌）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 花王製セラミド修護皮膚屏障，乾性敏感肌推薦，無香料'},
+    {id:'nc67', name:'米ぬか石けん（米糠皂）', price:'¥300–600', where:'大國藥妝 / 各土産店', note:'info:ℹ️ 米糠神經醯胺美白保濕，日本傳統美容成分，安全'},
+    {id:'nc68', name:'緑茶石けん（宇治抹茶配合）', price:'¥300–600', where:'大國藥妝 / 茶屋土産店', note:'info:ℹ️ 兒茶素抗氧化抗菌，天然成分，清新香氣，長期使用安全'},
+    {id:'nc69', name:'シアバター石けん（100%天然）', price:'¥400–800', where:'Loft（PARCO CITY）/ 雜貨店', note:'info:ℹ️ 未精製乳木果油含量高，深層保濕，無添加，特別乾燥肌適用'},
+    {id:'nc70', name:'白壇（サンダルウッド）石けん', price:'¥500–1,000', where:'Loft（PARCO CITY）/ 百貨', note:'info:ℹ️ 白檀木精油高級香氛，天然成分，修護乾燥肌，日本限定款'},
+    {id:'nc71', name:'ゆず石けん（柚子精油）', price:'¥300–600', where:'大國藥妝 / 各土産店', note:'info:ℹ️ 柚子精油天然維他命C，美白抗氧化，冬季皮膚修護'},
+    {id:'nc72', name:'加湿マスク（加濕口罩，立體型）', price:'¥300–600', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 睡眠時配戴保濕喉嚨，船上冷氣乾燥特別有用，日本款密合度比台灣好'},
+    {id:'nc73', name:'肌研 沖繩限定化妝水（苦瓜萃取）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 沖繩限定款，加入苦瓜精華保濕'},
+    {id:'nc74', name:'めぐりズム 蒸氣眼罩（薰衣草/洋甘菊/柚子）', price:'¥400–700/盒', where:'大國藥妝 / 札幌藥妝 / 唐吉訶德', note:'info:ℹ️ 飛機睡眠放鬆必備，台灣貴很多'},
+    {id:'nc75', name:'メンソレータム メルティクリームリップ 無香料（護唇膏）', price:'¥400–600', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ ミツロウ・ホホバ油・橄欖油，成分單純，無香料無著色，質地細緻滑順，睡前修護'},
+    {id:'nc76', name:'花王 キュレル リップケアクリーム（敏感肌護唇膏）', price:'¥500–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 敏感肌設計，無香料・無著色・無酒精，醫藥部外品，抗乾裂配方'},
+    {id:'nc77', name:'花王 ロリエ スリムガード（最薄衛生棉，無螢光劑）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本製最薄款，無螢光劑，台灣少見同規格'},
+    {id:'nc78', name:'ドラえもん 瞬間冷却スプレー（瞬間冷卻噴霧）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 太陽穴/頸部一噴立刻降溫，沖繩11月仍偏熱，步行一整天必備'},
+          ],
   'ne': [
     {id:'ne1', name:'沖繩沙翁（揚げドーナツ）黒糖/紅芋/抹茶', price:'¥100–200/個', where:'平和通 / 牧志市場周邊（松原屋製菓等）', note:'warn:⚠️ 現炸現吃，無法帶回，建議在牧志市場周邊現場享用'},
     {id:'ne2', name:'花生豆腐（ジーマミー豆腐）現做版', price:'¥200–400', where:'牧志市場周邊 / 平和通', note:'warn:⚠️ 現做Q彈版需現場食用，常溫包裝版可帶回'},
@@ -2410,30 +2319,223 @@ const DATA = {
     {id:'ne6', name:'沖繩豬肉蛋飯糰（スパムむすび，超市版）', price:'¥150–250', where:'MaxValu 牧志店 熟食區', note:'warn:⚠️ 超市版比ポーたま更平價，現場吃最好'},
   ],
   'nd': [
-    {id:'nd1', name:'ピップエレキバン（磁力貼）130（12粒）', price:'¥800–1,000', where:'大國藥妝 / 札幌藥妝'},
-    {id:'nd2', name:'ピップエレキバン（磁力貼）MAX200 強效（12粒）', price:'¥980–1,200', where:'大國藥妝 / 札幌藥妝'},
-    {id:'nd3', name:'サロンパス（酸痛貼布）80枚大包', price:'¥600–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 主成分サリチル酸メチル，不含NSAIDs（インドメタシン・ジクロフェナク等），無類固醇'},
-    {id:'nd15', name:'サロンシップ 冷感・無臭タイプ（清涼感貼布）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 主成分l-メントール・カンフル，不含NSAIDs，無消炎藥物成分，旅行走路疲勞適用'},
-    {id:'nd16', name:'めぐりズム 肩こり用温感シート（肩頸蒸氣溫熱貼）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 純物理溫熱，完全無藥物成分，不含NSAIDs，旅行肩頸疲勞用'},
-    {id:'nd7', name:'目藥（眼藥水，無防腐劑款）ロートCキューブ / サンテピュア / ソフトサンティア', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 無防腐劑款對眼睛刺激最小，適合長期使用或配戴隱形眼鏡；ロートCキューブ（維他命C高濃度）、サンテピュア（滋潤型）、ソフトサンティア（最溫和，人工淚液型）'},
-    {id:'nd8', name:'新ビオフェルミンS（益生菌整腸藥）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 台灣難買到日本版，整腸效果佳'},
-    {id:'nd9', name:'肌研 沖繩限定化妝水（苦瓜萃取）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 沖繩限定款，加入苦瓜精華保濕'},
-    {id:'nd10', name:'めぐりズム 蒸氣眼罩（薰衣草/洋甘菊/柚子）', price:'¥400–700/盒', where:'大國藥妝 / 札幌藥妝 / 唐吉訶德', note:'info:ℹ️ 飛機睡眠放鬆必備，台灣貴很多'},
-    {id:'nd11', name:'塩屋 調味鹽組合（60種口味）', price:'¥500–1,500', where:'那霸市區塩屋門店 / 各土産店', note:'info:ℹ️ 日本最大鹽專賣店，花系列/海藻系列等各種風味'},
-    {id:'nd12', name:'雪塩 シュガー（雪鹽夾心餅乾）', price:'¥600–1,000', where:'各土産店 / 御菓子御殿', note:'info:ℹ️ 雪鹽甜點系列，沖繩限定'},
-    {id:'nd13', name:'メンソレータム メルティクリームリップ 無香料（護唇膏）', price:'¥400–600', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ ミツロウ・ホホバ油・橄欖油，成分單純，無香料無著色，質地細緻滑順，睡前修護'},
-    {id:'nd14', name:'花王 キュレル リップケアクリーム（敏感肌護唇膏）', price:'¥500–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 敏感肌設計，無香料・無著色・無酒精，醫藥部外品，抗乾裂配方'},
+    {id:'nd1', name:'合利他命 アリナミン（維他命B群保健品）', price:'¥800–1,500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本長年熱銷保健品，台灣版本成分不同'},
+    {id:'nd2', name:'龍角散（漢方止咳藥）顆粒款', price:'¥600–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 顆粒款台灣難買，直接含服效果快'},
+    {id:'nd3', name:'シナールL（維他命C高劑量發泡錠）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本限定高含量，旅行中補充最適合'},
+    {id:'nd4', name:'Biore 防曬乳（SPF50+ PA++++）', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 台灣熱賣但日本更便宜，沖繩11月仍需防曬'},
+    {id:'nd5', name:'めぐりズム 首・肩蒸氣貼（肩頸熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 / 藥妝區', note:'info:ℹ️ 蒸氣加熱款，緩解肩頸疲勞，旅行後用最舒服'},
+    {id:'nd6', name:'ムシペール（防蚊噴霧）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 沖繩11月仍有蚊，日本版效果比台灣好，出門前噴'},
+    {id:'nd7', name:'熱冷ピタ（退燒貼，兒童/大人均有）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 台灣售價約是日本兩倍，旅行急用備品'},
+    {id:'nd8', name:'パテックス（肌肉放鬆按摩膏）', price:'¥400–600', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 台灣難買到，走路一整天肌肉痠痛必備'},
+    {id:'nd9', name:'ウィダーインゼリー（威德果凍能量包）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 各口味大包超划算，體力不支時快速補充'},
+    {id:'nd10', name:'花王 めぐりズム 足裏シート（足底溫熱舒緩貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區', note:'info:ℹ️ 貼腳底促進循環，走路一整天後使用最舒服'},
+    {id:'nd11', name:'液体ムヒ アルファEX（止癢液加強版）', price:'¥400–600', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 比一般止癢軟膏快，清涼感更強，蚊蟲叮咬快速止癢'},
+    {id:'nd12', name:'めぐりズム 首・肩蒸氣貼（肩頸熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 同品牌蒸氣眼罩的肩頸版，旅行疲勞必備'},
+    {id:'nd13', name:'ムヒ 止癢液（蚊蟲叮咬止癢，日本版強效）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 日本版比台灣版止癢效果更快更強'},
+    {id:'nd14', name:'めぐりズム 腰用蒸氣貼（腰部熱敷貼）', price:'¥300–500', where:'MaxValu 牧志店 藥妝區 / 藥妝店', note:'info:ℹ️ 肩頸款的腰部版，提重物旅行後腰痠必備'},
+    {id:'nd15', name:'ピップエレキバン（磁力貼）130（12粒）', price:'¥800–1,000', where:'大國藥妝 / 札幌藥妝'},
+    {id:'nd16', name:'ピップエレキバン（磁力貼）MAX200 強效（12粒）', price:'¥980–1,200', where:'大國藥妝 / 札幌藥妝'},
+    {id:'nd17', name:'サロンパス（酸痛貼布）80枚大包', price:'¥600–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 主成分サリチル酸メチル，不含NSAIDs（インドメタシン・ジクロフェナク等），無類固醇'},
+    {id:'nd18', name:'サロンパスEX（酸痛貼布，強效款）40枚', price:'¥800–1,100', where:'大國藥妝 / 札幌藥妝', note:'warn:⚠️ 含インドメタシン（NSAIDs），短期急性疼痛使用，勿連續超過7天，有胃病者慎用'},
+    {id:'nd19', name:'バンテリンコーワ パップS（大片酸痛貼布）24枚', price:'¥900–1,200', where:'大國藥妝 / 札幌藥妝', note:'warn:⚠️ 含フェルビナク（NSAIDs），短期使用，勿每天大量使用'},
+    {id:'nd20', name:'フェイタスZα ジクサス（外用消炎止痛噴霧）', price:'¥800–1,200', where:'大國藥妝 / 札幌藥妝', note:'warn:⚠️ 含ジクロフェナク（強效NSAIDs），急性扭傷短期使用，有效期間勿超過7天'},
+    {id:'nd21', name:'サロンシップ 冷感・無臭タイプ（清涼感貼布）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 主成分l-メントール・カンフル，不含NSAIDs，無消炎藥物成分，旅行走路疲勞適用'},
+    {id:'nd22', name:'U型頸枕（低反発，旅行用）', price:'¥1,500–3,000', where:'大國藥妝 / Loft（PARCO CITY）/ 唐吉訶德', note:'info:ℹ️ 長途飛行16小時頸部支撐必備，低反發記憶棉款支撐力最佳，日本款比台灣便宜'},
+    {id:'nd23', name:'クリニカ アドバンテージ ハミガキ（フッ素1,450ppm，蛀牙預防）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 高濃度氟化物預防蛀牙，牙醫推薦款，成人正常使用安全，台日價差明顯'},
+    {id:'nd24', name:'弾性ストッキング / 着圧ソックス（加壓襪）', price:'¥500–1,500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 長途郵輪或飛行必備，預防下肢水腫及靜脈血栓，選 15–20mmHg 日常款，松本清常有特價'},
+    {id:'nd25', name:'めぐりズム 肩こり用温感シート（肩頸蒸氣溫熱貼）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 純物理溫熱，完全無藥物成分，不含NSAIDs，旅行肩頸疲勞用'},
+    {id:'nd26', name:'目藥（眼藥水，無防腐劑款）ロートCキューブ / サンテピュア / ソフトサンティア', price:'¥500–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 無防腐劑款對眼睛刺激最小，適合長期使用或配戴隱形眼鏡；ロートCキューブ（維他命C高濃度）、サンテピュア（滋潤型）、ソフトサンティア（最溫和，人工淚液型）'},
+    {id:'nd27', name:'新ビオフェルミンS（益生菌整腸藥）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 台灣難買到日本版，整腸效果佳'},
+    {id:'nd28', name:'塩屋 調味鹽組合（60種口味）', price:'¥500–1,500', where:'那霸市區塩屋門店 / 各土産店', note:'info:ℹ️ 日本最大鹽專賣店，花系列/海藻系列等各種風味'},
+    {id:'nd29', name:'雪塩 シュガー（雪鹽夾心餅乾）', price:'¥600–1,000', where:'各土産店 / 御菓子御殿', note:'info:ℹ️ 雪鹽甜點系列，沖繩限定'},
   ],
+  'nk': [
+    {id:'nk1', name:'塩麹（鹽麴調味料）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 日本料理萬用調味，台灣難買到好貨'},
+    {id:'nk2', name:'フリーズドライ即食味噌湯（多種口味）', price:'¥300–800/盒', where:'MaxValu 牧志店 / 超市 / 藥妝店', note:'info:ℹ️ 日本凍乾技術，口味豐富方便攜帶'},
+    {id:'nk3', name:'だし（鰹魚昆布高湯包）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 日本製品質遠勝台灣版，煮湯料理超香'},
+    {id:'nk4', name:'沖繩もずくスープ（水雲海藻即食湯包）', price:'¥300–600', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 沖繩產水雲，即食湯包，台灣難買'},
+    {id:'nk5', name:'沖繩産 ピパーチ味噌（島胡椒味噌醬）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 島胡椒入味噌醬，塗麵包/拌麵/沾蔬菜皆宜'},
+    {id:'nk6', name:'油味噌（アンダンスー，沖繩家常調味料兼下飯配菜）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩家庭餐桌必備，拌飯拌麵超下飯，台灣買不到'},
+    {id:'nk7', name:'海葡萄（ウミブドウ）鹽漬真空包', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩特有珍貴海藻，口感像魚子，可直接吃或拌醬油'},
+    {id:'nk8', name:'シークワーサー果汁（石垣香檸原汁，無添加）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 維他命C含量高，可加水稀釋喝或做料理'},
+    {id:'nk9', name:'沖繩泡盛みりん（泡盛味醂，烹飪調味用）', price:'¥400–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 用泡盛製成的味醂，風味比一般味醂更有層次'},
+    {id:'nk10', name:'島ニンニク（沖繩島蒜頭）乾燥款', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩産蒜頭，香氣比一般蒜頭更濃烈，乾燥款好攜帶'},
+    {id:'nk11', name:'沖繩そばインスタント（袋麵，沖繩品牌版）', price:'¥150–250/包', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 在地品牌版，口味比日清版更正宗'},
+    {id:'nk12', name:'日本限定 どん兵衛（日清ドン兵衛，日本版口味與台灣差異大）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版高湯與台灣版完全不同，試過就回不去'},
+    {id:'nk13', name:'シークワーサー ポン酢（香檸柚子醋）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩香檸版柚子醋，配生魚片超搭'},
+    {id:'nk14', name:'沖繩産 島みそ（沖繩在地味噌）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 與日本本島味噌風味完全不同，偏甜'},
+    {id:'nk15', name:'沖繩 塩トマト（鹽漬番茄乾，梅鹽口味）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 梅鹽版酸鹹超上癮，超市限定'},
+    {id:'nk16', name:'はくばく 讃岐うどん 細麵', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 讚岐正宗細麵，茹で時間5分，Q彈滑順，無添加防腐劑'},
+    {id:'nk17', name:'はくばく 讃岐うどん 太麵', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 太麵版本更有嚼勁，煮火鍋最棒，無添加'},
+    {id:'nk18', name:'日清フーズ 讃岐うどん', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日清品牌穩定品質，無人工著色劑，安全'},
+    {id:'nk19', name:'ヒガシマル うどんスープ付き（附關西高湯包）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 附湯包含鹽分較高，注意攝取量；麵體本身無添加'},
+    {id:'nk20', name:'城下町 太麺うどん（大容量700g）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超大容量，CP值最高，標準小麥粉無特殊添加'},
+    {id:'nk21', name:'香川県産小麦 讃岐うどん（限定產地）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 香川縣產小麥限定，正宗讚岐，產地明確無添加'},
+    {id:'nk22', name:'ひもかわうどん（群馬 寬扁烏龍麵）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超寬扁平麵體，口感獨特，台灣少見，無添加'},
+    {id:'nk23', name:'稲庭うどん（秋田 日本三大烏龍）', price:'¥500–900', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本三大烏龍之一，細扁麵滑順，傳統工法無人工添加'},
+    {id:'nk24', name:'はくばく もちむぎうどん（大麥烏龍麵）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 添加大麥增加膳食纖維，腸胃健康有益，台灣少見'},
+    {id:'nk25', name:'グルテンフリーうどん（米粉製，無麩質）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 米粉製無麩質，麩質過敏者適用，一般人亦可'},
+    {id:'nk26', name:'有機JAS うどん（有機認證烏龍麵）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 有機認證小麥，無農藥殘留，安全性最高'},
+    {id:'nk27', name:'乾燥きしめん（名古屋 寬扁麵）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 名古屋地方特色寬扁麵，口感獨特，無添加'},
+    {id:'nk28', name:'はくばく 十割そば（100%蕎麥麵）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 100%蕎麥粉無小麥，GI值低；蕎麥過敏者禁用，一般人安全'},
+    {id:'nk29', name:'山本食品 信州そば（8割蕎麥）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 80%蕎麥粉，香氣濃郁；含少量小麥，蕎麥過敏者慎用'},
+    {id:'nk30', name:'乾麺 田舎そば（鄉村粗蕎麥麵）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 粗磨蕎麥纖維質高，口感樸實，腸胃健康'},
+    {id:'nk31', name:'藤原製麺 北海道そば', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 北海道產蕎麥香氣最足，產地明確無添加'},
+    {id:'nk32', name:'オーサワジャパン 有機そば（有機蕎麥麵）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 有機認證，無農藥，適合健康飲食'},
+    {id:'nk33', name:'石臼挽きそば（石磨手工蕎麥麵）', price:'¥500–900', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 石磨保留蕎麥香氣，高質感，傳統工法無添加'},
+    {id:'nk34', name:'沖縄そば 乾麺（金城製麺所）', price:'¥400–700', where:'MaxValu 石垣店 / ユーグレナモール', note:'warn:⚠️ 石垣島金城製麺所出品；若附豬骨湯包不能帶回台灣，選純乾麺款'},
+    {id:'nk35', name:'揖保乃糸 上級品 赤帯（播州素麵）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本素麵頂級品牌，細緻滑順，無添加，傳統製法'},
+    {id:'nk36', name:'三輪素麺 大和三輪（奈良素麵）', price:'¥500–900', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本三大素麵之一，細如絲滑，無防腐劑'},
+    {id:'nk37', name:'島の光 沖繩そうめん', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩版素麵，麵體稍粗有嚼勁，無添加'},
+    {id:'nk38', name:'はくばく 小麦胚芽そうめん（胚芽素麵）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 添加小麥胚芽，維他命E豐富，比一般素麵營養'},
+    {id:'nk39', name:'日清ラ王 乾麺（醬油/鹽/味噌）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 附調味包鹽分較高，適量食用；麵體非油炸，比泡麵健康'},
+    {id:'nk40', name:'サッポロ一番 乾麺 みそラーメン', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 附味噌湯包鹽分注意；味噌含大豆，一般安全'},
+    {id:'nk41', name:'藤原製麺 旭川ラーメン乾麺（醬油系）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 旭川醬油風，湯頭層次豐富，麵體無防腐劑'},
+    {id:'nk42', name:'藤原製麺 函館塩ラーメン乾麺（鹽系清湯）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 函館鹽系清湯，清爽台灣少見；鹽分較高注意攝取'},
+    {id:'nk43', name:'バリラ スパゲッティ No.5（義大利進口）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 義大利銷量冠軍，日本版價格低，杜蘭小麥無添加'},
+    {id:'nk44', name:'沖繩チャンプルー麺 乾麺（沖繩什錦炒麵）', price:'¥300–500', where:'MaxValu 牧志店 / ユーグレナモール', note:'info:ℹ️ 沖繩限定炒麵用麵體，無防腐劑，各式配料都合'},
+    {id:'nk45', name:'ピパーチ（島胡椒粉，石垣島産）', price:'¥400–700', where:'MaxValu 牧志店 / MaxValu 石垣店 / 各超市', note:'info:ℹ️ 石垣島特有胡椒，香氣比黑胡椒清新，炒菜煮湯調味一流，台灣完全買不到'},
+    {id:'nk46', name:'塩麴（鹽麴，萬用醃料）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 醃肉醃魚提鮮神器，日本版品質穩定，無添加防腐劑'},
+    {id:'nk47', name:'千代の一番 万能和風だし（天然高湯包，高級款）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 鹿兒島産鰹魚+北海道昆布+九州椎茸，無添加天然，日本雜誌評比顆粒高湯第一'},
+    {id:'nk48', name:'味の素 ほんだし（本高湯顆粒，鰹魚風味）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本家庭必備，等同烹大師鰹魚粉，日本版比台灣便宜且鮮味更純'},
+    {id:'nk49', name:'理研ビタミン 素材力だし 本かつおだし（無添加鰹魚高湯）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本LDK雜誌顆粒高湯評比第1名，無化學添加物，純鰹魚鮮味'},
+    {id:'nk50', name:'かつお粉（鰹魚粉，TOPVALU MaxValu自有品牌）', price:'¥150–300', where:'MaxValu 牧志店（AEON自有品牌）', note:'info:ℹ️ MaxValu自有品牌，削粉鰹節，好燒/章魚燒/拌飯必備，台灣買不到同款'},
+    {id:'nk53', name:'創味シャンタン（中華萬用調味料）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 炒飯/湯麵基底神器，台灣版成分不同，日本版香氣更濃'},
+    {id:'nk54', name:'S&B 七味唐辛子（七味辣椒粉）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本正統七味粉，台灣超市找不到同款，拉麵烏龍麵必備'},
+    {id:'nk55', name:'マルちゃん 赤いきつね（紅狐狸烏龍麵杯）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本超市定番，台灣版口味不同，甜辣湯底獨特'},
+    {id:'nk56', name:'マルちゃん 緑のたぬき（綠狸蕎麥麵杯）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 紅狐狸姊妹款，蕎麥麵配天婦羅，日本東西口味不同'},
+    {id:'nk57', name:'日清 カップヌードル シーフード（海鮮杯麵）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版口味比台灣濃郁，超市最便宜'},
+    {id:'nk58', name:'どん兵衛 きつねうどん（日清烏龍杯麵）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版關西/關東口味不同，可買關西版帶回'},
+    {id:'nk59', name:'レトルト 野菜カレー（蔬菜咖哩調理包）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 無豬肉版，帶回台灣無海關疑慮，日本蔬菜咖哩風味道地'},
+          ],
+  'nz': [
+    {id:'nz1', name:'Calbee 堅あげポテト（硬脆洋芋片）沖繩香檬口味', price:'¥300–500', where:'Calbee+ 國際通店 / 唐吉訶德'},
+    {id:'nz2', name:'Royce 石垣島鹽巧克力洋芋片', price:'¥800–1,200', where:'わしたショップ国際通り店（行程最後段）', note:'warn:⚠️ 需 25°C 以下保存，買完即返船'},
+    {id:'nz3', name:'Royce 石垣島鹽巧克力', price:'¥600–900', where:'わしたショップ国際通り店（行程最後段）', note:'warn:⚠️ 同上，需冷藏'},
+    {id:'nz4', name:'KitKat 沖繩限定紅芋口味', price:'¥400–700', where:'各伴手禮店 / 唐吉訶德'},
+    {id:'nz5', name:'Orion 啤酒（罐裝）', price:'¥200–300/罐', where:'超市 / 唐吉訶德'},
+    {id:'nz6', name:'35珊瑚咖啡 ＆ 扶桑花茶包', price:'¥800–1,500', where:'唐吉訶德 2F / 國際通'},
+    {id:'nz7', name:'Fukugiya 福木屋年輪蛋糕', price:'¥1,300–2,500', where:'國際通直營店（現場製作・有試吃）'},
+    {id:'nz8', name:'邊銀食堂辣油（一般/激辛/蒜油）', price:'¥700–900/瓶', where:'各伴手禮店 / 唐吉訶德'},
+    {id:'nz9', name:'全家便利商店泡盛咖啡', price:'¥200–300', where:'沖繩全家（限定）', note:'info:ℹ️ 沖繩限定，其他縣份買不到'},
+    {id:'nz10', name:'Pablo 起司夾心餅', price:'¥500–800', where:'國際通 / 百貨公司'},
+    {id:'nz11', name:'LeTAO 紅茶巧克力餅乾', price:'¥800–1,500', where:'唐吉訶德 / 百貨伴手禮區'},
+    {id:'nz12', name:'ハブカレー（蛇毒咖哩，含ハブ蛇萃取）', price:'¥600–1,000', where:'伴手禮店 / 唐吉訶德'},
+    {id:'nz13', name:'oHacorte 檸檬蛋糕', price:'¥400–600/個', where:'市區分店'},
+    {id:'nz14', name:'やんばる焙煎工房（山原烘焙工坊）咖啡', price:'¥800–1,500', where:'國際通周邊'},
+    {id:'nz15', name:'伊藤園 お～いお茶 緑茶ティーバッグ（綠茶茶包，20袋／50袋）', price:'¥300–600', where:'MaxValu 牧志店 / 唐吉訶德 / 藥妝店'},
+    {id:'nz16', name:'ピーラー（削皮器）', price:'¥300–800', where:'MaxValu 牧志店 / 唐吉訶德 廚房用品區', note:'info:ℹ️ 日本製削皮器做工精細，CP值高'},
+    {id:'nz17', name:'三色地瓜薯塊（沖繩限定，紫薯/黃薯/白薯）', price:'¥300–600', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 沖繩限定黑糖調味，小包裝適合分送'},
+    {id:'nz18', name:'雪塩サイダー（雪鹽汽水）', price:'¥150–250/瓶', where:'各土産店 / 自動販賣機', note:'info:ℹ️ 大海藍色，沖繩限定清爽滋味'},
+    {id:'nz19', name:'ちんすこう（金楚糕）傳統款 / 高級款', price:'¥400–1,200', where:'御菓子御殿 / 各土産店', note:'info:ℹ️ 沖繩最傳統點心，多種口味可選'},
+    {id:'nz20', name:'わかめスナック（海帶芽零食）', price:'¥200–400', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 沖繩海洋風味少見零食'},
+    {id:'nz21', name:'Pocky 沖繩限定口味（紅芋 / 黑糖）', price:'¥300–500', where:'唐吉訶德 / 各土産店', note:'info:ℹ️ 台灣買不到的限定口味'},
+    {id:'nz22', name:'キレートレモン（Pokka 檸檬補充飲料）', price:'¥150–200/瓶', where:'MaxValu 牧志店 / 超市 / 便利商店', note:'info:ℹ️ 日本超市必買，補充維他命C'},
+    {id:'nz23', name:'八島黒糖組合（8個離島各一種口味）', price:'¥800–1,500', where:'各土産店 / 國際通', note:'info:ℹ️ 一次品嚐8個離島黒糖風味差異，初訪沖繩首選'},
+    {id:'nz24', name:'鹽味白巧克力夾心（玉米片口感）', price:'¥500–800', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 鹹甜創新口感，近年快速竄紅'},
+    {id:'nz25', name:'Kabaya 細棒餅乾 沖繩限定（旨鹽/黑糖/紅芋）', price:'¥300–500', where:'唐吉訶德 / 各土産店', note:'info:ℹ️ 旨鹽款最熱賣，鹹甜滋味停不下來'},
+    {id:'nz26', name:'LAWSON 沖繩限定黒糖蛋糕捲', price:'¥200–350', where:'沖繩 LAWSON 超商', note:'info:ℹ️ 超商限定，黒糖香氣濃郁不甜膩，現買現吃'},
+    {id:'nz27', name:'LAWSON 紅芋糰子（紅芋あんもち）', price:'¥150–250', where:'沖繩 LAWSON 超商', note:'info:ℹ️ 沖繩限定超商甜點，現買現吃'},
+    {id:'nz28', name:'Blue Seal 冰淇淋限定口味零食包裝', price:'¥400–800', where:'各土産店', note:'info:ℹ️ 沖繩知名冰淇淋品牌限定周邊零食'},
+    {id:'nz29', name:'西表島黒糖（酸甜香特殊風味）', price:'¥400–800', where:'各土産店 / 國際通', note:'info:ℹ️ 西表島特有口感，不過甜，送禮雅緻'},
+    {id:'nz30', name:'泡盛辣椒漬・コーレーグース（泡盛辣椒醃漬調味料）', price:'¥400–700', where:'MaxValu 牧志店 / 各土産店', note:'info:ℹ️ 沖繩餐桌指標名物，拌麵沾壽司生魚片都對味'},
+    {id:'nz31', name:'さんぴん茶 946ml 大罐（沖繩茉莉花茶）', price:'¥150–250', where:'LAWSON / MaxValu 牧志店', note:'info:ℹ️ 沖繩特色大容量，946ml源自美軍時代加侖制'},
+    {id:'nz32', name:'亀田 柿の種 日本限定大袋（各種口味）', price:'¥300–600', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 日本超市必買，比台灣便宜且口味更多'},
+    {id:'nz33', name:'日清 カップヌードル 日本限定口味（シーフード豪華版等）', price:'¥200–300', where:'MaxValu 牧志店 / 便利商店', note:'info:ℹ️ 日本版口味和台灣完全不同，豪華海鮮款台灣買不到'},
+    {id:'nz34', name:'湖池屋 STRONG 洋芋片（鹽昆布 / 梅子，日本限定）', price:'¥180–250', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 台灣買不到的限定濃厚口味'},
+    {id:'nz35', name:'Meiji 明治 ガルボ 巧克力（日本大包裝）', price:'¥200–400', where:'MaxValu 牧志店 / 唐吉訶德', note:'info:ℹ️ 台灣只有小包，日本有超大分裝版'},
+    {id:'nz36', name:'ポテリコ（Calbee 小圓球薯片）', price:'¥150–250', where:'MaxValu 牧志店 / 便利商店', note:'info:ℹ️ 台灣沒有賣，口感特殊像小薯球'},
+    {id:'nz37', name:'沖繩黒糖タピオカ入りミルクティー（黑糖珍奶罐裝）', price:'¥150–200', where:'MaxValu 牧志店 / 超市', note:'info:ℹ️ 超市罐裝版，沖繩在地口味'},
+    {id:'nz38', name:'Aunt Stella 詩特莉手工餅乾', price:'¥800–1,500', where:'RYUBO 百貨地下食品館', note:'info:ℹ️ 經過就能聞到香氣，建議現場試吃再買'},
+    {id:'nz39', name:'雪塩ふぃなん（宮古島雪鹽費南雪）', price:'¥1,000–1,900', where:'雪塩さんど 国際通り本店（RYUBO 百貨旁，県庁前站步行5分）', note:'info:ℹ️ 宮古島雪鹽+奶油手作費南雪，濕潤香濃，賞味期限90天，11:00–21:00 無休'},
+    {id:'nz40', name:'Glico Pocky 日本限定口味大包', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 抹茶/苺/巧克力等限定口味，超市比便利商店便宜，台灣少見'},
+    {id:'nz40', name:'泡盛ボンボン（泡盛巧克力糖）', price:'¥400–800', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 含微量泡盛的巧克力糖，送大人伴手禮最合適'},
+    {id:'nz41', name:'ボンカレー（即食咖哩）沖繩限定版', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩限定包裝，和本島版口感略有不同'},
+    {id:'nz42', name:'UHA 味覺糖 CORORO（果汁軟糖）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 台灣瘋搶，超市版比藥妝店便宜'},
+    {id:'nz43', name:'Calbee Jagabee（薯條零食，超市版大包）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市'},
+    {id:'nz44', name:'森永 DARS 巧克力（台灣買不到的口味）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市'},
+    {id:'nz45', name:'明治 チョコレート効果 86%（高可可黑巧克力）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版品質和口感比台灣好'},
+    {id:'nz46', name:'ちんすこうチョコ（金楚糕巧克力覆蓋版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 比一般金楚糕多一層巧克力，不同風味'},
+    {id:'nz47', name:'サンコー沖繩ドーナツ（沖繩在地品牌甜甜圈袋裝）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩在地點心品牌，比一般甜甜圈更有嚼勁'},
+    {id:'nz48', name:'沖繩版 黒糖わらびもち（黑糖蕨餅）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 黑糖版蕨餅，Q彈口感帶沖繩黑糖香'},
+    {id:'nz49', name:'SANGARIA シークワーサーサイダー（石垣香檸汽水）', price:'¥150–200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 清爽香檸汽水，沖繩限定風味'},
+    {id:'nz50', name:'宮古島産 唐辛子泡盛漬け「クース」（宮古島辣椒泡盛醃漬萬用調味料）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩版コーレーグース，宮古島出產，辣度與泡盛香氣更濃'},
+    {id:'nz51', name:'宮古島雪鹽（細緻礦物質豐富雪白細鹽）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 深層海水萃取，口感比一般鹽圓潤細緻，料理烘焙都適用'},
+    {id:'nz52', name:'A&W ルートビア 缶（沖繩限定根汁汽水）', price:'¥150–200/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩才有賣的根汁汽水，台灣幾乎買不到，A&W 沖繩限定名物'},
+    {id:'nz53', name:'ORION 檸檬啤酒（沖繩果汁入，限定款）', price:'¥200–300/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩産檸檬果汁入，清爽限定款'},
+    {id:'nz54', name:'沖繩限定ポテトチップス 旨鹽口味（Calbee 沖繩鹽調味洋芋片）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩鹽調味 Calbee 限定版，跟一般款口感完全不同'},
+    {id:'nz55', name:'沖繩産 月桃茶（月桃葉草本茶）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩代表性植物茶，清香解膩，台灣難買到正宗款'},
+    {id:'nz56', name:'LION Clinica 牙膏（多效護齦，日本限定款）', price:'¥200–400', where:'MaxValu 牧志店 日用品區', note:'info:ℹ️ 台灣沒賣同款，日本限定抗菌護齦配方'},
+    {id:'nz57', name:'ボンカレー 沖繩限定版（即食咖哩）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩限定包裝，口味與本島版不同'},
+    {id:'nz58', name:'ORION 黒生ビール（黑生啤酒，超市限定尺寸）', price:'¥200–300/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市才有的黑生啤酒款，比一般 Orion 更濃郁'},
+    {id:'nz59', name:'UHA 味覺糖 CORORO（果汁軟糖，台灣瘋搶）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 果汁含量高，口感爆汁，台灣常缺貨'},
+    {id:'nz60', name:'Calbee Jagabee（薯條零食，超市版大包）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市版大包比便利商店划算，厚切口感紮實'},
+    {id:'nz61', name:'森永 DARS 巧克力（台灣買不到的口味）', price:'¥150–250', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 入口即溶，日本限定黑巧克力 / 抹茶 / 草莓等口味'},
+    {id:'nz62', name:'明治 チョコレート効果 86%（高可可黑巧克力）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 健康派必買，日本版比台灣便宜且新鮮'},
+    {id:'nz63', name:'ちんすこうチョコ（金楚糕巧克力覆蓋版）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 傳統金楚糕外裹巧克力，送禮討喜'},
+    {id:'nz64', name:'沖繩版 黒糖わらびもち（黑糖蕨餅）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩黑糖版蕨餅，Q彈甜香，台灣較少見'},
+    {id:'nz65', name:'SANGARIA シークワーサーサイダー（石垣香檸汽水）', price:'¥150–200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 清爽香檸汽水，沖繩限定，台灣買不到'},
+    {id:'nz66', name:'鮪魚罐頭 梅鹽番茄乾口味', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩獨創口味，梅鹽版酸溜帶鹹超上癮'},
+    {id:'nz67', name:'屋我地島の塩 Yagajiiio（高級島鹽）', price:'¥600–1,200', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩最北端屋我地島手工海鹽，質感送禮首選'},
+    {id:'nz68', name:'沖繩産 うこん（薑黃）粉末', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩人長壽秘訣，薑黃含量比一般高，可加入飲品或料理'},
+    {id:'nz69', name:'月桃茶（ゲットウ茶，袋裝茶包）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩代表植物月桃製成，草本清香，沖繩限定'},
+    {id:'nz70', name:'ハイビスカスティー（扶桑花茶，茶包裝）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市版比觀光店便宜，顏色漂亮，含維他命C'},
+    {id:'nz71', name:'うこん茶（薑黃茶，罐裝）', price:'¥150–200/罐', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩超市定番飲料，台灣少見'},
+    {id:'nz72', name:'しまんちゅの恋人（Union超市限定雙層餅乾）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 雙層餅乾外裹巧克力，沖繩超市限定'},
+    {id:'nz73', name:'沖繩産 紅芋チップス（紅芋洋芋片，超市版大包）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市大包裝比土産店便宜'},
+    {id:'nz74', name:'ちっぱーちゃんの塩せんべい（沖繩鹽味仙貝）', price:'¥150–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市限定小包裝，鹹香酥脆'},
+    {id:'nz41', name:'泡盛（沖繩米酒，小瓶各品牌）', price:'¥300–800', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 酒精飲料，確認麗星郵輪攜帶規定；超市比土産店種類更多且便宜'},
+    {id:'nz42', name:'伊藤園 おーいお茶 緑茶ティーバッグ 大包', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市大包裝比任何地方便宜，日本製品質穩定'},
+    {id:'nz43', name:'天然水ポット用 麦茶（冷泡麥茶包）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本冷泡麥茶包，超市大容量版最划算，無咖啡因'},
+    {id:'nz44', name:'ルイボスティー（南非博士茶，無咖啡因）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本品牌品質穩定，無咖啡因，比台灣便宜'},
+    {id:'nz45', name:'コーヒー ドリップバッグ（掛耳咖啡，UCC/KEY COFFEE）', price:'¥300–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本精品掛耳咖啡，台灣進口版貴兩倍以上'},
+          ],
   'nds': [
-    {id:'nds1', name:'携帯トイレ / 簡易トイレ袋（攜帶式廁所袋）', price:'¥500–1,200', where:'唐吉訶德 防災コーナー', note:'info:ℹ️ 找不到可詢問店員「防災グッズはどこですか？」'},
-    {id:'nds2', name:'ビニール手袋（拋棄式塑膠手套）大包裝', price:'¥200–400', where:'唐吉訶德 衛生用品區'},
-    {id:'nds3', name:'除菌ウェットティッシュ（抗菌消毒濕面紙）', price:'¥200–400', where:'唐吉訶德 衛生用品區'},
-    {id:'nds4', name:'ドライシャンプーシート（乾洗髮濕巾）ヘア＆ボディ', price:'¥547–800', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 推薦無香料款，頭髮+全身兩用'},
-    {id:'nds5', name:'ドライシャンプースプレー（乾洗髮噴霧）', price:'¥968–1,200', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 冷感持續約 1 小時，日常出門也可用'},
-    {id:'nds6', name:'大判ボディシート（大片全身擦澡濕巾）', price:'¥300–600', where:'唐吉訶德 衛生用品區'},
-    {id:'nds7', name:'使い捨て下着（免洗內褲）', price:'¥300–600', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 選棉質款'},
-    {id:'nds8', name:'デオドラントシート（腋下防臭濕巾）', price:'¥300–500', where:'唐吉訶德 衛生用品區'},
-    {id:'nds9', name:'口腔ケアウェットシート / 歯磨きシート（免漱口潔牙濕巾）', price:'¥300–600', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 停水時刷牙替代品'},
+    {id:'nds1', name:'Daiso 真空壓縮收納袋（旅行版）', price:'¥100–300', where:'唐吉訶德找找看', note:'info:ℹ️ 日本大創品質遠勝台灣版，壓縮效果佳；唐吉訶德可能有類似款'},
+    {id:'nds2', name:'Daiso 快乾髮梳', price:'¥100–200', where:'唐吉訶德找找看', note:'info:ℹ️ 鏤空梳齒設計速乾，評價很高；唐吉訶德可能有類似款'},
+    {id:'nds3', name:'携帯トイレ / 簡易トイレ袋（攜帶式廁所袋）', price:'¥500–1,200', where:'唐吉訶德 防災コーナー', note:'info:ℹ️ 找不到可詢問店員「防災グッズはどこですか？」'},
+    {id:'nds4', name:'ビニール手袋（拋棄式塑膠手套）大包裝', price:'¥200–400', where:'唐吉訶德 衛生用品區'},
+    {id:'nds5', name:'除菌ウェットティッシュ（抗菌消毒濕面紙）', price:'¥200–400', where:'唐吉訶德 衛生用品區'},
+    {id:'nds6', name:'ドライシャンプーシート（乾洗髮濕巾）ヘア＆ボディ', price:'¥547–800', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 推薦無香料款，頭髮+全身兩用'},
+    {id:'nds7', name:'ドライシャンプースプレー（乾洗髮噴霧）', price:'¥968–1,200', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 冷感持續約 1 小時，日常出門也可用'},
+    {id:'nds8', name:'大判ボディシート（大片全身擦澡濕巾）', price:'¥300–600', where:'唐吉訶德 衛生用品區'},
+    {id:'nds9', name:'使い捨て下着（免洗內褲）', price:'¥300–600', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 選棉質款'},
+    {id:'nds10', name:'デオドラントシート（腋下防臭濕巾）', price:'¥300–500', where:'唐吉訶德 衛生用品區'},
+    {id:'nds11', name:'口腔ケアウェットシート / 歯磨きシート（免漱口潔牙濕巾）', price:'¥300–600', where:'唐吉訶德 衛生用品區', note:'info:ℹ️ 停水時刷牙替代品'},
+  ],
+  'no': [
+    {id:'no1', name:'沖繩風獅爺磁鐵', price:'¥300–800', where:'各伴手禮店 / 御菓子御殿'},
+    {id:'no2', name:'ORION 啤酒 T 恤', price:'¥2,000–3,500', where:'唐吉訶德 / 國際通服飾店'},
+    {id:'no3', name:'沖繩紀念磁鐵', price:'¥300–800', where:'國際通各伴手禮店 / 御菓子御殿', note:'info:ℹ️ 風獅爺、海景等沖繩主題款式'},
+    {id:'no4', name:'やちむん（沖繩陶器）杯碗', price:'¥800–3,000', where:'RYUBO 百貨地下 / 那霸市區工藝店', note:'info:ℹ️ 沖繩手工傳統陶器，RYUBO 品質最精選'},
+    {id:'no5', name:'琉球ガラス（琉球玻璃）', price:'¥800–3,000', where:'那霸市區工藝店 / 平和通', note:'info:ℹ️ 色彩繽紛手工玻璃，沖繩特有工藝'},
+    {id:'no6', name:'Orion × Blue Seal 聯名 T 恤 / 配件', price:'¥1,500–3,500', where:'各土産店 / 國際通', note:'info:ℹ️ 兩大沖繩品牌聯名，設計比一般 Orion T 更好看'},
+    {id:'no7', name:'無印良品 FLOATUNE ボールペン（浮力感無摩擦書寫）', price:'¥390', where:'PARCO CITY 無印良品（需另外前往）', note:'info:ℹ️ 2026新品，書寫感如浮在紙上，SNS爆紅，台灣無販售'},
+    {id:'no8', name:'コクヨ ハサミ パーフェクトバリア（フッ素加工不沾膠剪刀）', price:'¥400–700', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 氟素塗層，剪完膠帶零殘留，切口最乾淨'},
+    {id:'no9', name:'コクヨ ハサミ エアロフィット（省力不沾膠剪刀）', price:'¥600–900', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 開合省力50%，長時間使用不疲勞，不沾黏加工'},
+    {id:'no10', name:'3M スコッチ チタンコートハサミ（鈦合金不沾黏剪刀）', price:'¥800–1,200', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 鈦合金塗層耐用度最高，幾乎零殘留'},
+    {id:'no11', name:'ZEBRA サラサクリップ 0.5mm（鋼珠原子筆）', price:'¥150–200/支', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣最夯款，日本版限定色最多'},
+    {id:'no12', name:'ZEBRA サラサクリップ 0.3mm（超細鋼珠原子筆）', price:'¥150–200/支', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 台灣沒有0.3mm款，書寫更細緻'},
+    {id:'no13', name:'uni ジェットストリーム Standard 0.5mm（超滑順原子筆）', price:'¥200–300', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 書寫滑順感日本第一，台灣有但日本便宜'},
+    {id:'no14', name:'Pilot S20 自動鉛筆 0.3/0.5/0.7mm（金屬筆桿）', price:'¥1,500–2,000', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 老牌高質感金屬桿，耐用日本製'},
+    {id:'no15', name:'Pilot S3 自動鉛筆（學生款入門，價格低品質穩）', price:'¥400–600', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 最實惠有品質的選擇，送禮也合適'},
+    {id:'no16', name:'三菱 uni 鉛筆 HB/2B 日本製（12支裝）', price:'¥400–700', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣版是越南製，日本版是日本製，品質差很多'},
+    {id:'no17', name:'トンボ MONO J 鉛筆（學生用，12支裝）', price:'¥300–500', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 高CP值，書寫流暢，日本製品質穩定'},
+    {id:'no18', name:'トンボ MONO PE（橡皮擦，白色經典款，去渣最乾淨）', price:'¥100–200', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣有但日本便宜，屑最少最乾淨'},
+    {id:'no19', name:'ヒノデワシ まとまるくん（去渣聚攏橡皮擦，彩色款）', price:'¥100–200', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 擦完屑會聚攏成一團不飛散，可愛彩色款適合送禮'},
+    {id:'no20', name:'ソニック ミニベルト 携帯型削鉛筆機（雙刀可調尖度）', price:'¥600–900', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 手動攜帶型，可選「細尖」或「粗尖」兩種削法'},
+    {id:'no21', name:'トンボ 鉛筆削り 携帯用（全金屬手動削鉛筆機）', price:'¥300–500', where:'Loft（PARCO CITY）/ 文具店', note:'info:ℹ️ 全金屬材質耐用幾十年，日本製'},
+    {id:'no22', name:'ZEBRA マッキー 細字（日本製永久雙頭奇異筆）', price:'¥150–250', where:'Loft（PARCO CITY）/ 文具店 / 超市', note:'info:ℹ️ 台灣版是中國製，日本版是日本製，品質差很多'},
+    {id:'no23', name:'沖繩限定 麻製エコバッグ（在地圖案麻布環保袋）', price:'¥300–800', where:'平和通り 各雜貨店', note:'info:ℹ️ 平和通在地感強，比國際通土産店設計更有味道'},
+    {id:'no24', name:'シーサー 立体マグネット（立體陶土風獅爺磁鐵）', price:'¥400–800', where:'各土産店 / 平和通り', note:'info:ℹ️ 比一般平面磁鐵更有質感，陶土質地立體感強'},
+    {id:'no25', name:'OXO 料理はさみ（廚房剪刀，可分解清洗）', price:'¥1,500–2,500', where:'Loft（PARCO CITY）/ EDION 石垣', note:'info:ℹ️ 可分解清洗不藏汙，衛生便利，台日價差明顯'},
+    {id:'no26', name:'ジップロック 大容量（夾鏈袋，多種尺寸）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本版比台灣大，可微波可冷凍，大包裝超划算'},
+    {id:'no27', name:'Anker PowerCore 10000（行動電源）', price:'¥2,000–4,000', where:'EDION 石垣（已排進石垣行程）', note:'info:ℹ️ 日本版比台灣便宜10–15%，保固更好，石垣EDION可買'},
+    {id:'no28', name:'沖繩 地図マグネット（沖繩各島造型磁鐵）', price:'¥300–500', where:'各土産店 / 國際通 / 平和通り', note:'info:ℹ️ 那霸/石垣/宮古各島造型，可三島各買一個成套'},
+    {id:'no29', name:'Uniqlo HEATTECH 發熱衣（基本款）', price:'¥1,290', where:'PARCO CITY Uniqlo（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜台日價差 50%+，退稅後約 NT$258'},
+    {id:'no30', name:'Uniqlo AIRism 棉質 T 恤（男/女）', price:'¥990', where:'PARCO CITY Uniqlo（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜退稅後約 NT$198，台灣賣 NT$590'},
+    {id:'no31', name:'Uniqlo UVカット 防曬外套', price:'¥2,990–4,990', where:'PARCO CITY Uniqlo（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜11月適用，款式最齊全'},
+    {id:'no32', name:'HOKA 跑鞋（Clifton / Bondi）', price:'¥17,600–22,000', where:'PARCO CITY ABC-MART GRAND STAGE（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜台日價差大，現場試穿再買'},
   ],
   'if': [
     {id:'if1', name:'ヒバーチ（島胡椒）', price:'¥300–600', where:'MaxValu / 伴手禮店', note:'info:ℹ️ 八重山限定稀有香料，全球少見'},
@@ -2458,6 +2560,37 @@ const DATA = {
     {id:'id1', name:'美らりん ハンドクリーム（護手霜）', price:'¥500–900', where:'大國藥妝 / 伴手禮店', note:'info:ℹ️ 多種香氣可選（月桃葉・木槿花・芒果等），沖繩限定'},
     {id:'id2', name:'クチャパック（沖繩海泥深層清潔面膜）', price:'¥500–1,500', where:'大國藥妝 / 各土産店', note:'info:ℹ️ 沖繩限定海泥成分，話題性強'},
   ],
+  'nm': [
+    {id:'nm1', name:'はくばく 讃岐うどん 細麵', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 讚岐正宗細麵，茹で時間5分，Q彈滑順，無添加防腐劑'},
+    {id:'nm2', name:'はくばく 讃岐うどん 太麵', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 太麵版本更有嚼勁，煮火鍋最棒，無添加'},
+    {id:'nm3', name:'日清フーズ 讃岐うどん', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日清品牌穩定品質，無人工著色劑，安全'},
+    {id:'nm4', name:'ヒガシマル うどんスープ付き（附關西高湯包）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 附湯包含鹽分較高，注意攝取量；麵體本身無添加'},
+    {id:'nm5', name:'城下町 太麺うどん（大容量700g）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超大容量，CP值最高，標準小麥粉無特殊添加'},
+    {id:'nm6', name:'香川県産小麦 讃岐うどん（限定產地）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 香川縣產小麥限定，正宗讚岐，產地明確無添加'},
+    {id:'nm7', name:'ひもかわうどん（群馬 寬扁烏龍麵）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超寬扁平麵體，口感獨特，台灣少見，無添加'},
+    {id:'nm8', name:'稲庭うどん（秋田 日本三大烏龍）', price:'¥500–900', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本三大烏龍之一，細扁麵滑順，傳統工法無人工添加'},
+    {id:'nm9', name:'はくばく もちむぎうどん（大麥烏龍麵）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 添加大麥增加膳食纖維，腸胃健康有益，台灣少見'},
+    {id:'nm10', name:'グルテンフリーうどん（米粉製，無麩質）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 米粉製無麩質，麩質過敏者適用，一般人亦可'},
+    {id:'nm11', name:'有機JAS うどん（有機認證烏龍麵）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 有機認證小麥，無農藥殘留，安全性最高'},
+    {id:'nm12', name:'乾燥きしめん（名古屋 寬扁麵）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 名古屋地方特色寬扁麵，口感獨特，無添加'},
+    {id:'nm13', name:'はくばく 十割そば（100%蕎麥麵）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 100%蕎麥粉無小麥，GI值低；蕎麥過敏者禁用，一般人安全'},
+    {id:'nm14', name:'山本食品 信州そば（8割蕎麥）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 80%蕎麥粉，香氣濃郁；含少量小麥，蕎麥過敏者慎用'},
+    {id:'nm15', name:'乾麺 田舎そば（鄉村粗蕎麥麵）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 粗磨蕎麥纖維質高，口感樸實，腸胃健康'},
+    {id:'nm16', name:'藤原製麺 北海道そば', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 北海道產蕎麥香氣最足，產地明確無添加'},
+    {id:'nm17', name:'オーサワジャパン 有機そば（有機蕎麥麵）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 有機認證，無農藥，適合健康飲食'},
+    {id:'nm18', name:'石臼挽きそば（石磨手工蕎麥麵）', price:'¥500–900', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 石磨保留蕎麥香氣，高質感，傳統工法無添加'},
+    {id:'nm19', name:'沖縄そば 乾麺（金城製麺所）', price:'¥400–700', where:'MaxValu 石垣店 / ユーグレナモール', note:'warn:⚠️ 石垣島金城製麺所出品；若附豬骨湯包不能帶回台灣，選純乾麺款'},
+    {id:'nm20', name:'揖保乃糸 上級品 赤帯（播州素麵）', price:'¥400–800', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本素麵頂級品牌，細緻滑順，無添加，傳統製法'},
+    {id:'nm21', name:'三輪素麺 大和三輪（奈良素麵）', price:'¥500–900', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本三大素麵之一，細如絲滑，無防腐劑'},
+    {id:'nm22', name:'島の光 沖繩そうめん', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩版素麵，麵體稍粗有嚼勁，無添加'},
+    {id:'nm23', name:'はくばく 小麦胚芽そうめん（胚芽素麵）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 添加小麥胚芽，維他命E豐富，比一般素麵營養'},
+    {id:'nm24', name:'日清ラ王 乾麺（醬油/鹽/味噌）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 附調味包鹽分較高，適量食用；麵體非油炸，比泡麵健康'},
+    {id:'nm25', name:'サッポロ一番 乾麺 みそラーメン', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 附味噌湯包鹽分注意；味噌含大豆，一般安全'},
+    {id:'nm26', name:'藤原製麺 旭川ラーメン乾麺（醬油系）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 旭川醬油風，湯頭層次豐富，麵體無防腐劑'},
+    {id:'nm27', name:'藤原製麺 函館塩ラーメン乾麺（鹽系清湯）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 函館鹽系清湯，清爽台灣少見；鹽分較高注意攝取'},
+    {id:'nm28', name:'バリラ スパゲッティ No.5（義大利進口）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 義大利銷量冠軍，日本版價格低，杜蘭小麥無添加'},
+    {id:'nm29', name:'沖繩チャンプルー麺 乾麺（沖繩什錦炒麵）', price:'¥300–500', where:'MaxValu 牧志店 / ユーグレナモール', note:'info:ℹ️ 沖繩限定炒麵用麵體，無防腐劑，各式配料都合'},
+  ],
   'np': [
     {id:'np1', name:'Uniqlo HEATTECH 發熱衣（基本款）', price:'¥1,290', where:'PARCO CITY Uniqlo（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜台日價差 50%+，退稅後約 NT$258'},
     {id:'np2', name:'Uniqlo AIRism 棉質 T 恤（男/女）', price:'¥990', where:'PARCO CITY Uniqlo（需另外前往）', note:'warn:⚠️ 需去 PARCO CITY｜退稅後約 NT$198，台灣賣 NT$590'},
@@ -2475,7 +2608,7 @@ const DATA = {
 };
 
 const PAGE_CATS = {
-  naha: ['nf','ne','nd','nds','np'],
+  naha: ['nc','ne','nd','nk','nz','nds','no'],
   ishi: ['if','is','id'],
   ship: ['sp','sm'],
 };
@@ -2606,7 +2739,7 @@ function renderList(cat, isIshi){
     });
     lst.appendChild(d);
   });
-  if(cnt) cnt.textContent = `${done}/${visible} 已買`;
+  if(cnt) cnt.textContent = visible > 0 ? `${done}/${visible} 已買` : '';
   setTimeout(updateNavCounts, 0);
 }
 
@@ -2619,15 +2752,21 @@ function setAmount(id, val){
 // ── PROGRESS ──
 function updateProgress(page){
   const cats = PAGE_CATS[page];
+  if(!cats) return;
   let tot=0, dn=0;
-  cats.forEach(c => { DATA[c].forEach(i => {
-    if(state.hidden[i.id]) return;
-    tot++;
-    if(state.checked[i.id]) dn++;
-  }); });
+  cats.forEach(c => {
+    if(!DATA[c]) return;
+    DATA[c].forEach(i => {
+      if(state.hidden[i.id]) return;
+      tot++;
+      if(state.checked[i.id]) dn++;
+    });
+  });
   const pct = tot ? Math.round(dn/tot*100) : 0;
-  document.getElementById(`${page}-prog-txt`).textContent = `${dn} / ${tot}`;
-  document.getElementById(`${page}-prog-bar`).style.width = pct+'%';
+  const txtEl = document.getElementById(`${page}-prog-txt`);
+  const barEl = document.getElementById(`${page}-prog-bar`);
+  if(txtEl) txtEl.textContent = `${dn} / ${tot}`;
+  if(barEl) barEl.style.width = pct+'%';
 }
 
 // ── TOTALS ──
@@ -2826,36 +2965,39 @@ function _toggleSection(key, forceOpen) {
 }
 
 function _navTo(key, page) {
-  navTo = _navTo;
-  // switch to correct page tab first
-  const pageEl = document.getElementById('page-' + page);
-  if (pageEl && !pageEl.classList.contains('active')) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    pageEl.classList.add('active');
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    const tabMap = {naha:0, ishi:1, info:2, ship:3};
-    const tabs = document.querySelectorAll('.tab');
-    if (tabs[tabMap[page]]) tabs[tabMap[page]].classList.add('active');
+  try {
+    navTo = _navTo;
+    const pageEl = document.getElementById('page-' + page);
+    if (pageEl && !pageEl.classList.contains('active')) {
+      document.querySelectorAll('.page').forEach(p => { if(p) p.classList.remove('active'); });
+      pageEl.classList.add('active');
+      document.querySelectorAll('.tab').forEach(t => {
+        if(!t) return;
+        t.classList.remove('active');
+        const oc = t.getAttribute('onclick') || '';
+        if (oc.includes("'" + page + "'")) t.classList.add('active');
+      });
+    }
+    toggleSection(key, true);
+    setTimeout(() => {
+      const sec = document.getElementById('sec-' + key);
+      if (!sec) return;
+      const header = document.querySelector('header');
+      const catNav = document.querySelector('.cat-nav');
+      const headerH = header ? header.offsetHeight : 0;
+      const catNavH = catNav ? catNav.offsetHeight : 0;
+      const offset = headerH + catNavH + 8;
+      const top = sec.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }, 80);
+    updateNavActive(key);
+  } catch(e) {
+    console.error('_navTo error:', e);
   }
-  // open section
-  toggleSection(key, true);
-  // scroll to section with offset for sticky header + cat-nav
-  setTimeout(() => {
-    const sec = document.getElementById('sec-' + key);
-    if (!sec) return;
-    const header = document.querySelector('header');
-    const catNav = document.querySelector('.cat-nav');
-    const headerH = header ? header.offsetHeight : 0;
-    const catNavH = catNav ? catNav.offsetHeight : 0;
-    const offset = headerH + catNavH + 8;
-    const top = sec.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-  }, 80);
-  updateNavActive(key);
 }
 
 function updateNavActive(activeKey) {
-  document.querySelectorAll('.cat-nav-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.cat-nav-btn').forEach(btn => { if(btn) btn.classList.remove('active'); });
   if (activeKey) {
     const btn = document.querySelector(`.cat-nav-btn[onclick*="'${activeKey}'"]`);
     if (btn) btn.classList.add('active');
@@ -2863,8 +3005,7 @@ function updateNavActive(activeKey) {
 }
 
 function updateNavCounts() {
-  // Update count badges on nav buttons
-  const cats = ['nf','ne','nd','nds','np','if','is','id'];
+  const cats = ['nc','ne','nd','nk','nz','nds','no','if','is','id','sp','sm'];
   cats.forEach(cat => {
     const cnt = document.getElementById('cnt-' + cat);
     const navCnt = document.getElementById('nav-cnt-' + cat);
@@ -2927,7 +3068,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 function init(){
-  ['nf','ne','nd','nds','np'].forEach(c => renderList(c, false));
+  ['nc','ne','nd','nk','nz','nds','no'].forEach(c => renderList(c, false));
   ['if','is','id'].forEach(c => renderList(c, true));
   ['sp','sm'].forEach(c => renderList(c, false));
   renderCustom('naha');
@@ -2949,10 +3090,19 @@ function init(){
 }
 
 function switchTab(tab, btn){
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-'+tab).classList.add('active');
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
+  try {
+    document.querySelectorAll('.page').forEach(p => { if(p) p.classList.remove('active'); });
+    const pageEl = document.getElementById('page-' + tab);
+    if(pageEl) pageEl.classList.add('active');
+    document.querySelectorAll('.tab').forEach(t => { if(t) t.classList.remove('active'); });
+    if(btn) btn.classList.add('active');
+    // Update progress for the switched-to page
+    if(tab === 'naha' || tab === 'ishi' || tab === 'ship') {
+      try { updateProgress(tab); } catch(e){}
+    }
+  } catch(e) {
+    console.error('switchTab error:', e, 'tab:', tab);
+  }
 }
 
 init();
