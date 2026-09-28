@@ -1121,6 +1121,15 @@ main {
 <script>
 function navTo(k,p){if(typeof _navTo==='function')_navTo(k,p);}
 function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection(k,f);}
+function switchTab(tab,btn){
+  try{
+    document.querySelectorAll('.page').forEach(function(p){if(p)p.classList.remove('active');});
+    var pageEl=document.getElementById('page-'+tab);
+    if(pageEl)pageEl.classList.add('active');
+    document.querySelectorAll('.tab').forEach(function(t){if(t)t.classList.remove('active');});
+    if(btn)btn.classList.add('active');
+  }catch(e){console.error('switchTab error:',e);}
+}
 </script>
 </head>
 <body>
@@ -1184,56 +1193,68 @@ function toggleSection(k,f){if(typeof _toggleSection==='function')_toggleSection
   <div class="itinerary">
     <div class="itin-row">
       <div class="itin-icon-wrap">🚢</div>
-      <div><div class="itin-name">郵輪碼頭出發</div><div class="itin-sub">15:00 可上岸</div></div>
-      <div class="itin-time">—</div>
+      <div><div class="itin-name">那霸碼頭抵達</div><div class="itin-sub">14:00 抵達・預留 30 分辦理下船手續</div></div>
+      <div class="itin-time">14:00</div>
     </div>
     <div class="itin-arrow">↓ 步行約 15 分</div>
     <div class="itin-row">
       <div class="itin-icon-wrap">⛩️</div>
-      <div><div class="itin-name">波上宮 ＋ 波之上海灘</div><div class="itin-sub">11月不能游泳，拍照散步</div></div>
-      <div class="itin-time">—</div>
+      <div><div class="itin-name">波上宮 ＋ 波之上海灘</div><div class="itin-sub">快拍快走約 15–20 分</div></div>
+      <div class="itin-time">14:45</div>
     </div>
-    <div class="itin-arrow">↓ 步行約 25 分（往東方向，經過若狭大通り）</div>
-    <div class="itin-row">
-      <div class="itin-icon-wrap">🍱</div>
-      <div><div class="itin-name">ポーたま 牧志市場店</div><div class="itin-sub">07:00–20:00　排隊約 30–40 分・那覇市松尾2-8-35</div></div>
-      <div class="itin-time">¥390 起</div>
-    </div>
-    <div class="itin-arrow">↓ 步行約 5 分</div>
-    <div class="itin-row">
-      <div class="itin-icon-wrap">🏬</div>
-      <div><div class="itin-name">RYUBO 百貨（デパートリウボウ）</div><div class="itin-sub">國際通起點・県庁前站旁｜快速逛地下食品館約 10–15 分，沖繩縣產食品、やちむん陶器品質精選</div></div>
-      <div class="itin-time">—</div>
-    </div>
-    <div class="itin-arrow">↓ 即達（就在國際通入口）</div>
-    <div class="itin-row">
-      <div class="itin-icon-wrap">🛍️</div>
-      <div><div class="itin-name">國際通購物</div><div class="itin-sub">大國藥妝 → 札幌藥妝 → 唐吉訶德 → 御菓子御殿 → Calbee+ → 平和通</div></div>
-      <div class="itin-time">1.6km</div>
-    </div>
-    <div class="itin-arrow">↓ 步行約 5 分</div>
-    <div class="itin-row">
-      <div class="itin-icon-wrap">🏪</div>
-      <div><div class="itin-name">わしたショップ 国際通り本店</div><div class="itin-sub">〒900-0015 久茂地3-2-22 JAドリーム館1F｜10:00–22:00 無休｜Royce 石垣島系列在此購買，行程最後段再來</div></div>
-      <div class="itin-time">—</div>
-    </div>
-    <div class="itin-arrow">↓ 步行約 5 分</div>
-    <div class="itin-row">
-      <div class="itin-icon-wrap">🐟</div>
-      <div><div class="itin-name">牧志公設市場周邊</div><div class="itin-sub">晚餐或飯後逛</div></div>
-      <div class="itin-time">—</div>
-    </div>
-    <div class="itin-arrow">↓ 步行約 3–5 分</div>
+    <div class="itin-arrow">↓ 計程車約 15–20 分（¥1,500–2,000）</div>
     <div class="itin-row">
       <div class="itin-icon-wrap">🛒</div>
-      <div><div class="itin-name">MaxValu 牧志店</div><div class="itin-sub">〒900-0013 那覇市牧志3-19-2｜24H・可退稅｜行程最後段購買重物</div></div>
-      <div class="itin-time">—</div>
+      <div><div class="itin-name">PARCO CITY（サンエー浦添西海岸）</div><div class="itin-sub">UNIQLO・GU・無印・大創・3COINS・Loft・松本清・ABC-MART GRAND STAGE・namco・萬代轉蛋・SAN-A 超市｜10:00–22:00</div></div>
+      <div class="itin-time">15:30</div>
     </div>
-    <div class="itin-arrow">↓ 步行 20 分 ／ 計程車約 7 分（¥800）</div>
+    <div class="itin-arrow">↓ PARCO CITY 內（約 2 小時購物後）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🍔</div>
+      <div><div class="itin-name">A&W 晚餐（PARCO CITY 內）</div><div class="itin-sub">沖繩限定漢堡，Root Beer 浮冰必點，約 30–40 分</div></div>
+      <div class="itin-time">17:30</div>
+    </div>
+    <div class="itin-arrow">↓ 計程車約 15 分（¥1,500–2,000）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">📦</div>
+      <div><div class="itin-name">嘉新飯店 取貨（完美行）</div><div class="itin-sub">那覇市松尾 2-5-7・Hotel Collective｜取完直接往東走進入國際通</div></div>
+      <div class="itin-time">18:30</div>
+    </div>
+    <div class="itin-arrow">↓ 步行即達</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🛒</div>
+      <div><div class="itin-name">唐吉訶德 國際通店</div><div class="itin-sub">預留 45 分排隊結帳・防災品・食品・藥妝｜09:00–05:00</div></div>
+      <div class="itin-time">18:45</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 5 分（往牧志方向）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🧴</div>
+      <div><div class="itin-name">大國藥妝 牧志店</div><div class="itin-sub">藥妝・保養品・中文服務｜10:05–22:50</div></div>
+      <div class="itin-time">19:30</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 5 分（往久茂地方向）</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🏪</div>
+      <div><div class="itin-name">わしたショップ 国際通り本店</div><div class="itin-sub">久茂地 3-2-22・沖繩在地食品・調味料・泡盛｜10:00–22:00</div></div>
+      <div class="itin-time">20:15</div>
+    </div>
+    <div class="itin-arrow">↓ 視時間決定</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🍬</div>
+      <div><div class="itin-name">御菓子御殿 / 平和通</div><div class="itin-sub">紅芋塔・平和通雜貨・視時間決定</div></div>
+      <div class="itin-time">20:40</div>
+    </div>
+    <div class="itin-arrow">↓ 步行約 5 分</div>
+    <div class="itin-row">
+      <div class="itin-icon-wrap">🛒</div>
+      <div><div class="itin-name">MaxValu 牧志店</div><div class="itin-sub">那覇市牧志 2-10-1・24H・1F 超市・2F イオンドラッグ・沖繩縣産品コーナー</div></div>
+      <div class="itin-time">21:00</div>
+    </div>
+    <div class="itin-arrow">↓ 計程車約 7 分（¥700–900）</div>
     <div class="itin-row">
       <div class="itin-icon-wrap">🚢</div>
-      <div><div class="itin-name">回碼頭</div><div class="itin-sub">23:00 起航，22:00 前須回船</div></div>
-      <div class="itin-time">—</div>
+      <div><div class="itin-name">⚠️ 最後登船時間</div><div class="itin-sub">23:00 開航・最後登船 22:00・務必 21:30 出發</div></div>
+      <div class="itin-time">22:00</div>
     </div>
   </div>
 
