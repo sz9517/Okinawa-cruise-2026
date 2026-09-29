@@ -3106,7 +3106,7 @@ function init(){
   updateTotals();
   updateNavCounts();
   // Default: collapse all sections on load
-  ['nf','ne','nd','nds','np','if','is','id'].forEach(k => toggleSection(k, true));
+  document.querySelectorAll('.cat-section').forEach(sec => { if(sec) sec.classList.add('collapsed'); });
 
 }
 
