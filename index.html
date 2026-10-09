@@ -5,1118 +5,551 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>沖繩・石垣島 郵輪購物清單</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
 <style>
+/* ═══ 日系繪本風：和紙白底 × 墨灰粗線 × 平塗 ═══ */
 :root {
-  --sand:    #FDF8F2;
-  --sand2:   #F7EFE4;
-  --sand3:   #EDE0CF;
-  --coral:   #E8735A;
-  --coral2:  #F09070;
-  --coral-light: #FDE8E2;
-  --sea:     #2B8BA0;
-  --sea2:    #3DADC6;
-  --sea-light: #DFF2F7;
-  --isle:    #4A9B7F;
-  --isle-light: #DDF0E9;
-  --warn:    #C4820A;
-  --warn-bg: #FEF5E0;
-  --text:    #2C2018;
-  --text2:   #6B5540;
-  --text3:   #A08870;
-  --border:  #DDD0BE;
-  --border2: #EDE0CF;
-  --white:   #FFFFFF;
-  --radius:  12px;
-  --radius-sm: 8px;
-  --shadow:  0 2px 12px rgba(100,60,20,0.07);
-  --shadow-sm: 0 1px 4px rgba(100,60,20,0.06);
+  --ink: #3E3A39;   --ink2: #6B6462;  --ink3: #9A928E;  --line: #E6DED2;
+  --washi: #FFFCF6; --washi2: #F7F1E6; --white: #FFFFFF;
+  --coral: #F2A497; --coral-l: #FCE5E0;
+  --yama:  #F6D27A; --yama-l:  #FDF2D2;
+  --mizu:  #A8D3E6; --mizu-l:  #E4F2F8;
+  --waka:  #B9DAA5; --waka-l:  #E9F4E2;
+  --bw: 3px; --r-lg: 26px; --r: 20px; --r-sm: 14px;
+
+  /* 舊變數別名（內嵌樣式與腳本仍會用到） */
+  --sand: var(--washi); --sand2: var(--washi2); --sand3: var(--line);
+  --text: var(--ink); --text2: var(--ink2); --text3: var(--ink3);
+  --sea: var(--ink); --sea2: var(--mizu); --sea-light: var(--mizu-l);
+  --isle: var(--waka); --isle-light: var(--waka-l);
+  --coral2: var(--coral); --coral-light: var(--coral-l);
+  --warn: var(--ink); --warn-bg: var(--yama-l);
+  --border: var(--ink); --border2: var(--line);
+  --radius: var(--r); --radius-sm: var(--r-sm);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
+html { -webkit-text-size-adjust: 100%; }
 body {
-  background: var(--sand);
-  color: var(--text);
-  font-family: 'Zen Maru Gothic', 'Noto Sans TC', 'PingFang TC', system-ui, sans-serif;
+  background: var(--washi);
+  color: var(--ink);
+  font-family: 'Huninn', 'Noto Sans TC', 'PingFang TC', system-ui, sans-serif;
   font-size: 15.5px;
-  line-height: 1.65;
+  line-height: 1.7;
   min-height: 100vh;
+  overflow-x: hidden;
 }
-
-/* ── WAVE decoration ── */
-.wave-divider {
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  margin: 0;
-}
-.wave-divider svg { display: block; width: 100%; }
+a { color: inherit; }
+button { color: var(--ink); }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
 
 /* ── HEADER ── */
 header {
-  background: linear-gradient(160deg, #2B8BA0 0%, #1A6E87 50%, #3DADC6 100%);
-  padding: 28px 20px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 16px rgba(0,80,100,0.18);
+  background: var(--mizu-l);
+  border-bottom: var(--bw) solid var(--ink);
+  padding: 16px 16px 0;
+  position: sticky; top: 0; z-index: 100;
 }
 .header-inner { max-width: 700px; margin: 0 auto; }
+.header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.header-shisa { width: 50px; height: 50px; flex-shrink: 0; }
+.header-shisa svg { display: block; width: 100%; height: 100%; }
+.header-title { font-size: 19px; font-weight: 700; letter-spacing: .04em; line-height: 1.35; }
+.header-sub { font-size: 12.5px; color: var(--ink2); margin-top: 2px; }
 
-.header-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.header-shisa {
-  font-size: 32px;
-  line-height: 1;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-}
-.header-text {}
-.header-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.03em;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-.header-sub {
-  font-size: 12px;
-  color: rgba(255,255,255,0.75);
-  margin-top: 1px;
-}
-
-/* TABS */
-.tabs {
-  display: flex;
-  gap: 4px;
-}
+.tabs { display: flex; gap: 6px; margin-bottom: calc(var(--bw) * -1); position: relative; }
 .tab {
-  flex: 1;
-  padding: 9px 8px 11px;
-  border: none;
-  background: rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.8);
-  font-size: 15.5px;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 10px 10px 0 0;
-  transition: all 0.18s;
-  font-family: inherit;
-  letter-spacing: 0.02em;
+  flex: 1; min-width: 0;
+  padding: 8px 4px 9px;
+  background: var(--white);
+  border: var(--bw) solid var(--ink);
+  border-radius: 16px 16px 0 0;
+  font-size: 15px; font-family: inherit; font-weight: 700;
+  cursor: pointer; letter-spacing: .02em;
+  transition: background .15s, transform .15s;
 }
-.tab:hover { background: rgba(255,255,255,0.25); color: #fff; }
-.tab.active {
-  background: var(--sand);
-  color: var(--sea);
-  font-weight: 700;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
-}
-.tab-icon { font-size: 15.5px; display: block; margin-bottom: 1px; }
-
-/* ── WAVE below header ── */
-.header-wave {
-  background: var(--sand);
-  margin-top: -1px;
-}
+.tab:hover { background: var(--yama-l); }
+.tab.active { background: var(--washi); border-bottom-color: var(--washi); }
+.tab-icon { font-size: 16px; display: block; margin-bottom: 1px; }
 
 /* ── MAIN ── */
-main {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 16px 14px 80px;
-}
+main { max-width: 700px; margin: 0 auto; padding: 20px 14px 96px; }
 .page { display: none; }
 .page.active { display: block; }
 
-/* ── PORT BADGE ── */
+/* ── PORT HERO（插圖卡） ── */
 .port-hero {
-  background: linear-gradient(135deg, var(--sea-light) 0%, #C8EAF3 100%);
-  border: 1.5px solid var(--sea2);
-  border-radius: var(--radius);
-  padding: 14px 16px;
+  background: var(--white);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r-lg);
+  overflow: hidden;
   margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: flex; flex-direction: column;
 }
-.port-hero-ishi {
-  background: linear-gradient(135deg, var(--isle-light) 0%, #C8EBD9 100%);
-  border-color: var(--isle);
-}
-.port-hero-icon { font-size: 28px; }
-.port-hero-info {}
-.port-hero-name { font-size: 15.5px; font-weight: 700; color: var(--sea); }
-.port-hero-ishi .port-hero-name { color: var(--isle); }
-.port-hero-time { font-size: 15.5px; color: var(--text2); margin-top: 1px; }
+.port-hero-icon { line-height: 0; border-bottom: var(--bw) solid var(--ink); }
+.port-hero-icon svg { display: block; width: 100%; height: auto; }
+.port-hero-info { padding: 12px 16px 14px; background: var(--coral-l); }
+.port-hero-ishi .port-hero-info { background: var(--waka-l); }
+.port-hero-ship .port-hero-info { background: var(--mizu-l); }
+.port-hero-lang .port-hero-info { background: var(--yama-l); }
+.port-hero-name { font-size: 18px; font-weight: 700; }
+.port-hero-time { font-size: 14.5px; color: var(--ink2); margin-top: 2px; }
 
 /* ── SECTION TITLE ── */
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin: 24px 0 10px;
+.section-title, .phrase-section-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13.5px; font-weight: 700; letter-spacing: .12em;
+  margin: 28px 0 12px;
 }
-.section-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border2);
+.section-title::before, .phrase-section-title::before {
+  content: ''; width: 12px; height: 12px; flex-shrink: 0;
+  border-radius: 50%; background: var(--yama); border: 2.5px solid var(--ink);
+}
+.section-title::after, .phrase-section-title::after {
+  content: ''; flex: 1; border-top: 3px dotted var(--ink3);
 }
 
 /* ── ITINERARY ── */
 .itinerary {
   background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r);
   overflow: hidden;
-  box-shadow: var(--shadow);
 }
 .itin-row {
-  display: grid;
-  grid-template-columns: 36px 1fr auto;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 14px;
-  border-bottom: 1px solid var(--border2);
-  transition: background 0.12s;
+  display: grid; grid-template-columns: 40px 1fr auto;
+  align-items: center; gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 2px dashed var(--line);
+  transition: background .12s;
 }
 .itin-row:last-child { border-bottom: none; }
-.itin-row:hover { background: var(--sand2); }
+.itin-row:hover { background: var(--washi); }
 .itin-icon-wrap {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: var(--sand2);
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--coral-l); border: 2.5px solid var(--ink);
   display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
+  font-size: 17px;
 }
-.itin-name { font-size: 15.5px; font-weight: 600; color: var(--text); }
-.itin-sub { font-size: 12px; color: var(--text3); margin-top: 1px; }
+.page-ishi .itin-icon-wrap { background: var(--waka-l); }
+#page-ship .itin-icon-wrap { background: var(--mizu-l); }
+.itin-name { font-size: 15.5px; font-weight: 700; }
+.itin-sub { font-size: 12.5px; color: var(--ink2); margin-top: 2px; }
 .itin-time {
-  font-size: 12px; color: var(--text3);
-  text-align: right; white-space: nowrap;
-  background: var(--sand2);
-  padding: 3px 7px; border-radius: 10px;
+  font-size: 12.5px; font-weight: 700; white-space: nowrap;
+  background: var(--yama-l); border: 2px solid var(--ink);
+  padding: 1px 10px; border-radius: 999px;
 }
 .itin-arrow {
-  grid-column: 1/-1;
-  text-align: center;
-  font-size: 12px;
-  color: var(--text3);
-  padding: 5px 0;
-  background: var(--sand);
-  border-bottom: 1px solid var(--border2);
-  letter-spacing: 0.02em;
+  grid-column: 1/-1; text-align: center;
+  font-size: 12.5px; color: var(--ink2);
+  padding: 6px 10px; background: var(--washi);
+  border-bottom: 2px dashed var(--line);
 }
 
 /* ── PROGRESS ── */
 .progress-wrap {
   background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  margin-bottom: 4px;
-  box-shadow: var(--shadow-sm);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r);
+  padding: 14px 16px; margin-bottom: 4px;
 }
-.progress-top {
-  display: flex; justify-content: space-between;
-  font-size: 15.5px; color: var(--text2);
-  margin-bottom: 8px;
-}
-.progress-top strong { color: var(--text); font-weight: 700; }
-.progress-bar {
-  height: 8px; background: var(--sand3);
-  border-radius: 4px; overflow: hidden;
-}
-.progress-fill {
-  height: 100%; border-radius: 4px;
-  transition: width 0.4s cubic-bezier(.4,0,.2,1);
-}
-.fill-naha { background: linear-gradient(90deg, var(--coral) 0%, var(--coral2) 100%); }
-.fill-ishi { background: linear-gradient(90deg, var(--isle) 0%, #6ABDA0 100%); }
+.progress-top { display: flex; justify-content: space-between; font-size: 15px; color: var(--ink2); margin-bottom: 8px; }
+.progress-top strong { color: var(--ink); }
+.progress-bar { height: 18px; background: var(--washi2); border: 2.5px solid var(--ink); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--mizu); transition: width .4s cubic-bezier(.4,0,.2,1); }
+.fill-naha { background: var(--coral); }
+.fill-ishi { background: var(--waka); }
+.fill-ship { background: var(--mizu); }
 
-/* ── CATEGORY HEADER ── */
-.cat-header {
-  display: flex; align-items: center; gap: 8px;
-  margin: 20px 0 8px;
-}
+/* ── CATEGORY ── */
+.cat-header { display: flex; align-items: center; gap: 8px; margin: 22px 0 10px; flex-wrap: wrap; }
 .cat-label {
-  font-size: 15.5px; font-weight: 700;
-  color: var(--text2);
-  background: var(--sand2);
-  border: 1px solid var(--border);
-  padding: 3px 12px;
-  border-radius: 20px;
+  font-size: 15px; font-weight: 700;
+  background: var(--white); border: 2.5px solid var(--ink);
+  padding: 3px 14px; border-radius: 999px;
+  transition: background .15s;
 }
-.cat-count {
-  font-size: 12px; color: var(--text3);
+.cat-label.ship-lbl, .cat-label.wish-lbl { background: var(--mizu-l); }
+.cat-label.place-lbl { background: var(--waka-l); }
+.cat-count { font-size: 12.5px; color: var(--ink2); }
+
+.cat-section { margin-bottom: 6px; }
+.cat-section-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  cursor: pointer; padding: 6px 0; user-select: none;
 }
+.cat-section-header:hover .cat-label { background: var(--coral-l); }
+.page-ishi .cat-section-header:hover .cat-label { background: var(--waka-l); }
+.cat-toggle {
+  width: 28px; height: 28px; flex-shrink: 0;
+  border-radius: 50%; border: 2.5px solid var(--ink); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; transition: transform .2s;
+}
+.cat-section.collapsed .cat-toggle { transform: rotate(-90deg); }
+.cat-section-body { overflow: hidden; transition: max-height .3s ease, opacity .2s ease; max-height: 99999px; opacity: 1; }
+.cat-section.collapsed .cat-section-body { max-height: 0; opacity: 0; }
+
+/* ── CATEGORY NAV ── */
+.cat-nav-wrap {
+  position: sticky; top: 0; z-index: 90;
+  background: var(--washi);
+  border-bottom: 2px dashed var(--line);
+  margin: 0 -14px 16px;
+}
+.cat-nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 8px 14px; }
+.cat-nav::-webkit-scrollbar { display: none; }
+.cat-nav-inner { display: flex; gap: 6px; width: max-content; }
+.cat-nav-btn {
+  padding: 4px 12px; border-radius: 999px;
+  border: 2.5px solid var(--ink); background: var(--white);
+  font-size: 13px; font-weight: 700; font-family: inherit;
+  cursor: pointer; white-space: nowrap;
+  display: flex; align-items: center; gap: 5px;
+  transition: background .15s;
+}
+.cat-nav-btn:hover, .cat-nav-btn.active { background: var(--coral-l); }
+.page-ishi .cat-nav-btn:hover, .page-ishi .cat-nav-btn.active { background: var(--waka-l); }
+.cat-nav-count { background: var(--washi2); border-radius: 999px; padding: 0 6px; font-size: 11.5px; color: var(--ink2); }
+.cat-nav-count:empty { display: none; }
 
 /* ── ITEM ── */
-.item-list { display: flex; flex-direction: column; gap: 7px; }
-
+.item-list { display: flex; flex-direction: column; gap: 10px; }
 .item {
   background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r);
   padding: 12px 14px;
-  display: flex; align-items: flex-start; gap: 11px;
-  cursor: pointer;
-  transition: all 0.15s;
-  box-shadow: var(--shadow-sm);
-  user-select: none;
+  display: flex; align-items: flex-start; gap: 12px;
+  cursor: pointer; user-select: none;
+  transition: transform .15s, box-shadow .15s, background .15s;
 }
-.item:hover {
-  border-color: var(--coral2);
-  box-shadow: 0 3px 14px rgba(232,115,90,0.1);
-  transform: translateY(-1px);
-}
-.page-ishi .item:hover {
-  border-color: var(--isle);
-  box-shadow: 0 3px 14px rgba(74,155,127,0.1);
-}
-.item.checked {
-  background: #F9F5F0;
-  border-color: var(--border2);
-  box-shadow: none;
-  transform: none;
-  opacity: 0.72;
-}
+.item:hover { transform: translate(-1px,-2px); box-shadow: 3px 4px 0 var(--ink); }
+.item.checked { background: var(--washi2); box-shadow: none; transform: none; }
+.item.checked .item-content { opacity: .6; }
 
 .checkbox {
-  width: 22px; height: 22px;
-  border: 2px solid var(--border);
-  border-radius: 6px;
-  flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 1px;
-  transition: all 0.15s;
+  width: 26px; height: 26px; flex-shrink: 0;
+  border: 2.5px solid var(--ink); border-radius: 9px;
   background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px; transition: background .15s;
 }
-.item:hover .checkbox { border-color: var(--coral); }
-.page-ishi .item:hover .checkbox { border-color: var(--isle); }
-.item.checked .checkbox {
-  background: var(--isle);
-  border-color: var(--isle);
-}
-.page-naha .item.checked .checkbox {
-  background: var(--coral);
-  border-color: var(--coral);
-}
-.tick { display: none; color: white; font-size: 15.5px; font-weight: 700; }
+.item:hover .checkbox { background: var(--yama-l); }
+.item.checked .checkbox { background: var(--mizu); }
+.page-naha .item.checked .checkbox { background: var(--coral); }
+.page-ishi .item.checked .checkbox { background: var(--waka); }
+.tick { display: none; color: var(--ink); font-size: 15px; font-weight: 700; line-height: 1; }
 .item.checked .tick { display: block; }
 
 .item-content { flex: 1; min-width: 0; }
-.item-name {
-  font-size: 15.5px; font-weight: 600;
-  color: var(--text);
-  line-height: 1.4;
+.item-name { font-size: 15.5px; font-weight: 700; line-height: 1.45; }
+.item.checked .item-name { text-decoration: line-through; text-decoration-thickness: 2px; }
+.item-price { font-size: 15.5px; font-weight: 700; margin-top: 4px; }
+.item-twd {
+  font-size: 12px; font-weight: 400; color: var(--ink2);
+  background: var(--washi2); border: 1.5px solid var(--line);
+  border-radius: 999px; padding: 0 7px; margin-left: 8px; vertical-align: middle;
 }
-.item.checked .item-name {
-  text-decoration: line-through;
-  color: var(--text3);
-}
-.item-price {
-  font-size: 15.5px; font-weight: 700;
-  color: var(--coral);
-  margin-top: 3px;
-}
-.page-ishi .item-price { color: var(--isle); }
-.item.checked .item-price { color: var(--text3); }
-
-.item-where {
-  font-size: 12px; color: var(--text3);
-  margin-top: 3px;
-  display: flex; align-items: flex-start; gap: 4px;
-}
+.item-where { font-size: 12.5px; color: var(--ink2); margin-top: 4px; display: flex; align-items: flex-start; gap: 4px; }
 .item-note {
-  font-size: 12px;
-  margin-top: 5px;
-  padding: 4px 8px;
-  border-radius: 5px;
+  font-size: 12.5px; line-height: 1.55; margin-top: 7px; padding: 5px 10px;
+  border-radius: 12px; border: 2px solid var(--ink);
   display: flex; align-items: flex-start; gap: 5px;
 }
-.item-note.warn { background: var(--warn-bg); color: var(--warn); border-left: 2px solid #E6A020; }
-.item-note.info { background: var(--sea-light); color: var(--sea); }
+.item-note.warn { background: var(--yama-l); }
+.item-note.info { background: var(--mizu-l); }
+
+.item-del-btn {
+  width: 28px; height: 28px; flex-shrink: 0; align-self: flex-start;
+  border: 2px solid var(--ink); border-radius: 50%;
+  background: var(--white); font-size: 12px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+}
+.item-del-btn:hover { background: var(--coral-l); }
+
+/* ── AMOUNT INPUT ── */
+.amount-row { display: flex; align-items: center; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 2px dashed var(--line); }
+.amount-label, .amount-yen { font-size: 12.5px; color: var(--ink2); white-space: nowrap; }
+.amount-input, .custom-name-input, .custom-amount-input,
+.wish-name-input, .wish-note-input, .place-name-input, .place-note-input {
+  border: 2.5px solid var(--ink); border-radius: 12px;
+  background: var(--white); color: var(--ink);
+  font-family: inherit; outline: none;
+  transition: box-shadow .15s;
+}
+.amount-input:focus, .custom-name-input:focus, .custom-amount-input:focus,
+.wish-name-input:focus, .wish-note-input:focus, .place-name-input:focus, .place-note-input:focus {
+  box-shadow: 0 0 0 3px var(--yama);
+}
+.amount-input { flex: 1; max-width: 130px; padding: 4px 10px; font-size: 15.5px; }
+::placeholder { color: var(--ink3); }
+
+/* ── CUSTOM / WISH / PLACES ── */
+.custom-section, .wish-section, .places-section, .optional-section {
+  border: var(--bw) dashed var(--ink);
+  border-radius: var(--r);
+  padding: 14px; margin-top: 8px;
+}
+.custom-section { background: var(--coral-l); }
+.wish-section { background: var(--mizu-l); }
+.places-section { background: var(--waka-l); }
+.optional-section { background: var(--yama-l); }
+.custom-section-title, .wish-section-title, .places-section-title, .optional-section-title {
+  font-size: 15px; font-weight: 700; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+.custom-item-row, .wish-item-row, .place-item-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.custom-item-row:last-child, .wish-item-row:last-child, .place-item-row:last-child { margin-bottom: 0; }
+.custom-name-input, .wish-name-input, .place-name-input { flex: 1; min-width: 0; padding: 6px 10px; font-size: 15.5px; }
+.custom-amount-input { width: 92px; padding: 6px 8px; font-size: 15.5px; text-align: right; }
+.wish-note-input, .place-note-input { width: 108px; padding: 6px 8px; font-size: 12.5px; }
+.custom-del-btn, .wish-del-btn, .place-del-btn {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border: 2px solid var(--ink); border-radius: 50%;
+  background: var(--white); font-size: 14px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.custom-del-btn:hover, .wish-del-btn:hover, .place-del-btn:hover { background: var(--coral-l); }
+.add-custom-btn, .add-wish-btn, .add-place-btn {
+  width: 100%; margin-top: 10px; padding: 8px;
+  border: 2.5px dashed var(--ink); border-radius: 999px;
+  background: var(--white); font-size: 15px; font-weight: 700; font-family: inherit;
+  cursor: pointer; transition: background .15s;
+}
+.add-custom-btn:hover, .add-wish-btn:hover, .add-place-btn:hover { background: var(--yama-l); }
+
+/* ── OPTIONAL SPOTS ── */
+.optional-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.optional-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 999px;
+  border: 2.5px solid var(--ink); background: var(--white);
+  font-size: 15px; font-weight: 700; font-family: inherit;
+  cursor: pointer; text-align: left;
+  transition: background .15s, transform .15s;
+}
+.optional-btn:hover { background: var(--washi); transform: translateY(-1px); }
+.optional-btn.active { background: var(--yama); }
+.optional-detail { display: none; margin-top: 4px; }
+.optional-detail.show { display: block; }
+.optional-spot {
+  background: var(--white); border: 2.5px solid var(--ink);
+  border-radius: var(--r-sm); padding: 10px 13px; margin-bottom: 8px; font-size: 15px;
+}
+.optional-spot:last-child { margin-bottom: 0; }
+.optional-spot-name { font-weight: 700; margin-bottom: 3px; }
+.optional-spot-note { font-size: 12.5px; color: var(--ink2); line-height: 1.6; }
+.optional-spot-tag {
+  display: inline-block; font-size: 12px; font-weight: 700;
+  background: var(--yama-l); border: 2px solid var(--ink);
+  border-radius: 999px; padding: 0 9px; margin-bottom: 6px;
+}
 
 /* ── INFO PAGE ── */
-.info-card {
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-bottom: 12px;
-  box-shadow: var(--shadow-sm);
+.info-nav { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+.info-nav-btn {
+  padding: 6px 13px; border-radius: 999px;
+  border: 2.5px solid var(--ink); background: var(--white);
+  font-size: 15px; font-weight: 700; font-family: inherit;
+  cursor: pointer; white-space: nowrap;
+  transition: background .15s, transform .15s;
 }
+.info-nav-btn:hover { background: var(--mizu-l); transform: translateY(-1px); }
+.info-nav-btn.warn { background: var(--yama-l); }
+
+.info-card {
+  background: var(--white); border: var(--bw) solid var(--ink);
+  border-radius: var(--r); overflow: hidden; margin-bottom: 14px;
+}
+.info-card:not(:has(*)) { display: none; }
 .info-card-head {
-  background: var(--sand2);
-  border-bottom: 1px solid var(--border);
-  padding: 11px 16px;
-  font-size: 15.5px; font-weight: 700;
-  color: var(--text);
+  background: var(--mizu-l); border-bottom: var(--bw) solid var(--ink);
+  padding: 10px 16px; font-size: 15.5px; font-weight: 700;
   display: flex; align-items: center; gap: 7px;
 }
 .info-row {
-  display: flex; gap: 12px;
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--border2);
-  font-size: 15.5px; line-height: 1.55;
+  display: flex; gap: 12px; padding: 10px 16px;
+  border-bottom: 2px dashed var(--line);
+  font-size: 15px; line-height: 1.6;
 }
 .info-row:last-child { border-bottom: none; }
-.info-label { color: var(--text3); white-space: nowrap; min-width: 72px; font-size: 12px; padding-top: 1px; }
-.info-val { color: var(--text); }
+.info-label { flex-shrink: 0; width: 30%; max-width: 160px; color: var(--ink2); font-size: 12.5px; font-weight: 700; padding-top: 2px; }
+.info-val { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 
 .warn-block {
-  background: var(--warn-bg);
-  border: 1.5px solid #E6C060;
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  margin-bottom: 12px;
+  background: var(--yama-l);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r);
+  padding: 14px 16px; margin-bottom: 14px;
 }
-.warn-block-title {
-  font-weight: 700; font-size: 15.5px;
-  color: var(--warn); margin-bottom: 9px;
-  display: flex; align-items: center; gap: 6px;
+.warn-block.wb-red { background: var(--coral-l); }
+.warn-block.wb-green { background: var(--waka-l); }
+.warn-block-title { font-weight: 700; font-size: 15.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.warn-block.wb-orange .warn-block-title {
+  display: inline-flex; background: var(--coral); border: 2px solid var(--ink);
+  border-radius: 14px; padding: 4px 12px;
 }
-.warn-li {
-  display: flex; gap: 8px; font-size: 15.5px;
-  color: #7A5800; line-height: 1.55;
-  margin-bottom: 6px;
-}
+.warn-li { display: flex; gap: 9px; font-size: 15px; line-height: 1.6; margin-bottom: 6px; }
 .warn-li:last-child { margin-bottom: 0; }
-.warn-dot { color: var(--warn); flex-shrink: 0; }
-
-.tax-row {
-  display: flex; gap: 14px; align-items: flex-start;
-  padding: 11px 16px;
-  border-bottom: 1px solid var(--border2);
-  font-size: 15.5px; line-height: 1.55;
+.warn-dot {
+  flex-shrink: 0; width: 10px; height: 10px; margin-top: .55em;
+  border-radius: 50%; background: var(--yama); border: 2px solid var(--ink);
+  font-size: 0; overflow: hidden;
 }
+.wb-red .warn-dot, .wb-orange .warn-dot { background: var(--coral); }
+.wb-green .warn-dot { background: var(--waka); }
+
+.tax-row { display: flex; gap: 14px; align-items: flex-start; padding: 11px 16px; border-bottom: 2px dashed var(--line); font-size: 15px; line-height: 1.6; }
 .tax-row:last-child { border-bottom: none; }
 .tax-num {
-  width: 24px; height: 24px; flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--sea-light);
-  border: 1.5px solid var(--sea2);
-  color: var(--sea);
-  font-size: 12px; font-weight: 700;
+  width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%;
+  background: var(--mizu); border: 2px solid var(--ink);
+  font-size: 12.5px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
 }
 
-/* ── CLEAR BTN ── */
+/* Google Maps 小膠囊（覆寫內嵌樣式） */
+a[href*="google.com/maps"] {
+  color: var(--ink) !important;
+  background: var(--mizu-l) !important;
+  border: 2px solid var(--ink) !important;
+  border-radius: 999px !important;
+  padding: 0 9px !important;
+  font-weight: 700;
+}
+
+/* ── CLEAR ── */
 .clear-btn {
-  margin-top: 22px;
-  background: transparent;
-  border: 1.5px solid var(--border);
-  color: var(--text3);
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
-  font-size: 15.5px;
-  cursor: pointer;
-  font-family: inherit;
-  transition: all 0.15s;
+  margin-top: 24px; padding: 8px 18px;
+  background: var(--white); border: 2.5px solid var(--ink); border-radius: 999px;
+  font-size: 15px; font-family: inherit; cursor: pointer; color: var(--ink2);
+  transition: background .15s;
 }
-.clear-btn:hover { border-color: var(--coral); color: var(--coral); }
-
-/* ── DECORATIVE WAVE ── */
-.deco-wave {
-  text-align: center;
-  font-size: 18px;
-  color: var(--sea2);
-  letter-spacing: 4px;
-  margin: 6px 0 20px;
-  opacity: 0.5;
-}
-
-.item-del-btn {
-  width: 24px; height: 24px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--text3);
-  font-size: 12px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.15s;
-  margin-top: 1px;
-  align-self: flex-start;
-}
-.item-del-btn:hover { border-color: #E05555; color: #E05555; background: #FEF0F0; }
-
-/* ── AMOUNT INPUT ── */
-.amount-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 7px;
-  padding-top: 7px;
-  border-top: 1px dashed var(--border2);
-}
-.amount-label { font-size: 12px; color: var(--text3); white-space: nowrap; }
-.amount-input {
-  flex: 1;
-  border: 1.5px solid var(--border);
-  border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 15.5px;
-  font-family: inherit;
-  background: var(--sand);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.15s;
-  max-width: 120px;
-}
-.amount-input:focus { border-color: var(--coral); }
-.page-ishi .amount-input:focus { border-color: var(--isle); }
-.amount-input::placeholder { color: var(--text3); }
-.amount-yen { font-size: 12px; color: var(--text3); }
-
-/* ── CUSTOM ITEMS ── */
-.custom-section {
-  background: var(--white);
-  border: 1.5px dashed var(--border);
-  border-radius: var(--radius);
-  padding: 14px;
-  margin-top: 8px;
-}
-.custom-section-title {
-  font-size: 15.5px; font-weight: 700;
-  color: var(--text2); margin-bottom: 12px;
-  display: flex; align-items: center; gap: 6px;
-}
-.custom-item-row {
-  display: flex; gap: 8px; align-items: center;
-  margin-bottom: 8px;
-}
-.custom-item-row:last-child { margin-bottom: 0; }
-.custom-name-input {
-  flex: 1;
-  border: 1.5px solid var(--border);
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 15.5px;
-  font-family: inherit;
-  background: var(--sand);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.custom-name-input:focus { border-color: var(--coral); }
-.custom-amount-input {
-  width: 90px;
-  border: 1.5px solid var(--border);
-  border-radius: 6px;
-  padding: 6px 8px;
-  font-size: 15.5px;
-  font-family: inherit;
-  background: var(--sand);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.15s;
-  text-align: right;
-}
-.custom-amount-input:focus { border-color: var(--coral); }
-.custom-del-btn {
-  width: 28px; height: 28px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: transparent;
-  color: var(--text3);
-  font-size: 15.5px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.15s;
-}
-.custom-del-btn:hover { border-color: #E05555; color: #E05555; }
-.add-custom-btn {
-  width: 100%;
-  margin-top: 10px;
-  padding: 8px;
-  border: 1.5px dashed var(--border);
-  border-radius: 6px;
-  background: transparent;
-  color: var(--text3);
-  font-size: 15.5px;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.add-custom-btn:hover { border-color: var(--coral); color: var(--coral); background: var(--coral-light); }
+.clear-btn:hover { background: var(--coral-l); color: var(--ink); }
 
 /* ── TOTAL BAR ── */
 .total-bar {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: rgba(253,248,242,0.96);
-  backdrop-filter: blur(10px);
-  border-top: 1.5px solid var(--border);
-  padding: 10px 16px;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--washi); border-top: var(--bw) solid var(--ink);
+  padding: 9px 14px calc(9px + env(safe-area-inset-bottom));
   z-index: 200;
-  box-shadow: 0 -4px 20px rgba(100,60,20,0.1);
 }
-.total-bar-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+.total-bar-inner { max-width: 700px; margin: 0 auto; display: flex; align-items: center; gap: 7px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.total-bar-inner::-webkit-scrollbar { display: none; }
 .total-pill {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: 20px;
-  padding: 5px 12px;
-  font-size: 12px;
+  display: flex; align-items: center; gap: 5px;
+  background: var(--white); border: 2.5px solid var(--ink);
+  border-radius: 999px; padding: 3px 11px; font-size: 12.5px;
+  flex-shrink: 0; white-space: nowrap;
 }
-.total-pill-label { color: var(--text3); font-size: 12px; }
-.total-pill-amt { font-weight: 700; color: var(--text); }
-.total-pill.naha .total-pill-amt { color: var(--coral); }
-.total-pill.ishi .total-pill-amt { color: var(--isle); }
-.total-pill.grand {
-  background: linear-gradient(135deg, var(--sea-light), var(--isle-light));
-  border-color: var(--sea2);
-  margin-left: auto;
-}
-.total-pill.grand .total-pill-label { color: var(--sea); font-weight: 600; }
-.total-pill.grand .total-pill-amt { color: var(--sea); font-size: 15.5px; }
-
-@media (max-width: 480px) {
-  .itin-row { grid-template-columns: 32px 1fr; }
-  .itin-time { grid-column: 2; margin-top: 2px; }
-  header { padding: 18px 14px 0; }
-  .header-shisa { font-size: 26px; }
-  .header-title { font-size: 15.5px; }
-  .total-bar-inner { gap: 6px; }
-  .total-pill { padding: 4px 10px; }
-}
-
-/* ── CONFIRM MODAL ── */
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(44,32,24,0.45);
-  backdrop-filter: blur(3px);
-  z-index: 500;
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px;
-  animation: fadeIn 0.15s ease;
-}
-@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
-.modal-box {
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px 20px 18px;
-  max-width: 320px; width: 100%;
-  box-shadow: 0 8px 32px rgba(44,32,24,0.18);
-  animation: slideUp 0.15s ease;
-}
-@keyframes slideUp { from { transform:translateY(12px); opacity:0 } to { transform:translateY(0); opacity:1 } }
-.modal-icon { font-size: 28px; text-align: center; margin-bottom: 10px; }
-.modal-title { font-size: 15.5px; font-weight: 700; color: var(--text); text-align: center; margin-bottom: 6px; }
-.modal-msg { font-size: 15.5px; color: var(--text2); text-align: center; line-height: 1.55; margin-bottom: 18px; }
-.modal-name { font-weight: 700; color: var(--text); }
-.modal-btns { display: flex; gap: 8px; }
-.modal-btn {
-  flex: 1; padding: 9px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 15.5px; font-weight: 600;
-  font-family: inherit; cursor: pointer;
-  border: 1.5px solid var(--border);
-  transition: all 0.15s;
-}
-.modal-btn-cancel { background: var(--sand); color: var(--text2); }
-.modal-btn-cancel:hover { border-color: var(--text3); }
-.modal-btn-confirm { background: #E05555; border-color: #E05555; color: white; }
-.modal-btn-confirm:hover { background: #C04040; border-color: #C04040; }
-
-/* ── WISHLIST ── */
-.wish-section {
-  background: var(--white);
-  border: 1.5px dashed #B8D4E8;
-  border-radius: var(--radius);
-  padding: 14px;
-  margin-top: 8px;
-}
-.wish-section-title {
-  font-size: 15.5px; font-weight: 700;
-  color: var(--sea); margin-bottom: 12px;
-  display: flex; align-items: center; gap: 6px;
-}
-.wish-item-row {
-  display: flex; gap: 8px; align-items: center;
-  margin-bottom: 8px;
-}
-.wish-item-row:last-child { margin-bottom: 0; }
-.wish-name-input {
-  flex: 1;
-  border: 1.5px solid #C8DEF0;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 15.5px;
-  font-family: inherit;
-  background: #F4F9FD;
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.wish-name-input:focus { border-color: var(--sea2); }
-.wish-note-input {
-  width: 100px;
-  border: 1.5px solid #C8DEF0;
-  border-radius: 6px;
-  padding: 6px 8px;
-  font-size: 12px;
-  font-family: inherit;
-  background: #F4F9FD;
-  color: var(--text2);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.wish-note-input:focus { border-color: var(--sea2); }
-.wish-del-btn {
-  width: 28px; height: 28px;
-  border: 1px solid #C8DEF0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--text3);
-  font-size: 15.5px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.15s;
-}
-.wish-del-btn:hover { border-color: #E05555; color: #E05555; }
-.add-wish-btn {
-  width: 100%;
-  margin-top: 10px;
-  padding: 8px;
-  border: 1.5px dashed #B8D4E8;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--sea);
-  font-size: 15.5px;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.add-wish-btn:hover { border-color: var(--sea2); background: var(--sea-light); }
-
-.item-twd {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text3);
-  background: var(--sand2);
-  border-radius: 4px;
-  padding: 1px 5px;
-  margin-left: 6px;
-  vertical-align: middle;
-}
-.item.checked .item-twd { opacity: 0.5; }
-
-.total-pill-twd {
-  font-size: 12px;
-  color: var(--text3);
-  margin-left: 3px;
-}
-.total-pill.grand .total-pill-twd { color: var(--sea); opacity: 0.75; }
-
-/* ── OPTIONAL SPOTS ── */
-.optional-section {
-  background: var(--white);
-  border: 1.5px dashed #C8B8F0;
-  border-radius: var(--radius);
-  padding: 14px;
-  margin-top: 8px;
-}
-.optional-section-title {
-  font-size: 15.5px; font-weight: 700;
-  color: #7060C0; margin-bottom: 10px;
-  display: flex; align-items: center; gap: 6px;
-}
-.optional-spot {
-  background: #F8F6FE;
-  border: 1.5px solid #D8CCF4;
-  border-radius: var(--radius-sm);
-  padding: 10px 13px;
-  margin-bottom: 8px;
-  font-size: 15.5px;
-}
-.optional-spot:last-child { margin-bottom: 0; }
-.optional-spot-name { font-weight: 700; color: #5048A0; margin-bottom: 3px; }
-.optional-spot-note { font-size: 12px; color: var(--text3); line-height: 1.5; }
-.optional-spot-tag {
-  display: inline-block;
-  font-size: 12px; font-weight: 700;
-  background: #EDE8FC; color: #7060C0;
-  border-radius: 10px; padding: 1px 8px;
-  margin-bottom: 5px;
-}
-
-/* ── CUSTOM PLACES ── */
-.places-section {
-  background: var(--white);
-  border: 1.5px dashed #C0D8C0;
-  border-radius: var(--radius);
-  padding: 14px;
-  margin-top: 8px;
-}
-.places-section-title {
-  font-size: 15.5px; font-weight: 700;
-  color: #4A8060; margin-bottom: 12px;
-  display: flex; align-items: center; gap: 6px;
-}
-.place-item-row {
-  display: flex; gap: 8px; align-items: center;
-  margin-bottom: 8px;
-}
-.place-item-row:last-child { margin-bottom: 0; }
-.place-name-input {
-  flex: 1;
-  border: 1.5px solid #B8D8B8;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 15.5px;
-  font-family: inherit;
-  background: #F4FAF4;
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.place-name-input:focus { border-color: var(--isle); }
-.place-note-input {
-  width: 110px;
-  border: 1.5px solid #B8D8B8;
-  border-radius: 6px;
-  padding: 6px 8px;
-  font-size: 12px;
-  font-family: inherit;
-  background: #F4FAF4;
-  color: var(--text2);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.place-note-input:focus { border-color: var(--isle); }
-.place-del-btn {
-  width: 28px; height: 28px;
-  border: 1px solid #B8D8B8;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--text3);
-  font-size: 15.5px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.15s;
-}
-.place-del-btn:hover { border-color: #E05555; color: #E05555; }
-.add-place-btn {
-  width: 100%;
-  margin-top: 10px;
-  padding: 8px;
-  border: 1.5px dashed #B8D8B8;
-  border-radius: 6px;
-  background: transparent;
-  color: #4A8060;
-  font-size: 15.5px;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.add-place-btn:hover { border-color: var(--isle); background: var(--isle-light); }
-
-/* ── CATEGORY NAV BAR ── */
-.cat-nav-wrap {
-  position: sticky;
-  top: 0;
-  z-index: 90;
-  background: rgba(253,248,242,0.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1.5px solid var(--border);
-  margin: 0 -14px 16px;
-}
-.cat-nav {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: 8px 14px;
-}
-.cat-nav::-webkit-scrollbar { display: none; }
-.cat-nav-inner {
-  display: flex;
-  gap: 6px;
-  width: max-content;
-}
-.cat-nav-btn {
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
-  color: var(--text2);
-  font-size: 12px;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.15s;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.cat-nav-btn:hover {
-  border-color: var(--coral);
-  color: var(--coral);
-}
-.cat-nav-btn.active {
-  background: var(--coral-light);
-  border-color: var(--coral);
-  color: var(--coral);
-}
-.page-ishi .cat-nav-btn:hover,
-.page-ishi .cat-nav-btn.active {
-  border-color: var(--isle);
-  color: var(--isle);
-  background: var(--isle-light);
-}
-.cat-nav-count {
-  background: var(--sand2);
-  border-radius: 10px;
-  padding: 0 5px;
-  font-size: 12px;
-  color: var(--text3);
-}
-
-/* ── COLLAPSIBLE SECTION ── */
-.cat-section { margin-bottom: 4px; }
-.cat-section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  cursor: pointer;
-  padding: 4px 0;
-  user-select: none;
-}
-.cat-section-header:hover .cat-label { border-color: var(--coral); }
-.page-ishi .cat-section-header:hover .cat-label { border-color: var(--isle); }
-.cat-toggle {
-  font-size: 12px;
-  color: var(--text3);
-  transition: transform 0.2s;
-  flex-shrink: 0;
-}
-.cat-section.collapsed .cat-toggle { transform: rotate(-90deg); }
-.cat-section-body {
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.2s ease;
-  max-height: 9999px;
-  opacity: 1;
-}
-.cat-section.collapsed .cat-section-body {
-  max-height: 0;
-  opacity: 0;
-}
+.total-pill.ship { background: var(--mizu-l); }
+.total-pill.naha { background: var(--coral-l); }
+.total-pill.ishi { background: var(--waka-l); }
+.total-pill.grand { background: var(--yama); margin-left: auto; }
+.total-pill-label { color: var(--ink2); font-size: 12.5px; }
+.total-pill.grand .total-pill-label { color: var(--ink); font-weight: 700; }
+.total-pill-amt { font-weight: 700; }
+.total-pill.grand .total-pill-amt { font-size: 15.5px; }
+.total-pill-twd { font-size: 12px; color: var(--ink2); margin-left: 2px; }
 
 /* ── BACK TO TOP ── */
 .back-to-top {
-  position: fixed;
-  bottom: 80px;
-  right: 16px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  color: var(--text2);
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 12px rgba(100,60,20,0.12);
-  transition: all 0.15s;
-  z-index: 199;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(8px);
+  position: fixed; bottom: 86px; right: 16px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--white); border: var(--bw) solid var(--ink);
+  font-size: 18px; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 199; opacity: 0; pointer-events: none; transform: translateY(8px);
+  transition: opacity .15s, transform .15s, background .15s;
 }
-.back-to-top.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-.back-to-top:hover {
-  border-color: var(--coral);
-  color: var(--coral);
-  box-shadow: 0 4px 16px rgba(232,115,90,0.2);
-}
+.back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.back-to-top:hover { background: var(--yama); }
 
-/* ── OPTIONAL QUICK BUTTONS ── */
-.optional-btns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(62,58,57,.35);
+  z-index: 500; display: flex; align-items: center; justify-content: center;
+  padding: 20px; animation: fadeIn .15s ease;
 }
-.optional-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border-radius: 20px;
-  border: 1.5px solid #C8B8F0;
-  background: #F4F0FC;
-  color: #5048A0;
-  font-size: 15.5px;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.15s;
-  text-align: left;
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+.modal-box {
+  background: var(--washi); border: var(--bw) solid var(--ink);
+  border-radius: var(--r-lg); padding: 24px 20px 18px;
+  max-width: 320px; width: 100%;
+  box-shadow: 5px 6px 0 var(--ink);
+  animation: slideUp .15s ease;
 }
-.optional-btn:hover {
-  background: #EDE8FC;
-  border-color: #9D8CD0;
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(80,72,160,0.12);
+@keyframes slideUp { from { transform: translateY(12px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+.modal-icon { font-size: 30px; text-align: center; margin-bottom: 8px; }
+.modal-title { font-size: 16.5px; font-weight: 700; text-align: center; margin-bottom: 6px; }
+.modal-msg { font-size: 15px; color: var(--ink2); text-align: center; line-height: 1.6; margin-bottom: 18px; }
+.modal-name { font-weight: 700; color: var(--ink); }
+.modal-btns { display: flex; gap: 8px; }
+.modal-btn {
+  flex: 1; padding: 9px 12px; border-radius: 999px;
+  border: 2.5px solid var(--ink);
+  font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer;
+  transition: transform .15s;
 }
-.optional-btn.active {
-  background: #5048A0;
-  border-color: #5048A0;
-  color: white;
-}
-.optional-detail {
-  display: none;
-  margin-top: 4px;
-}
-.optional-detail.show {
-  display: block;
-}
-
-/* ── INFO NAV ── */
-.info-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-bottom: 20px;
-}
-.info-nav-btn {
-  padding: 7px 13px;
-  border-radius: 20px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
-  color: var(--text2);
-  font-size: 15.5px;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-.info-nav-btn:hover {
-  border-color: var(--sea2);
-  color: var(--sea);
-  background: var(--sea-light);
-  transform: translateY(-1px);
-}
+.modal-btn:hover { transform: translateY(-1px); }
+.modal-btn-cancel { background: var(--white); }
+.modal-btn-confirm { background: var(--coral); }
 
 /* ── LANGUAGE PAGE ── */
-.phrase-section-title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin: 24px 0 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.phrase-section-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border2);
-}
 .phrase-card {
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 10px;
+  background: var(--white); border: var(--bw) solid var(--ink);
+  border-radius: var(--r); overflow: hidden; margin-bottom: 12px;
 }
 .phrase-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border-bottom: 1px solid var(--border2);
-  cursor: pointer;
-  transition: background 0.12s;
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 2px dashed var(--line);
+  cursor: pointer; transition: background .12s;
 }
 .phrase-row:last-child { border-bottom: none; }
-.phrase-row:hover { background: var(--sand2); }
-.phrase-zh {
-  padding: 11px 14px;
-  font-size: 15.5px;
-  font-weight: 600;
-  color: var(--text);
-  border-right: 1px solid var(--border2);
-  display: flex;
-  align-items: center;
-}
-.phrase-jp {
-  padding: 11px 14px;
-}
-.phrase-jp-text {
-  font-size: 15.5px;
-  font-weight: 600;
-  color: var(--sea);
-}
-.phrase-romaji {
-  font-size: 12px;
-  color: var(--text3);
-  margin-top: 2px;
-  font-style: italic;
-}
+.phrase-row:hover { background: var(--yama-l); }
+.phrase-zh { padding: 11px 14px; font-size: 15px; font-weight: 700; border-right: 2px dashed var(--line); display: flex; align-items: center; }
+.phrase-jp { padding: 11px 14px; }
+.phrase-jp-text { font-size: 15.5px; font-weight: 700; }
+.phrase-romaji { font-size: 12px; color: var(--ink3); margin-top: 2px; }
 .phrase-copy-hint {
-  font-size: 12px;
-  color: var(--text3);
-  text-align: center;
-  padding: 8px;
-  background: var(--sand);
-  border-bottom: 1px solid var(--border2);
+  font-size: 13px; text-align: center; padding: 7px 14px; margin-bottom: 16px;
+  background: var(--yama-l); border: 2.5px solid var(--ink); border-radius: 999px;
 }
 .phrase-copied {
-  position: fixed;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(44,32,24,0.85);
-  color: white;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 15.5px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 300;
+  position: fixed; bottom: 86px; left: 50%; transform: translateX(-50%);
+  background: var(--ink); color: var(--washi);
+  padding: 8px 18px; border-radius: 999px; font-size: 15px;
+  pointer-events: none; opacity: 0; transition: opacity .3s; z-index: 300;
 }
 .phrase-copied.show { opacity: 1; }
+
+/* ── MOBILE ── */
+@media (max-width: 480px) {
+  header { padding: 12px 10px 0; }
+  .header-shisa { width: 42px; height: 42px; }
+  .header-title { font-size: 16px; }
+  .header-top { margin-bottom: 10px; }
+  .tabs { gap: 4px; }
+  .tab { font-size: 12.5px; padding: 6px 1px 7px; border-radius: 12px 12px 0 0; letter-spacing: 0; }
+  .tab-icon { font-size: 15px; }
+  .itin-row { grid-template-columns: 36px 1fr; }
+  .itin-icon-wrap { width: 34px; height: 34px; font-size: 15px; }
+  .itin-time { grid-column: 2; justify-self: start; }
+  .info-row { flex-direction: column; gap: 2px; }
+  .info-label { width: auto; max-width: none; }
+  .total-bar-inner { gap: 5px; }
+  .total-pill { padding: 2px 7px; gap: 3px; }
+  .total-pill.grand .total-pill-amt { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
 </style>
 <script>
 function navTo(k,p){if(typeof _navTo==='function')_navTo(k,p);}
@@ -1137,7 +570,12 @@ function switchTab(tab,btn){
 <header>
   <div class="header-inner">
     <div class="header-top">
-      <div class="header-shisa">🦁</div>
+      <div class="header-shisa"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="39.0" cy="24.0" r="6" fill="#F2A497"/><circle cx="34.6" cy="34.6" r="6" fill="#F2A497"/><circle cx="24.0" cy="39.0" r="6" fill="#F2A497"/><circle cx="13.4" cy="34.6" r="6" fill="#F2A497"/><circle cx="9.0" cy="24.0" r="6" fill="#F2A497"/><circle cx="13.4" cy="13.4" r="6" fill="#F2A497"/><circle cx="24.0" cy="9.0" r="6" fill="#F2A497"/><circle cx="34.6" cy="13.4" r="6" fill="#F2A497"/><circle cx="24" cy="24" r="15" fill="#F2A497" stroke="none"/>
+<circle cx="24" cy="26" r="11" fill="#F6D27A"/>
+<circle cx="19.5" cy="24" r="1.9" fill="#3E3A39" stroke="none"/><circle cx="28.5" cy="24" r="1.9" fill="#3E3A39" stroke="none"/>
+<circle cx="16.5" cy="29" r="2.2" fill="#F2A497" stroke="none"/><circle cx="31.5" cy="29" r="2.2" fill="#F2A497" stroke="none"/>
+<ellipse cx="24" cy="28" rx="2.6" ry="1.8" fill="#3E3A39" stroke="none"/>
+<path d="M20 31.5 q4 4 8 0" fill="none" stroke-width="2.5"/></g></svg></div>
       <div class="header-text">
         <div class="header-title">沖繩・石垣島 郵輪購物清單</div>
         <div class="header-sub">11月9日（週一）那霸　｜　11月10日（週二）石垣島</div>
@@ -1163,18 +601,35 @@ function switchTab(tab,btn){
   </div>
 </header>
 
-<!-- wave -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 28" style="display:block;background:var(--sand);margin-top:-1px">
-  <path fill="#2B8BA0" d="M0,14 C240,28 480,0 720,14 C960,28 1200,0 1440,14 L1440,0 L0,0 Z"/>
-</svg>
+
 
 <main>
 
 <!-- ══════════════════ NAHA ══════════════════ -->
 <div class="page page-naha active" id="page-naha">
 
-  <div class="port-hero">
-    <div class="port-hero-icon">⚓</div>
+  <div class="port-hero port-hero-naha">
+    <div class="port-hero-icon"><svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="那霸港插圖：郵輪、波上宮與鳥居">
+<rect width="360" height="140" fill="#E4F2F8"/><g stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="330" cy="30" r="14" fill="#F6D27A"/>
+<path d="M36 46 a11 11 0 0 1 16 -13 a14 14 0 0 1 26 3 a10 10 0 0 1 2 20 h-40 a9 9 0 0 1 -4 -10z" fill="#FFFFFF"/>
+<path d="M150 30 q6 -6 12 0 q6 -6 12 0 M186 44 q5 -5 10 0 q5 -5 10 0" fill="none" stroke-width="2.5"/>
+<path d="M232 140 V88 q0 -14 14 -14 h80 q14 0 14 14 V140z" fill="#B9DAA5"/>
+<rect x="258" y="58" width="30" height="16" fill="#FFFFFF"/>
+<path d="M249 60 L273 44 L297 60 Z" fill="#F2A497"/>
+<path d="M269 74 v-9 h8 v9" fill="#F6D27A" stroke-width="2.5"/>
+<path d="M308 58 V74 M320 58 V74" fill="none" stroke-width="3.5"/>
+<rect x="301" y="51" width="26" height="6" rx="2" fill="#F2A497"/>
+<path d="M305 63 h18" fill="none" stroke-width="2.5"/>
+<path d="M76 52 h12 v14 h-12z" fill="#F2A497"/>
+<rect x="46" y="64" width="62" height="14" rx="4" fill="#FFFFFF"/>
+<rect x="28" y="76" width="104" height="14" rx="4" fill="#FFFFFF"/>
+<path d="M122 76 V58" fill="none"/><path d="M122 58 l13 5 -13 5" fill="#F6D27A" stroke-width="2.5"/>
+<path d="M14 88 H160 L146 116 H28 Z" fill="#FFFFFF"/>
+<path d="M21.5 100 H152.5" stroke="#F2A497" stroke-width="7" stroke-linecap="butt"/>
+<path d="M14 88 H160 L146 116 H28 Z" fill="none"/>
+<circle cx="40" cy="83" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="55" cy="83" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="70" cy="83" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="85" cy="83" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="100" cy="83" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="115" cy="83" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="58" cy="71" r="3" fill="#A8D3E6" stroke-width="2"/><circle cx="98" cy="71" r="3" fill="#A8D3E6" stroke-width="2"/><path d="M0 108 q15.0 -8 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 V140 H0 Z" fill="#A8D3E6"/><path d="M40 126 q8 -5 16 0 M196 122 q8 -5 16 0 M290 130 q8 -5 16 0" fill="none" stroke-width="2.5"/>
+</g></svg></div>
     <div class="port-hero-info">
       <div class="port-hero-name">那霸港</div>
       <div class="port-hero-time">11月9日（週一）14:00 抵達・23:00 起航｜下船約 14:30・最後登船 22:00（約 7.5 小時）</div>
@@ -1327,7 +782,7 @@ function switchTab(tab,btn){
   </div>
 
   <!-- NAHA custom/wish/places sections -->
-  <div class="cat-header" style="margin-top:20px"><div class="cat-label" style="color:var(--sea);border-color:#B8D4E8;background:#F0F7FC">🔖 那霸：想買清單（考慮中）</div></div>
+  <div class="cat-header" style="margin-top:20px"><div class="cat-label wish-lbl">🔖 那霸：想買清單（考慮中）</div></div>
   <div class="wish-section">
     <div class="wish-section-title">🔖 記下有興趣但還沒確定要買的東西</div>
     <div id="wish-naha-rows"></div>
@@ -1343,9 +798,9 @@ function switchTab(tab,btn){
 
 
   <div class="section-title">如果有時間</div>
-  <div style="padding:0 16px 8px">
+  <div class="optional-section">
     <div class="optional-section-title">⏱️ 點選查看備用景點詳情</div>
-    <div class="optional-btn-wrap">
+    <div class="optional-btns">
       <button class="optional-btn" onclick="toggleOpt(this,'naha-opt-1')">🛒 PARCO CITY</button>
       <button class="optional-btn" onclick="toggleOpt(this,'naha-opt-2')">🍰 Jimmy's</button>
       <button class="optional-btn" onclick="toggleOpt(this,'naha-opt-3')">🏋️ スポーツデポ 天久</button>
@@ -1381,18 +836,40 @@ function switchTab(tab,btn){
 <div class="page page-ishi" id="page-ishi">
 
   <div class="port-hero port-hero-ishi">
-    <div class="port-hero-icon">⚓</div>
+    <div class="port-hero-icon"><svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="石垣島插圖：川平灣小島、玻璃船、海龜與珊瑚">
+<rect width="360" height="140" fill="#E4F2F8"/><g stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="34.0" cy="23.0" r="8" fill="#F2A497"/><circle cx="42.6" cy="29.2" r="8" fill="#F2A497"/><circle cx="39.3" cy="39.3" r="8" fill="#F2A497"/><circle cx="28.7" cy="39.3" r="8" fill="#F2A497"/><circle cx="25.4" cy="29.2" r="8" fill="#F2A497"/><circle cx="34" cy="32" r="4.5" fill="#F6D27A"/>
+<path d="M150 80 q22 -34 48 0z" fill="#B9DAA5"/><path d="M190 80 q14 -20 30 0z" fill="#B9DAA5"/>
+<path d="M262 80 q26 -38 56 0z" fill="#B9DAA5"/>
+<path d="M0 80 H360 V140 H0Z" fill="#A8D3E6" stroke="none"/><path d="M0 80 H360" fill="none"/>
+<path d="M0 140 V122 q20 -7 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V140z" fill="#FFFCF6"/>
+<path d="M58 76 V60 M114 76 V60" fill="none"/>
+<path d="M50 60 H122 L115 51 H57 Z" fill="#F6D27A"/>
+<path d="M44 76 H128 L118 92 H54 Z" fill="#FFFFFF"/>
+<circle cx="68" cy="84" r="3" fill="#A8D3E6" stroke-width="2"/><circle cx="84" cy="84" r="3" fill="#A8D3E6" stroke-width="2"/><circle cx="100" cy="84" r="3" fill="#A8D3E6" stroke-width="2"/>
+<path d="M86 112 q10 -8 20 0 q-10 8 -20 0z M86 112 l-7 -5 v10z" fill="#F6D27A" stroke-width="2.5"/>
+<ellipse cx="244" cy="98" rx="9" ry="4.5" transform="rotate(-35 244 98)" fill="#B9DAA5" stroke-width="2.5"/>
+<ellipse cx="244" cy="126" rx="9" ry="4.5" transform="rotate(35 244 126)" fill="#B9DAA5" stroke-width="2.5"/>
+<ellipse cx="214" cy="101" rx="7" ry="4" transform="rotate(30 214 101)" fill="#B9DAA5" stroke-width="2.5"/>
+<ellipse cx="214" cy="123" rx="7" ry="4" transform="rotate(-30 214 123)" fill="#B9DAA5" stroke-width="2.5"/>
+<circle cx="253" cy="112" r="7" fill="#B9DAA5"/>
+<ellipse cx="230" cy="112" rx="20" ry="13" fill="#B9DAA5"/>
+<path d="M222 108 l8 -5 8 5 v8 l-8 5 -8 -5z" fill="#F6D27A" stroke-width="2.5"/>
+<circle cx="256" cy="110" r="1.6" fill="#3E3A39" stroke="none"/>
+<circle cx="266" cy="98" r="3" fill="#FFFFFF" stroke-width="2"/><circle cx="272" cy="89" r="2" fill="#FFFFFF" stroke-width="2"/>
+<path d="M318 140 V122 M318 130 L308 120 M318 126 L328 114 M308 120 V113 M328 114 V108" fill="none" stroke="#3E3A39" stroke-width="11"/><path d="M318 140 V122 M318 130 L308 120 M318 126 L328 114 M308 120 V113 M328 114 V108" fill="none" stroke="#F2A497" stroke-width="5"/><path d="M22 140 V122 M22 130 L12 120 M22 126 L32 114 M12 120 V113 M32 114 V108" fill="none" stroke="#3E3A39" stroke-width="11"/><path d="M22 140 V122 M22 130 L12 120 M22 126 L32 114 M12 120 V113 M32 114 V108" fill="none" stroke="#F2A497" stroke-width="5"/>
+</g></svg></div>
     <div class="port-hero-info">
       <div class="port-hero-name">石垣島</div>
       <div class="port-hero-time">11月10日（週二）13:00 抵達・22:00 起航｜下船約 14:00・最後登船 21:00（約 7 小時）</div>
     </div>
   </div>
 
-  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
-    <div class="warn-block-title" style="color:#B08000;">⚠️ 11月10日是週二，注意店家公休</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>石垣島部分餐廳・小店<strong>週二公休</strong>，出發前確認想去的店有無開門</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>ユーグレナモール・MaxValu・大國藥妝 不受影響，正常營業</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>德村菓子店（09:00–19:00）需確認週一是否開門</span></div>
+  <div class="warn-block wb-yellow">
+    <div class="warn-block-title">⚠️ 11月10日是週二，注意店家公休</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>石垣島部分餐廳・小店<strong>週二公休</strong>，出發前確認想去的店有無開門</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>ユーグレナモール・MaxValu・大國藥妝 不受影響，正常營業</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>德村菓子店（09:00–19:00）需確認週一是否開門</span></div>
   </div>
 
   <div class="section-title">行程動線</div>
@@ -1432,7 +909,7 @@ function switchTab(tab,btn){
   <div class="section-title">購買進度</div>
   <div class="progress-wrap">
     <div class="progress-top"><span>石垣島全部品項</span><strong id="ishi-prog-txt">0 / 0</strong></div>
-    <div class="progress-bar"><div class="progress-fill fill-ishi" id="ishi-prog-bar" style="width:0%;background:linear-gradient(90deg,var(--isle),#70C8A0)"></div></div>
+    <div class="progress-bar"><div class="progress-fill fill-ishi" id="ishi-prog-bar" style="width:0%"></div></div>
   </div>
 
 <div class="cat-section collapsed" id="sec-if">
@@ -1467,14 +944,14 @@ function switchTab(tab,btn){
 
 
 
-  <div class="cat-header" style="margin-top:20px"><div class="cat-label" style="color:#4A8060;border-color:#C0D8C0;background:#F4FAF4">📍 自訂想去地點</div></div>
+  <div class="cat-header" style="margin-top:20px"><div class="cat-label place-lbl">📍 自訂想去地點</div></div>
   <div class="places-section">
     <div class="places-section-title">📍 記下其他想順路去的地方</div>
     <div id="places-ishi-rows"></div>
     <button class="add-place-btn" onclick="addPlace('ishi')">＋ 新增地點</button>
   </div>
 
-  <div class="cat-header" style="margin-top:24px"><div class="cat-label" style="color:var(--sea);border-color:#B8D4E8;background:#F0F7FC">🔖 想買清單（考慮中）</div></div>
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label wish-lbl">🔖 想買清單（考慮中）</div></div>
   <div class="wish-section">
     <div class="wish-section-title">🔖 記下有興趣但還沒確定要買的東西</div>
     <div id="wish-ishi-rows"></div>
@@ -1539,7 +1016,7 @@ function switchTab(tab,btn){
     <button class="info-nav-btn" onclick="scrollToId('sec-pay')">💳 支付建議</button>
     <button class="info-nav-btn" onclick="scrollToId('sec-customs')">🛃 台灣海關</button>
     <button class="info-nav-btn" onclick="scrollToId('sec-repurchase')">📦 回台補購</button>
-    <button class="info-nav-btn" onclick="scrollToId('sec-nsaids')" style="color:#B08000;border-color:#D4A800;">⚠️ NSAIDs注意</button>
+    <button class="info-nav-btn warn" onclick="scrollToId('sec-nsaids')">⚠️ NSAIDs注意</button>
   </div>
 
   <div class="section-title" id="sec-warn">⚠️ 重要注意事項</div>
@@ -1568,12 +1045,12 @@ function switchTab(tab,btn){
 
   <div class="section-title" id="sec-evac">🆘 海嘯・地震避難資訊</div>
 
-  <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
-    <div class="warn-block-title" style="color:#C04040;">⚠️ 海嘯避難原則</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>感受到強烈搖晃、或長時間緩慢晃動 → <strong>立刻遠離海岸，往高處跑</strong></span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>聽到海嘯警報（大海嘯警報・海嘯警報・注意報）→ 不要等待確認，立刻避難</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>最近的高層建築 5 樓以上即可作為臨時避難，不一定要跑到官方指定避難所</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>沖繩 2024 年 4 月台灣地震曾發出海嘯警報，石垣島/宮古島海嘯風險真實存在</span></div>
+  <div class="warn-block wb-red">
+    <div class="warn-block-title">⚠️ 海嘯避難原則</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>感受到強烈搖晃、或長時間緩慢晃動 → <strong>立刻遠離海岸，往高處跑</strong></span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>聽到海嘯警報（大海嘯警報・海嘯警報・注意報）→ 不要等待確認，立刻避難</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>最近的高層建築 5 樓以上即可作為臨時避難，不一定要跑到官方指定避難所</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>沖繩 2024 年 4 月台灣地震曾發出海嘯警報，石垣島/宮古島海嘯風險真實存在</span></div>
   </div>
 
   <div class="info-card">
@@ -1607,31 +1084,31 @@ function switchTab(tab,btn){
   </div>
 
   <div class="section-title" id="sec-tax">🧾 退稅說明</div>
-  <div class="warn-block" style="background:rgba(240,136,62,0.07);border-color:rgba(240,136,62,0.35);">
-    <div class="warn-block-title" style="color:#C06010;">⚠️ 退稅制度重大變更：2026 年 11 月 1 日起適用新制</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>你的行程（11/9–10）<strong>剛好在新制實施後</strong>，適用 Refund 退稅方式</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span><strong>結帳時先照付含稅價格</strong>（多付 10%），現金或信用卡額度要多準備</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>出境時在港口或機場的稅關 KIOSK 刷護照確認，消費稅退款事後匯入指定帳戶</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>購買後 <strong>90 天內</strong>完成稅關確認即可，不一定要當天辦</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C06010;">▸</span><span>好消息：不再需要免稅封袋，一般品與消耗品區分廢除，購買上限 50 萬圓也廢除</span></div>
+  <div class="warn-block wb-orange">
+    <div class="warn-block-title">⚠️ 退稅制度重大變更：2026 年 11 月 1 日起適用新制</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>你的行程（11/9–10）<strong>剛好在新制實施後</strong>，適用 Refund 退稅方式</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>結帳時先照付含稅價格</strong>（多付 10%），現金或信用卡額度要多準備</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>出境時在港口或機場的稅關 KIOSK 刷護照確認，消費稅退款事後匯入指定帳戶</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>購買後 <strong>90 天內</strong>完成稅關確認即可，不一定要當天辦</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>好消息：不再需要免稅封袋，一般品與消耗品區分廢除，購買上限 50 萬圓也廢除</span></div>
   </div>
 
-  <div class="warn-block" style="background:rgba(74,155,127,0.07);border-color:rgba(74,155,127,0.35);">
-    <div class="warn-block-title" style="color:#2E7A5F;">🪪 郵輪旅客退稅用「船舶観光上陸許可書」代替護照</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#2E7A5F;">▸</span><span>郵輪旅客護照被船公司收走後，下船時會拿到<strong>「船舶観光上陸許可書」</strong>（A4紙一張）</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#2E7A5F;">▸</span><span>此許可書記載氏名・國籍・旅券號碼・上陸期間，<strong>可直接取代護照用於免稅手續</strong>，店家不得拒絕</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#2E7A5F;">▸</span><span>購物時出示此許可書，告知要辦理免稅即可，流程與一般旅客相同</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#2E7A5F;">▸</span><span><strong>下船後務必妥善保管此許可書</strong>，整天購物都會用到，遺失無法補發</span></div>
+  <div class="warn-block wb-green">
+    <div class="warn-block-title">🪪 郵輪旅客退稅用「船舶観光上陸許可書」代替護照</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>郵輪旅客護照被船公司收走後，下船時會拿到<strong>「船舶観光上陸許可書」</strong>（A4紙一張）</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>此許可書記載氏名・國籍・旅券號碼・上陸期間，<strong>可直接取代護照用於免稅手續</strong>，店家不得拒絕</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>購物時出示此許可書，告知要辦理免稅即可，流程與一般旅客相同</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>下船後務必妥善保管此許可書</strong>，整天購物都會用到，遺失無法補發</span></div>
   </div>
 
-  <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
-    <div class="warn-block-title" style="color:#C04040;">🚢 郵輪旅客退稅：那霸港・石垣港流程「準備中」</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>法規上「空海港」都適用，那霸港・石垣港理論上會設置 KIOSK 端末，但<strong>目前官方尚未公布具體流程</strong>（LIVE JAPAN 等多個來源確認仍「準備中」）</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>90 天緩衝期是關鍵：</strong>11/9–10 購物，90 天內（2027 年 2 月前）在任何日本出境點辦理確認均有效。那霸港當天辦不成，下次出境日本可補辦</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>那覇空港では Visit Japan Web を使ったオンライン手続にも対応予定，未來那霸港可能也會跟進</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>出發前 10 月下旬再查一次</strong>：聯絡麗星郵輪客服，或查詢大國藥妝/唐吉訶德官網最新說明</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>保守策略：先假設退不到稅來計算預算</strong>，能退到是額外賺到</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>退稅需同一店家單日消費滿 ¥5,000（未稅），金額不大的話不退也無妨</span></div>
+  <div class="warn-block wb-red">
+    <div class="warn-block-title">🚢 郵輪旅客退稅：那霸港・石垣港流程「準備中」</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>法規上「空海港」都適用，那霸港・石垣港理論上會設置 KIOSK 端末，但<strong>目前官方尚未公布具體流程</strong>（LIVE JAPAN 等多個來源確認仍「準備中」）</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>90 天緩衝期是關鍵：</strong>11/9–10 購物，90 天內（2027 年 2 月前）在任何日本出境點辦理確認均有效。那霸港當天辦不成，下次出境日本可補辦</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>那覇空港では Visit Japan Web を使ったオンライン手続にも対応予定，未來那霸港可能也會跟進</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>出發前 10 月下旬再查一次</strong>：聯絡麗星郵輪客服，或查詢大國藥妝/唐吉訶德官網最新說明</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>保守策略：先假設退不到稅來計算預算</strong>，能退到是額外賺到</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>退稅需同一店家單日消費滿 ¥5,000（未稅），金額不大的話不退也無妨</span></div>
   </div>
 
   <div class="info-card">
@@ -1665,20 +1142,20 @@ function switchTab(tab,btn){
 
   <div class="section-title" id="sec-customs">🛃 台灣海關注意事項</div>
 
-  <div class="warn-block" style="background:rgba(224,85,85,0.07);border-color:rgba(224,85,85,0.35);">
-    <div class="warn-block-title" style="color:#C04040;">🐷 豬肉製品禁止入境（最貴的錯誤）</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>依《動物傳染病防治條例》，違規攜帶豬肉製品入境可處<strong>高額罰鍰</strong>，主動申報不罰，被查到未申報才重罰</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>2026 年起所有入境行李均可能被 X 光抽查，桃機米格魯檢疫犬能從塞滿衣物的行李箱聞出肉品</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span><strong>清單中要特別小心：</strong>SPAM/午餐肉罐頭・ポーク類・アンダンスー（豬肉味噌）・ラフテー 真空包 → 全部不能帶</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>含真實肉塊的泡麵湯包不能帶；八重山そば乾麵本身沒問題，但附豬骨湯包就有風險</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#C04040;">▸</span><span>安全的：純粉調味料、糖果餅乾、黑糖、鹽、茶包、酒、化妝品。不確定就別買，或當場吃掉</span></div>
+  <div class="warn-block wb-red">
+    <div class="warn-block-title">🐷 豬肉製品禁止入境（最貴的錯誤）</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>依《動物傳染病防治條例》，違規攜帶豬肉製品入境可處<strong>高額罰鍰</strong>，主動申報不罰，被查到未申報才重罰</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>2026 年起所有入境行李均可能被 X 光抽查，桃機米格魯檢疫犬能從塞滿衣物的行李箱聞出肉品</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>清單中要特別小心：</strong>SPAM/午餐肉罐頭・ポーク類・アンダンスー（豬肉味噌）・ラフテー 真空包 → 全部不能帶</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>含真實肉塊的泡麵湯包不能帶；八重山そば乾麵本身沒問題，但附豬骨湯包就有風險</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>安全的：純粉調味料、糖果餅乾、黑糖、鹽、茶包、酒、化妝品。不確定就別買，或當場吃掉</span></div>
   </div>
 
-  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
-    <div class="warn-block-title" style="color:#B08000;">💊 藥品・保健食品限量</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>非處方藥每種最多 <strong>12 瓶（盒）</strong>，全部合計不超過 <strong>36 瓶</strong></span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>錠狀・膠囊狀保健食品（維他命等）適用同一規定：每種最多 12 瓶，合計不超過 36 瓶</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>你的清單：サロンパス 80枚・サロンパスEX・バンテリン・ピップエレキバン 130・MAX200 已 5 種，幫親友代買很容易超量</span></div>
+  <div class="warn-block wb-yellow">
+    <div class="warn-block-title">💊 藥品・保健食品限量</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>非處方藥每種最多 <strong>12 瓶（盒）</strong>，全部合計不超過 <strong>36 瓶</strong></span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>錠狀・膠囊狀保健食品（維他命等）適用同一規定：每種最多 12 瓶，合計不超過 36 瓶</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>你的清單：サロンパス 80枚・サロンパスEX・バンテリン・ピップエレキバン 130・MAX200 已 5 種，幫親友代買很容易超量</span></div>
   </div>
 
   <div class="info-card">
@@ -1721,23 +1198,23 @@ function switchTab(tab,btn){
   </div>
 
   <div class="section-title" id="sec-nsaids">⚠️ 含NSAIDs藥品・注意用量</div>
-  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
-    <div class="warn-block-title" style="color:#B08000;">⚠️ 以下貼布含NSAIDs，可購買但請勿每天大量連續使用</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>サロンパスEX</strong>｜含 インドメタシン（Indomethacin）｜短期急性疼痛使用，勿連續超過7天</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>バンテリンコーワ パップS</strong>｜含 フェルビナク（Felbinac）｜同上，短期使用</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>フェイタスZα ジクサス（噴劑）</strong>｜含 ジクロフェナク（Diclofenac）｜強效，急性扭傷用，短期使用</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>ボルタレン</strong>｜含 ジクロフェナク（Diclofenac）</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span>⚠️ NSAIDs 長期大量使用可能導致胃潰瘍、腎功能損傷。日常保養建議優先用 <strong>サロンパス 80枚</strong>（不含NSAIDs）或磁力貼</span></div>
+  <div class="warn-block wb-yellow">
+    <div class="warn-block-title">⚠️ 以下貼布含NSAIDs，可購買但請勿每天大量連續使用</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>サロンパスEX</strong>｜含 インドメタシン（Indomethacin）｜短期急性疼痛使用，勿連續超過7天</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>バンテリンコーワ パップS</strong>｜含 フェルビナク（Felbinac）｜同上，短期使用</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>フェイタスZα ジクサス（噴劑）</strong>｜含 ジクロフェナク（Diclofenac）｜強效，急性扭傷用，短期使用</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>ボルタレン</strong>｜含 ジクロフェナク（Diclofenac）</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span>⚠️ NSAIDs 長期大量使用可能導致胃潰瘍、腎功能損傷。日常保養建議優先用 <strong>サロンパス 80枚</strong>（不含NSAIDs）或磁力貼</span></div>
   </div>
 
-  <div class="warn-block" style="background:rgba(240,192,64,0.07);border-color:rgba(240,192,64,0.3);">
-    <div class="warn-block-title" style="color:#B08000;">⚠️ 其他需注意藥品・保健品</div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>パブロン 鼻炎カプセルS</strong>｜含プソイドエフェドリン（擬交感神經藥），高血壓・心臟病患者需謹慎，不建議購買</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>ドリエル（睡眠輔助）</strong>｜含ジフェンヒドラミン（抗組織胺），與抗過敏藥成分重疊，同時服用有過量風險</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>葛根湯・含甘草漢方藥</strong>｜長期或大量使用可能導致低血鉀（假性醛固酮增多症），短期使用安全</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>ハブカレー（蛇毒咖哩）</strong>｜含ハブ蛇萃取，部分人對蛇毒蛋白質過敏，不清楚過敏史者建議跳過</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>コーレーグース（泡盛辣椒醃漬）</strong>｜含酒精（泡盛），酒精敏感或服用特定藥物期間需注意</span></div>
-    <div class="warn-li"><span class="warn-dot" style="color:#B08000;">▸</span><span><strong>ドライシャンプースプレー</strong>｜含丙烷/丁烷推進劑，密閉空間或靠近火源有危險，船艙使用需通風</span></div>
+  <div class="warn-block wb-yellow">
+    <div class="warn-block-title">⚠️ 其他需注意藥品・保健品</div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>パブロン 鼻炎カプセルS</strong>｜含プソイドエフェドリン（擬交感神經藥），高血壓・心臟病患者需謹慎，不建議購買</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>ドリエル（睡眠輔助）</strong>｜含ジフェンヒドラミン（抗組織胺），與抗過敏藥成分重疊，同時服用有過量風險</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>葛根湯・含甘草漢方藥</strong>｜長期或大量使用可能導致低血鉀（假性醛固酮增多症），短期使用安全</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>ハブカレー（蛇毒咖哩）</strong>｜含ハブ蛇萃取，部分人對蛇毒蛋白質過敏，不清楚過敏史者建議跳過</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>コーレーグース（泡盛辣椒醃漬）</strong>｜含酒精（泡盛），酒精敏感或服用特定藥物期間需注意</span></div>
+    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>ドライシャンプースプレー</strong>｜含丙烷/丁烷推進劑，密閉空間或靠近火源有危險，船艙使用需通風</span></div>
   </div>
 
   <div class="info-card">
@@ -1775,10 +1252,23 @@ function switchTab(tab,btn){
 <!-- ══════════════════ SHIP ══════════════════ -->
 <div class="page" id="page-ship">
 
-  <div class="port-hero" style="background:linear-gradient(135deg,#EEF0FD 0%,#D8DCF8 100%);border-color:#9DA8E8;">
-    <div class="port-hero-icon">🛳️</div>
+  <div class="port-hero port-hero-ship">
+    <div class="port-hero-icon"><svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="探索星號郵輪插圖">
+<rect width="360" height="140" fill="#E4F2F8"/><g stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<polygon points="30.0,17.0 32.4,22.7 38.6,23.2 33.9,27.3 35.3,33.3 30.0,30.1 24.7,33.3 26.1,27.3 21.4,23.2 27.6,22.7" fill="#F6D27A" stroke-width="2.5"/><polygon points="62.0,40.0 63.6,43.8 67.7,44.1 64.6,46.8 65.5,50.9 62.0,48.7 58.5,50.9 59.4,46.8 56.3,44.1 60.4,43.8" fill="#F6D27A" stroke-width="2.5"/><polygon points="320.0,14.0 322.1,19.1 327.6,19.5 323.4,23.1 324.7,28.5 320.0,25.6 315.3,28.5 316.6,23.1 312.4,19.5 317.9,19.1" fill="#F6D27A" stroke-width="2.5"/><polygon points="292.0,43.0 293.3,46.2 296.8,46.5 294.1,48.7 294.9,52.0 292.0,50.2 289.1,52.0 289.9,48.7 287.2,46.5 290.7,46.2" fill="#F6D27A" stroke-width="2.5"/>
+<rect x="196" y="16" width="22" height="24" rx="3" fill="#F2A497"/><polygon points="207.0,21.5 208.7,25.6 213.2,26.0 209.8,28.9 210.8,33.3 207.0,30.9 203.2,33.3 204.2,28.9 200.8,26.0 205.3,25.6" fill="#F6D27A" stroke-width="2"/>
+<path d="M140 36 V12" fill="none"/><path d="M140 12 l14 5 -14 5" fill="#F6D27A" stroke-width="2.5"/>
+<rect x="104" y="36" width="104" height="14" rx="4" fill="#FFFFFF"/>
+<rect x="78" y="48" width="170" height="16" rx="5" fill="#FFFFFF"/>
+<rect x="50" y="62" width="234" height="18" rx="5" fill="#FFFFFF"/>
+<path d="M22 78 H338 L318 114 H44 Z" fill="#FFFFFF"/>
+<path d="M29.5 92 H330.5" stroke="#F2A497" stroke-width="7" stroke-linecap="butt"/>
+<path d="M22 78 H338 L318 114 H44 Z" fill="none"/>
+<circle cx="66" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="84" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="102" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="120" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="138" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="156" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="174" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="192" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="210" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="228" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="246" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><circle cx="264" cy="71" r="3.4" fill="#A8D3E6" stroke-width="2"/><rect x="92" y="52" width="10" height="8" rx="2" fill="#A8D3E6" stroke-width="2"/><rect x="112" y="52" width="10" height="8" rx="2" fill="#A8D3E6" stroke-width="2"/><rect x="132" y="52" width="10" height="8" rx="2" fill="#A8D3E6" stroke-width="2"/><rect x="152" y="52" width="10" height="8" rx="2" fill="#A8D3E6" stroke-width="2"/><rect x="172" y="52" width="10" height="8" rx="2" fill="#A8D3E6" stroke-width="2"/><rect x="192" y="52" width="10" height="8" rx="2" fill="#A8D3E6" stroke-width="2"/><rect x="212" y="52" width="10" height="8" rx="2" fill="#A8D3E6" stroke-width="2"/><rect x="232" y="52" width="10" height="8" rx="2" fill="#A8D3E6" stroke-width="2"/><rect x="116" y="39" width="12" height="8" rx="2" fill="#F6D27A" stroke-width="2"/><rect x="140" y="39" width="12" height="8" rx="2" fill="#F6D27A" stroke-width="2"/><rect x="164" y="39" width="12" height="8" rx="2" fill="#F6D27A" stroke-width="2"/><rect x="188" y="39" width="12" height="8" rx="2" fill="#F6D27A" stroke-width="2"/><text x="180" y="88.5" text-anchor="middle" font-family="Huninn, sans-serif" font-size="9" fill="#3E3A39" stroke="none" letter-spacing="2">STAR NAVIGATOR</text>
+<path d="M0 108 q15.0 -8 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 V140 H0 Z" fill="#A8D3E6"/><path d="M60 128 q8 -5 16 0 M200 126 q8 -5 16 0 M300 132 q8 -5 16 0" fill="none" stroke-width="2.5"/>
+</g></svg></div>
     <div class="port-hero-info">
-      <div class="port-hero-name" style="color:#5560C0;">探索星號 船上購物</div>
+      <div class="port-hero-name">探索星號 船上購物</div>
       <div class="port-hero-time">位於 7–8 樓｜最後一日折扣最甜</div>
     </div>
   </div>
@@ -1810,16 +1300,16 @@ function switchTab(tab,btn){
   <div class="section-title">購買進度</div>
   <div class="progress-wrap">
     <div class="progress-top"><span>船上購物清單</span><strong id="ship-prog-txt">0 / 0</strong></div>
-    <div class="progress-bar"><div class="progress-fill" id="ship-prog-bar" style="width:0%;background:linear-gradient(90deg,#5560C0,#8B95E0)"></div></div>
+    <div class="progress-bar"><div class="progress-fill fill-ship" id="ship-prog-bar" style="width:0%"></div></div>
   </div>
 
-  <div class="cat-header"><div class="cat-label" style="color:#5560C0;border-color:#9DA8E8;background:#EEF0FD">💎 精品・香水・化妝品</div><div class="cat-count" id="cnt-sp"></div></div>
+  <div class="cat-header"><div class="cat-label ship-lbl">💎 精品・香水・化妝品</div><div class="cat-count" id="cnt-sp"></div></div>
   <div class="item-list" id="lst-sp"></div>
 
-  <div class="cat-header"><div class="cat-label" style="color:#5560C0;border-color:#9DA8E8;background:#EEF0FD">🎁 郵輪紀念品</div><div class="cat-count" id="cnt-sm"></div></div>
+  <div class="cat-header"><div class="cat-label ship-lbl">🎁 郵輪紀念品</div><div class="cat-count" id="cnt-sm"></div></div>
   <div class="item-list" id="lst-sm"></div>
 
-  <div class="cat-header" style="margin-top:24px"><div class="cat-label" style="color:var(--sea);border-color:#B8D4E8;background:#F0F7FC">🔖 想買清單（考慮中）</div></div>
+  <div class="cat-header" style="margin-top:24px"><div class="cat-label wish-lbl">🔖 想買清單（考慮中）</div></div>
   <div class="wish-section">
     <div class="wish-section-title">🔖 記下有興趣但還沒確定要買的東西</div>
     <div id="wish-ship-rows"></div>
@@ -1838,10 +1328,20 @@ function switchTab(tab,btn){
 
 <!-- ══════════════════ LANGUAGE ══════════════════ -->
 <div class="page" id="page-lang">
-  <div class="port-hero" style="background:linear-gradient(135deg,#F0EEF8 0%,#DDD8F4 100%);border-color:#A89ECC;">
-    <div class="port-hero-icon">🗣️</div>
+  <div class="port-hero port-hero-lang">
+    <div class="port-hero-icon"><svg viewBox="0 0 360 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="對話泡泡插圖">
+<rect width="360" height="120" fill="#FDF2D2"/><g stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<rect x="22" y="18" width="156" height="52" rx="24" fill="#FCE5E0"/>
+<path d="M58 68 L50 88 L80 68" fill="#FCE5E0"/>
+<text x="100" y="51" text-anchor="middle" font-family="Huninn, sans-serif" font-size="19" fill="#3E3A39" stroke="none">こんにちは！</text>
+<rect x="184" y="44" width="152" height="52" rx="24" fill="#E4F2F8"/>
+<path d="M296 94 L306 112 L278 94" fill="#E4F2F8"/>
+<text x="260" y="77" text-anchor="middle" font-family="Huninn, sans-serif" font-size="19" fill="#3E3A39" stroke="none">你好！謝謝！</text>
+<polygon points="212.0,14.0 214.1,19.1 219.6,19.5 215.4,23.1 216.7,28.5 212.0,25.6 207.3,28.5 208.6,23.1 204.4,19.5 209.9,19.1" fill="#F6D27A" stroke-width="2.5"/><polygon points="330.0,16.0 331.6,19.8 335.7,20.1 332.6,22.8 333.5,26.9 330.0,24.7 326.5,26.9 327.4,22.8 324.3,20.1 328.4,19.8" fill="#F6D27A" stroke-width="2.5"/><polygon points="150.0,90.0 151.6,93.8 155.7,94.1 152.6,96.8 153.5,100.9 150.0,98.7 146.5,100.9 147.4,96.8 144.3,94.1 148.4,93.8" fill="#F6D27A" stroke-width="2.5"/>
+<circle cx="30" cy="100" r="9" fill="#B9DAA5"/><circle cx="110" cy="104" r="6" fill="#A8D3E6"/>
+</g></svg></div>
     <div class="port-hero-info">
-      <div class="port-hero-name" style="color:#5548A0;">日本旅遊用語</div>
+      <div class="port-hero-name">日本旅遊用語</div>
       <div class="port-hero-time">點擊任何一行即可複製日文，直接貼給店員</div>
     </div>
   </div>
@@ -2238,9 +1738,9 @@ function switchTab(tab,btn){
 <!-- TOTAL BAR -->
 <div class="total-bar">
   <div class="total-bar-inner">
-    <div class="total-pill" style="border-color:#9DA8E8;background:#EEF0FD">
-      <span class="total-pill-label" style="color:#5560C0">🛳️ 船上</span>
-      <span class="total-pill-amt" id="total-ship" style="color:#5560C0">¥0</span>
+    <div class="total-pill ship">
+      <span class="total-pill-label">🛳️ 船上</span>
+      <span class="total-pill-amt" id="total-ship">¥0</span>
       <span class="total-pill-twd" id="total-ship-twd"></span>
     </div>
     <div class="total-pill naha">
