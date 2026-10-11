@@ -271,13 +271,25 @@ main { max-width: 700px; margin: 0 auto; padding: 20px 14px 96px; }
 .item-img img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .item-img-empty {
   display: none; position: absolute; inset: 0;
-  align-items: center; justify-content: center; text-align: center;
-  font-size: 11.5px; line-height: 1.4; color: var(--ink3);
+  flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  font-size: 11.5px; line-height: 1.35; color: var(--ink3);
 }
-.item-img.missing { border-style: dashed; border-color: var(--ink3); background: var(--washi); cursor: default; }
+.item-img-empty b { font-size: 13px; color: var(--ink); }
+.item-img-empty i { font-style: normal; font-size: 10.5px; }
+.item-img.missing { border-style: dashed; border-color: var(--ink3); background: var(--washi); cursor: copy; }
 .item-img.missing img { display: none; }
 .item-img.missing .item-img-empty { display: flex; }
 .item.checked .item-img { opacity: .6; }
+
+.photo-banner {
+  background: var(--yama-l); border: var(--bw) solid var(--ink); border-radius: var(--r);
+  padding: 12px 16px; margin-bottom: 16px; font-size: 13.5px; line-height: 1.6;
+}
+.photo-banner b { font-size: 15px; }
+.photo-banner p { margin-top: 4px; }
+.photo-banner code { background: var(--white); border: 1.5px solid var(--ink); border-radius: 6px; padding: 0 5px; }
+.photo-banner-warn { background: var(--coral-l); border-radius: 10px; padding: 4px 8px; }
+.photo-banner a { display: inline-block; margin-top: 6px; font-weight: 700; }
 
 .img-viewer {
   position: fixed; inset: 0; z-index: 600;
@@ -1804,6 +1816,91 @@ function switchTab(tab,btn){
 </div>
 
 <script>
+// ── PHOTOS ─────────────────────────────────────────────
+// 照片放在 images/，檔名 = 品項編號，例如 nc1.jpg / nc1.png
+// 網頁會向 GitHub 讀取 images 資料夾的檔案清單，自動對應到品項。
+// 網址加上 ?photo 進入「照片模式」，每個品項都會顯示該用的檔名。
+const PHOTO_REPO = 'sz9517/okinawa-cruise-2026';
+const PHOTO_EXT  = /\.(jpe?g|png|webp|gif)$/i;
+const PHOTO_MODE = new URLSearchParams(location.search).has('photo');
+let PHOTOS = {};   // 編號(小寫) → 檔名
+
+function photoFor(item){
+  if(item.img) return item.img;                       // 手動指定的優先
+  const f = PHOTOS[item.id.toLowerCase()];
+  return f ? 'images/' + encodeURIComponent(f) : '';
+}
+function photoSlot(item){
+  const src = photoFor(item);
+  if(!src && !PHOTO_MODE) return '';
+  const esc = s => String(s).replace(/"/g, '&quot;');
+  return `<button type="button" class="item-img${src ? '' : ' missing'}" aria-label="${src ? '放大看圖片' : '照片檔名 ' + esc(item.id)}">
+        ${src ? `<img src="${esc(src)}" alt="${esc(item.name)}" loading="lazy" onerror="photoError(this)">` : ''}
+        <span class="item-img-empty">📷<b>${item.id}</b>${PHOTO_MODE ? '<i>點我複製</i>' : ''}</span>
+      </button>`;
+}
+function photoError(img){
+  const slot = img.parentNode;
+  if(PHOTO_MODE) slot.classList.add('missing'); else slot.remove();
+}
+function applyPhotoIndex(names){
+  const map = {};
+  names.forEach(n => { if(PHOTO_EXT.test(n)) map[n.replace(PHOTO_EXT,'').toLowerCase()] = n; });
+  const changed = JSON.stringify(map) !== JSON.stringify(PHOTOS);
+  PHOTOS = map;
+  return changed;
+}
+function rerenderAllLists(){
+  ['nc','ne','nd','nk','nz','nds','no'].forEach(c => renderList(c, false));
+  ['if','is','id'].forEach(c => renderList(c, true));
+  ['sp','sm'].forEach(c => renderList(c, false));
+}
+function readPhotoCache(){
+  try {
+    const cached = JSON.parse(localStorage.getItem('photoIndex') || 'null');
+    if(Array.isArray(cached)) applyPhotoIndex(cached);
+  } catch(e){}
+}
+function loadPhotoIndex(){
+  fetch('https://api.github.com/repos/' + PHOTO_REPO + '/contents/images', {cache:'no-cache'})
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(list => {
+      const names = list.filter(f => f.type === 'file').map(f => f.name);
+      try { localStorage.setItem('photoIndex', JSON.stringify(names)); } catch(e){}
+      if(applyPhotoIndex(names)) rerenderAllLists();
+      updatePhotoBanner();
+    })
+    .catch(() => updatePhotoBanner(true));
+}
+function allItems(){ return Object.values(PAGE_CATS).flat().flatMap(c => DATA[c] || []).filter(i => i && i.id); }
+function updatePhotoBanner(offline){
+  if(!PHOTO_MODE) return;
+  let b = document.getElementById('photo-banner');
+  if(!b){
+    b = document.createElement('div');
+    b.id = 'photo-banner'; b.className = 'photo-banner';
+    document.querySelector('main').prepend(b);
+  }
+  const items = allItems();
+  const have = items.filter(i => photoFor(i)).length;
+  const count = {}; Object.values(DATA).flat().forEach(i => { if(i && i.id) count[i.id] = (count[i.id]||0) + 1; });
+  const dupes = Object.keys(count).filter(k => count[k] > 1);
+  b.innerHTML = `<b>📷 照片模式</b>
+    <p>每個品項右側的編號就是照片檔名，例如 <code>nc1.jpg</code>。點虛線框可以複製編號。</p>
+    <p>已有照片 ${have} / ${items.length} 個品項${offline ? '（目前無法連到 GitHub，顯示的是上次的紀錄）' : ''}</p>
+    ${dupes.length ? `<p class="photo-banner-warn">⚠️ 這些編號重複了，照片和勾選會互相影響：${dupes.join('、')}</p>` : ''}
+    <a href="${location.pathname}">離開照片模式</a>`;
+}
+function copyText(text, msg){
+  const done = () => {
+    const toast = document.getElementById('phrase-toast');
+    const old = toast.textContent;
+    toast.textContent = msg; toast.classList.add('show');
+    setTimeout(() => { toast.classList.remove('show'); toast.textContent = old; }, 1500);
+  };
+  if(navigator.clipboard) navigator.clipboard.writeText(text).then(done).catch(done); else done();
+}
+
 // ── IMAGE VIEWER
 function openImg(src, name){
   document.getElementById('img-viewer-pic').src = src;
@@ -2057,7 +2154,7 @@ const DATA = {
     {id:'nz38', name:'Aunt Stella 詩特莉手工餅乾', price:'¥800–1,500', where:'RYUBO 百貨地下食品館', note:'info:ℹ️ 經過就能聞到香氣，建議現場試吃再買'},
     {id:'nz39', name:'雪塩ふぃなん（宮古島雪鹽費南雪）', price:'¥1,000–1,900', where:'雪塩さんど 国際通り本店（RYUBO 百貨旁，県庁前站步行5分）', note:'info:ℹ️ 宮古島雪鹽+奶油手作費南雪，濕潤香濃，賞味期限90天，11:00–21:00 無休'},
     {id:'nz40', name:'Glico Pocky 日本限定口味大包', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 抹茶/苺/巧克力等限定口味，超市比便利商店便宜，台灣少見'},
-    {id:'nz40', name:'泡盛ボンボン（泡盛巧克力糖）', price:'¥400–800', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 含微量泡盛的巧克力糖，送大人伴手禮最合適'},
+    {id:'nz75', name:'泡盛ボンボン（泡盛巧克力糖）', price:'¥400–800', where:'各土産店 / 唐吉訶德', note:'info:ℹ️ 含微量泡盛的巧克力糖，送大人伴手禮最合適'},
     {id:'nz41', name:'ボンカレー（即食咖哩）沖繩限定版', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 沖繩限定包裝，和本島版口感略有不同'},
     {id:'nz42', name:'UHA 味覺糖 CORORO（果汁軟糖）', price:'¥200–350', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 台灣瘋搶，超市版比藥妝店便宜'},
     {id:'nz43', name:'Calbee Jagabee（薯條零食，超市版大包）', price:'¥200–300', where:'MaxValu 牧志店 / 各超市'},
@@ -2092,11 +2189,11 @@ const DATA = {
     {id:'nz72', name:'しまんちゅの恋人（Union超市限定雙層餅乾）', price:'¥400–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 雙層餅乾外裹巧克力，沖繩超市限定'},
     {id:'nz73', name:'沖繩産 紅芋チップス（紅芋洋芋片，超市版大包）', price:'¥300–500', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市大包裝比土産店便宜'},
     {id:'nz74', name:'ちっぱーちゃんの塩せんべい（沖繩鹽味仙貝）', price:'¥150–300', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市限定小包裝，鹹香酥脆'},
-    {id:'nz41', name:'泡盛（沖繩米酒，小瓶各品牌）', price:'¥300–800', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 酒精飲料，確認麗星郵輪攜帶規定；超市比土産店種類更多且便宜'},
-    {id:'nz42', name:'伊藤園 おーいお茶 緑茶ティーバッグ 大包', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市大包裝比任何地方便宜，日本製品質穩定'},
-    {id:'nz43', name:'天然水ポット用 麦茶（冷泡麥茶包）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本冷泡麥茶包，超市大容量版最划算，無咖啡因'},
-    {id:'nz44', name:'ルイボスティー（南非博士茶，無咖啡因）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本品牌品質穩定，無咖啡因，比台灣便宜'},
-    {id:'nz45', name:'コーヒー ドリップバッグ（掛耳咖啡，UCC/KEY COFFEE）', price:'¥300–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本精品掛耳咖啡，台灣進口版貴兩倍以上'},
+    {id:'nz76', name:'泡盛（沖繩米酒，小瓶各品牌）', price:'¥300–800', where:'MaxValu 牧志店 / 各超市', note:'warn:⚠️ 酒精飲料，確認麗星郵輪攜帶規定；超市比土産店種類更多且便宜'},
+    {id:'nz77', name:'伊藤園 おーいお茶 緑茶ティーバッグ 大包', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 超市大包裝比任何地方便宜，日本製品質穩定'},
+    {id:'nz78', name:'天然水ポット用 麦茶（冷泡麥茶包）', price:'¥200–400', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本冷泡麥茶包，超市大容量版最划算，無咖啡因'},
+    {id:'nz79', name:'ルイボスティー（南非博士茶，無咖啡因）', price:'¥300–600', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本品牌品質穩定，無咖啡因，比台灣便宜'},
+    {id:'nz80', name:'コーヒー ドリップバッグ（掛耳咖啡，UCC/KEY COFFEE）', price:'¥300–700', where:'MaxValu 牧志店 / 各超市', note:'info:ℹ️ 日本精品掛耳咖啡，台灣進口版貴兩倍以上'},
           ],
   'nds': [
     {id:'nds1', name:'Daiso 真空壓縮收納袋（旅行版）', price:'¥100–300', where:'唐吉訶德找找看', note:'info:ℹ️ 日本大創品質遠勝台灣版，壓縮效果佳；唐吉訶德可能有類似款'},
@@ -2338,10 +2435,7 @@ function renderList(cat, isIshi){
         ${noteHtml}
         ${amtHtml}
       </div>
-      ${item.img ? `<button type="button" class="item-img" aria-label="放大看 ${item.name} 的圖片">
-        <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.parentNode.classList.add('missing')">
-        <span class="item-img-empty">📷<br>放圖片</span>
-      </button>` : ''}
+      ${photoSlot(item)}
       <button class="item-del-btn" title="從清單移除" data-id="${item.id}">✕</button>`;
 
     d.querySelector('.item-del-btn').onclick = function(e){
@@ -2353,8 +2447,11 @@ function renderList(cat, isIshi){
     const imgBtn = d.querySelector('.item-img');
     if(imgBtn) imgBtn.onclick = function(e){
       e.stopPropagation();
-      if(imgBtn.classList.contains('missing')) return;
-      openImg(item.img, item.name);
+      if(imgBtn.classList.contains('missing')){
+        if(PHOTO_MODE) copyText(item.id, '已複製檔名：' + item.id);
+        return;
+      }
+      openImg(imgBtn.querySelector('img').src, item.name);
     };
 
     const cb = d.querySelector('.checkbox');
@@ -2704,6 +2801,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 function init(){
+  readPhotoCache();
   ['nc','ne','nd','nk','nz','nds','no'].forEach(c => renderList(c, false));
   ['if','is','id'].forEach(c => renderList(c, true));
   ['sp','sm'].forEach(c => renderList(c, false));
@@ -2720,6 +2818,8 @@ function init(){
   updateProgress('ship');
   updateTotals();
   updateNavCounts();
+  loadPhotoIndex();
+  updatePhotoBanner();
   // Default: collapse all sections on load
   document.querySelectorAll('.cat-section').forEach(sec => { if(sec) sec.classList.add('collapsed'); });
 
