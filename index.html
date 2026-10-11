@@ -574,7 +574,8 @@ a[href*="google.com/maps"] {
 .phrase-copied {
   position: fixed; bottom: 86px; left: 50%; transform: translateX(-50%);
   background: var(--ink); color: var(--washi);
-  padding: 8px 18px; border-radius: 999px; font-size: 15px;
+  padding: 8px 18px; border-radius: 18px; font-size: 15px;
+  width: max-content; max-width: calc(100vw - 32px); text-align: center; line-height: 1.5;
   pointer-events: none; opacity: 0; transition: opacity .3s; z-index: 300;
 }
 .phrase-copied.show { opacity: 1; }
@@ -1817,11 +1818,13 @@ function switchTab(tab,btn){
 
 <script>
 // ── PHOTOS ─────────────────────────────────────────────
-// 照片放在 images/，檔名 = 品項編號，例如 nc1.jpg / nc1.png
+// 照片放在 images/，格式固定為 WebP，檔名 = 品項編號，例如 nc1.webp
 // 網頁會向 GitHub 讀取 images 資料夾的檔案清單，自動對應到品項。
 // 網址加上 ?photo 進入「照片模式」，每個品項都會顯示該用的檔名。
 const PHOTO_REPO = 'sz9517/okinawa-cruise-2026';
-const PHOTO_EXT  = /\.(jpe?g|png|webp|gif)$/i;
+const PHOTO_EXT  = /\.webp$/i;
+const PHOTO_MAX  = 1000;   // 轉檔時最長邊 px
+const PHOTO_Q    = 0.8;    // WebP 品質
 const PHOTO_MODE = new URLSearchParams(location.search).has('photo');
 let PHOTOS = {};   // 編號(小寫) → 檔名
 
@@ -1836,7 +1839,7 @@ function photoSlot(item){
   const esc = s => String(s).replace(/"/g, '&quot;');
   return `<button type="button" class="item-img${src ? '' : ' missing'}" aria-label="${src ? '放大看圖片' : '照片檔名 ' + esc(item.id)}">
         ${src ? `<img src="${esc(src)}" alt="${esc(item.name)}" loading="lazy" onerror="photoError(this)">` : ''}
-        <span class="item-img-empty">📷<b>${item.id}</b>${PHOTO_MODE ? '<i>點我複製</i>' : ''}</span>
+        <span class="item-img-empty">📷<b>${item.id}</b>${PHOTO_MODE ? '<i>點我轉檔</i>' : ''}</span>
       </button>`;
 }
 function photoError(img){
@@ -1886,19 +1889,53 @@ function updatePhotoBanner(offline){
   const count = {}; Object.values(DATA).flat().forEach(i => { if(i && i.id) count[i.id] = (count[i.id]||0) + 1; });
   const dupes = Object.keys(count).filter(k => count[k] > 1);
   b.innerHTML = `<b>📷 照片模式</b>
-    <p>每個品項右側的編號就是照片檔名，例如 <code>nc1.jpg</code>。點虛線框可以複製編號。</p>
+    <p>每個品項右側的編號就是照片檔名，例如 <code>nc1.webp</code>。</p>
+    <p>點虛線框選一張照片，會自動縮小、轉成 WebP 並下載成正確檔名，再上傳到 images 資料夾即可（建議用電腦版 Chrome 或 Edge）。</p>
     <p>已有照片 ${have} / ${items.length} 個品項${offline ? '（目前無法連到 GitHub，顯示的是上次的紀錄）' : ''}</p>
     ${dupes.length ? `<p class="photo-banner-warn">⚠️ 這些編號重複了，照片和勾選會互相影響：${dupes.join('、')}</p>` : ''}
     <a href="${location.pathname}">離開照片模式</a>`;
 }
-function copyText(text, msg){
-  const done = () => {
-    const toast = document.getElementById('phrase-toast');
-    const old = toast.textContent;
-    toast.textContent = msg; toast.classList.add('show');
-    setTimeout(() => { toast.classList.remove('show'); toast.textContent = old; }, 1500);
+// 照片模式：選一張照片 → 縮小 → 轉成 WebP → 以「編號.webp」下載
+function pickAndConvert(id){
+  const input = document.createElement('input');
+  input.type = 'file'; input.accept = 'image/*';
+  input.onchange = () => { if(input.files[0]) convertToWebp(input.files[0], id); };
+  input.click();
+}
+function convertToWebp(file, id){
+  const url = URL.createObjectURL(file);
+  const img = new Image();
+  img.onload = () => {
+    const scale = Math.min(1, PHOTO_MAX / Math.max(img.naturalWidth, img.naturalHeight));
+    const c = document.createElement('canvas');
+    c.width = Math.round(img.naturalWidth * scale);
+    c.height = Math.round(img.naturalHeight * scale);
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, c.width, c.height);
+    ctx.drawImage(img, 0, 0, c.width, c.height);
+    URL.revokeObjectURL(url);
+    c.toBlob(blob => {
+      if(!blob || blob.type !== 'image/webp'){
+        showToast('這個瀏覽器不支援轉成 WebP，請改用電腦版 Chrome 或 Edge');
+        return;
+      }
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = id + '.webp';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      showToast(`已下載 ${id}.webp（${Math.round(blob.size/1024)} KB），上傳到 images 資料夾即可`);
+    }, 'image/webp', PHOTO_Q);
   };
-  if(navigator.clipboard) navigator.clipboard.writeText(text).then(done).catch(done); else done();
+  img.onerror = () => { URL.revokeObjectURL(url); showToast('讀不到這張照片，請換一張試試'); };
+  img.src = url;
+}
+function showToast(msg){
+  const toast = document.getElementById('phrase-toast');
+  const old = toast.textContent;
+  toast.textContent = msg; toast.classList.add('show');
+  clearTimeout(showToast.t);
+  showToast.t = setTimeout(() => { toast.classList.remove('show'); toast.textContent = old; }, 3200);
 }
 
 // ── IMAGE VIEWER
@@ -1936,7 +1973,7 @@ function twdStr(priceStr){
 
 const DATA = {
   'nc': [
-    {id:'nc1', name:'首里石鹼 SuiSavon 天然肥皂', price:'¥500–1,200', where:'那霸市區分店 / iias', note:'info:ℹ️ 沖繩在地品牌，植物成分無添加', img:'images/suisavon.jpg'},
+    {id:'nc1', name:'首里石鹼 SuiSavon 天然肥皂', price:'¥500–1,200', where:'那霸市區分店 / iias', note:'info:ℹ️ 沖繩在地品牌，植物成分無添加'},
     {id:'nc2', name:'茂木和哉 水垢洗剤（水垢清潔劑）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本SNS爆紅，消除浴室鏡子水垢奇效，台灣代購才有，酸性成分使用時戴手套'},
     {id:'nc3', name:'デオナチュレ ソフトストーン（明礬天然止汗石）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 天然明礬制汗，無合成鋁鹽・防腐劑，最安全天然止汗選擇，台灣代購才有'},
     {id:'nc4', name:'Ban 汗ブロック（制汗デオドラント）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 日本女性最愛制汗劑，多種劑型可選，台灣有但日本版更便宜'},
@@ -2448,7 +2485,7 @@ function renderList(cat, isIshi){
     if(imgBtn) imgBtn.onclick = function(e){
       e.stopPropagation();
       if(imgBtn.classList.contains('missing')){
-        if(PHOTO_MODE) copyText(item.id, '已複製檔名：' + item.id);
+        if(PHOTO_MODE) pickAndConvert(item.id);
         return;
       }
       openImg(imgBtn.querySelector('img').src, item.name);
