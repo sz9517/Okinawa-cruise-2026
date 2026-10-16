@@ -1829,10 +1829,16 @@ const PHOTO_Q    = 0.8;    // WebP 品質
 const PHOTO_MODE = new URLSearchParams(location.search).has('photo');
 let PHOTOS = {};   // 編號(小寫) → 檔名
 
-function photoFor(item){
+// 已知有照片（手動指定，或 GitHub 檔案清單裡有）— 只用在照片模式的統計
+function photoKnown(item){
   if(item.img) return item.img;                       // 手動指定的優先
   const f = PHOTOS[item.id.toLowerCase()];
   return f ? 'images/' + encodeURIComponent(f) : '';
+}
+// 要顯示的照片：清單裡查不到也直接試 images/編號.webp，
+// 這樣 GitHub 查詢失敗或清單過期時，新上傳的照片一樣會出現
+function photoFor(item){
+  return photoKnown(item) || 'images/' + encodeURIComponent(item.id) + '.webp';
 }
 function photoSlot(item){
   const src = photoFor(item);
@@ -1886,7 +1892,7 @@ function updatePhotoBanner(offline){
     document.querySelector('main').prepend(b);
   }
   const items = allItems();
-  const have = items.filter(i => photoFor(i)).length;
+  const have = items.filter(i => photoKnown(i)).length;
   const count = {}; Object.values(DATA).flat().forEach(i => { if(i && i.id) count[i.id] = (count[i.id]||0) + 1; });
   const dupes = Object.keys(count).filter(k => count[k] > 1);
   b.innerHTML = `<b>📷 照片模式</b>
@@ -2021,7 +2027,7 @@ const DATA = {
     {id:'ne4', name:'斑馬麵包（シマシマパン，花生奶油內餡）', price:'¥100–200', where:'MaxValu 牧志店 / 沖繩各超市', note:'warn:⚠️ 在地人日常麵包，建議現場買現場吃，份量十足'},
     {id:'ne5', name:'好朋友麵包（なかよしパン，青蛙包裝可撕分享）', price:'¥100–200', where:'MaxValu 牧志店 / 沖繩各超市', note:'warn:⚠️ 可愛青蛙包裝，可撕開分享，現場吃最新鮮'},
     {id:'ne6', name:'沖繩豬肉蛋飯糰（スパムむすび，超市版）', price:'¥150–250', where:'MaxValu 牧志店 熟食區', note:'warn:⚠️ 超市版比ポーたま更平價，現場吃最好'},
-    {id:'ne7', name:'Calbee+ 現炸ポテりこ（現炸薯條）', price:'¥400–600', where:'國際通 Calbee+（カルビープラス）', note:'info:ℹ️ 現場吃；口味和價格以現場為準，跟袋裝的ポテリコ不一樣'},
+    {id:'ne7', name:'Calbee+ 現炸ポテりこ（現炸薯條）', price:'¥390 起', where:'國際通 Calbee+ 沖縄国際通り店（牧志3-2-2，10:00–21:00）', note:'info:ℹ️ 現場吃；沖繩限定口味叫「スイートポテりこ」（紅芋），點餐時可以找這個'},
   ],
   'nd': [
     {id:'nd1', name:'合利他命 アリナミン（維他命B群保健品）', price:'¥800–1,500', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本長年熱銷保健品，台灣版本成分不同'},
