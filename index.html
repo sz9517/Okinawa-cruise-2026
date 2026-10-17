@@ -608,6 +608,11 @@ a[href*="google.com/maps"] {
 .phrase-jp { padding: 11px 14px; }
 .phrase-jp-text { font-size: 15.5px; font-weight: 700; }
 .phrase-romaji { font-size: 12px; color: var(--ink3); margin-top: 2px; }
+.phrase-en {
+  font-size: 13px; color: var(--ink2); margin-top: 5px; padding-top: 4px;
+  border-top: 1.5px dashed var(--line); cursor: copy;
+}
+.phrase-en::before { content: 'EN '; font-size: 10.5px; font-weight: 700; color: var(--ink3); }
 .phrase-copy-hint {
   font-size: 13px; text-align: center; padding: 7px 14px; margin-bottom: 16px;
   background: var(--yama-l); border: 2.5px solid var(--ink); border-radius: 999px;
@@ -1324,8 +1329,8 @@ function switchTab(tab,btn){
 
   <div class="info-card">
     <div class="info-card-head">🗣️ 結帳時用得到的日文</div>
-    <div class="phrase-row" onclick="copyPhrase('このクーポンは使えますか？', this)"><div class="phrase-zh">這張優惠券可以用嗎？</div><div class="phrase-jp"><div class="phrase-jp-text">このクーポンは使えますか？</div><div class="phrase-romaji">Kono kūpon wa tsukaemasu ka?</div></div></div>
-    <div class="phrase-row" onclick="copyPhrase('船舶観光上陸許可書で免税できますか？', this)"><div class="phrase-zh">可以用上陸許可書辦免稅嗎？</div><div class="phrase-jp"><div class="phrase-jp-text">船舶観光上陸許可書で免税できますか？</div><div class="phrase-romaji">Senpaku kankō jōriku kyokasho de menzei dekimasu ka?</div></div></div>
+    <div class="phrase-row" onclick="copyPhrase('このクーポンは使えますか？', this)"><div class="phrase-zh">這張優惠券可以用嗎？</div><div class="phrase-jp"><div class="phrase-jp-text">このクーポンは使えますか？</div><div class="phrase-romaji">Kono kūpon wa tsukaemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I use this coupon?</div></div></div>
+    <div class="phrase-row" onclick="copyPhrase('船舶観光上陸許可書で免税できますか？', this)"><div class="phrase-zh">可以用上陸許可書辦免稅嗎？</div><div class="phrase-jp"><div class="phrase-jp-text">船舶観光上陸許可書で免税できますか？</div><div class="phrase-romaji">Senpaku kankō jōriku kyokasho de menzei dekimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I shop tax-free with my cruise landing permit?</div></div></div>
   </div>
   <div class="coupon-src">資料來源：<a href="https://linshibi.com/?p=20443" target="_blank" rel="noopener">日本自由旅遊中毒者</a>・<a href="https://livejapan.com/en/article-a0005736/" target="_blank" rel="noopener">LIVE JAPAN</a>・<a href="https://www.beurlife.com/2022/09/best-credit-card-to-travel-japan.html" target="_blank" rel="noopener">美的好朋友</a>（2026/10 整理）</div>
 
@@ -1535,7 +1540,7 @@ function switchTab(tab,btn){
     </div>
   </div>
 
-  <div class="phrase-copy-hint">💡 點一下任何句子即可複製日文，直接拿手機給店員看</div>
+  <div class="phrase-copy-hint">💡 點一下句子複製日文；點下方 EN 那行複製英文，直接拿手機給店員看</div>
 
   <div class="info-nav" style="margin-bottom:16px;">
     <button class="info-nav-btn" onclick="scrollToId('lang-shop')">🛒 購物</button>
@@ -1554,39 +1559,39 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('これをください', this)">
       <div class="phrase-zh">我要買這個</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">これをください</div><div class="phrase-romaji">Kore o kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これをください</div><div class="phrase-romaji">Kore o kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I'll take this, please.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('いくらですか？', this)">
       <div class="phrase-zh">多少錢？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">いくらですか？</div><div class="phrase-romaji">Ikura desu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">いくらですか？</div><div class="phrase-romaji">Ikura desu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">How much is it?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('カードで払えますか？', this)">
       <div class="phrase-zh">可以刷卡嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">カードで払えますか？</div><div class="phrase-romaji">Ka-do de haraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">カードで払えますか？</div><div class="phrase-romaji">Ka-do de haraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I pay by card?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('現金で払います', this)">
       <div class="phrase-zh">我付現金</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">現金で払います</div><div class="phrase-romaji">Genkin de haraimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">現金で払います</div><div class="phrase-romaji">Genkin de haraimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I'll pay in cash.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('袋はいりません', this)">
       <div class="phrase-zh">不需要袋子</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">袋はいりません</div><div class="phrase-romaji">Fukuro wa irimasen</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">袋はいりません</div><div class="phrase-romaji">Fukuro wa irimasen</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I don't need a bag.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('領収書をください', this)">
       <div class="phrase-zh">請給我收據</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">領収書をください</div><div class="phrase-romaji">Ryōshūsho o kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">領収書をください</div><div class="phrase-romaji">Ryōshūsho o kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could I have a receipt, please?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('試着してもいいですか？', this)">
       <div class="phrase-zh">可以試穿嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">試着してもいいですか？</div><div class="phrase-romaji">Shichaku shite mo ii desu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">試着してもいいですか？</div><div class="phrase-romaji">Shichaku shite mo ii desu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">May I try this on?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('別のサイズはありますか？', this)">
       <div class="phrase-zh">有其他尺寸嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">別のサイズはありますか？</div><div class="phrase-romaji">Betsu no saizu wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">別のサイズはありますか？</div><div class="phrase-romaji">Betsu no saizu wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you have another size?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('まとめ買いすると割引がありますか？', this)">
       <div class="phrase-zh">買多有折扣嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">まとめ買いすると割引がありますか？</div><div class="phrase-romaji">Matomegai suru to waribiki ga arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">まとめ買いすると割引がありますか？</div><div class="phrase-romaji">Matomegai suru to waribiki ga arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Is there a discount if I buy several?</div></div>
     </div>
   </div>
 
@@ -1594,15 +1599,15 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('免税手続きをお願いします', this)">
       <div class="phrase-zh">我要辦理免稅</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">免税手続きをお願いします</div><div class="phrase-romaji">Menzei tetsuzuki o onegaishimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">免税手続きをお願いします</div><div class="phrase-romaji">Menzei tetsuzuki o onegaishimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I'd like to shop tax-free, please.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('クルーズ船の乗客です。船舶観光上陸許可書があります', this)">
       <div class="phrase-zh">我是郵輪旅客，有上陸許可書</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">クルーズ船の乗客です。船舶観光上陸許可書があります</div><div class="phrase-romaji">Ku-ru-zu sen no jōkyaku desu. Senpaku kankō jōriku kyokasho ga arimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">クルーズ船の乗客です。船舶観光上陸許可書があります</div><div class="phrase-romaji">Ku-ru-zu sen no jōkyaku desu. Senpaku kankō jōriku kyokasho ga arimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I'm a cruise passenger. I have a cruise landing permit.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('免税の対象になりますか？', this)">
       <div class="phrase-zh">這個符合免稅資格嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">免税の対象になりますか？</div><div class="phrase-romaji">Menzei no taishō ni narimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">免税の対象になりますか？</div><div class="phrase-romaji">Menzei no taishō ni narimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Is this eligible for tax-free?</div></div>
     </div>
   </div>
 
@@ -1610,51 +1615,51 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('明細を見せてもらえますか？', this)">
       <div class="phrase-zh">可以讓我看明細嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">明細を見せてもらえますか？</div><div class="phrase-romaji">Meisai o misete moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">明細を見せてもらえますか？</div><div class="phrase-romaji">Meisai o misete moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could I see the itemized bill?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('この金額は合っていますか？', this)">
       <div class="phrase-zh">這個金額正確嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">この金額は合っていますか？</div><div class="phrase-romaji">Kono kingaku wa atte imasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">この金額は合っていますか？</div><div class="phrase-romaji">Kono kingaku wa atte imasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Is this amount correct?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('これは頼んでいません', this)">
       <div class="phrase-zh">這個我沒有點</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">これは頼んでいません</div><div class="phrase-romaji">Kore wa tanonde imasen</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これは頼んでいません</div><div class="phrase-romaji">Kore wa tanonde imasen</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I didn't order this.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('多く請求されているようです', this)">
       <div class="phrase-zh">這個好像被多算了</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">多く請求されているようです</div><div class="phrase-romaji">Ōku seikyū sarete iru yō desu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">多く請求されているようです</div><div class="phrase-romaji">Ōku seikyū sarete iru yō desu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I think I've been overcharged.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('お通しは断れますか？', this)">
       <div class="phrase-zh">可以不要前菜（お通し）嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">お通しは断れますか？</div><div class="phrase-romaji">Otōshi wa kotowaremasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">お通しは断れますか？</div><div class="phrase-romaji">Otōshi wa kotowaremasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I decline the table charge (otōshi)?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('追加料金はありますか？', this)">
       <div class="phrase-zh">有額外費用嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">追加料金はありますか？</div><div class="phrase-romaji">Tsuika ryōkin wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">追加料金はありますか？</div><div class="phrase-romaji">Tsuika ryōkin wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Are there any extra charges?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('これは買っていません', this)">
       <div class="phrase-zh">我沒有買這個</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">これは買っていません</div><div class="phrase-romaji">Kore wa katte imasen</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これは買っていません</div><div class="phrase-romaji">Kore wa katte imasen</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I didn't buy this.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('合計が違うと思います', this)">
       <div class="phrase-zh">我覺得總金額不對</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">合計が違うと思います</div><div class="phrase-romaji">Gōkei ga chigau to omoimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">合計が違うと思います</div><div class="phrase-romaji">Gōkei ga chigau to omoimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I think the total is wrong.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('返金してもらえますか？', this)">
       <div class="phrase-zh">可以退款嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">返金してもらえますか？</div><div class="phrase-romaji">Henkin shite moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">返金してもらえますか？</div><div class="phrase-romaji">Henkin shite moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I get a refund?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('レシートを見せてください', this)">
       <div class="phrase-zh">請讓我看收據</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">レシートを見せてください</div><div class="phrase-romaji">Reshīto o misete kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">レシートを見せてください</div><div class="phrase-romaji">Reshīto o misete kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could I see the receipt, please?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('キャンセルできますか？', this)">
       <div class="phrase-zh">可以取消嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">キャンセルできますか？</div><div class="phrase-romaji">Kyanseru dekimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">キャンセルできますか？</div><div class="phrase-romaji">Kyanseru dekimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I cancel this?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('これは注文していませんし、料金も払いたくありません', this)">
       <div class="phrase-zh">這個我沒點，我不想付這筆費用</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">これは注文していませんし、料金も払いたくありません</div><div class="phrase-romaji">Kore wa chūmon shite imasen shi, ryōkin mo haraitaku arimasen</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これは注文していませんし、料金も払いたくありません</div><div class="phrase-romaji">Kore wa chūmon shite imasen shi, ryōkin mo haraitaku arimasen</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I didn't order this, and I don't want to pay for it.</div></div>
     </div>
   </div>
 
@@ -1662,27 +1667,27 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('PayPayは使えますか？', this)">
       <div class="phrase-zh">可以用 PayPay 嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">PayPayは使えますか？</div><div class="phrase-romaji">PayPay wa tsukaemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">PayPayは使えますか？</div><div class="phrase-romaji">PayPay wa tsukaemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you accept PayPay?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('電子マネーは使えますか？', this)">
       <div class="phrase-zh">可以用電子支付嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">電子マネーは使えますか？</div><div class="phrase-romaji">Denshi manē wa tsukaemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">電子マネーは使えますか？</div><div class="phrase-romaji">Denshi manē wa tsukaemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you accept e-money?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('QRコードで払えますか？', this)">
       <div class="phrase-zh">可以掃 QR Code 付款嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">QRコードで払えますか？</div><div class="phrase-romaji">Kyū-ā-ru kōdo de haraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">QRコードで払えますか？</div><div class="phrase-romaji">Kyū-ā-ru kōdo de haraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I pay by QR code?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('タッチ決済はできますか？', this)">
       <div class="phrase-zh">可以感應付款嗎？（Apple Pay 等）</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">タッチ決済はできますか？</div><div class="phrase-romaji">Tatchi kessai wa dekimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">タッチ決済はできますか？</div><div class="phrase-romaji">Tatchi kessai wa dekimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I pay by tap (Apple Pay, etc.)?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('Suicaは使えますか？', this)">
       <div class="phrase-zh">可以用 Suica 嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">Suicaは使えますか？</div><div class="phrase-romaji">Suica wa tsukaemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">Suicaは使えますか？</div><div class="phrase-romaji">Suica wa tsukaemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you accept Suica?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('どの支払い方法が使えますか？', this)">
       <div class="phrase-zh">你們接受哪些付款方式？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">どの支払い方法が使えますか？</div><div class="phrase-romaji">Dono shiharai hōhō ga tsukaemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">どの支払い方法が使えますか？</div><div class="phrase-romaji">Dono shiharai hōhō ga tsukaemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">What payment methods do you accept?</div></div>
     </div>
   </div>
 
@@ -1690,31 +1695,31 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('タクシーを呼んでもらえますか？', this)">
       <div class="phrase-zh">可以幫我叫計程車嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">タクシーを呼んでもらえますか？</div><div class="phrase-romaji">Takushī o yonde moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">タクシーを呼んでもらえますか？</div><div class="phrase-romaji">Takushī o yonde moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could you call a taxi for me?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('港まで行ってください', this)">
       <div class="phrase-zh">請帶我去碼頭</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">港まで行ってください</div><div class="phrase-romaji">Minato made itte kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">港まで行ってください</div><div class="phrase-romaji">Minato made itte kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">To the cruise port, please.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('国際通りはどこですか？', this)">
       <div class="phrase-zh">國際通在哪裡？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">国際通りはどこですか？</div><div class="phrase-romaji">Kokusai-dōri wa doko desu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">国際通りはどこですか？</div><div class="phrase-romaji">Kokusai-dōri wa doko desu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Where is Kokusai-dori?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('ここに連れて行ってください（地図を見せる）', this)">
       <div class="phrase-zh">請帶我去這裡（出示地圖）</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">ここに連れて行ってください</div><div class="phrase-romaji">Koko ni tsurete itte kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ここに連れて行ってください</div><div class="phrase-romaji">Koko ni tsurete itte kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Please take me here.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('近くにコンビニはありますか？', this)">
       <div class="phrase-zh">附近有便利商店嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">近くにコンビニはありますか？</div><div class="phrase-romaji">Chikaku ni konbini wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">近くにコンビニはありますか？</div><div class="phrase-romaji">Chikaku ni konbini wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Is there a convenience store nearby?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('トイレはどこですか？', this)">
       <div class="phrase-zh">廁所在哪裡？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">トイレはどこですか？</div><div class="phrase-romaji">Toire wa doko desu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">トイレはどこですか？</div><div class="phrase-romaji">Toire wa doko desu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Where is the restroom?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('スター・ナビゲーターの乗客です', this)">
       <div class="phrase-zh">我是探索星號的乘客</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">スター・ナビゲーターの乗客です</div><div class="phrase-romaji">Sutā Nabigētā no jōkyaku desu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">スター・ナビゲーターの乗客です</div><div class="phrase-romaji">Sutā Nabigētā no jōkyaku desu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I'm a passenger on the Star Navigator.</div></div>
     </div>
   </div>
 
@@ -1722,47 +1727,47 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('一人です／二人です', this)">
       <div class="phrase-zh">一位／兩位</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">一人です／二人です</div><div class="phrase-romaji">Hitori desu / Futari desu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">一人です／二人です</div><div class="phrase-romaji">Hitori desu / Futari desu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">One person / Two people.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('これをひとつください', this)">
       <div class="phrase-zh">這個給我一個</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">これをひとつください</div><div class="phrase-romaji">Kore o hitotsu kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これをひとつください</div><div class="phrase-romaji">Kore o hitotsu kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">One of these, please.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('おすすめは何ですか？', this)">
       <div class="phrase-zh">有什麼推薦的？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">おすすめは何ですか？</div><div class="phrase-romaji">Osusume wa nan desu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">おすすめは何ですか？</div><div class="phrase-romaji">Osusume wa nan desu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">What do you recommend?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('お会計をお願いします', this)">
       <div class="phrase-zh">結帳</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">お会計をお願いします</div><div class="phrase-romaji">Okaikei o onegaishimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">お会計をお願いします</div><div class="phrase-romaji">Okaikei o onegaishimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Check, please.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('おいしいです！', this)">
       <div class="phrase-zh">好好吃！</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">おいしいです！</div><div class="phrase-romaji">Oishii desu!</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">おいしいです！</div><div class="phrase-romaji">Oishii desu!</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">It's delicious!</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('アレルギーがあります', this)">
       <div class="phrase-zh">我有過敏</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">アレルギーがあります</div><div class="phrase-romaji">Are-ru-gī ga arimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">アレルギーがあります</div><div class="phrase-romaji">Are-ru-gī ga arimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I have an allergy.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('生ものは食べられません', this)">
       <div class="phrase-zh">我不吃生食</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">生ものは食べられません</div><div class="phrase-romaji">Namamonono wa taberaremasen</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">生ものは食べられません</div><div class="phrase-romaji">Namamonono wa taberaremasen</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I can't eat raw food.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('お持ち帰りでお願いします', this)">
       <div class="phrase-zh">我要外帶</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">お持ち帰りでお願いします</div><div class="phrase-romaji">Omochi kaeri de onegaishimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">お持ち帰りでお願いします</div><div class="phrase-romaji">Omochi kaeri de onegaishimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">To go, please.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('辛さを控えめにしてもらえますか？', this)">
       <div class="phrase-zh">可以不要太辣嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">辛さを控えめにしてもらえますか？</div><div class="phrase-romaji">Karasa o hikaeme ni shite moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">辛さを控えめにしてもらえますか？</div><div class="phrase-romaji">Karasa o hikaeme ni shite moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could you make it less spicy?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('追加注文してもいいですか？', this)">
       <div class="phrase-zh">可以加點嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">追加注文してもいいですか？</div><div class="phrase-romaji">Tsuika chūmon shite mo ii desu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">追加注文してもいいですか？</div><div class="phrase-romaji">Tsuika chūmon shite mo ii desu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I order more?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('残りを包んでもらえますか？', this)">
       <div class="phrase-zh">可以幫我打包嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">残りを包んでもらえますか？</div><div class="phrase-romaji">Nokori o tsutsunde moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">残りを包んでもらえますか？</div><div class="phrase-romaji">Nokori o tsutsunde moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could you pack the leftovers for me?</div></div>
     </div>
   </div>
 
@@ -1770,23 +1775,23 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('防災グッズはどこですか？', this)">
       <div class="phrase-zh">防災用品在哪裡？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">防災グッズはどこですか？</div><div class="phrase-romaji">Bōsai guzzu wa doko desu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">防災グッズはどこですか？</div><div class="phrase-romaji">Bōsai guzzu wa doko desu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Where are the disaster-preparedness goods?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('これの在庫はありますか？', this)">
       <div class="phrase-zh">這個有庫存嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">これの在庫はありますか？</div><div class="phrase-romaji">Kore no zaiko wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">これの在庫はありますか？</div><div class="phrase-romaji">Kore no zaiko wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you have this in stock?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('ブルックスのシューズはありますか？', this)">
       <div class="phrase-zh">請問有 Brooks 的鞋子嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">ブルックスのシューズはありますか？</div><div class="phrase-romaji">Burūkkusu no shūzu wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ブルックスのシューズはありますか？</div><div class="phrase-romaji">Burūkkusu no shūzu wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you have Brooks shoes?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('無添加の商品はありますか？', this)">
       <div class="phrase-zh">有無添加的商品嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">無添加の商品はありますか？</div><div class="phrase-romaji">Mutenka no shōhin wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">無添加の商品はありますか？</div><div class="phrase-romaji">Mutenka no shōhin wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you have additive-free products?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('保存袋をもらえますか？（Royce等冷藏品用）', this)">
       <div class="phrase-zh">可以給我保冷袋嗎？（Royce 等冷藏品）</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">保冷袋をもらえますか？</div><div class="phrase-romaji">Hōrei bukuro o moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">保冷袋をもらえますか？</div><div class="phrase-romaji">Hōrei bukuro o moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could I have a cooler bag?</div></div>
     </div>
   </div>
 
@@ -1794,59 +1799,59 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('具合が悪いです', this)">
       <div class="phrase-zh">我身體不舒服</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">具合が悪いです</div><div class="phrase-romaji">Guai ga warui desu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">具合が悪いです</div><div class="phrase-romaji">Guai ga warui desu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I don't feel well.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('頭が痛いです', this)">
       <div class="phrase-zh">我頭痛</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">頭が痛いです</div><div class="phrase-romaji">Atama ga itai desu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">頭が痛いです</div><div class="phrase-romaji">Atama ga itai desu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I have a headache.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('お腹が痛いです', this)">
       <div class="phrase-zh">我肚子痛</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">お腹が痛いです</div><div class="phrase-romaji">Onaka ga itai desu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">お腹が痛いです</div><div class="phrase-romaji">Onaka ga itai desu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I have a stomachache.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('熱があります', this)">
       <div class="phrase-zh">我發燒了</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">熱があります</div><div class="phrase-romaji">Netsu ga arimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">熱があります</div><div class="phrase-romaji">Netsu ga arimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I have a fever.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('気持ち悪いです・吐き気がします', this)">
       <div class="phrase-zh">我想吐／噁心</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">気持ち悪いです／吐き気がします</div><div class="phrase-romaji">Kimochi warui desu / Hakike ga shimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">気持ち悪いです／吐き気がします</div><div class="phrase-romaji">Kimochi warui desu / Hakike ga shimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I feel sick / I feel nauseous.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('めまいがします', this)">
       <div class="phrase-zh">我頭暈</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">めまいがします</div><div class="phrase-romaji">Memai ga shimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">めまいがします</div><div class="phrase-romaji">Memai ga shimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I feel dizzy.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('下痢をしています', this)">
       <div class="phrase-zh">我拉肚子</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">下痢をしています</div><div class="phrase-romaji">Geri o shite imasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">下痢をしています</div><div class="phrase-romaji">Geri o shite imasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I have diarrhea.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('ここが痛いです（患部を指さす）', this)">
       <div class="phrase-zh">這裡痛（指著患部）</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">ここが痛いです</div><div class="phrase-romaji">Koko ga itai desu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ここが痛いです</div><div class="phrase-romaji">Koko ga itai desu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">It hurts here.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('少し休ませてもらえますか？', this)">
       <div class="phrase-zh">可以讓我坐下休息一下嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">少し休ませてもらえますか？</div><div class="phrase-romaji">Sukoshi yasumasete moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">少し休ませてもらえますか？</div><div class="phrase-romaji">Sukoshi yasumasete moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could I sit down and rest for a moment?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('近くに薬局はありますか？', this)">
       <div class="phrase-zh">附近有藥局嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">近くに薬局はありますか？</div><div class="phrase-romaji">Chikaku ni yakkyoku wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">近くに薬局はありますか？</div><div class="phrase-romaji">Chikaku ni yakkyoku wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Is there a pharmacy nearby?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('近くに病院かクリニックはありますか？', this)">
       <div class="phrase-zh">附近有醫院或診所嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">近くに病院かクリニックはありますか？</div><div class="phrase-romaji">Chikaku ni byōin ka kurinikku wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">近くに病院かクリニックはありますか？</div><div class="phrase-romaji">Chikaku ni byōin ka kurinikku wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Is there a hospital or clinic nearby?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('この薬はどう飲めばいいですか？', this)">
       <div class="phrase-zh">這個藥怎麼吃？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">この薬はどう飲めばいいですか？</div><div class="phrase-romaji">Kono kusuri wa dō nomeba ii desu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">この薬はどう飲めばいいですか？</div><div class="phrase-romaji">Kono kusuri wa dō nomeba ii desu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">How should I take this medicine?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('胃薬をください', this)">
       <div class="phrase-zh">請給我胃藥</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">胃薬をください</div><div class="phrase-romaji">Igusuri o kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">胃薬をください</div><div class="phrase-romaji">Igusuri o kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could I have some stomach medicine?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('痛み止めをください', this)">
       <div class="phrase-zh">請給我止痛藥</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">痛み止めをください</div><div class="phrase-romaji">Itamidome o kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">痛み止めをください</div><div class="phrase-romaji">Itamidome o kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could I have some painkillers?</div></div>
     </div>
   </div>
 
@@ -1854,23 +1859,23 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('助けてください！', this)">
       <div class="phrase-zh">救命！</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">助けてください！</div><div class="phrase-romaji">Tasukete kudasai!</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">助けてください！</div><div class="phrase-romaji">Tasukete kudasai!</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Help!</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('救急車を呼んでください', this)">
       <div class="phrase-zh">請叫救護車</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">救急車を呼んでください</div><div class="phrase-romaji">Kyūkyūsha o yonde kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">救急車を呼んでください</div><div class="phrase-romaji">Kyūkyūsha o yonde kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Please call an ambulance.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('警察を呼んでください', this)">
       <div class="phrase-zh">請叫警察</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">警察を呼んでください</div><div class="phrase-romaji">Keisatsu o yonde kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">警察を呼んでください</div><div class="phrase-romaji">Keisatsu o yonde kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Please call the police.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('財布をなくしました', this)">
       <div class="phrase-zh">我遺失了錢包</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">財布をなくしました</div><div class="phrase-romaji">Saifu o nakushimashita</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">財布をなくしました</div><div class="phrase-romaji">Saifu o nakushimashita</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I lost my wallet.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('船に乗り遅れそうです、急いでください', this)">
       <div class="phrase-zh">我快趕不上船了，請快一點</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">船に乗り遅れそうです、急いでください</div><div class="phrase-romaji">Fune ni nori okureso desu, isoide kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">船に乗り遅れそうです、急いでください</div><div class="phrase-romaji">Fune ni nori okureso desu, isoide kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I'm about to miss my ship. Please hurry.</div></div>
     </div>
   </div>
 
@@ -1878,43 +1883,43 @@ function switchTab(tab,btn){
   <div class="phrase-card">
     <div class="phrase-row" onclick="copyPhrase('ありがとうございます', this)">
       <div class="phrase-zh">謝謝</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">ありがとうございます</div><div class="phrase-romaji">Arigatō gozaimasu</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ありがとうございます</div><div class="phrase-romaji">Arigatō gozaimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Thank you.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('すみません', this)">
       <div class="phrase-zh">不好意思／打擾了</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">すみません</div><div class="phrase-romaji">Sumimasen</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">すみません</div><div class="phrase-romaji">Sumimasen</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Excuse me.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('わかりません', this)">
       <div class="phrase-zh">我不懂</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">わかりません</div><div class="phrase-romaji">Wakarimasen</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">わかりません</div><div class="phrase-romaji">Wakarimasen</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I don't understand.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('もう一度言ってもらえますか？', this)">
       <div class="phrase-zh">可以再說一次嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">もう一度言ってもらえますか？</div><div class="phrase-romaji">Mō ichido itte moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">もう一度言ってもらえますか？</div><div class="phrase-romaji">Mō ichido itte moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could you say that again?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('ゆっくり話してください', this)">
       <div class="phrase-zh">請說慢一點</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">ゆっくり話してください</div><div class="phrase-romaji">Yukkuri hanashite kudasai</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">ゆっくり話してください</div><div class="phrase-romaji">Yukkuri hanashite kudasai</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Please speak slowly.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('書いてもらえますか？', this)">
       <div class="phrase-zh">可以寫下來嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">書いてもらえますか？</div><div class="phrase-romaji">Kaite moraemasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">書いてもらえますか？</div><div class="phrase-romaji">Kaite moraemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Could you write it down?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('中国語か英語が話せる方はいますか？', this)">
       <div class="phrase-zh">有人會說中文或英文嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">中国語か英語が話せる方はいますか？</div><div class="phrase-romaji">Chūgokugo ka eigo ga hanaseru kata wa imasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">中国語か英語が話せる方はいますか？</div><div class="phrase-romaji">Chūgokugo ka eigo ga hanaseru kata wa imasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Does anyone speak Chinese or English?</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('私は台湾人です。中国人ではありません', this)">
       <div class="phrase-zh">我是台灣人，不是中國人</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">私は台湾人です。中国人ではありません</div><div class="phrase-romaji">Watashi wa Taiwan-jin desu. Chūgoku-jin de wa arimasen</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">私は台湾人です。中国人ではありません</div><div class="phrase-romaji">Watashi wa Taiwan-jin desu. Chūgoku-jin de wa arimasen</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I'm Taiwanese, not Chinese.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('台湾から来ました', this)">
       <div class="phrase-zh">我從台灣來的</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">台湾から来ました</div><div class="phrase-romaji">Taiwan kara kimashita</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">台湾から来ました</div><div class="phrase-romaji">Taiwan kara kimashita</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">I'm from Taiwan.</div></div>
     </div>
     <div class="phrase-row" onclick="copyPhrase('台湾語（繁体字）のメニューはありますか？', this)">
       <div class="phrase-zh">有繁體中文菜單嗎？</div>
-      <div class="phrase-jp"><div class="phrase-jp-text">繁体字のメニューはありますか？</div><div class="phrase-romaji">Hantaiji no menyū wa arimasu ka?</div></div>
+      <div class="phrase-jp"><div class="phrase-jp-text">繁体字のメニューはありますか？</div><div class="phrase-romaji">Hantaiji no menyū wa arimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you have a menu in Traditional Chinese?</div></div>
     </div>
   </div>
 
@@ -2813,6 +2818,11 @@ function toggleOpt(btn, id){
 }
 
 // ── PHRASE COPY ──
+// 點英文那一行只複製英文
+function copyEn(el, e){
+  if(e) e.stopPropagation();
+  copyPhrase(el.textContent, el.closest('.phrase-row'));
+}
 function copyPhrase(text, el){
   navigator.clipboard.writeText(text).then(() => {
     const toast = document.getElementById('phrase-toast');
