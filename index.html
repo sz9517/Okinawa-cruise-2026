@@ -1402,7 +1402,6 @@ function switchTab(tab,btn){
     <div class="warn-block-title">⚠️ 以下貼布含NSAIDs，可購買但請勿每天大量連續使用</div>
     <div class="warn-li"><span class="warn-dot">▸</span><span><strong>サロンパスEX</strong>｜含 インドメタシン（Indomethacin）｜短期急性疼痛使用，勿連續超過7天</span></div>
     <div class="warn-li"><span class="warn-dot">▸</span><span><strong>バンテリンコーワ パップS</strong>｜含 フェルビナク（Felbinac）｜同上，短期使用</span></div>
-    <div class="warn-li"><span class="warn-dot">▸</span><span><strong>フェイタスZα ジクサス（噴劑）</strong>｜含 ジクロフェナク（Diclofenac）｜強效，急性扭傷用，短期使用</span></div>
     <div class="warn-li"><span class="warn-dot">▸</span><span><strong>ボルタレン</strong>｜含 ジクロフェナク（Diclofenac）</span></div>
     <div class="warn-li"><span class="warn-dot">▸</span><span>⚠️ NSAIDs 長期大量使用可能導致胃潰瘍、腎功能損傷。日常保養建議優先用 <strong>サロンパス 80枚</strong>（不含NSAIDs）或磁力貼</span></div>
   </div>
@@ -2201,7 +2200,6 @@ const DATA = {
     {id:'nd17', name:'サロンパス（酸痛貼布）80枚大包', price:'¥600–900', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 主成分サリチル酸メチル，不含NSAIDs（インドメタシン・ジクロフェナク等），無類固醇'},
     {id:'nd18', name:'サロンパスEX（酸痛貼布，強效款）40枚', price:'¥800–1,100', where:'大國藥妝 / 札幌藥妝', note:'warn:⚠️ 含インドメタシン（NSAIDs），短期急性疼痛使用，勿連續超過7天，有胃病者慎用'},
     {id:'nd19', name:'バンテリンコーワ パップS（大片酸痛貼布）24枚', price:'¥900–1,200', where:'大國藥妝 / 札幌藥妝', note:'warn:⚠️ 含フェルビナク（NSAIDs），短期使用，勿每天大量使用'},
-    {id:'nd20', name:'フェイタスZα ジクサス（外用消炎止痛噴霧）', price:'¥800–1,200', where:'大國藥妝 / 札幌藥妝', note:'warn:⚠️ 含ジクロフェナク（強效NSAIDs），急性扭傷短期使用，有效期間勿超過7天'},
     {id:'nd21', name:'サロンシップ 冷感・無臭タイプ（清涼感貼布）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 主成分l-メントール・カンフル，不含NSAIDs，無消炎藥物成分，旅行走路疲勞適用'},
     {id:'nd22', name:'U型頸枕（低反発，旅行用）', price:'¥1,500–3,000', where:'大國藥妝 / Loft（PARCO CITY）/ 唐吉訶德', note:'info:ℹ️ 長途飛行16小時頸部支撐必備，低反發記憶棉款支撐力最佳，日本款比台灣便宜'},
     {id:'nd23', name:'クリニカ アドバンテージ ハミガキ（フッ素1,450ppm，蛀牙預防）', price:'¥300–500', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 高濃度氟化物預防蛀牙，牙醫推薦款，成人正常使用安全，台日價差明顯'},
@@ -2288,6 +2286,8 @@ const DATA = {
     {id:'nz82', name:'ブラックサンダー（雷神巧克力，大袋分享包）', price:'¥400–600', where:'唐吉訶德 國際通店'},
     {id:'nz83', name:'きのこの山／たけのこの里（香菇山／竹筍村，大袋）', price:'¥400–600', where:'唐吉訶德 國際通店'},
     {id:'nz84', name:'カントリーマアム（不二家 Country Ma\'am 軟餅乾，大袋）', price:'¥400 左右', where:'唐吉訶德 國際通店', note:'info:ℹ️ 獨立包裝，好分送'},
+    {id:'nz85', name:'MINTIA カテキンミント（朝日 綠茶薄荷錠，50 粒）', price:'¥130–160', where:'MaxValu 牧志 / 唐吉訶德 / 藥妝店 / 超商', note:'info:ℹ️ 綠茶兒茶素薄荷口味；唐吉訶德、藥妝店常有多盒組比較便宜'},
+    {id:'nz86', name:'MINTIA カームミント（朝日 溫和薄荷錠，50 粒）', price:'¥130–160', where:'MaxValu 牧志 / 唐吉訶德 / 藥妝店 / 超商', note:'info:ℹ️ 溫和不嗆的薄荷口味；唐吉訶德、藥妝店常有多盒組比較便宜'},
           ],
   'nds': [
     {id:'nds3', name:'携帯トイレ / 簡易トイレ袋（攜帶式廁所袋）', price:'¥500–1,200', where:'唐吉訶德 防災コーナー', note:'info:ℹ️ 找不到可詢問店員「防災グッズはどこですか？」'},
@@ -2314,7 +2314,6 @@ const DATA = {
     {id:'no49', name:'UNIQLO フリーススタンドブルゾン（刷毛立領夾克，女款 L・綠 55 GREEN）', price:'¥5,990', where:'PARCO CITY 3F UNIQLO', note:'info:ℹ️ 商品番号 487517；單件就超過退稅門檻'},
     {id:'no50', name:'UNIQLO オーバーサイズスウェットシャツ（寬版大學T，UNIQLO : C，男女兼用 MEN M・66 BLUE 深藍綠）', price:'¥3,990', where:'PARCO CITY 3F UNIQLO', note:'info:ℹ️ 商品番号 486125'},
     {id:'no51', name:'波上宮 御守（海上安全・旅途平安款）', price:'¥500–1,000', where:'波上宮 授與所（那霸第一站）', note:'warn:⚠️ 授與所約 9:00～16:45，到波上宮時先買，不要留到最後；也有珊瑚、貝殼圖案的沖繩風款式'},
-    {id:'no54', name:'マース袋（沖繩鹽袋護身符）', price:'¥500–1,000', where:'國際通 / 平和通 土産店', note:'info:ℹ️ 沖繩傳統避邪小物，小布袋裝鹽，可放包包或錢包'},
       ],
   'if': [
     {id:'if14', name:'黒糖ココア（西表島產黑糖 × 有機可可粉，75g）', price:'¥800', where:'石垣島伴手禮店 / 製造商：下地黒糖加工所（八重山美ら島黒糖，石垣市新川263）', note:'info:ℹ️ 認包裝：牛皮紙袋＋白色標籤「黒糖ココア」，標籤寫 OKINAWA Ishigaki・西表島産黒糖使用'},
