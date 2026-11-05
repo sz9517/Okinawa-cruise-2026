@@ -1015,7 +1015,7 @@ function switchTab(tab,btn){
       <div><div class="itin-name">MaxValu 石垣店（登野城）</div><div class="itin-sub">08:00–01:00｜伴手禮豐富，超市限定品在這裡掃｜〒907-0022 石垣市登野城 634 <a href="https://www.google.com/maps/search/?api=1&query=%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B9%E3%83%90%E3%83%AA%E3%83%A5%20%E7%9F%B3%E5%9E%A3%E5%BA%97%20%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E" target="_blank" style="font-size:12px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;display:inline-block;margin-top:3px;">📍 Google Maps</a></div></div>
       <div class="itin-time">—</div>
     </div>
-    <div class="itin-arrow">↓ 計程車約 8 分回碼頭（¥700–900）・21:00 前須回船</div>
+    <div class="itin-arrow">↓ 計程車約 8 分回碼頭（¥700–900）・21:00 前須回船｜⚠️ 上船前在港口做<strong>退稅海關確認</strong>，多留 30 分鐘</div>
   </div>
 
 <div class="cat-nav-wrap"><div class="cat-nav page-ishi"><div class="cat-nav-inner">
@@ -1091,6 +1091,7 @@ function switchTab(tab,btn){
       <button class="optional-btn" onclick="toggleOpt(this,'ishi-opt-2')">🔌 EDION 愛電王</button>
       <button class="optional-btn" onclick="toggleOpt(this,'ishi-opt-3')">🛒 サンエー 石垣シティ</button>
       <button class="optional-btn" onclick="toggleOpt(this,'ishi-opt-4')">🕳️ 石垣島鍾乳洞</button>
+      <button class="optional-btn" onclick="toggleOpt(this,'ishi-opt-5')">🐧 おみやげドンキ</button>
     </div>
     <div class="optional-detail" id="ishi-opt-1">
       <div class="optional-spot">
@@ -1118,6 +1119,13 @@ function switchTab(tab,btn){
         <div class="optional-spot-tag">計程車約 15–20 分・¥1,000–1,500・09:00–18:30・入場費 ¥1,200/人</div>
         <div class="optional-spot-name">🕳️ 石垣島鍾乳洞（石垣島鐘乳洞）</div>
         <div class="optional-spot-note">日本最南端鍾乳洞，全長 3.2km，參觀約 1 小時｜石垣市石垣 1666｜⚠️ 建議安排在德村・MaxValu 之前，計程車來回共 30–40 分，時間緊的話建議跳過<a href="https://www.google.com/maps/search/?api=1&query=%E7%9F%B3%E5%9E%A3%E5%B3%B6%E9%8D%BE%E4%B9%B3%E6%B4%9E%20%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%9F%B3%E5%9E%A3" target="_blank" style="font-size:12px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></div>
+      </div>
+    </div>
+    <div class="optional-detail" id="ishi-opt-5">
+      <div class="optional-spot">
+        <div class="optional-spot-tag">離島碼頭步行約 5 分・ユーグレナモール 附近・09:00–24:00</div>
+        <div class="optional-spot-name">🐧 おみやげドンキ 730COURT店（2026/5/29 新開）</div>
+        <div class="optional-spot-note">唐吉訶德第一家伴手禮專賣店，約 1,500 種沖繩零食・泡盛・ドンペン T 恤・玻璃杯｜石垣市大川 2｜可直接寄ゆうパック（日本國內宅配）｜唐吉訶德優惠券能不能用沒寫，到店先問「このクーポンは使えますか？」<a href="https://www.google.com/maps/search/?api=1&query=%E3%81%8A%E3%81%BF%E3%82%84%E3%81%92%E3%83%89%E3%83%B3%E3%82%AD730COURT%E5%BA%97%20%E7%9F%B3%E5%9E%A3%E5%B8%82" target="_blank" style="font-size:12px;color:var(--sea);text-decoration:none;background:var(--sea-light);padding:2px 7px;border-radius:10px;margin-left:6px;white-space:nowrap;">📍 Google Maps</a></div>
       </div>
     </div>
   </div>
@@ -1161,7 +1169,6 @@ function switchTab(tab,btn){
   <div class="warn-block">
     <div class="warn-block-title">🕐 時間管理</div>
     <div class="warn-li"><span class="warn-dot">▸</span><span>那霸可用時間 14:30–22:00，共約 7.5 小時</span></div>
-    <div class="warn-li"><span class="warn-dot">▸</span><span>ポーたま 排隊約 30–40 分，請預留時間</span></div>
     <div class="warn-li"><span class="warn-dot">▸</span><span>MaxValu → 碼頭步行約 20 分，趕時間時搭計程車（約 7 分・¥800 左右）</span></div>
     <div class="warn-li"><span class="warn-dot">▸</span><span>22:00 前須回船，請保留緩衝時間</span></div>
   </div>
@@ -1274,9 +1281,9 @@ function switchTab(tab,btn){
 
   <div class="info-card">
     <div class="info-card-head">🏪 各店退稅資訊</div>
-    <div class="info-row"><span class="info-label">大國藥妝</span><span class="info-val">支援退稅（新制 Refund）・E.SUN Kumamon 卡 8.5% 回饋（每月上限約 NT$8,333）</span></div>
+    <div class="info-row"><span class="info-label">大國藥妝</span><span class="info-val">支援退稅（新制 Refund）・熊本熊卡 8.5%（額度用完改刷吉鶴卡 Apple Pay 4%）</span></div>
     <div class="info-row"><span class="info-label">札幌藥妝</span><span class="info-val">支援退稅</span></div>
-    <div class="info-row"><span class="info-label">唐吉訶德</span><span class="info-val">支援退稅・E.SUN Kumamon 卡適用</span></div>
+    <div class="info-row"><span class="info-label">唐吉訶德</span><span class="info-val">支援退稅・吉鶴卡 Apple Pay 指定通路 7%</span></div>
     <div class="info-row"><span class="info-label">MaxValu 牧志</span><span class="info-val">支援退稅，滿 ¥5,000 辦理</span></div>
     <div class="info-row"><span class="info-label">御菓子御殿</span><span class="info-val">食品類退稅，帶護照</span></div>
     <div class="info-row"><span class="info-label">わしたショップ</span><span class="info-val">支援退稅</span></div>
@@ -1284,11 +1291,12 @@ function switchTab(tab,btn){
 
   <div class="section-title" id="sec-pay">💳 支付建議</div>
   <div class="info-card">
-    <div class="info-card-head">💳 信用卡・支付</div>
-    <div class="info-row"><span class="info-label">E.SUN Kumamon</span><span class="info-val">大國藥妝・唐吉訶德指定店 8.5% 回饋，每月上限約 NT$8,333</span></div>
-    <div class="info-row"><span class="info-label">UBOT Jikaku JCB</span><span class="info-val">Apple Pay 實體刷卡最高 7–10% 回饋（新戶），需事先設定 Lianfa App</span></div>
-    <div class="info-row"><span class="info-label">All Pay（全支付）</span><span class="info-val">適合 PayPay 小額攤販，優於 E.SUN Wallet</span></div>
-    <div class="info-row"><span class="info-label">出發前確認</span><span class="info-val">兩卡設定 PIN 碼並測試 Apple Pay；出發前 1–2 週確認 H2 活動條款</span></div>
+    <div class="info-card-head">💳 信用卡・支付（2026/7/1–12/31 活動）</div>
+    <div class="info-row"><span class="info-label">熊本熊卡</span><span class="info-val">日本一般 <strong>2.5%</strong>；指定通路 <strong>8.5%</strong>：唐吉訶德・大國・UNIQLO・GU・BicCamera・松本清・無印良品・一蘭・Alpen（スポーツデポ）｜加碼上限<strong>每期帳單 NT$500</strong>（約刷 NT$8,333／¥40,000），和 Suica 儲值共用｜需登錄一次</span></div>
+    <div class="info-row"><span class="info-label">吉鶴卡</span><span class="info-val">日本一般 2.5%＋<strong>Apple Pay 1.5% = 4%</strong>（Apple Pay 加碼每月上限 NT$600）；指定通路再 +3% = <strong>7%</strong>：唐吉訶德・BicCamera・7-11・全家・LAWSON・AEON（整期上限 NT$600）｜兩項加碼都要登錄</span></div>
+    <div class="info-row"><span class="info-label">全支付</span><span class="info-val">PayPay 每筆 <strong>3.5%</strong>（單筆最多 35 點），連結國泰世華或台新帳戶再 +5%（每週上限 100 點，週一起算）；免 1.5% 海外手續費｜適合每筆 ¥4,000 以下的小額</span></div>
+    <div class="info-row"><span class="info-label">刷卡小提醒</span><span class="info-val">一律選<strong>日圓</strong>付款，不要選台幣；用 Apple Pay 時跟店員說「<strong>QUICPay</strong>」</span></div>
+    <div class="info-row"><span class="info-label">出發前確認</span><span class="info-val">熊本熊卡、吉鶴卡兩項加碼都登錄好；兩卡設定 PIN 碼並測試 Apple Pay</span></div>
   </div>
 
 
@@ -1378,18 +1386,22 @@ function switchTab(tab,btn){
 
   <div class="info-card">
     <div class="info-card-head">💳 每一站刷哪張卡</div>
-    <div class="info-row"><span class="info-label">UNIQLO・GU</span><span class="info-val"><strong>Kumamon 卡</strong>（指定通路 8.5%）</span></div>
-    <div class="info-row"><span class="info-label">唐吉訶德</span><span class="info-val">優惠券＋<strong>吉鶴卡 Apple Pay</strong>（指定通路之一）；Kumamon 額度還有剩也可以</span></div>
-    <div class="info-row"><span class="info-label">大國藥妝</span><span class="info-val">優惠券＋<strong>Kumamon 卡</strong></span></div>
-    <div class="info-row"><span class="info-label">Main Place 其他店・A&W・ジュンク堂・わしたショップ・MaxValu</span><span class="info-val"><strong>吉鶴卡 Apple Pay</strong></span></div>
-    <div class="info-row"><span class="info-label">只收 PayPay 的小店</span><span class="info-val">全支付</span></div>
-    <div class="info-row"><span class="info-label">⚠️ Kumamon 上限</span><span class="info-val">指定通路加碼每期最多回饋 NT$500（約刷 NT$8,333 就滿），UNIQLO 一家就快用完，先決定把額度給哪一家</span></div>
-    <div class="info-row"><span class="info-label">活動期限</span><span class="info-val">Kumamon、吉鶴卡加碼都到 2026/12/31；Kumamon 需登錄一次</span></div>
+    <div class="info-row"><span class="info-label">UNIQLO・GU</span><span class="info-val"><strong>熊本熊卡</strong> 8.5%，刷到額度滿為止，剩下的改刷吉鶴卡 Apple Pay 4%</span></div>
+    <div class="info-row"><span class="info-label">唐吉訶德・おみやげドンキ</span><span class="info-val">優惠券＋<strong>吉鶴卡 Apple Pay</strong> 7%</span></div>
+    <div class="info-row"><span class="info-label">BicCamera</span><span class="info-val">優惠券＋<strong>吉鶴卡 Apple Pay</strong> 7%</span></div>
+    <div class="info-row"><span class="info-label">便利商店</span><span class="info-val"><strong>吉鶴卡 Apple Pay</strong> 7%</span></div>
+    <div class="info-row"><span class="info-label">大國藥妝</span><span class="info-val">優惠券＋熊本熊卡（額度還有剩，8.5%）；額度用完改刷<strong>吉鶴卡 Apple Pay</strong> 4%</span></div>
+    <div class="info-row"><span class="info-label">一蘭・無印良品</span><span class="info-val">熊本熊卡（額度還有剩，8.5%）；否則吉鶴卡 Apple Pay 4%</span></div>
+    <div class="info-row"><span class="info-label">Main Place 其他店・A&W・暖暮・ジュンク堂・わしたショップ・MaxValu</span><span class="info-val"><strong>吉鶴卡 Apple Pay</strong> 4%</span></div>
+    <div class="info-row"><span class="info-label">只收 PayPay 的小店</span><span class="info-val"><strong>全支付</strong> 3.5%（連結國泰或台新帳戶再 +5%）</span></div>
+    <div class="info-row"><span class="info-label">⚠️ 熊本熊卡上限</span><span class="info-val">UNIQLO 清單就超過 ¥40,000，一家就會刷滿，其他店預設刷吉鶴卡</span></div>
+    <div class="info-row"><span class="info-label">活動期限</span><span class="info-val">熊本熊卡、吉鶴卡加碼都到 2026/12/31</span></div>
   </div>
 
   <div class="info-card">
     <div class="info-card-head">🗣️ 結帳時用得到的日文</div>
     <div class="phrase-row" onclick="copyPhrase('このクーポンは使えますか？', this)"><div class="phrase-zh">這張優惠券可以用嗎？</div><div class="phrase-jp"><div class="phrase-jp-text">このクーポンは使えますか？</div><div class="phrase-romaji">Kono kūpon wa tsukaemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I use this coupon?</div></div></div>
+    <div class="phrase-row" onclick="copyPhrase('サインでお願いします', this)"><div class="phrase-zh">我用簽名（刷卡機要輸入密碼時）</div><div class="phrase-jp"><div class="phrase-jp-text">サインでお願いします</div><div class="phrase-romaji">Sain de onegai shimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I sign instead of entering a PIN?</div></div></div>
     <div class="phrase-row" onclick="copyPhrase('船舶観光上陸許可書で免税できますか？', this)"><div class="phrase-zh">可以用上陸許可書辦免稅嗎？</div><div class="phrase-jp"><div class="phrase-jp-text">船舶観光上陸許可書で免税できますか？</div><div class="phrase-romaji">Senpaku kankō jōriku kyokasho de menzei dekimasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I shop tax-free with my cruise landing permit?</div></div></div>
   </div>
   <div class="coupon-src">資料來源：<a href="https://linshibi.com/?p=20443" target="_blank" rel="noopener">日本自由旅遊中毒者</a>・<a href="https://livejapan.com/en/article-a0005736/" target="_blank" rel="noopener">LIVE JAPAN</a>・<a href="https://www.beurlife.com/2022/09/best-credit-card-to-travel-japan.html" target="_blank" rel="noopener">美的好朋友</a>（2026/10 整理）</div>
@@ -1441,7 +1453,7 @@ function switchTab(tab,btn){
     <div class="info-card-head">💰 現金・付款</div>
     <div class="info-row"><span class="info-label">石垣現金</span><span class="info-val">石垣島現金比重高，小店・市場・計程車多只收現金，建議至少準備 ¥20,000–30,000</span></div>
     <div class="info-row"><span class="info-label">港口 ATM</span><span class="info-val">港口 ATM 未必能用台灣金融卡，現金在台灣先換好</span></div>
-    <div class="info-row"><span class="info-label">Kumamon 卡</span><span class="info-val">8.5% 回饋有 NT$8,333/月上限，可能一天刷爆，超過後改刷 UBOT Jikaku</span></div>
+    <div class="info-row"><span class="info-label">Kumamon 卡</span><span class="info-val">8.5% 加碼上限每期帳單 NT$500（約刷 ¥40,000），UNIQLO 就會刷滿，之後改刷吉鶴卡 Apple Pay</span></div>
     <div class="info-row"><span class="info-label">出發前</span><span class="info-val">兩卡開通海外交易、確認額度，出發前 1–2 週再確認下半年活動條款</span></div>
     <div class="info-row"><span class="info-label">叫車 APP</span><span class="info-val">DiDi（ディディ）或 GO タクシー APP 在沖繩・石垣島都可用，出發前下載備用</span></div>
     <div class="info-row"><span class="info-label">那霸計程車</span><span class="info-val">建議存電話備用：<br>東タクシー（那霸市，スカイブルー車體）<strong>098-868-3666</strong><br>三和交通グループ <strong>098-884-6614</strong></span></div>
@@ -1728,6 +1740,10 @@ function switchTab(tab,btn){
 
   <div class="phrase-section-title" id="lang-pay">📱 電子支付</div>
   <div class="phrase-card">
+    <div class="phrase-row" onclick="copyPhrase('サインでお願いします', this)">
+      <div class="phrase-zh">我用簽名（刷卡機要輸入密碼時）</div>
+      <div class="phrase-jp"><div class="phrase-jp-text">サインでお願いします</div><div class="phrase-romaji">Sain de onegai shimasu</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Can I sign instead of entering a PIN?</div></div>
+    </div>
     <div class="phrase-row" onclick="copyPhrase('PayPayは使えますか？', this)">
       <div class="phrase-zh">可以用 PayPay 嗎？</div>
       <div class="phrase-jp"><div class="phrase-jp-text">PayPayは使えますか？</div><div class="phrase-romaji">PayPay wa tsukaemasu ka?</div><div class="phrase-en" onclick="copyEn(this, event)" title="點這行複製英文">Do you accept PayPay?</div></div>
@@ -2191,7 +2207,7 @@ function twdStr(priceStr){
 
 const DATA = {
   'nc': [
-    {id:'nc1', name:'首里石鹼 SuiSavon 天然肥皂', price:'¥500–1,200', where:'那霸市區分店 / iias', note:'info:ℹ️ 沖繩在地品牌，植物成分無添加'},
+    {id:'nc1', name:'首里石鹼 SuiSavon 天然肥皂', price:'¥500–1,200', where:'首里石鹸（Main Place 1F）/ 那霸市區分店', note:'info:ℹ️ 沖繩在地品牌，植物成分無添加'},
     {id:'nc2', name:'茂木和哉 水垢洗剤（水垢清潔劑）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 日本SNS爆紅，消除浴室鏡子水垢奇效，台灣代購才有，酸性成分使用時戴手套'},
     {id:'nc3', name:'デオナチュレ ソフトストーン（明礬天然止汗石）', price:'¥600–1,000', where:'大國藥妝 / 札幌藥妝', note:'info:ℹ️ 天然明礬制汗，無合成鋁鹽・防腐劑，最安全天然止汗選擇，台灣代購才有'},
     {id:'nc4', name:'Ban 汗ブロック（制汗デオドラント）', price:'¥400–700', where:'大國藥妝 / 札幌藥妝 / MaxValu', note:'info:ℹ️ 日本女性最愛制汗劑，多種劑型可選，台灣有但日本版更便宜'},
